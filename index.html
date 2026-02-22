@@ -44,15 +44,21 @@ h1{text-align:center;color:#3a3a6e;margin-bottom:4px;font-size:26px;}
 .card-actions button{font-size:12px;padding:4px 10px;border-radius:8px;border:none;cursor:pointer;transition:all 0.2s;}
 .btn-learn{background:#e8f5e9;color:#4caf50;}
 .btn-learn:hover,.btn-learn.done{background:#4caf50;color:white;}
-.sentences{display:flex;flex-direction:column;gap:14px;max-width:820px;margin:0 auto;}
-.group-title{max-width:820px;margin:0 auto 8px;padding:10px 18px;background:linear-gradient(135deg,#6c63ff,#a78bfa);border-radius:12px;color:white;font-size:13px;font-weight:700;letter-spacing:0.5px;}
-.sentence-card{background:white;border-radius:16px;padding:18px 22px;box-shadow:0 4px 15px rgba(108,99,255,0.08);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;position:relative;}
+.sentences-wrap{max-width:820px;margin:0 auto;}
+.group-title{background:linear-gradient(135deg,#6c63ff,#a78bfa);color:white;border-radius:14px;padding:12px 20px;margin-bottom:16px;font-size:13px;font-weight:700;line-height:1.5;}
+.sent-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:18px;}
+.sent-nav button{width:44px;height:44px;border-radius:50%;border:2px solid #6c63ff;background:white;color:#6c63ff;font-size:20px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;}
+.sent-nav button:hover{background:#6c63ff;color:white;}
+.sent-nav button:disabled{opacity:0.3;cursor:default;}
+.sent-counter{font-size:14px;font-weight:700;color:#6c63ff;}
+.sentence-card{background:white;border-radius:16px;padding:24px 26px;box-shadow:0 4px 15px rgba(108,99,255,0.08);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;min-height:130px;}
 .sentence-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(108,99,255,0.16);}
-.sentence-card .num{font-size:11px;font-weight:700;color:#6c63ff;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase;}
-.sentence-card .de{font-size:15px;font-weight:600;color:#3a3a6e;line-height:1.6;}
-.sentence-card .trans{font-size:14px;color:#6c63ff;line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px dashed #e0e0f0;display:none;}
+.sentence-card .num{font-size:11px;font-weight:700;color:#6c63ff;letter-spacing:1px;margin-bottom:8px;text-transform:uppercase;}
+.sentence-card .de{font-size:16px;font-weight:600;color:#3a3a6e;line-height:1.6;}
+.sentence-card .trans{font-size:14px;color:#6c63ff;line-height:1.6;margin-top:12px;padding-top:12px;border-top:1px dashed #e0e0f0;display:none;}
 .sentence-card.flipped .trans{display:block;}
-.s-hint{font-size:10px;color:#ccc;margin-top:6px;}
+.s-hint{font-size:11px;color:#bbb;margin-top:8px;}
+.sentence-card.flipped .s-hint{display:none;}
 .quiz-area{max-width:600px;margin:0 auto;text-align:center;}
 .quiz-card{background:white;border-radius:20px;padding:38px 30px;box-shadow:0 6px 25px rgba(108,99,255,0.12);margin-bottom:22px;min-height:175px;display:flex;flex-direction:column;justify-content:center;align-items:center;}
 .quiz-question{font-size:26px;font-weight:700;color:#3a3a6e;margin-bottom:6px;}
@@ -84,55 +90,148 @@ h1{text-align:center;color:#3a3a6e;margin-bottom:4px;font-size:26px;}
 <body>
 <h1>jane-slova</h1>
 <p class="subtitle">Натисни на карточку, щоб побачити переклад</p>
-<div class="stats"><div class="stat"><strong id="stat-total">0</strong>слів</div><div class="stat"><strong id="stat-learned">0</strong>вивчено</div><div class="stat"><strong id="stat-sentences">0</strong>речень</div><div class="stat"><strong id="stat-streak">0🔥</strong>підряд</div></div>
-<div class="lang-bar"><span>Мова перекладу:</span><div class="lang-switch"><button id="lang-ua" class="active" onclick="setLang('ua')">🇺🇦 Українська</button><button id="lang-ru" onclick="setLang('ru')">🇷🇺 Русский</button></div></div>
-<div class="tabs"><button class="tab-btn active" id="tab-words" onclick="switchTab('words')">🔤 Слова</button><button class="tab-btn" id="tab-sentences" onclick="switchTab('sentences')">📝 Речення</button><button class="tab-btn" id="tab-quiz" onclick="switchTab('quiz')">🎯 Квіз</button></div>
-<div class="section active" id="words-section"><div class="search-bar"><input type="text" id="searchInput" placeholder="🔍 Пошук слів..." oninput="renderWords()"/></div><div class="add-form"><input type="text" id="wordInput" placeholder="Слово"/><input type="text" id="transUaInput" placeholder="Переклад UA"/><input type="text" id="transRuInput" placeholder="Перевод RU"/><button onclick="addWord()">+ Додати</button></div><div class="cards" id="cards"></div></div>
-<div class="section" id="sentences-section"><div class="sentences" id="sentences"></div></div>
+<div class="stats">
+<div class="stat"><strong id="stat-total">0</strong>слів</div>
+<div class="stat"><strong id="stat-learned">0</strong>вивчено</div>
+<div class="stat"><strong id="stat-sentences">0</strong>речень</div>
+<div class="stat"><strong id="stat-streak">0🔥</strong>підряд</div>
+</div>
+<div class="lang-bar">
+<span>Мова перекладу:</span>
+<div class="lang-switch">
+<button id="lang-ua" class="active" onclick="setLang('ua')">🇺🇦 Українська</button>
+<button id="lang-ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+</div>
+</div>
+<div class="tabs">
+<button class="tab-btn active" id="tab-words" onclick="switchTab('words')">🔤 Слова</button>
+<button class="tab-btn" id="tab-sentences" onclick="switchTab('sentences')">📝 Речення</button>
+<button class="tab-btn" id="tab-quiz" onclick="switchTab('quiz')">🎯 Квіз</button>
+</div>
+<div class="section active" id="words-section">
+<div class="search-bar"><input type="text" id="searchInput" placeholder="🔍 Пошук слів..." oninput="renderWords()"/></div>
+<div class="add-form">
+<input type="text" id="wordInput" placeholder="Слово"/>
+<input type="text" id="transUaInput" placeholder="Переклад UA"/>
+<input type="text" id="transRuInput" placeholder="Перевод RU"/>
+<button onclick="addWord()">+ Додати</button>
+</div>
+<div class="cards" id="cards"></div>
+</div>
+<div class="section" id="sentences-section">
+<div class="sentences-wrap" id="sentences-wrap"></div>
+</div>
 <div class="section" id="quiz-section"><div class="quiz-area" id="quiz-area"></div></div>
 <div class="toast" id="toast"></div>
 <script>
 var _lang="ua",_quizStreak=0,_quizScore=0,_quizIndex=0,_quizOrder=[];
-var _words=[{"word":"sichtlich","ua":"очевидно, явно","ru":"очевидно, явно","learned":false,"exDe":"Er war sichtlich erschöpft nach der langen Reise.","exUa":"Він був явно виснажений після довгої подорожі.","exRu":"Он был явно измотан после долгой поездки."},{"word":"derart","ua":"настільки, таким чином","ru":"настолько, таким образом","learned":false,"exDe":"Das Wasser war derart kalt, dass ich sofort aufgehört habe zu schwimmen.","exUa":"Вода була настільки холодною, що я одразу перестав плавати.","exRu":"Вода была настолько холодной, что я сразу перестал плавать."},{"word":"beinahe","ua":"майже, мало не","ru":"почти, едва не","learned":false,"exDe":"Ich hätte beinahe den Zug verpasst.","exUa":"Я мало не пропустив поїзд.","exRu":"Я едва не опоздал на поезд."},{"word":"ausrenken","ua":"вивихнути, викрутити","ru":"вывихнуть, выкрутить","learned":false,"exDe":"Er hat sich beim Sport den Arm ausgerenkt.","exUa":"Він вивихнув руку під час занять спортом.","exRu":"Он вывихнул руку во время тренировки."},{"word":"fürchten","ua":"боятися, побоюватися","ru":"бояться, опасаться","learned":false,"exDe":"Die Kinder fürchten sich im Dunkeln.","exUa":"Діти бояться темряви.","exRu":"Дети боятся темноты."},{"word":"geschmeidig","ua":"гнучкий, пластичний","ru":"гибкий, пластичный","learned":false,"exDe":"Die Katze bewegt sich geschmeidig durch den Raum.","exUa":"Кіт рухається гнучко по кімнаті.","exRu":"Кошка гибко движется по комнате."},{"word":"grausam","ua":"жорстокий, страшний","ru":"жестокий, ужасный","learned":false,"exDe":"Der Winter war dieses Jahr grausam kalt.","exUa":"Цього року зима була жорстоко холодною.","exRu":"Этой зимой было жестоко холодно."},{"word":"die Unwissenheit","ua":"незнання, невігластво","ru":"незнание, невежество","learned":false,"exDe":"Unwissenheit schützt nicht vor Strafe.","exUa":"Незнання закону не звільняє від відповідальності.","exRu":"Незнание закона не освобождает от ответственности."},{"word":"die Tatsache","ua":"факт, дійсність","ru":"факт, действительность","learned":false,"exDe":"Es ist eine Tatsache, dass die Erde rund ist.","exUa":"Це факт, що Земля кругла.","exRu":"Это факт, что Земля круглая."},{"word":"hektisch","ua":"метушливий, хаотичний","ru":"суетливый, хаотичный","learned":false,"exDe":"Der Montagmorgen ist immer sehr hektisch.","exUa":"Понеділковий ранок завжди дуже метушливий.","exRu":"Понедельничное утро всегда очень суетливое."},{"word":"unmittelbar","ua":"безпосередній, одразу","ru":"непосредственный, сразу","learned":false,"exDe":"Er reagierte unmittelbar auf die Nachricht.","exUa":"Він відреагував одразу на новину.","exRu":"Он отреагировал сразу на новость."},{"word":"kraftvoll","ua":"потужний, сильний","ru":"мощный, сильный","learned":false,"exDe":"Er sprach kraftvoll und überzeugend vor dem Publikum.","exUa":"Він говорив потужно і переконливо перед аудиторією.","exRu":"Он говорил мощно и убедительно перед аудиторией."},{"word":"die Gestalt","ua":"фігура, образ, постать","ru":"фигура, образ, облик","learned":false,"exDe":"Eine dunkle Gestalt stand reglos im Schatten.","exUa":"Темна постать нерухомо стояла в тіні.","exRu":"Тёмная фигура неподвижно стояла в тени."},{"word":"schlugen","ua":"(вони) били, вдаряли","ru":"(они) били, ударяли","learned":false,"exDe":"Die Wellen schlugen laut gegen die Felsen.","exUa":"Хвилі гучно вдаряли об скелі.","exRu":"Волны громко бились о скалы."},{"word":"einmal","ua":"одного разу, колись","ru":"однажды, когда-то","learned":false,"exDe":"Einmal im Leben sollte man etwas wirklich Mutiges tun.","exUa":"Одного разу в житті варто зробити щось справді сміливе.","exRu":"Однажды в жизни стоит сделать что-то по-настоящему смелое."},{"word":"das Elend","ua":"злидні, нещастя, горе","ru":"нищета, горе, несчастье","learned":false,"exDe":"Das Elend der Menschen berührte sie tief im Herzen.","exUa":"Горе людей глибоко торкнулося її серця.","exRu":"Горе людей глубоко тронуло её сердце."}];
-var _groups=[
-  {
-    "title":"📚 Група 1: sichtlich · derart · beinahe · ausrenken · fürchten · geschmeidig · grausam · die Unwissenheit · die Tatsache · hektisch · unmittelbar",
-    "sentences":[
-      {"de":"Wir müssen klare Regeln setzen, weil ich es vorziehen würde, nicht ständig nur zuzusehen, wie erstaunlich schnell sich alles verändert.","ua":"Ми повинні встановити чіткі правила, тому що я б віддала перевагу не просто постійно спостерігати, як усе дивовижно швидко змінюється.","ru":"Мы должны установить чёткие правила, потому что я бы предпочла не просто постоянно наблюдать, как всё удивительно быстро меняется."},
-      {"de":"Der Lehrer musste eine klare Grenze setzen, weil die Schüler ständig nur zusehen wollten, obwohl es erstaunlich wichtig war mitzuarbeiten, und ich würde es vorziehen, Verantwortung zu übernehmen.","ua":"Учитель повинен був встановити чітку межу, тому що учні постійно хотіли лише спостерігати, хоча було дивовижно важливо працювати разом, і я б віддала перевагу взяти відповідальність.","ru":"Учитель должен был установить чёткую границу, потому что ученики постоянно хотели лишь наблюдать, хотя было удивительно важно работать вместе, и я бы предпочла взять ответственность."},
-      {"de":"Man sollte sich realistische Ziele setzen, statt ständig nur anderen zuzusehen, auch wenn ihr Erfolg erstaunlich erscheint, und ich würde es vorziehen, selbst zu handeln.","ua":"Слід встановлювати реалістичні цілі замість того, щоб постійно лише спостерігати за іншими, навіть якщо їхній успіх здається дивовижним, і я б віддала перевагу діяти самостійно.","ru":"Следует ставить реалистичные цели вместо того, чтобы постоянно лишь наблюдать за другими, даже если их успех кажется удивительным, и я бы предпочла действовать самостоятельно."},
-      {"de":"Die Regierung will neue Maßnahmen setzen, weil sie es nicht vorziehen kann, ständig nur zuzusehen, wie sich die Situation erstaunlich schnell entwickelt.","ua":"Уряд хоче запровадити нові заходи, тому що він не може надавати перевагу тому, щоб постійно лише спостерігати, як ситуація дивовижно швидко розвивається.","ru":"Правительство хочет ввести новые меры, потому что оно не может предпочитать постоянно лишь наблюдать, как ситуация удивительно быстро развивается."},
-      {"de":"Es war grausam kalt, unmittelbar nachdem wir die Tatsache erkannt hatten, dass niemand uns helfen würde.","ua":"Було жорстоко холодно, одразу після того, як ми усвідомили факт, що ніхто нам не допоможе.","ru":"Было жестоко холодно, сразу после того, как мы осознали факт, что никто нам не поможет."}
-    ]
-  },
-  {
-    "title":"🔥 Група 2: kraftvoll · die Gestalt · schlugen · einmal · das Elend",
-    "sentences":[
-      {"de":"Die kraftvolle Gestalt schlug einmal laut auf den Tisch und rief: Genug von diesem Elend!","ua":"Потужна постать один раз гучно вдарила по столу і закричала: Досить цього горя!","ru":"Мощная фигура однажды громко ударила по столу и закричала: Хватит этого горя!"},
-      {"de":"Einmal sah sie eine fremde Gestalt, die so kraftvoll wirkte, dass sie das Elend um sich herum vergaß.","ua":"Одного разу вона побачила незнайому постать, яка виглядала такою потужною, що вона забула про горе навколо.","ru":"Однажды она увидела незнакомую фигуру, которая выглядела такой мощной, что она забыла о горе вокруг."},
-      {"de":"Die Wellen schlugen kraftvoll gegen das Boot, und einmal dachte er, das Elend dieser Nacht würde nie enden.","ua":"Хвилі потужно вдаряли по човну, і одного разу він подумав, що горе цієї ночі ніколи не скінчиться.","ru":"Волны мощно бились о лодку, и однажды он подумал, что горе этой ночи никогда не закончится."},
-      {"de":"Einmal hatte die Gestalt es aus dem Elend herausgeschafft, indem sie kraftvoll gegen alle Widerstände schlugen.","ua":"Одного разу постать вибралася з горя, потужно борючись проти всіх перешкод.","ru":"Однажды фигура вырвалась из нищеты, мощно борясь против всех препятствий."},
-      {"de":"Das Elend hatte sie verändert — ihre Gestalt war noch da, aber die kraftvollen Augen schlugen nicht mehr so hell wie einmal.","ua":"Горе змінило її — постать ще була тут, але потужні очі вже не сяяли так яскраво, як колись.","ru":"Горе изменило её — фигура ещё была здесь, но мощные глаза больше не сияли так ярко, как однажды."}
-    ]
-  }
+var _words=[
+{"word":"sichtlich","ua":"очевидно, явно","ru":"очевидно, явно","learned":false,"exDe":"Er war sichtlich erschöpft nach der langen Reise.","exUa":"Він був явно виснажений після довгої подорожі.","exRu":"Он был явно измотан после долгой поездки."},
+{"word":"derart","ua":"настільки, таким чином","ru":"настолько, таким образом","learned":false,"exDe":"Das Wasser war derart kalt, dass ich sofort aufgehört habe zu schwimmen.","exUa":"Вода була настільки холодною, що я одразу перестав плавати.","exRu":"Вода была настолько холодной, что я сразу перестал плавать."},
+{"word":"beinahe","ua":"майже, мало не","ru":"почти, едва не","learned":false,"exDe":"Ich hätte beinahe den Zug verpasst.","exUa":"Я мало не пропустив поїзд.","exRu":"Я едва не опоздал на поезд."},
+{"word":"ausrenken","ua":"вивихнути, викрутити","ru":"вывихнуть, выкрутить","learned":false,"exDe":"Er hat sich beim Sport den Arm ausgerenkt.","exUa":"Він вивихнув руку під час занять спортом.","exRu":"Он вывихнул руку во время тренировки."},
+{"word":"fürchten","ua":"боятися, побоюватися","ru":"бояться, опасаться","learned":false,"exDe":"Die Kinder fürchten sich im Dunkeln.","exUa":"Діти бояться темряви.","exRu":"Дети боятся темноты."},
+{"word":"geschmeidig","ua":"гнучкий, пластичний","ru":"гибкий, пластичный","learned":false,"exDe":"Die Katze bewegt sich geschmeidig durch den Raum.","exUa":"Кіт рухається гнучко по кімнаті.","exRu":"Кошка гибко движется по комнате."},
+{"word":"grausam","ua":"жорстокий, страшний","ru":"жестокий, ужасный","learned":false,"exDe":"Der Winter war dieses Jahr grausam kalt.","exUa":"Цього року зима була жорстоко холодною.","exRu":"Этой зимой было жестоко холодно."},
+{"word":"die Unwissenheit","ua":"незнання, невігластво","ru":"незнание, невежество","learned":false,"exDe":"Unwissenheit schützt nicht vor Strafe.","exUa":"Незнання закону не звільняє від відповідальності.","exRu":"Незнание закона не освобождает от ответственности."},
+{"word":"die Tatsache","ua":"факт, дійсність","ru":"факт, действительность","learned":false,"exDe":"Es ist eine Tatsache, dass die Erde rund ist.","exUa":"Це факт, що Земля кругла.","exRu":"Это факт, что Земля круглая."},
+{"word":"hektisch","ua":"метушливий, хаотичний","ru":"суетливый, хаотичный","learned":false,"exDe":"Der Montagmorgen ist immer sehr hektisch.","exUa":"Понеділковий ранок завжди дуже метушливий.","exRu":"Понедельничное утро всегда очень суетливое."},
+{"word":"unmittelbar","ua":"безпосередній, одразу","ru":"непосредственный, сразу","learned":false,"exDe":"Er reagierte unmittelbar auf die Nachricht.","exUa":"Він відреагував одразу на новину.","exRu":"Он отреагировал сразу на новость."},
+{"word":"kraftvoll","ua":"потужний, сильний","ru":"мощный, сильный","learned":false,"exDe":"Der Sportler machte eine kraftvolle Bewegung.","exUa":"Спортсмен зробив потужний рух.","exRu":"Спортсмен сделал мощное движение."},
+{"word":"die Gestalt","ua":"фігура, образ, постать","ru":"фигура, образ, облик","learned":false,"exDe":"Eine dunkle Gestalt stand im Schatten.","exUa":"Темна постать стояла в тіні.","exRu":"Тёмная фигура стояла в тени."},
+{"word":"schlugen","ua":"(вони) вдарили, (вони) билися","ru":"(они) ударили, (они) бились","learned":false,"exDe":"Die Wellen schlugen heftig gegen die Küste.","exUa":"Хвилі сильно вдаряли об берег.","exRu":"Волны сильно ударяли о берег."},
+{"word":"einmal","ua":"одного разу, одного дня","ru":"однажды, один раз","learned":false,"exDe":"Einmal im Jahr fahren wir in den Urlaub.","exUa":"Один раз на рік ми їдемо у відпустку.","exRu":"Один раз в год мы едем в отпуск."},
+{"word":"das Elend","ua":"злидні, горе, нещастя","ru":"нищета, горе, несчастье","learned":false,"exDe":"Das Elend der Kriegsflüchtlinge ist kaum zu ertragen.","exUa":"Злидні військових біженців важко витримати.","exRu":"Нищета военных беженцев едва переносима."}
 ];
+var _groups=[
+{
+"title":"📚 Група 1: sichtlich · derart · beinahe · ausrenken · fürchten · geschmeidig · grausam · die Unwissenheit · die Tatsache · hektisch · unmittelbar",
+"sentences":[
+{"de":"Er war sichtlich erschöpft, als er beinahe ausgerenkt wurde, während er sich derart geschmeidig bewegte, dass niemand die Tatsache bemerkte.","ua":"Він був явно виснажений, коли мало не вивихнув суглоб, рухаючись настільки гнучко, що ніхто не помітив цього факту.","ru":"Он был явно измотан, когда едва не вывихнул сустав, двигаясь настолько гибко, что никто не заметил этого факта."},
+{"de":"Die Unwissenheit war grausam, denn beinahe jeder fürchtete die hektische Stimmung, die sichtlich unmittelbar nach der Nachricht entstand.","ua":"Незнання було жорстоким, адже майже кожен боявся метушливого настрою, який явно виник одразу після новини.","ru":"Незнание было жестоким, ведь почти каждый боялся суетливого настроения, которое явно возникло сразу после новости."},
+{"de":"Es war derart hektisch, dass man sich beinahe den Arm ausrenken konnte, und niemand fürchtete die Tatsache, sichtlich überfordert zu wirken.","ua":"Було настільки метушливо, що можна було майже вивихнути руку, і ніхто не боявся явно виглядати перевантаженим.","ru":"Было настолько суетливо, что можно было едва не вывихнуть руку, и никто не боялся явно выглядеть перегруженным."},
+{"de":"Die Unwissenheit machte alles derart schwer, dass er sich unmittelbar fürchtete und sichtlich hektisch wurde, obwohl er sich grausam beherrschen wollte.","ua":"Незнання зробило все настільки важким, що він одразу злякався і явно занервував, хоча жорстоко намагався стримати себе.","ru":"Незнание сделало всё настолько тяжёлым, что он сразу испугался и явно занервничал, хотя жестоко пытался сдержать себя."},
+{"de":"Beinahe geschmeidig, aber sichtlich erschöpft, fürchtete er die Tatsache, dass die grausame Unwissenheit ihn unmittelbar in eine hektische Lage gebracht hatte.","ua":"Майже гнучко, але явно виснажено, він боявся факту, що жорстоке незнання безпосередньо кинуло його в метушливу ситуацію.","ru":"Почти гибко, но явно изнурённо, он боялся факта, что жестокое незнание непосредственно ввергло его в суетливую ситуацию."}
+]
+},
+{
+"title":"🔥 Група 2: kraftvoll · die Gestalt · schlugen · einmal · das Elend",
+"sentences":[
+{"de":"Einmal stand eine kraftvolle Gestalt am Fenster, während die Wellen schlugen und das Elend der Stadt sichtbar wurde.","ua":"Одного разу потужна постать стояла біля вікна, поки хвилі вдаряли й горе міста ставало помітним.","ru":"Однажды мощная фигура стояла у окна, пока волны ударяли и горе города становилось заметным."},
+{"de":"Die Gestalt war kraftvoll, aber einmal hatte das Elend sie so hart getroffen, dass die Tränen schlugen wie Regen.","ua":"Постать була потужною, але одного разу горе вдарило її так сильно, що сльози лились, як дощ.","ru":"Фигура была мощной, но однажды горе ударило её так сильно, что слёзы лились, как дождь."},
+{"de":"Einmal versuchte die kraftvolle Gestalt, das Elend zu überwinden, aber die Wellen schlugen immer wieder gegen ihre Hoffnungen.","ua":"Одного разу потужна постать намагалася подолати горе, але хвилі знову й знову вдаряли по її надіям.","ru":"Однажды мощная фигура пыталась преодолеть горе, но волны снова и снова ударяли по её надеждам."},
+{"de":"Das Elend der Straße schlugen einmal so tief in die Seele der kraftvollen Gestalt, dass sie nicht mehr sprechen konnte.","ua":"Горе вулиці одного разу так глибоко вдарило в душу потужної постаті, що вона більше не могла говорити.","ru":"Горе улицы однажды так глубоко ударило в душу мощной фигуры, что она больше не могла говорить."},
+{"de":"Kraftvoll und entschlossen stand die Gestalt einmal mitten im Elend, während ringsum die Herzen schlugen vor Angst.","ua":"Потужно і рішуче постать стояла одного разу посеред горя, поки навколо серця билися від страху.","ru":"Мощно и решительно фигура стояла однажды посреди горя, пока вокруг сердца бились от страха."}
+]
+}
+];
+var _sentGroupIdx=0, _sentCardIdx=0;
 function getTrans(w){return _lang==='ru'?w.ru:w.ua;}
 function getEx(w){return _lang==='ru'?w.exRu:w.exUa;}
 function getExLabel(){return _lang==='ru'?'Пример:':'Приклад:';}
 function getSentTrans(s){return _lang==='ru'?s.ru:s.ua;}
 function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2200);}
 function confetti(){var c=['#6c63ff','#ff6584','#ffbe0b','#4caf50','#00bcd4'];for(var i=0;i<28;i++){var el=document.createElement('div');el.className='confetti-piece';el.style.cssText='left:'+(Math.random()*100)+'vw;top:-10px;background:'+c[Math.floor(Math.random()*5)]+';animation-delay:'+(Math.random()*0.6)+'s;width:'+(6+Math.random()*8)+'px;height:'+(6+Math.random()*8)+'px;';document.body.appendChild(el);setTimeout(function(){el.remove();},2000);}}
-function countAllSentences(){var n=0;_groups.forEach(function(g){n+=g.sentences.length;});return n;}
-function updateStats(){document.getElementById('stat-total').textContent=_words.length;document.getElementById('stat-learned').textContent=_words.filter(function(w){return w.learned;}).length;document.getElementById('stat-sentences').textContent=countAllSentences();document.getElementById('stat-streak').textContent=_quizStreak+'🔥';}
-function setLang(l){_lang=l;document.getElementById('lang-ua').classList.toggle('active',l==='ua');document.getElementById('lang-ru').classList.toggle('active',l==='ru');renderWords();renderSentences();}
+function updateStats(){
+var total=0;
+_groups.forEach(function(g){total+=g.sentences.length;});
+document.getElementById('stat-total').textContent=_words.length;
+document.getElementById('stat-learned').textContent=_words.filter(function(w){return w.learned;}).length;
+document.getElementById('stat-sentences').textContent=total;
+document.getElementById('stat-streak').textContent=_quizStreak+'🔥';
+}
+function setLang(l){_lang=l;document.getElementById('lang-ua').classList.toggle('active',l==='ua');document.getElementById('lang-ru').classList.toggle('active',l==='ru');renderWords();renderSentences();var qs=document.getElementById('quiz-section');if(qs&&qs.classList.contains('active'))startQuiz();}
 function switchTab(tab){['words','sentences','quiz'].forEach(function(t){document.getElementById('tab-'+t).classList.toggle('active',t===tab);document.getElementById(t+'-section').classList.toggle('active',t===tab);});if(tab==='quiz')startQuiz();}
-function renderWords(){var q=(document.getElementById('searchInput').value||'').toLowerCase();var c=document.getElementById('cards');c.innerHTML='';var f=_words.filter(function(w){return !q||w.word.toLowerCase().includes(q)||getTrans(w).toLowerCase().includes(q);});if(!f.length){c.innerHTML='<div class="empty">Нічого не знайдено</div>';return;}f.forEach(function(item){var i=_words.indexOf(item);var card=document.createElement('div');card.className='card'+(item.learned?' learned':'');card.innerHTML='<button class="delete-btn" data-i="'+i+'">✕</button><div class="word">'+item.word+'</div><div class="translation">'+getTrans(item)+'</div><div class="example"><span class="ex-label">'+getExLabel()+'</span>'+getEx(item)+'</div>'+(item.learned?'<div class="learned-badge">✅ Вивчено</div>':'<div class="hint">👆 натисни</div>')+'<div class="card-actions"><button class="btn-learn'+(item.learned?' done':'')+'" data-li="'+i+'">'+(item.learned?'✅ Вивчено':'📌 Вивчив')+'</button></div>';card.querySelector('.delete-btn').addEventListener('click',function(e){e.stopPropagation();_words.splice(parseInt(this.dataset.i),1);renderWords();});card.querySelector('.btn-learn').addEventListener('click',function(e){e.stopPropagation();var idx=parseInt(this.dataset.li);_words[idx].learned=!_words[idx].learned;if(_words[idx].learned){confetti();showToast('Відмічено!');}renderWords();});card.addEventListener('click',function(){this.classList.toggle('flipped');var h=this.querySelector('.hint');if(h)h.style.display=this.classList.contains('flipped')?'none':'block';});c.appendChild(card);});updateStats();}
-function addWord(){var w=document.getElementById('wordInput').value.trim(),ua=document.getElementById('transUaInput').value.trim(),ru=document.getElementById('transRuInput').value.trim();if(!w)return;_words.push({word:w,ua:ua||'—',ru:ru||'—',learned:false,exDe:'',exUa:'',exRu:''});document.getElementById('wordInput').value='';document.getElementById('transUaInput').value='';document.getElementById('transRuInput').value='';showToast('Слово додано!');renderWords();}
-function renderSentences(){var c=document.getElementById('sentences');c.innerHTML='';var globalNum=1;_groups.forEach(function(group){var titleEl=document.createElement('div');titleEl.className='group-title';titleEl.textContent=group.title;c.appendChild(titleEl);group.sentences.forEach(function(item){var card=document.createElement('div');card.className='sentence-card';card.innerHTML='<div class="num">№ '+globalNum+'</div><div class="de">'+item.de+'</div><div class="trans">'+getSentTrans(item)+'</div><div class="s-hint">👆 натисни</div>';card.addEventListener('click',function(){this.classList.toggle('flipped');var h=this.querySelector('.s-hint');if(h)h.style.display=this.classList.contains('flipped')?'none':'block';});c.appendChild(card);globalNum++;});});updateStats();}
-function startQuiz(){var u=_words.filter(function(w){return !w.learned;});if(u.length<2){document.getElementById('quiz-area').innerHTML='<div class="quiz-card"><div class="quiz-question">Всі слова вивчені!</div></div>';return;}_quizOrder=u.map(function(w){return _words.indexOf(w);}).sort(function(){return Math.random()-0.5;});_quizIndex=0;_quizScore=0;showQuizCard();}
-function showQuizCard(){var area=document.getElementById('quiz-area');if(_quizIndex>=_quizOrder.length){var pct=Math.round((_quizScore/_quizOrder.length)*100);area.innerHTML='<div class="quiz-card"><div class="quiz-question">'+_quizScore+'/'+_quizOrder.length+'</div><div class="quiz-sub">'+(pct>=80?'Відмінно!':pct>=50?'Непогано!':'Продовжуй!')+' '+pct+'%</div></div><div class="quiz-btns"><button class="btn-show" onclick="startQuiz()">Ще раз</button></div>';if(pct>=80)confetti();return;}var w=_words[_quizOrder[_quizIndex]];var pct=Math.round((_quizIndex/_quizOrder.length)*100);area.innerHTML='<div class="quiz-progress">'+(_quizIndex+1)+' / '+_quizOrder.length+'</div><div class="quiz-score">'+_quizScore+' вірних</div><div class="progress-bar"><div class="progress-fill" style="width:'+pct+'%"></div></div><div class="quiz-card"><div class="quiz-sub">Як перекладається?</div><div class="quiz-question">'+w.word+'</div><div class="quiz-answer" id="quiz-ans">'+getTrans(w)+'</div></div><div class="quiz-btns"><button class="btn-show" onclick="revealAnswer()">Показати</button><button class="btn-correct" id="btn-ok" style="display:none" onclick="quizAnswer(true)">Знав</button><button class="btn-wrong" id="btn-no" style="display:none" onclick="quizAnswer(false)">Не знав</button></div>';}
+function renderWords(){var q=(document.getElementById('searchInput').value||'').toLowerCase();var c=document.getElementById('cards');c.innerHTML='';var f=_words.filter(function(w){return !q||w.word.toLowerCase().includes(q)||getTrans(w).toLowerCase().includes(q);});if(!f.length){c.innerHTML='<div class="empty">Нічого не знайдено 🤷</div>';return;}f.forEach(function(item){var i=_words.indexOf(item);var card=document.createElement('div');card.className='card'+(item.learned?' learned':'');card.innerHTML='<button class="delete-btn" data-i="'+i+'">✕</button><div class="word">'+item.word+'</div><div class="translation">'+getTrans(item)+'</div><div class="example"><span class="ex-label">'+getExLabel()+'</span>'+getEx(item)+'</div>'+(item.learned?'<div class="learned-badge">✅ Вивчено</div>':'<div class="hint">👆 натисни</div>')+'<div class="card-actions"><button class="btn-learn'+(item.learned?' done':'')+'" data-li="'+i+'">'+(item.learned?'✅ Вивчено':'📌 Вивчив')+'</button></div>';card.querySelector('.delete-btn').addEventListener('click',function(e){e.stopPropagation();_words.splice(parseInt(this.dataset.i),1);renderWords();});card.querySelector('.btn-learn').addEventListener('click',function(e){e.stopPropagation();var idx=parseInt(this.dataset.li);_words[idx].learned=!_words[idx].learned;if(_words[idx].learned){confetti();showToast('🎉 Відмічено як вивчене!');}renderWords();});card.addEventListener('click',function(){this.classList.toggle('flipped');var h=this.querySelector('.hint');if(h)h.style.display=this.classList.contains('flipped')?'none':'block';});c.appendChild(card);});updateStats();}
+function addWord(){var w=document.getElementById('wordInput').value.trim(),ua=document.getElementById('transUaInput').value.trim(),ru=document.getElementById('transRuInput').value.trim();if(!w)return;_words.push({word:w,ua:ua||'—',ru:ru||'—',learned:false,exDe:'',exUa:'',exRu:''});document.getElementById('wordInput').value='';document.getElementById('transUaInput').value='';document.getElementById('transRuInput').value='';showToast('✅ Слово додано!');renderWords();}
+function renderSentences(){
+var wrap=document.getElementById('sentences-wrap');
+wrap.innerHTML='';
+_groups.forEach(function(group,gi){
+var sec=document.createElement('div');
+sec.style.marginBottom='28px';
+var title=document.createElement('div');
+title.className='group-title';
+title.textContent=group.title;
+sec.appendChild(title);
+var nav=document.createElement('div');
+nav.className='sent-nav';
+var btnPrev=document.createElement('button');
+btnPrev.textContent='←';
+var counter=document.createElement('span');
+counter.className='sent-counter';
+var btnNext=document.createElement('button');
+btnNext.textContent='→';
+nav.appendChild(btnPrev);
+nav.appendChild(counter);
+nav.appendChild(btnNext);
+sec.appendChild(nav);
+var cardArea=document.createElement('div');
+sec.appendChild(cardArea);
+wrap.appendChild(sec);
+var idx=0;
+function showCard(){
+var s=group.sentences[idx];
+counter.textContent=(idx+1)+' / '+group.sentences.length;
+btnPrev.disabled=(idx===0);
+btnNext.disabled=(idx===group.sentences.length-1);
+cardArea.innerHTML='';
+var card=document.createElement('div');
+card.className='sentence-card';
+card.innerHTML='<div class="num">№ '+(idx+1)+'</div><div class="de">'+s.de+'</div><div class="trans">'+getSentTrans(s)+'</div><div class="s-hint">👆 натисни, щоб побачити переклад</div>';
+card.addEventListener('click',function(){this.classList.toggle('flipped');});
+cardArea.appendChild(card);
+}
+btnPrev.addEventListener('click',function(){if(idx>0){idx--;showCard();}});
+btnNext.addEventListener('click',function(){if(idx<group.sentences.length-1){idx++;showCard();}});
+showCard();
+});
+updateStats();
+}
+function startQuiz(){var u=_words.filter(function(w){return !w.learned;});if(u.length<2){document.getElementById('quiz-area').innerHTML='<div class="quiz-card"><div class="quiz-question">🎉 Всі слова вивчені!</div></div><div class="quiz-btns"><button class="btn-show" onclick="switchTab('words')">← До слів</button></div>';return;}_quizOrder=u.map(function(w){return _words.indexOf(w);}).sort(function(){return Math.random()-0.5;});_quizIndex=0;_quizScore=0;showQuizCard();}
+function showQuizCard(){var area=document.getElementById('quiz-area');if(_quizIndex>=_quizOrder.length){var pct=Math.round((_quizScore/_quizOrder.length)*100);area.innerHTML='<div class="quiz-card"><div class="quiz-question">'+_quizScore+'/'+_quizOrder.length+'</div><div class="quiz-sub">'+(pct>=80?'🔥 Відмінно!':pct>=50?'👍 Непогано!':'💪 Продовжуй!')+'  '+pct+'%</div><div class="progress-bar"><div class="progress-fill" style="width:'+pct+'%"></div></div></div><div class="quiz-btns"><button class="btn-show" onclick="startQuiz()">🔄 Ще раз</button><button class="btn-correct" onclick="switchTab('words')">← До слів</button></div>';if(pct>=80)confetti();return;}var w=_words[_quizOrder[_quizIndex]];var pct=Math.round((_quizIndex/_quizOrder.length)*100);area.innerHTML='<div class="quiz-progress">'+(_quizIndex+1)+' / '+_quizOrder.length+'</div><div class="quiz-score">✅ '+_quizScore+' вірних | 🔥 '+_quizStreak+' підряд</div><div class="progress-bar"><div class="progress-fill" style="width:'+pct+'%"></div></div><div class="quiz-card"><div class="quiz-sub">Як перекладається?</div><div class="quiz-question">'+w.word+'</div><div class="quiz-answer" id="quiz-ans">'+getTrans(w)+'<br><em style="font-size:12px;color:#aaa;display:block;margin-top:6px">'+getEx(w)+'</em></div></div><div class="quiz-btns"><button class="btn-show" onclick="revealAnswer()">👁 Показати</button><button class="btn-correct" id="btn-ok" style="display:none" onclick="quizAnswer(true)">✅ Знав</button><button class="btn-wrong" id="btn-no" style="display:none" onclick="quizAnswer(false)">❌ Не знав</button></div>';}
 function revealAnswer(){document.getElementById('quiz-ans').style.display='block';document.querySelector('.btn-show').style.display='none';document.getElementById('btn-ok').style.display='inline-block';document.getElementById('btn-no').style.display='inline-block';}
-function quizAnswer(c){if(c){_quizScore++;_quizStreak++;showToast('Правильно!');if(_quizStreak%3===0)confetti();}else{_quizStreak=0;showToast('Наступного разу!');}updateStats();_quizIndex++;setTimeout(showQuizCard,400);}
+function quizAnswer(c){if(c){_quizScore++;_quizStreak++;showToast('🎉 Правильно!');if(_quizStreak%3===0)confetti();}else{_quizStreak=0;showToast('❌ Наступного разу!');}updateStats();_quizIndex++;setTimeout(showQuizCard,400);}
 renderWords();renderSentences();updateStats();
 </script>
 </body>
