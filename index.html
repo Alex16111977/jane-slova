@@ -19,7 +19,7 @@ h1{text-align:center;color:#3a3a6e;margin-bottom:4px;font-size:26px;}
 .tabs{display:flex;justify-content:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
 .tab-btn{padding:9px 20px;border-radius:20px;border:2px solid #6c63ff;background:white;color:#6c63ff;font-size:14px;cursor:pointer;font-weight:600;transition:all 0.2s;}
 .tab-btn.active{background:#6c63ff;color:white;}
-.add-form{display:flex;gap:10px;max-width:750px;margin:0 auto 20px;flex-wrap:wrap;}
+.add-form{display:flex;gap:10px;max-width:900px;margin:0 auto 20px;flex-wrap:wrap;}
 .add-form input,.add-form textarea{flex:1;padding:11px 14px;border:2px solid #c5cee0;border-radius:12px;font-size:14px;outline:none;transition:border 0.2s;min-width:120px;font-family:inherit;resize:vertical;}
 .add-form input:focus,.add-form textarea:focus{border-color:#6c63ff;}
 .add-form button{padding:11px 20px;background:#6c63ff;color:white;border:none;border-radius:12px;font-size:14px;cursor:pointer;transition:background 0.2s;align-self:flex-end;white-space:nowrap;}
@@ -91,222 +91,325 @@ h1{text-align:center;color:#3a3a6e;margin-bottom:4px;font-size:26px;}
 <h1>jane-slova</h1>
 <p class="subtitle">Натисни на карточку, щоб побачити переклад</p>
 <div class="stats">
-<div class="stat"><strong id="stat-total">0</strong>слів</div>
-<div class="stat"><strong id="stat-learned">0</strong>вивчено</div>
-<div class="stat"><strong id="stat-sentences">0</strong>речень</div>
-<div class="stat"><strong id="stat-streak">0🔥</strong>підряд</div>
+  <div class="stat"><strong id="stat-total">0</strong>слів</div>
+  <div class="stat"><strong id="stat-learned">0</strong>вивчено</div>
+  <div class="stat"><strong id="stat-sentences">0</strong>речень</div>
+  <div class="stat"><strong id="stat-streak">0🔥</strong>підряд</div>
 </div>
-<div class="lang-bar"><span>Мова перекладу:</span><div class="lang-switch"><button id="lang-ua" class="active" onclick="setLang('ua')">🇺🇦 Українська</button><button id="lang-ru" onclick="setLang('ru')">🇷🇺 Русский</button></div></div>
+<div class="lang-bar"><span>Мова перекладу:</span><div class="lang-switch"><button id="lang-ua" class="active" onclick="setLang('ua')">🇺🇦 Українська</button><button id="lang-ru" onclick="setLang('ru')">🇷🇺 Русский</button><button id="lang-en" onclick="setLang('en')">🇬🇧 English</button></div></div>
 <div class="tabs"><button class="tab-btn active" id="tab-words" onclick="switchTab('words')">🔤 Слова</button><button class="tab-btn" id="tab-sentences" onclick="switchTab('sentences')">📝 Речення</button><button class="tab-btn" id="tab-quiz" onclick="switchTab('quiz')">🎯 Квіз</button></div>
 <div class="section active" id="words-section">
-<div class="search-bar"><input type="text" id="searchInput" placeholder="🔍 Пошук слів..." oninput="renderWords()"/></div>
-<div class="add-form"><input type="text" id="wordInput" placeholder="Слово"/><input type="text" id="transUaInput" placeholder="Переклад UA"/><input type="text" id="transRuInput" placeholder="Перевод RU"/><button onclick="addWord()">+ Додати</button></div>
-<div class="cards" id="cards"></div>
+  <div class="search-bar"><input type="text" id="searchInput" placeholder="🔍 Пошук слів..." oninput="renderWords()"/></div>
+  <div class="add-form"><input type="text" id="wordInput" placeholder="Слово"/><input type="text" id="transUaInput" placeholder="Переклад UA"/><input type="text" id="transRuInput" placeholder="Перевод RU"/><input type="text" id="transEnInput" placeholder="Translation EN"/><button onclick="addWord()">+ Додати</button></div>
+  <div class="cards" id="cards"></div>
 </div>
 <div class="section" id="sentences-section"><div class="sentences-wrap" id="sentences-wrap"></div></div>
 <div class="section" id="quiz-section"><div class="quiz-area" id="quiz-area"></div></div>
 <div class="toast" id="toast"></div>
 <script>
 var _lang="ua",_quizStreak=0,_quizScore=0,_quizIndex=0,_quizOrder=[];
-var _words=[{"word":"sichtlich","ua":"очевидно, явно","ru":"очевидно, явно","learned":false,"exDe":"Er war sichtlich erschöpft nach der langen Reise.","exUa":"Він був явно виснажений після довгої подорожі.","exRu":"Он был явно измотан после долгой поездки."},{"word":"derart","ua":"настільки, таким чином","ru":"настолько, таким образом","learned":false,"exDe":"Das Wasser war derart kalt, dass ich sofort aufgehört habe zu schwimmen.","exUa":"Вода була настільки холодною, що я одразу перестав плавати.","exRu":"Вода была настолько холодной, что я сразу перестал плавать."},{"word":"beinahe","ua":"майже, мало не","ru":"почти, едва не","learned":false,"exDe":"Ich hätte beinahe den Zug verpasst.","exUa":"Я мало не пропустив поїзд.","exRu":"Я едва не опоздал на поезд."},{"word":"ausrenken","ua":"вивихнути, викрутити","ru":"вывихнуть, выкрутить","learned":false,"exDe":"Er hat sich beim Sport den Arm ausgerenkt.","exUa":"Він вивихнув руку під час занять спортом.","exRu":"Он вывихнул руку во время тренировки."},{"word":"fürchten","ua":"боятися, побоюватися","ru":"бояться, опасаться","learned":false,"exDe":"Die Kinder fürchten sich im Dunkeln.","exUa":"Діти бояться темряви.","exRu":"Дети боятся темноты."},{"word":"geschmeidig","ua":"гнучкий, пластичний","ru":"гибкий, пластичный","learned":false,"exDe":"Die Katze bewegt sich geschmeidig durch den Raum.","exUa":"Кіт рухається гнучко по кімнаті.","exRu":"Кошка гибко движется по комнате."},{"word":"grausam","ua":"жорстокий, страшний","ru":"жестокий, ужасный","learned":false,"exDe":"Der Winter war dieses Jahr grausam kalt.","exUa":"Цього року зима була жорстоко холодною.","exRu":"Этой зимой было жестоко холодно."},{"word":"die Unwissenheit","ua":"незнання, невігластво","ru":"незнание, невежество","learned":false,"exDe":"Unwissenheit schützt nicht vor Strafe.","exUa":"Незнання закону не звільняє від відповідальності.","exRu":"Незнание закона не освобождает от ответственности."},{"word":"die Tatsache","ua":"факт, дійсність","ru":"факт, действительность","learned":false,"exDe":"Es ist eine Tatsache, dass die Erde rund ist.","exUa":"Це факт, що Земля кругла.","exRu":"Это факт, что Земля круглая."},{"word":"hektisch","ua":"метушливий, хаотичний","ru":"суетливый, хаотичный","learned":false,"exDe":"Der Montagmorgen ist immer sehr hektisch.","exUa":"Понеділковий ранок завжди дуже метушливий.","exRu":"Понедельничное утро всегда очень суетливое."},{"word":"unmittelbar","ua":"безпосередній, одразу","ru":"непосредственный, сразу","learned":false,"exDe":"Er reagierte unmittelbar auf die Nachricht.","exUa":"Він відреагував одразу на новину.","exRu":"Он отреагировал сразу на новость."},{"word":"kraftvoll","ua":"потужний, сильний","ru":"мощный, сильный","learned":false,"exDe":"Der Sportler machte eine kraftvolle Bewegung.","exUa":"Спортсмен зробив потужний рух.","exRu":"Спортсмен сделал мощное движение."},{"word":"die Gestalt","ua":"фігура, образ, постать","ru":"фигура, образ, облик","learned":false,"exDe":"Eine dunkle Gestalt stand im Schatten.","exUa":"Темна постать стояла в тіні.","exRu":"Тёмная фигура стояла в тени."},{"word":"schlugen","ua":"(вони) вдарили, (вони) билися","ru":"(они) ударили, (они) бились","learned":false,"exDe":"Die Wellen schlugen heftig gegen die Küste.","exUa":"Хвилі сильно вдаряли об берег.","exRu":"Волны сильно ударяли о берег."},{"word":"einmal","ua":"одного разу, одного дня","ru":"однажды, один раз","learned":false,"exDe":"Einmal im Jahr fahren wir in den Urlaub.","exUa":"Один раз на рік ми їдемо у відпустку.","exRu":"Один раз в год мы едем в отпуск."},{"word":"das Elend","ua":"злидні, горе, нещастя","ru":"нищета, горе, несчастье","learned":false,"exDe":"Das Elend der Kriegsflüchtlinge ist kaum zu ertragen.","exUa":"Злидні військових біженців важко витримати.","exRu":"Нищета военных беженцев едва переносима."},{"word":"künftig","ua":"майбутній, у майбутньому","ru":"будущий, в будущем","learned":false,"exDe":"Künftig werden wir alles besser planen.","exUa":"У майбутньому ми будемо все краще планувати.","exRu":"В будущем мы будем всё лучше планировать."},{"word":"beschleunigen","ua":"прискорювати, прискоритися","ru":"ускорять, ускориться","learned":false,"exDe":"Wir müssen das Tempo beschleunigen.","exUa":"Нам потрібно прискорити темп.","exRu":"Нам нужно ускорить темп."},{"word":"die Arglosigkeit","ua":"довірливість, безтурботність","ru":"доверчивость, беззаботность","learned":false,"exDe":"Seine Arglosigkeit machte ihn verletzlich.","exUa":"Його довірливість робила його вразливим.","exRu":"Его доверчивость делала его уязвимым."},{"word":"gedankenlos","ua":"легковажний, необдуманий","ru":"легкомысленный, необдуманный","learned":false,"exDe":"Er handelte gedankenlos und bereute es später.","exUa":"Він діяв необдумано і пізніше шкодував про це.","exRu":"Он действовал необдуманно и потом пожалел об этом."},{"word":"ehe","ua":"перш ніж, до того як","ru":"прежде чем, до того как","learned":false,"exDe":"Ehe du gehst, sag mir Bescheid.","exUa":"Перш ніж іти, дай мені знати.","exRu":"Прежде чем уйти, дай мне знать."},{"word":"ordentlich","ua":"акуратний, порядний, справжній","ru":"аккуратный, порядочный, настоящий","learned":false,"exDe":"Sie ist ordentlich und hält ihr Zimmer immer sauber.","exUa":"Вона акуратна і завжди тримає свою кімнату в чистоті.","exRu":"Она аккуратная и всегда держит свою комнату в чистоте."},{"word":"buchstäblich","ua":"буквально, дослівно","ru":"буквально, дословно","learned":false,"exDe":"Er war buchstäblich sprachlos vor Staunen.","exUa":"Він буквально знімів від здивування.","exRu":"Он буквально онемел от удивления."},{"word":"hinunterlaufen","ua":"збігати вниз, текти вниз","ru":"сбегать вниз, течь вниз","learned":false,"exDe":"Die Tränen liefen ihr langsam die Wangen hinunter.","exUa":"Сльози повільно текли по її щоках донизу.","exRu":"Слёзы медленно текли по её щекам вниз."},{"word":"unwesentlich","ua":"несуттєвий, незначний","ru":"несущественный, незначительный","learned":false,"exDe":"Der Unterschied zwischen den beiden Versionen ist unwesentlich.","exUa":"Різниця між двома версіями незначна.","exRu":"Разница zwischen двумя версиями несущественна."},{"word":"angesagt","ua":"модний, популярний, трендовий","ru":"модный, популярный, трендовый","learned":false,"exDe":"Dieses Restaurant ist gerade sehr angesagt in der Stadt.","exUa":"Цей ресторан зараз дуже популярний у місті.","exRu":"Этот ресторан сейчас очень популярен в городе."},{"word":"die Vorliebe","ua":"уподобання, пристрасть","ru":"пристрастие, предпочтение","learned":false,"exDe":"Er hat eine Vorliebe für klassische Musik.","exUa":"Він має пристрасть до класичної музики.","exRu":"У него пристрастие к классической музыке."},{"word":"mitunter","ua":"інколи, часом","ru":"иногда, порой","learned":false,"exDe":"Mitunter vergisst man die wichtigsten Dinge im Leben.","exUa":"Інколи забуваєш найважливіші речі в житті.","exRu":"Порой забываешь самые важные вещи в жизни."},{"word":"rätselhaft","ua":"загадковий, таємничий","ru":"загадочный, таинственный","learned":false,"exDe":"Sein Verschwinden blieb rätselhaft für alle.","exUa":"Його зникнення залишилося загадковим для всіх.","exRu":"Его исчезновение осталось загадочным для всех."},{"word":"ausgesetzt","ua":"підданий, наражений; залишений","ru":"подверженный, подвергнутый; брошенный","learned":false,"exDe":"Die Kinder waren der Kälte stundenlang ausgesetzt.","exUa":"Діти були піддані холоду годинами.","exRu":"Дети были подвергнуты холоду часами."},{"word":"umschlagen","ua":"перевернутися; різко змінитися","ru":"перевернуться; резко измениться","learned":false,"exDe":"Das Wetter kann in den Bergen schnell umschlagen.","exUa":"Погода в горах може різко змінитися.","exRu":"Погода в горах может резко измениться."},{"word":"befangen","ua":"збентежений, упереджений, скутий","ru":"смущённый, предвзятый, скованный","learned":false,"exDe":"Er wirkte befangen, als er die Frage beantworten musste.","exUa":"Він виглядав збентеженим, коли мав відповідати на запитання.","exRu":"Он выглядел смущённым, когда ему пришлось отвечать на вопрос."},{"word":"herablassend","ua":"зверхній, зневажливий, поблажливий","ru":"снисходительный, высокомерный, покровительственный","learned":false,"exDe":"Er sprach in einem herablassenden Ton mit seinen Kollegen.","exUa":"Він розмовляв зі своїми колегами зверхнім тоном.","exRu":"Он разговаривал со своими коллегами снисходительным тоном."},{"word":"der Wirt","ua":"господар, власник (закладу); хазяїн","ru":"хозяин, владелец (заведения)","learned":false,"exDe":"Der Wirt begrüßte jeden Gast herzlich an der Tür.","exUa":"Господар сердечно вітав кожного гостя біля дверей.","exRu":"Хозяин сердечно приветствовал каждого гостя у двери."},{"word":"jählings","ua":"раптово, несподівано, зненацька","ru":"внезапно, неожиданно, стремительно","learned":false,"exDe":"Er hielt jählings inne, als er die Nachricht hörte.","exUa":"Він раптово зупинився, почувши новину.","exRu":"Он внезапно остановился, услышав новость."},{"word":"mitnichten","ua":"аж ніяк, зовсім ні, ні в якому разі","ru":"отнюдь нет, вовсе нет, ни в коем случае","learned":false,"exDe":"Das ist mitnichten so einfach, wie es klingt.","exUa":"Це аж ніяк не так просто, як здається.","exRu":"Это отнюдь не так просто, как кажется."},{"word":"vorwerfen","ua":"докоряти, звинувачувати, закидати","ru":"упрекать, обвинять, ставить в упрёк","learned":false,"exDe":"Er wirft ihr vor, nie ehrlich zu sein.","exUa":"Він докоряє їй у тому, що вона ніколи не буває чесною.","exRu":"Он упрекает её в том, что она никогда не бывает честной."},{"word":"verabscheuen","ua":"гидувати, ненавидіти, відчувати огиду","ru":"ненавидеть, испытывать отвращение, презирать","learned":false,"exDe":"Sie verabscheut jede Form von Gewalt.","exUa":"Вона відчуває огиду до будь-якої форми насильства.","exRu":"Она испытывает отвращение к любой форме насилия."},{"word":"träge","ua":"лінивий, млявий, інертний","ru":"ленивый, вялый, инертный","learned":false,"exDe":"An Regentagen fühlt er sich immer besonders träge.","exUa":"У дощові дні він завжди почувається особливо млявим.","exRu":"В дождливые дни он всегда чувствует себя особенно вялым."},{"word":"allerlei","ua":"всілякий, різноманітний, усіляке","ru":"всякий, разнообразный, всякое","learned":false,"exDe":"Sie hat allerlei interessante Bücher zu Hause.","exUa":"Вдома у неї є всілякі цікаві книги.","exRu":"Дома у неё есть всякие интересные книги."},{"word":"niedlich","ua":"милий, чарівний, гарненький","ru":"милый, прелестный, хорошенький","learned":false,"exDe":"Das Kätzchen sieht so niedlich aus, dass alle es streicheln wollen.","exUa":"Кошеня виглядає таким милим, що всі хочуть його погладити.","exRu":"Котёнок выглядит таким милым, что все хотят его погладить."},{"word":"herauskommen","ua":"виходити, з'являтися, виявлятися","ru":"выходить, появляться, выясняться","learned":false,"exDe":"Wann kommt sein neues Buch heraus?","exUa":"Коли виходить його нова книга?","exRu":"Когда выходит его новая книга?"},{"word":"genüsslich","ua":"із задоволенням, насолоджуючись, смакуючи","ru":"с наслаждением, смакуя, с удовольствием","learned":false,"exDe":"Sie trank genüsslich ihren Morgenkaffee.","exUa":"Вона із задоволенням пила свою ранкову каву.","exRu":"Она с наслаждением пила свой утренний кофе."},{"word":"äußerst","ua":"надзвичайно, вкрай, гранично","ru":"чрезвычайно, крайне, предельно","learned":false,"exDe":"Die Situation war äußerst schwierig für alle Beteiligten.","exUa":"Ситуація була надзвичайно складною для всіх учасників.","exRu":"Ситуация была крайне сложной для всех участников."},{"word":"der Abfall","ua":"сміття, відходи; спад, відступництво","ru":"мусор, отходы; спад, отступничество","learned":false,"exDe":"Bitte wirf den Abfall in den richtigen Behälter.","exUa":"Будь ласка, кидай сміття у правильний контейнер.","exRu":"Пожалуйста, выбрасывай мусор в правильный контейнер."},{"word":"mürrisch","ua":"буркотливий, похмурий, незадоволений","ru":"ворчливый, угрюмый, недовольный","learned":false,"exDe":"Er antwortete mürrisch, ohne aufzublicken.","exUa":"Він відповів буркотливо, не піднімаючи погляду.","exRu":"Он ответил ворчливо, не поднимая взгляда."}];
-var _groups=[{"title":"📚 Група 1: sichtlich · derart · beinahe · ausrenken · fürchten · geschmeidig · grausam · die Unwissenheit · die Tatsache · hektisch · unmittelbar","sentences":[{"de":"Er war sichtlich erschöpft, als er beinahe ausgerenkt wurde, während er sich derart geschmeidig bewegte, dass niemand die Tatsache bemerkte.","ua":"Він був явно виснажений, коли мало не вивихнув суглоб, рухаючись настільки гнучко, що ніхто не помітив цього факту.","ru":"Он был явно измотан, когда едва не вывихнул сустав, двигаясь настолько гибко, что никто не заметил этого факта."},{"de":"Die Unwissenheit war grausam, denn beinahe jeder fürchtete die hektische Stimmung, die sichtlich unmittelbar nach der Nachricht entstand.","ua":"Незнання було жорстоким, адже майже кожен боявся метушливого настрою, який явно виник одразу після новини.","ru":"Незнание было жестоким, ведь почти каждый боялся суетливого настроения, которое явно возникло сразу после новости."},{"de":"Es war derart hektisch, dass man sich beinahe den Arm ausrenken konnte, und niemand fürchtete die Tatsache, sichtlich überfordert zu wirken.","ua":"Було настільки метушливо, що можна було майже вивихнути руку, і ніхто не боявся явно виглядати перевантаженим.","ru":"Было настолько суетливо, что можно было едва не вывихнуть руку, и никто не боялся явно выглядеть перегруженным."},{"de":"Die Unwissenheit machte alles derart schwer, dass er sich unmittelbar fürchtete und sichtlich hektisch wurde, obwohl er sich grausam beherrschen wollte.","ua":"Незнання зробило все настільки важким, що він одразу злякався і явно занервував, хоча жорстоко намагався стримати себе.","ru":"Незнание сделало всё настолько тяжёлым, что он сразу испугался и явно занервничал, хотя жестоко пытался сдержать себя."},{"de":"Beinahe geschmeidig, aber sichtlich erschöpft, fürchtete er die Tatsache, dass die grausame Unwissenheit ihn unmittelbar in eine hektische Lage gebracht hatte.","ua":"Майже гнучко, але явно виснажено, він боявся факту, що жорстоке незнання безпосередньо кинуло його в метушливу ситуацію.","ru":"Почти гибко, но явно изнурённо, он боялся факта, что жестокое незнание непосредственно ввергло его в суетливую ситуацию."}]},{"title":"🔥 Група 2: kraftvoll · die Gestalt · schlugen · einmal · das Elend","sentences":[{"de":"Einmal stand eine kraftvolle Gestalt am Fenster, während die Wellen schlugen und das Elend der Stadt sichtbar wurde.","ua":"Одного разу потужна постать стояла біля вікна, поки хвилі вдаряли й горе міста ставало помітним.","ru":"Однажды мощная фигура стояла у окна, пока волны ударяли и горе города становилось заметным."},{"de":"Die Gestalt war kraftvoll, aber einmal hatte das Elend sie so hart getroffen, dass die Tränen schlugen wie Regen.","ua":"Постать була потужною, але одного разу горе вдарило її так сильно, що сльози лились, як дощ.","ru":"Фигура была мощной, но однажды горе ударило её так сильно, что слёзы лились, как дождь."},{"de":"Einmal versuchte die kraftvolle Gestalt, das Elend zu überwinden, aber die Wellen schlugen immer wieder gegen ihre Hoffnungen.","ua":"Одного разу потужна постать намагалася подолати горе, але хвилі знову й знову вдаряли по її надіям.","ru":"Однажды мощная фигура пыталась преодолеть горе, но волны снова и снова ударяли по её надеждам."},{"de":"Das Elend der Straße schlugen einmal so tief in die Seele der kraftvollen Gestalt, dass sie nicht mehr sprechen konnte.","ua":"Горе вулиці одного разу так глибоко вдарило в душу потужної постаті, що вона більше не могла говорити.","ru":"Горе улицы однажды так глубоко ударило в душу мощной фигуры, что она больше не могла говорить."},{"de":"Kraftvoll und entschlossen stand die Gestalt einmal mitten im Elend, während ringsum die Herzen schlugen vor Angst.","ua":"Потужно і рішуче постать стояла одного разу посеред горя, поки навколо серця билися від страху.","ru":"Мощно и решительно фигура стояла однажды посреди горя, пока вокруг сердца бились от страха."}]},{"title":"✨ Група 3: künftig · beschleunigen · die Arglosigkeit · gedankenlos · ehe","sentences":[{"de":"Ehe er gedankenlos handelte, wollte er künftig seine Arglosigkeit überwinden und das Leben bewusst beschleunigen.","ua":"Перш ніж діяти необдумано, він хотів у майбутньому подолати свою довірливість і свідомо прискорити своє життя.","ru":"Прежде чем действовать необдуманно, он хотел в будущем преодолеть свою доверчивость и осознанно ускорить свою жизнь."},{"de":"Die Arglosigkeit des Kindes war so groß, dass es gedankenlos handelte, ehe jemand eingreifen konnte, um die Entwicklung zu beschleunigen.","ua":"Довірливість дитини була такою великою, що вона діяла необдумано, перш ніж хтось міг втрутитися та прискорити розвиток подій.","ru":"Доверчивость ребёнка была настолько велика, что он действовал необдуманно, прежде чем кто-то мог вмешаться и ускорить ход событий."},{"de":"Künftig wollte er nicht mehr gedankenlos sein, ehe er wichtige Entscheidungen traf, denn seine Arglosigkeit hatte alles beschleunigt.","ua":"У майбутньому він більше не хотів бути необдуманим, перш ніж приймати важливі рішення, адже його довірливість прискорила все.","ru":"В будущем он больше не хотел быть необдуманным, прежде чем принимать важные решения, ведь его доверчивость ускорила всё."},{"de":"Ehe die Arglosigkeit verschwand, beschleunigte sich alles derart schnell, dass er künftig nie mehr gedankenlos handeln wollte.","ua":"Перш ніж довірливість зникла, все прискорилося настільки швидко, що у майбутньому він більше ніколи не хотів діяти необдумано.","ru":"Прежде чем доверчивость исчезла, всё ускорилось настолько быстро, что в будущем он больше никогда не хотел действовать необдуманно."},{"de":"Seine gedankenlose Arglosigkeit beschleunigte den Fehler, ehe er ihn bemerkte, und künftig schwor er sich, vorsichtiger zu sein.","ua":"Його необдумана довірливість прискорила помилку, перш ніж він її помітив, і у майбутньому він поклявся бути обережнішим.","ru":"Его необдуманная доверчивость ускорила ошибку, прежде чем он её заметил, и в будущем он поклялся быть осторожнее."}]},{"title":"🌟 Група 4: ordentlich · buchstäblich · hinunterlaufen · unwesentlich","sentences":[{"de":"Es war buchstäblich unwesentlich, dass der Regen ordentlich die Straße hinunterlief.","ua":"Було буквально несуттєво, що дощ акуратно стікав вулицею донизу.","ru":"Было буквально несущественно, что дождь аккуратно стекал по улице вниз."},{"de":"Die ordentliche Frau bemerkte buchstäblich jeden unwesentlichen Tropfen, der die Fensterscheibe hinunterlief.","ua":"Акуратна жінка буквально помічала кожну незначну краплю, яка стікала по шибці вниз.","ru":"Аккуратная женщина буквально замечала каждую незначительную каплю, которая стекала по стеклу вниз."},{"de":"Er lief buchstäblich den Hügel hinunter und hielt das Unwesentliche ordentlich im Kopf.","ua":"Він буквально збіг з пагорба донизу і акуратно тримав у голові все незначне.","ru":"Он буквально сбежал с холма вниз и аккуратно держал в голове всё несущественное."},{"de":"Buchstäblich jeder unwesentliche Gedanke lief ihm ordentlich durch den Kopf hinunter, bis er verschwand.","ua":"Буквально кожна незначна думка акуратно пробігала в нього через голову донизу, поки не зникала.","ru":"Буквально каждая незначительная мысль аккуратно пробегала у него через голову вниз, пока не исчезала."},{"de":"Das Wasser lief ordentlich hinunter, und buchstäblich jedes unwesentliche Hindernis wurde weggeschwemmt.","ua":"Вода акуратно стікала донизу, і буквально кожна незначна перешкода була змита.","ru":"Вода аккуратно стекала вниз, и буквально каждое несущественное препятствие было смыто."}]},{"title":"💫 Група 5: angesagt · die Vorliebe · mitunter · rätselhaft · ausgesetzt · umschlagen","sentences":[{"de":"Mitunter ist das Rätselhafteste an einem angesagten Ort, dass man seiner Vorliebe so ausgesetzt ist, bis die Stimmung umschlägt.","ua":"Інколи найзагадковіше в модному місці — те, що так піддаєшся своєму уподобанню, поки настрій різко не змінюється.","ru":"Порой самое загадочное в модном месте — что так подвергаешься своему пристрастию, пока настроение резко не меняется."},{"de":"Seine Vorliebe für rätselhaftes Verhalten war mitunter so angesagt, dass alle, die ihm ausgesetzt waren, innerlich umschlugen.","ua":"Його уподобання до загадкової поведінки було інколи настільки трендовим, що всі, хто йому піддавався, внутрішньо різко змінювалися.","ru":"Его пристрастие к загадочному поведению было порой настолько модным, что все, кто ему подвергался, внутренне резко менялись."},{"de":"Mitunter schlägt die Stimmung um, wenn man einer rätselhaften Vorliebe ausgesetzt wird, die gerade angesagt ist.","ua":"Інколи настрій різко змінюється, коли піддаєшся загадковому уподобанню, яке зараз у тренді.","ru":"Порой настроение резко меняется, когда подвергаешься загадочному пристрастию, которое сейчас в тренде."},{"de":"Das angesagte Café war rätselhaft leer, und mitunter fragte man sich, welcher Vorliebe man dort ausgesetzt war, bevor alles umschlug.","ua":"Модне кафе було загадково порожнє, і інколи думав, якому уподобанню там піддавався, перш ніж усе різко змінилося.","ru":"Модное кафе было загадочно пусто, и порой думал, какому пристрастию там подвергался, прежде чем всё резко изменилось."},{"de":"Wer einer rätselhaften Vorliebe mitunter ausgesetzt ist, merkt schnell, wie angesagt es sein kann, wenn die Lage umschlägt.","ua":"Той, хто інколи підданий загадковому уподобанню, швидко помічає, наскільки це може бути трендово, коли ситуація різко змінюється.","ru":"Тот, кто порой подвержен загадочному пристрастию, быстро замечает, насколько это может быть модно, когда ситуация резко меняется."}]},{"title":"🎭 Група 6: befangen · herablassend · der Wirt · jählings · mitnichten","sentences":[{"de":"Der Wirt wirkte befangen, als der herablassende Gast jählings mitnichten zufrieden war.","ua":"Господар виглядав збентеженим, коли зверхній гість раптово виявився аж ніяк не задоволеним.","ru":"Хозяин выглядел смущённым, когда высокомерный гость внезапно оказался отнюдь не доволен."},{"de":"Mitnichten ließ sich der Wirt von dem herablassenden Blick des Gastes befangen machen, obwohl dieser jählings aufstand.","ua":"Аж ніяк не дозволив господар зверхньому погляду гостя збентежити себе, хоча той раптово встав.","ru":"Отнюдь не позволил хозяин высокомерному взгляду гостя смутить себя, хотя тот внезапно встал."},{"de":"Jählings wurde der Wirt befangen, als der herablassende Fremde mitnichten seinen Namen nennen wollte.","ua":"Господар раптово збентежився, коли зверхній незнайомець аж ніяк не хотів називати своє ім'я.","ru":"Хозяин внезапно смутился, когда высокомерный незнакомец отнюдь не хотел называть своё имя."},{"de":"Der herablassende Ton des Gastes machte den Wirt befangen, doch jählings schlug die Stimmung um — mitnichten zum Guten.","ua":"Зверхній тон гостя збентежив господаря, але раптово настрій змінився — аж ніяк не на краще.","ru":"Высокомерный тон гостя смутил хозяина, но внезапно настроение изменилось — отнюдь не к лучшему."},{"de":"Befangen und still stand der Wirt da, während der herablassende Mann jählings erklärte, er wolle mitnichten bleiben.","ua":"Збентежений і тихий стояв господар, поки зверхній чоловік раптово заявив, що аж ніяк не хоче залишатися.","ru":"Смущённый и тихий стоял хозяин, пока высокомерный мужчина внезапно заявил, что отнюдь не хочет оставаться."}]},{"title":"🌈 Група 7: vorwerfen · verabscheuen · träge · allerlei · niedlich","sentences":[{"de":"Er warf ihr allerlei Dinge vor, obwohl sie das träge Verhalten verabscheute und nur niedlich wirken wollte.","ua":"Він докоряв їй за всілякі речі, хоча вона відчувала огиду до млявої поведінки і хотіла лише виглядати милою.","ru":"Он упрекал её за всякие вещи, хотя она испытывала отвращение к вялому поведению и хотела лишь казаться милой."},{"de":"Allerlei niedliche Dinge konnte man ihr nicht vorwerfen, doch ihre träge Art verabscheuten viele.","ua":"Всілякі милі речі не можна було їй закидати, але багато хто відчував огиду до її млявої натури.","ru":"Всякие милые вещи нельзя было ей поставить в упрёк, но многие испытывали отвращение к её вялой натуре."},{"de":"Sie verabscheute es, wenn man ihr vorwarf, träge zu sein, dabei liebte sie allerlei niedliche Ablenkungen.","ua":"Вона відчувала огиду, коли їй закидали лінь, хоча насправді вона любила всілякі милі розваги.","ru":"Она испытывала отвращение, когда её упрекали в лени, хотя на самом деле любила всякие милые развлечения."},{"de":"Träge saß er da, umgeben von allerlei niedlichen Dingen, und konnte niemandem etwas vorwerfen, was er selbst verabscheute.","ua":"Млявий, він сидів, оточений всілякими милими речами, і не міг нікому докоряти за те, що сам ненавидів.","ru":"Вялый, он сидел, окружённый всякими милыми вещами, и не мог никому ставить в упрёк то, что сам ненавидел."},{"de":"Allerlei Vorwürfe verabscheute sie, besonders wenn man ihr vorwarf, zu träge für so niedliche Träume zu sein.","ua":"Вона ненавиділа всілякі докори, особливо коли їй закидали, що вона занадто млява для таких милих мрій.","ru":"Она ненавидела всякие упрёки, особенно когда ей ставили в упрёк, что она слишком вялая для таких милых мечтаний."}]},{"title":"🍂 Група 8: herauskommen · genüsslich · äußerst · der Abfall · mürrisch","sentences":[{"de":"Äußerst mürrisch kam er heraus und trank genüsslich seinen Kaffee, ohne den Abfall zu bemerken.","ua":"Надзвичайно буркотливий, він вийшов і із задоволенням пив каву, не помічаючи сміття.","ru":"Крайне ворчливый, он вышел и с наслаждением пил кофе, не замечая мусора."},{"de":"Als herausskam, dass der mürrische Mann genüsslich äußerst teuren Wein trank, lag der Abfall noch auf dem Boden.","ua":"Коли виявилося, що буркотливий чоловік із задоволенням смакував надзвичайно дорогий вайн, сміття ще лежало на підлозі.","ru":"Когда выяснилось, что ворчливый мужчина с наслаждением смаковал крайне дорогое вино, мусор ещё лежал на полу."},{"de":"Genüsslich aß er, obwohl es äußerst seltsam herauskam, dass er den Abfall einfach ignorierte und mürrisch schwieg.","ua":"Він із задоволенням їв, хоча виявилося надзвичайно дивним, що він просто ігнорував сміття і буркотливо мовчав.","ru":"Он с наслаждением ел, хотя выяснилось крайне странным, что он просто игнорировал мусор и ворчливо молчал."},{"de":"Der mürrische Nachbar kam äußerst aufgebracht heraus, als genüsslich jemand seinen Abfall auf die Straße warf.","ua":"Буркотливий сусід надзвичайно обурено вийшов, коли хтось із задоволенням викидав його сміття на вулицю.","ru":"Ворчливый сосед вышел крайне возмущённым, когда кто-то с наслаждением выбрасывал его мусор на улицу."},{"de":"Es kam äußerst unangenehm heraus: mürrisch und genüsslich zugleich sortierte er den Abfall in der Küche.","ua":"Виявилося надзвичайно неприємно: буркотливий і водночас із задоволенням він сортував сміття на кухні.","ru":"Выяснилось крайне неприятное: ворчливый и одновременно с наслаждением он сортировал мусор на кухне."}]}];
-function getTrans(w){return _lang==="ru"?w.ru:w.ua;}
-function getEx(w){return _lang==="ru"?w.exRu:w.exUa;}
-function getExLabel(){return _lang==="ru"?"Пример:":"Приклад:";}
-function getSentTrans(s){return _lang==="ru"?s.ru:s.ua;}
+var _words=[
+{"word":"sichtlich","ua":"очевидно, явно","ru":"очевидно, явно","en":"obviously, visibly","learned":false,"exDe":"Er war sichtlich erschöpft nach der langen Reise.","exUa":"Він був явно виснажений після довгої подорожі.","exRu":"Он был явно измотан после долгой поездки.","exEn":"He was visibly exhausted after the long journey."},
+{"word":"derart","ua":"настільки, таким чином","ru":"настолько, таким образом","en":"so much, in such a way","learned":false,"exDe":"Das Wasser war derart kalt, dass ich sofort aufgehört habe zu schwimmen.","exUa":"Вода була настільки холодною, що я одразу перестав плавати.","exRu":"Вода была настолько холодной, что я сразу перестал плавать.","exEn":"The water was so cold that I immediately stopped swimming."},
+{"word":"beinahe","ua":"майже, мало не","ru":"почти, едва не","en":"almost, nearly","learned":false,"exDe":"Ich hätte beinahe den Zug verpasst.","exUa":"Я мало не пропустив поїзд.","exRu":"Я едва не опоздал на поезд.","exEn":"I almost missed the train."},
+{"word":"ausrenken","ua":"вивихнути, викрутити","ru":"вывихнуть, выкрутить","en":"to dislocate, to twist out","learned":false,"exDe":"Er hat sich beim Sport den Arm ausgerenkt.","exUa":"Він вивихнув руку під час занять спортом.","exRu":"Он вывихнул руку во время тренировки.","exEn":"He dislocated his arm during sports."},
+{"word":"fürchten","ua":"боятися, побоюватися","ru":"бояться, опасаться","en":"to fear, to be afraid","learned":false,"exDe":"Die Kinder fürchten sich im Dunkeln.","exUa":"Діти бояться темряви.","exRu":"Дети боятся темноты.","exEn":"The children are afraid of the dark."},
+{"word":"geschmeidig","ua":"гнучкий, пластичний","ru":"гибкий, пластичный","en":"supple, flexible, smooth","learned":false,"exDe":"Die Katze bewegt sich geschmeidig durch den Raum.","exUa":"Кіт рухається гнучко по кімнаті.","exRu":"Кошка гибко движется по комнате.","exEn":"The cat moves smoothly through the room."},
+{"word":"grausam","ua":"жорстокий, страшний","ru":"жестокий, ужасный","en":"cruel, dreadful, terribly","learned":false,"exDe":"Der Winter war dieses Jahr grausam kalt.","exUa":"Цього року зима була жорстоко холодною.","exRu":"Этой зимой было жестоко холодно.","exEn":"The winter was dreadfully cold this year."},
+{"word":"die Unwissenheit","ua":"незнання, невігластво","ru":"незнание, невежество","en":"ignorance, lack of knowledge","learned":false,"exDe":"Unwissenheit schützt nicht vor Strafe.","exUa":"Незнання закону не звільняє від відповідальності.","exRu":"Незнание закона не освобождает от ответственности.","exEn":"Ignorance is no protection from punishment."},
+{"word":"die Tatsache","ua":"факт, дійсність","ru":"факт, действительность","en":"fact, reality","learned":false,"exDe":"Es ist eine Tatsache, dass die Erde rund ist.","exUa":"Це факт, що Земля кругла.","exRu":"Это факт, что Земля круглая.","exEn":"It is a fact that the Earth is round."},
+{"word":"hektisch","ua":"метушливий, хаотичний","ru":"суетливый, хаотичный","en":"hectic, frantic, chaotic","learned":false,"exDe":"Der Montagmorgen ist immer sehr hektisch.","exUa":"Понеділковий ранок завжди дуже метушливий.","exRu":"Понедельничное утро всегда очень суетливое.","exEn":"Monday morning is always very hectic."},
+{"word":"unmittelbar","ua":"безпосередній, одразу","ru":"непосредственный, сразу","en":"immediate, directly, right away","learned":false,"exDe":"Er reagierte unmittelbar auf die Nachricht.","exUa":"Він відреагував одразу на новину.","exRu":"Он отреагировал сразу на новость.","exEn":"He reacted immediately to the news."},
+{"word":"kraftvoll","ua":"потужний, сильний","ru":"мощный, сильный","en":"powerful, strong, forceful","learned":false,"exDe":"Der Sportler machte eine kraftvolle Bewegung.","exUa":"Спортсмен зробив потужний рух.","exRu":"Спортсмен сделал мощное движение.","exEn":"The athlete made a powerful movement."},
+{"word":"die Gestalt","ua":"фігура, образ, постать","ru":"фигура, образ, облик","en":"figure, shape, form","learned":false,"exDe":"Eine dunkle Gestalt stand im Schatten.","exUa":"Темна постать стояла в тіні.","exRu":"Тёмная фигура стояла в тени.","exEn":"A dark figure stood in the shadows."},
+{"word":"schlugen","ua":"(вони) вдарили, (они) билися","ru":"(они) ударили, (они) бились","en":"(they) struck, (they) beat","learned":false,"exDe":"Die Wellen schlugen heftig gegen die Küste.","exUa":"Хвилі сильно вдаряли об берег.","exRu":"Волны сильно ударяли о берег.","exEn":"The waves struck hard against the coast."},
+{"word":"einmal","ua":"одного разу, одного дня","ru":"однажды, один раз","en":"once, one day, someday","learned":false,"exDe":"Einmal im Jahr fahren wir in den Urlaub.","exUa":"Один раз на рік ми їдемо у відпустку.","exRu":"Один раз в год мы едем в отпуск.","exEn":"Once a year we go on vacation."},
+{"word":"das Elend","ua":"злидні, горе, нещастя","ru":"нищета, горе, несчастье","en":"misery, poverty, wretchedness","learned":false,"exDe":"Das Elend der Kriegsflüchtlinge ist kaum zu ertragen.","exUa":"Злидні військових біженців важко витримати.","exRu":"Нищета военных беженцев едва переносима.","exEn":"The misery of war refugees is hard to bear."},
+{"word":"künftig","ua":"майбутній, у майбутньому","ru":"будущий, в будущем","en":"future, in the future, henceforth","learned":false,"exDe":"Künftig werden wir alles besser planen.","exUa":"У майбутньому ми будемо все краще планувати.","exRu":"В будущем мы будем всё лучше планировать.","exEn":"In the future we will plan everything better."},
+{"word":"beschleunigen","ua":"прискорювати, прискоритися","ru":"ускорять, ускориться","en":"to accelerate, to speed up","learned":false,"exDe":"Wir müssen das Tempo beschleunigen.","exUa":"Нам потрібно прискорити темп.","exRu":"Нам нужно ускорить темп.","exEn":"We need to speed up the pace."},
+{"word":"die Arglosigkeit","ua":"довірливість, безтурботність","ru":"доверчивость, беззаботность","en":"naivety, innocence, guilelessness","learned":false,"exDe":"Seine Arglosigkeit machte ihn verletzlich.","exUa":"Його довірливість робила його вразливим.","exRu":"Его доверчивость делала его уязвимым.","exEn":"His naivety made him vulnerable."},
+{"word":"gedankenlos","ua":"легковажний, необдуманий","ru":"легкомысленный, необдуманный","en":"thoughtless, careless, unthinking","learned":false,"exDe":"Er handelte gedankenlos und bereute es später.","exUa":"Він діяв необдумано і пізніше шкодував про це.","exRu":"Он действовал необдуманно и потом пожалел об этом.","exEn":"He acted thoughtlessly and regretted it later."},
+{"word":"ehe","ua":"перш ніж, до того як","ru":"прежде чем, до того как","en":"before, ere","learned":false,"exDe":"Ehe du gehst, sag mir Bescheid.","exUa":"Перш ніж іти, дай мені знати.","exRu":"Прежде чем уйти, дай мне знать.","exEn":"Before you leave, let me know."},
+{"word":"ordentlich","ua":"акуратний, порядний, справжній","ru":"аккуратный, порядочный, настоящий","en":"neat, tidy, decent, proper","learned":false,"exDe":"Sie ist ordentlich und hält ihr Zimmer immer sauber.","exUa":"Вона акуратна і завжди тримає свою кімнату в чистоті.","exRu":"Она аккуратная и всегда держит свою комнату в чистоте.","exEn":"She is tidy and always keeps her room clean."},
+{"word":"buchstäblich","ua":"буквально, дослівно","ru":"буквально, дословно","en":"literally, word for word","learned":false,"exDe":"Er war buchstäblich sprachlos vor Staunen.","exUa":"Він буквально знімів від здивування.","exRu":"Он буквально онемел от удивления.","exEn":"He was literally speechless with amazement."},
+{"word":"hinunterlaufen","ua":"збігати вниз, текти вниз","ru":"сбегать вниз, течь вниз","en":"to run down, to flow down","learned":false,"exDe":"Die Tränen liefen ihr langsam die Wangen hinunter.","exUa":"Сльози повільно текли по її щоках донизу.","exRu":"Слёзы медленно текли по её щекам вниз.","exEn":"The tears slowly ran down her cheeks."},
+{"word":"unwesentlich","ua":"несуттєвий, незначний","ru":"несущественный, незначительный","en":"insignificant, unimportant, trivial","learned":false,"exDe":"Der Unterschied zwischen den beiden Versionen ist unwesentlich.","exUa":"Різниця між двома версіями незначна.","exRu":"Разница между двумя версиями несущественна.","exEn":"The difference between the two versions is insignificant."},
+{"word":"angesagt","ua":"модний, популярний, трендовий","ru":"модный, популярный, трендовый","en":"trendy, popular, fashionable","learned":false,"exDe":"Dieses Restaurant ist gerade sehr angesagt in der Stadt.","exUa":"Цей ресторан зараз дуже популярний у місті.","exRu":"Этот ресторан сейчас очень популярен в городе.","exEn":"This restaurant is very trendy in the city right now."},
+{"word":"die Vorliebe","ua":"уподобання, пристрасть","ru":"пристрастие, предпочтение","en":"preference, fondness, penchant","learned":false,"exDe":"Er hat eine Vorliebe für klassische Musik.","exUa":"Він має пристрасть до класичної музики.","exRu":"У него пристрастие к классической музыке.","exEn":"He has a fondness for classical music."},
+{"word":"mitunter","ua":"інколи, часом","ru":"иногда, порой","en":"sometimes, occasionally, at times","learned":false,"exDe":"Mitunter vergisst man die wichtigsten Dinge im Leben.","exUa":"Інколи забуваєш найважливіші речі в житті.","exRu":"Порой забываешь самые важные вещи в жизни.","exEn":"Sometimes you forget the most important things in life."},
+{"word":"rätselhaft","ua":"загадковий, таємничий","ru":"загадочный, таинственный","en":"mysterious, enigmatic, puzzling","learned":false,"exDe":"Sein Verschwinden blieb rätselhaft für alle.","exUa":"Його зникнення залишилося загадковим для всіх.","exRu":"Его исчезновение осталось загадочным для всех.","exEn":"His disappearance remained mysterious to everyone."},
+{"word":"ausgesetzt","ua":"підданий, наражений; залишений","ru":"подверженный, подвергнутый; брошенный","en":"exposed to, subjected to; abandoned","learned":false,"exDe":"Die Kinder waren der Kälte stundenlang ausgesetzt.","exUa":"Діти були піддані холоду годинами.","exRu":"Дети были подвергнуты холоду часами.","exEn":"The children were exposed to the cold for hours."},
+{"word":"umschlagen","ua":"перевернутися; різко змінитися","ru":"перевернуться; резко измениться","en":"to turn over; to change abruptly","learned":false,"exDe":"Das Wetter kann in den Bergen schnell umschlagen.","exUa":"Погода в горах може різко змінитися.","exRu":"Погода в горах может резко измениться.","exEn":"The weather in the mountains can change suddenly."},
+{"word":"befangen","ua":"збентежений, упереджений, скутий","ru":"смущённый, предвзятый, скованный","en":"self-conscious, biased, inhibited","learned":false,"exDe":"Er wirkte befangen, als er die Frage beantworten musste.","exUa":"Він виглядав збентеженим, коли мав відповідати на запитання.","exRu":"Он выглядел смущённым, когда ему пришлось отвечать на вопрос.","exEn":"He seemed self-conscious when he had to answer the question."},
+{"word":"herablassend","ua":"зверхній, зневажливий, поблажливий","ru":"снисходительный, высокомерный, покровительственный","en":"condescending, patronizing, disdainful","learned":false,"exDe":"Er sprach in einem herablassenden Ton mit seinen Kollegen.","exUa":"Він розмовляв зі своїми колегами зверхнім тоном.","exRu":"Он разговаривал со своими коллегами снисходительным тоном.","exEn":"He spoke to his colleagues in a condescending tone."},
+{"word":"der Wirt","ua":"господар, власник (закладу); хазяїн","ru":"хозяин, владелец (заведения)","en":"host, landlord, innkeeper","learned":false,"exDe":"Der Wirt begrüßte jeden Gast herzlich an der Tür.","exUa":"Господар сердечно вітав кожного гостя біля дверей.","exRu":"Хозяин сердечно приветствовал каждого гостя у двери.","exEn":"The host warmly greeted every guest at the door."},
+{"word":"jählings","ua":"раптово, несподівано, зненацька","ru":"внезапно, неожиданно, стремительно","en":"suddenly, abruptly, without warning","learned":false,"exDe":"Er hielt jählings inne, als er die Nachricht hörte.","exUa":"Він раптово зупинився, почувши новину.","exRu":"Он внезапно остановился, услышав новость.","exEn":"He stopped abruptly when he heard the news."},
+{"word":"mitnichten","ua":"аж ніяк, зовсім ні, ні в якому разі","ru":"отнюдь нет, вовсе нет, ни в коем случае","en":"by no means, not at all, certainly not","learned":false,"exDe":"Das ist mitnichten so einfach, wie es klingt.","exUa":"Це аж ніяк не так просто, як здається.","exRu":"Это отнюдь не так просто, как кажется.","exEn":"This is by no means as simple as it sounds."},
+{"word":"vorwerfen","ua":"докоряти, звинувачувати, закидати","ru":"упрекать, обвинять, ставить в упрёк","en":"to accuse, to reproach, to blame","learned":false,"exDe":"Er wirft ihr vor, nie ehrlich zu sein.","exUa":"Він докоряє їй у тому, що вона ніколи не буває чесною.","exRu":"Он упрекает её в том, что она никогда не бывает честной.","exEn":"He accuses her of never being honest."},
+{"word":"verabscheuen","ua":"гидувати, ненавидіти, відчувати огиду","ru":"ненавидеть, испытывать отвращение, презирать","en":"to detest, to abhor, to loathe","learned":false,"exDe":"Sie verabscheut jede Form von Gewalt.","exUa":"Вона відчуває огиду до будь-якої форми насильства.","exRu":"Она испытывает отвращение к любой форме насилия.","exEn":"She detests any form of violence."},
+{"word":"träge","ua":"лінивий, млявий, інертний","ru":"ленивый, вялый, инертный","en":"sluggish, lazy, lethargic","learned":false,"exDe":"An Regentagen fühlt er sich immer besonders träge.","exUa":"У дощові дні він завжди почувається особливо млявим.","exRu":"В дождливые дни он всегда чувствует себя особенно вялым.","exEn":"On rainy days he always feels particularly sluggish."},
+{"word":"allerlei","ua":"всілякий, різноманітний, усіляке","ru":"всякий, разнообразный, всякое","en":"all sorts of, various, all kinds of","learned":false,"exDe":"Sie hat allerlei interessante Bücher zu Hause.","exUa":"Вдома у неї є всілякі цікаві книги.","exRu":"Дома у неё есть всякие интересные книги.","exEn":"She has all sorts of interesting books at home."},
+{"word":"niedlich","ua":"милий, чарівний, гарненький","ru":"милый, прелестный, хорошенький","en":"cute, sweet, adorable","learned":false,"exDe":"Das Kätzchen sieht so niedlich aus, dass alle es streicheln wollen.","exUa":"Кошеня виглядає таким милим, що всі хочуть його погладити.","exRu":"Котёнок выглядит таким милым, что все хотят его погладить.","exEn":"The kitten looks so cute that everyone wants to pet it."},
+{"word":"herauskommen","ua":"виходити, з'являтися, виявлятися","ru":"выходить, появляться, выясняться","en":"to come out, to appear, to turn out","learned":false,"exDe":"Wann kommt sein neues Buch heraus?","exUa":"Коли виходить його нова книга?","exRu":"Когда выходит его новая книга?","exEn":"When is his new book coming out?"},
+{"word":"genüsslich","ua":"із задоволенням, насолоджуючись, смакуючи","ru":"с наслаждением, смакуя, с удовольствием","en":"with pleasure, savoring, enjoyably","learned":false,"exDe":"Sie trank genüsslich ihren Morgenkaffee.","exUa":"Вона із задоволенням пила свою ранкову каву.","exRu":"Она с наслаждением пила свой утренний кофе.","exEn":"She savored her morning coffee with pleasure."},
+{"word":"äußerst","ua":"надзвичайно, вкрай, гранично","ru":"чрезвычайно, крайне, предельно","en":"extremely, utterly, exceedingly","learned":false,"exDe":"Die Situation war äußerst schwierig für alle Beteiligten.","exUa":"Ситуація була надзвичайно складною для всіх учасників.","exRu":"Ситуация была крайне сложной для всех участников.","exEn":"The situation was extremely difficult for everyone involved."},
+{"word":"der Abfall","ua":"сміття, відходи; спад, відступництво","ru":"мусор, отходы; спад, отступничество","en":"waste, garbage; decline, apostasy","learned":false,"exDe":"Bitte wirf den Abfall in den richtigen Behälter.","exUa":"Будь ласка, кидай сміття у правильний контейнер.","exRu":"Пожалуйста, выбрасывай мусор в правильный контейнер.","exEn":"Please throw the waste into the correct container."},
+{"word":"mürrisch","ua":"буркотливий, похмурий, незадоволений","ru":"ворчливый, угрюмый, недовольный","en":"grumpy, sullen, gruff","learned":false,"exDe":"Er antwortete mürrisch, ohne aufzublicken.","exUa":"Він відповів буркотливо, не піднімаючи погляду.","exRu":"Он ответил ворчливо, не поднимая взгляда.","exEn":"He answered gruffly without looking up."}
+];
+var _groups=[
+{"title":"📚 Група 1: sichtlich · derart · beinahe · ausrenken · fürchten · geschmeidig · grausam · die Unwissenheit · die Tatsache · hektisch · unmittelbar","sentences":[
+{"de":"Er war sichtlich erschöpft, als er beinahe ausgerenkt wurde, während er sich derart geschmeidig bewegte, dass niemand die Tatsache bemerkte.","ua":"Він був явно виснажений, коли мало не вивихнув суглоб, рухаючись настільки гнучко, що ніхто не помітив цього факту.","ru":"Он был явно измотан, когда едва не вывихнул сустав, двигаясь настолько гибко, что никто не заметил этого факта.","en":"He was visibly exhausted when he almost dislocated a joint, moving so flexibly that nobody noticed this fact."},
+{"de":"Die Unwissenheit war grausam, denn beinahe jeder fürchtete die hektische Stimmung, die sichtlich unmittelbar nach der Nachricht entstand.","ua":"Незнання було жорстоким, адже майже кожен боявся метушливого настрою, який явно виник одразу після новини.","ru":"Незнание было жестоким, ведь почти каждый боялся суетливого настроения, которое явно возникло сразу после новости.","en":"The ignorance was cruel, as almost everyone feared the hectic mood that visibly arose immediately after the news."},
+{"de":"Es war derart hektisch, dass man sich beinahe den Arm ausrenken konnte, und niemand fürchtete die Tatsache, sichtlich überfordert zu wirken.","ua":"Було настільки метушливо, що можна було майже вивихнути руку, і ніхто не боявся явно виглядати перевантаженим.","ru":"Было настолько суетливо, что можно было едва не вывихнуть руку, и никто не боялся явно выглядеть перегруженным.","en":"It was so hectic that one could nearly dislocate an arm, and nobody feared visibly appearing overwhelmed."},
+{"de":"Die Unwissenheit machte alles derart schwer, dass er sich unmittelbar fürchtete und sichtlich hektisch wurde, obwohl er sich grausam beherrschen wollte.","ua":"Незнання зробило все настільки важким, що він одразу злякався і явно занервував, хоча жорстоко намагався стримати себе.","ru":"Незнание сделало всё настолько тяжёлым, что он сразу испугался и явно занервничал, хотя жестоко пытался сдержать себя.","en":"The ignorance made everything so hard that he immediately grew afraid and visibly panicked, though he cruelly tried to control himself."},
+{"de":"Beinahe geschmeidig, aber sichtlich erschöpft, fürchtete er die Tatsache, dass die grausame Unwissenheit ihn unmittelbar in eine hektische Lage gebracht hatte.","ua":"Майже гнучко, але явно виснажено, він боявся факту, що жорстоке незнання безпосередньо кинуло його в метушливу ситуацію.","ru":"Почти гибко, но явно изнурённо, он боялся факта, что жестокое незнание непосредственно ввергло его в суетливую ситуацию.","en":"Almost gracefully, but visibly exhausted, he feared the fact that cruel ignorance had directly thrown him into a hectic situation."}
+]},
+{"title":"🔥 Група 2: kraftvoll · die Gestalt · schlugen · einmal · das Elend","sentences":[
+{"de":"Einmal stand eine kraftvolle Gestalt am Fenster, während die Wellen schlugen und das Elend der Stadt sichtbar wurde.","ua":"Одного разу потужна постать стояла біля вікна, поки хвилі вдаряли й горе міста ставало помітним.","ru":"Однажды мощная фигура стояла у окна, пока волны ударяли и горе города становилось заметным.","en":"Once a powerful figure stood at the window while the waves crashed and the city's misery became visible."},
+{"de":"Die Gestalt war kraftvoll, aber einmal hatte das Elend sie so hart getroffen, dass die Tränen schlugen wie Regen.","ua":"Постать була потужною, але одного разу горе вдарило її так сильно, що сльози лились, як дощ.","ru":"Фигура была мощной, но однажды горе ударило её так сильно, что слёзы лились, как дождь.","en":"The figure was powerful, but once the misery had struck it so hard that the tears fell like rain."},
+{"de":"Einmal versuchte die kraftvolle Gestalt, das Elend zu überwinden, aber die Wellen schlugen immer wieder gegen ihre Hoffnungen.","ua":"Одного разу потужна постать намагалася подолати горе, але хвилі знову й знову вдаряли по її надіям.","ru":"Однажды мощная фигура пыталась преодолеть горе, но волны снова и снова ударяли по её надеждам.","en":"Once the powerful figure tried to overcome the misery, but the waves kept crashing against its hopes."},
+{"de":"Das Elend der Straße schlugen einmal so tief in die Seele der kraftvollen Gestalt, dass sie nicht mehr sprechen konnte.","ua":"Горе вулиці одного разу так глибоко вдарило в душу потужної постаті, що вона більше не могла говорити.","ru":"Горе улицы однажды так глубоко ударило в душу мощной фигуры, что она больше не могла говорить.","en":"The misery of the street once struck so deeply into the soul of the powerful figure that it could no longer speak."},
+{"de":"Kraftvoll und entschlossen stand die Gestalt einmal mitten im Elend, während ringsum die Herzen schlugen vor Angst.","ua":"Потужно і рішуче постать стояла одного разу посеред горя, поки навколо серця билися від страху.","ru":"Мощно и решительно фигура стояла однажды посреди горя, пока вокруг сердца бились от страха.","en":"Powerfully and decisively the figure stood once in the midst of misery, while hearts around it beat with fear."}
+]},
+{"title":"✨ Група 3: künftig · beschleunigen · die Arglosigkeit · gedankenlos · ehe","sentences":[
+{"de":"Ehe er gedankenlos handelte, wollte er künftig seine Arglosigkeit überwinden und das Leben bewusst beschleunigen.","ua":"Перш ніж діяти необдумано, він хотів у майбутньому подолати свою довірливість і свідомо прискорити своє життя.","ru":"Прежде чем действовать необдуманно, он хотел в будущем преодолеть свою доверчивость и осознанно ускорить свою жизнь.","en":"Before acting thoughtlessly, he wanted in the future to overcome his naivety and consciously speed up his life."},
+{"de":"Die Arglosigkeit des Kindes war so groß, dass es gedankenlos handelte, ehe jemand eingreifen konnte, um die Entwicklung zu beschleunigen.","ua":"Довірливість дитини була такою великою, що вона діяла необдумано, перш ніж хтось міг втрутитися та прискорити розвиток подій.","ru":"Доверчивость ребёнка была настолько велика, что он действовал необдуманно, прежде чем кто-то мог вмешаться и ускорить ход событий.","en":"The child's naivety was so great that it acted thoughtlessly before anyone could intervene to speed up developments."},
+{"de":"Künftig wollte er nicht mehr gedankenlos sein, ehe er wichtige Entscheidungen traf, denn seine Arglosigkeit hatte alles beschleunigt.","ua":"У майбутньому він більше не хотів бути необдуманим, перш ніж приймати важливі рішення, адже його довірливість прискорила все.","ru":"В будущем он больше не хотел быть необдуманным, прежде чем принимать важные решения, ведь его доверчивость ускорила всё.","en":"In the future he no longer wanted to be thoughtless before making important decisions, as his naivety had accelerated everything."},
+{"de":"Ehe die Arglosigkeit verschwand, beschleunigte sich alles derart schnell, dass er künftig nie mehr gedankenlos handeln wollte.","ua":"Перш ніж довірливість зникла, все прискорилося настільки швидко, що у майбутньому він більше ніколи не хотів діяти необдумано.","ru":"Прежде чем доверчивость исчезла, всё ускорилось настолько быстро, что в будущем он больше никогда не хотел действовать необдуманно.","en":"Before the naivety disappeared, everything accelerated so fast that in the future he never wanted to act thoughtlessly again."},
+{"de":"Seine gedankenlose Arglosigkeit beschleunigte den Fehler, ehe er ihn bemerkte, und künftig schwor er sich, vorsichtiger zu sein.","ua":"Його необдумана довірливість прискорила помилку, перш ніж він її помітив, і у майбутньому він поклявся бути обережнішим.","ru":"Его необдуманная доверчивость ускорила ошибку, прежде чем он её заметил, и в будущем он поклялся быть осторожнее.","en":"His thoughtless naivety accelerated the mistake before he noticed it, and in the future he swore to be more careful."}
+]},
+{"title":"🌟 Група 4: ordentlich · buchstäblich · hinunterlaufen · unwesentlich","sentences":[
+{"de":"Es war buchstäblich unwesentlich, dass der Regen ordentlich die Straße hinunterlief.","ua":"Було буквально несуттєво, що дощ акуратно стікав вулицею донизу.","ru":"Было буквально несущественно, что дождь аккуратно стекал по улице вниз.","en":"It was literally insignificant that the rain neatly ran down the street."},
+{"de":"Die ordentliche Frau bemerkte buchstäblich jeden unwesentlichen Tropfen, der die Fensterscheibe hinunterlief.","ua":"Акуратна жінка буквально помічала кожну незначну краплю, яка стікала по шибці вниз.","ru":"Аккуратная женщина буквально замечала каждую незначительную каплю, которая стекала по стеклу вниз.","en":"The tidy woman literally noticed every insignificant drop that ran down the windowpane."},
+{"de":"Er lief buchstäblich den Hügel hinunter und hielt das Unwesentliche ordentlich im Kopf.","ua":"Він буквально збіг з пагорба донизу і акуратно тримав у голові все незначне.","ru":"Он буквально сбежал с холма вниз и аккуратно держал в голове всё несущественное.","en":"He literally ran down the hill and neatly kept all the trivial things in his head."},
+{"de":"Buchstäblich jeder unwesentliche Gedanke lief ihm ordentlich durch den Kopf hinunter, bis er verschwand.","ua":"Буквально кожна незначна думка акуратно пробігала в нього через голову донизу, поки не зникала.","ru":"Буквально каждая незначительная мысль аккуратно пробегала у него через голову вниз, пока не исчезала.","en":"Literally every insignificant thought ran neatly through his head until it disappeared."},
+{"de":"Das Wasser lief ordentlich hinunter, und buchstäblich jedes unwesentliche Hindernis wurde weggeschwemmt.","ua":"Вода акуратно стікала донизу, і буквально кожна незначна перешкода була змита.","ru":"Вода аккуратно стекала вниз, и буквально каждое несущественное препятствие было смыто.","en":"The water ran neatly down, and literally every insignificant obstacle was washed away."}
+]},
+{"title":"💫 Група 5: angesagt · die Vorliebe · mitunter · rätselhaft · ausgesetzt · umschlagen","sentences":[
+{"de":"Mitunter ist das Rätselhafteste an einem angesagten Ort, dass man seiner Vorliebe so ausgesetzt ist, bis die Stimmung umschlägt.","ua":"Інколи найзагадковіше в модному місці — те, що так піддаєшся своєму уподобанню, поки настрій різко не змінюється.","ru":"Порой самое загадочное в модном месте — что так подвергаешься своему пристрастию, пока настроение резко не меняется.","en":"Sometimes the most mysterious thing about a trendy place is how exposed you are to your own preference until the mood changes abruptly."},
+{"de":"Seine Vorliebe für rätselhaftes Verhalten war mitunter so angesagt, dass alle, die ihm ausgesetzt waren, innerlich umschlugen.","ua":"Його уподобання до загадкової поведінки було інколи настільки трендовим, що всі, хто йому піддавався, внутрішньо різко змінювалися.","ru":"Его пристрастие к загадочному поведению было порой настолько модным, что все, кто ему подвергался, внутренне резко менялись.","en":"His fondness for mysterious behavior was sometimes so trendy that all who were exposed to it changed inwardly and abruptly."},
+{"de":"Mitunter schlägt die Stimmung um, wenn man einer rätselhaften Vorliebe ausgesetzt wird, die gerade angesagt ist.","ua":"Інколи настрій різко змінюється, коли піддаєшся загадковому уподобанню, яке зараз у тренді.","ru":"Порой настроение резко меняется, когда подвергаешься загадочному пристрастию, которое сейчас в тренде.","en":"Sometimes the mood changes abruptly when you are exposed to a mysterious preference that is currently trendy."},
+{"de":"Das angesagte Café war rätselhaft leer, und mitunter fragte man sich, welcher Vorliebe man dort ausgesetzt war, bevor alles umschlug.","ua":"Модне кафе було загадково порожнє, і інколи думав, якому уподобанню там піддавався, перш ніж усе різко змінилося.","ru":"Модное кафе было загадочно пусто, и порой думал, какому пристрастию там подвергался, прежде чем всё резко изменилось.","en":"The trendy café was mysteriously empty, and sometimes one wondered what preference one was exposed to there before everything changed abruptly."},
+{"de":"Wer einer rätselhaften Vorliebe mitunter ausgesetzt ist, merkt schnell, wie angesagt es sein kann, wenn die Lage umschlägt.","ua":"Той, хто інколи підданий загадковому уподобанню, швидко помічає, наскільки це може бути трендово, коли ситуація різко змінюється.","ru":"Тот, кто порой подвержен загадочному пристрастию, быстро замечает, насколько это может быть модно, когда ситуация резко меняется.","en":"Whoever is sometimes exposed to a mysterious preference quickly notices how trendy it can be when the situation changes abruptly."}
+]},
+{"title":"🎭 Група 6: befangen · herablassend · der Wirt · jählings · mitnichten","sentences":[
+{"de":"Der Wirt wirkte befangen, als der herablassende Gast jählings mitnichten zufrieden war.","ua":"Господар виглядав збентеженим, коли зверхній гість раптово виявився аж ніяк не задоволеним.","ru":"Хозяин выглядел смущённым, когда высокомерный гость внезапно оказался отнюдь не доволен.","en":"The host seemed self-conscious when the condescending guest was suddenly by no means satisfied."},
+{"de":"Mitnichten ließ sich der Wirt von dem herablassenden Blick des Gastes befangen machen, obwohl dieser jählings aufstand.","ua":"Аж ніяк не дозволив господар зверхньому погляду гостя збентежити себе, хоча той раптово встав.","ru":"Отнюдь не позволил хозяин высокомерному взгляду гостя смутить себя, хотя тот внезапно встал.","en":"By no means did the host let the condescending gaze of the guest make him self-conscious, even though the guest suddenly stood up."},
+{"de":"Jählings wurde der Wirt befangen, als der herablassende Fremde mitnichten seinen Namen nennen wollte.","ua":"Господар раптово збентежився, коли зверхній незнайомець аж ніяк не хотів називати своє ім'я.","ru":"Хозяин внезапно смутился, когда высокомерный незнакомец отнюдь не хотел называть своё имя.","en":"Suddenly the host became self-conscious when the condescending stranger refused by any means to give his name."},
+{"de":"Der herablassende Ton des Gastes machte den Wirt befangen, doch jählings schlug die Stimmung um — mitnichten zum Guten.","ua":"Зверхній тон гостя збентежив господаря, але раптово настрій змінився — аж ніяк не на краще.","ru":"Высокомерный тон гостя смутил хозяина, но внезапно настроение изменилось — отнюдь не к лучшему.","en":"The guest's condescending tone made the host self-conscious, but suddenly the mood changed — by no means for the better."},
+{"de":"Befangen und still stand der Wirt da, während der herablassende Mann jählings erklärte, er wolle mitnichten bleiben.","ua":"Збентежений і тихий стояв господар, поки зверхній чоловік раптово заявив, що аж ніяк не хоче залишатися.","ru":"Смущённый и тихий стоял хозяин, пока высокомерный мужчина внезапно заявил, что отнюдь не хочет оставаться.","en":"Self-conscious and silent, the host stood there while the condescending man suddenly declared he had no intention of staying."}
+]},
+{"title":"🌈 Група 7: vorwerfen · verabscheuen · träge · allerlei · niedlich","sentences":[
+{"de":"Er warf ihr allerlei Dinge vor, obwohl sie das träge Verhalten verabscheute und nur niedlich wirken wollte.","ua":"Він докоряв їй за всілякі речі, хоча вона відчувала огиду до млявої поведінки і хотіла лише виглядати милою.","ru":"Он упрекал её за всякие вещи, хотя она испытывала отвращение к вялому поведению и хотела лишь казаться милой.","en":"He blamed her for all sorts of things, although she loathed sluggish behavior and only wanted to seem cute."},
+{"de":"Allerlei niedliche Dinge konnte man ihr nicht vorwerfen, doch ihre träge Art verabscheuten viele.","ua":"Всілякі милі речі не можна було їй закидати, але багато хто відчував огиду до її млявої натури.","ru":"Всякие милые вещи нельзя было ей поставить в упрёк, но многие испытывали отвращение к её вялой натуре.","en":"No one could blame her for all sorts of cute things, but many loathed her sluggish nature."},
+{"de":"Sie verabscheute es, wenn man ihr vorwarf, träge zu sein, dabei liebte sie allerlei niedliche Ablenkungen.","ua":"Вона відчувала огиду, коли їй закидали лінь, хоча насправді вона любила всілякі милі розваги.","ru":"Она испытывала отвращение, когда её упрекали в лени, хотя на самом деле любила всякие милые развлечения.","en":"She loathed it when accused of being sluggish, yet in reality she loved all sorts of cute distractions."},
+{"de":"Träge saß er da, umgeben von allerlei niedlichen Dingen, und konnte niemandem etwas vorwerfen, was er selbst verabscheute.","ua":"Млявий, він сидів, оточений всілякими милими речами, і не міг нікому докоряти за те, що сам ненавидів.","ru":"Вялый, он сидел, окружённый всякими милыми вещами, и не мог никому ставить в упрёк то, что сам ненавидел.","en":"Sluggishly he sat there, surrounded by all sorts of cute things, and could not blame anyone for what he himself loathed."},
+{"de":"Allerlei Vorwürfe verabscheute sie, besonders wenn man ihr vorwarf, zu träge für so niedliche Träume zu sein.","ua":"Вона ненавиділа всілякі докори, особливо коли їй закидали, що вона занадто млява для таких милих мрій.","ru":"Она ненавидела всякие упрёки, особенно когда ей ставили в упрёк, что она слишком вялая для таких милых мечтаний.","en":"She detested all sorts of accusations, especially when blamed for being too sluggish for such cute dreams."}
+]},
+{"title":"🍂 Група 8: herauskommen · genüsslich · äußerst · der Abfall · mürrisch","sentences":[
+{"de":"Äußerst mürrisch kam er heraus und trank genüsslich seinen Kaffee, ohne den Abfall zu bemerken.","ua":"Надзвичайно буркотливий, він вийшов і із задоволенням пив каву, не помічаючи сміття.","ru":"Крайне ворчливый, он вышел и с наслаждением пил кофе, не замечая мусора.","en":"Extremely grumpy, he came out and savored his coffee with pleasure, not noticing the trash."},
+{"de":"Als herauskam, dass der mürrische Mann genüsslich äußerst teuren Wein trank, lag der Abfall noch auf dem Boden.","ua":"Коли виявилося, що буркотливий чоловік із задоволенням смакував надзвичайно дорогий вайн, сміття ще лежало на підлозі.","ru":"Когда выяснилось, что ворчливый мужчина с наслаждением смаковал крайне дорогое вино, мусор ещё лежал на полу.","en":"When it turned out that the grumpy man was savoring an extremely expensive wine with pleasure, the trash was still on the floor."},
+{"de":"Genüsslich aß er, obwohl es äußerst seltsam herauskam, dass er den Abfall einfach ignorierte und mürrisch schwieg.","ua":"Він із задоволенням їв, хоча виявилося надзвичайно дивним, що він просто ігнорував сміття і буркотливо мовчав.","ru":"Он с наслаждением ел, хотя выяснилось крайне странным, что он просто игнорировал мусор и ворчливо молчал.","en":"He ate with pleasure, although it turned out to be extremely strange that he simply ignored the trash and grumpily kept silent."},
+{"de":"Der mürrische Nachbar kam äußerst aufgebracht heraus, als genüsslich jemand seinen Abfall auf die Straße warf.","ua":"Буркотливий сусід надзвичайно обурено вийшов, коли хтось із задоволенням викидав його сміття на вулицю.","ru":"Ворчливый сосед вышел крайне возмущённым, когда кто-то с наслаждением выбрасывал его мусор на улицу.","en":"The grumpy neighbor came out extremely upset when someone was gleefully throwing his trash into the street."},
+{"de":"Es kam äußerst unangenehm heraus: mürrisch und genüsslich zugleich sortierte er den Abfall in der Küche.","ua":"Виявилося надзвичайно неприємно: буркотливий і водночас із задоволенням він сортував сміття на кухні.","ru":"Выяснилось крайне неприятное: ворчливый и одновременно с наслаждением он сортировал мусор на кухне.","en":"It turned out to be extremely unpleasant: grumpily and yet with pleasure, he sorted the trash in the kitchen."}
+]}
+];
+function getTrans(w){return _lang==="ru"?w.ru:(_lang==="en"?w.en:w.ua);}
+function getEx(w){return _lang==="ru"?w.exRu:(_lang==="en"?w.exEn:w.exUa);}
+function getExLabel(){return _lang==="ru"?"Пример:":(_lang==="en"?"Example:":"Приклад:");}
+function getSentTrans(s){return _lang==="ru"?s.ru:(_lang==="en"?s.en:s.ua);}
 function showToast(msg){var t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(function(){t.classList.remove("show");},2200);}
 function confetti(){var c=["#6c63ff","#ff6584","#ffbe0b","#4caf50","#00bcd4"];for(var i=0;i<28;i++){var el=document.createElement("div");el.className="confetti-piece";el.style.cssText="left:"+(Math.random()*100)+"vw;top:-10px;background:"+c[Math.floor(Math.random()*5)]+";animation-delay:"+(Math.random()*0.6)+"s;width:"+(6+Math.random()*8)+"px;height:"+(6+Math.random()*8)+"px;";document.body.appendChild(el);setTimeout(function(){el.remove();},2000);}}
 function updateStats(){var total=0;_groups.forEach(function(g){total+=g.sentences.length;});document.getElementById("stat-total").textContent=_words.length;document.getElementById("stat-learned").textContent=_words.filter(function(w){return w.learned;}).length;document.getElementById("stat-sentences").textContent=total;document.getElementById("stat-streak").textContent=_quizStreak+"🔥";}
-function setLang(l){_lang=l;document.getElementById("lang-ua").classList.toggle("active",l==="ua");document.getElementById("lang-ru").classList.toggle("active",l==="ru");renderWords();renderSentences();var qs=document.getElementById("quiz-section");if(qs&&qs.classList.contains("active"))startQuiz();}
+function setLang(l){_lang=l;document.getElementById("lang-ua").classList.toggle("active",l==="ua");document.getElementById("lang-ru").classList.toggle("active",l==="ru");document.getElementById("lang-en").classList.toggle("active",l==="en");renderWords();renderSentences();var qs=document.getElementById("quiz-section");if(qs&&qs.classList.contains("active"))startQuiz();}
 function switchTab(tab){["words","sentences","quiz"].forEach(function(t){document.getElementById("tab-"+t).classList.toggle("active",t===tab);document.getElementById(t+"-section").classList.toggle("active",t===tab);});if(tab==="quiz")startQuiz();}
 function renderWords(){
-  var q=(document.getElementById("searchInput").value||"").toLowerCase();
-  var c=document.getElementById("cards");
-  c.innerHTML="";
-  var f=_words.filter(function(w){return !q||w.word.toLowerCase().includes(q)||getTrans(w).toLowerCase().includes(q);});
-  if(!f.length){c.innerHTML='<div class="empty">Нічого не знайдено 🤷</div>';return;}
-  f.forEach(function(item){
-    var i=_words.indexOf(item);
-    var card=document.createElement("div");
-    card.className="card"+(item.learned?" learned":"");
-    var delBtn=document.createElement("button");
-    delBtn.className="delete-btn";
-    delBtn.textContent="✕";
-    delBtn.addEventListener("click",function(e){e.stopPropagation();_words.splice(i,1);renderWords();});
-    var wordDiv=document.createElement("div");
-    wordDiv.className="word";
-    wordDiv.textContent=item.word;
-    var transDiv=document.createElement("div");
-    transDiv.className="translation";
-    transDiv.textContent=getTrans(item);
-    var exDiv=document.createElement("div");
-    exDiv.className="example";
-    var exLabel=document.createElement("span");
-    exLabel.className="ex-label";
-    exLabel.textContent=getExLabel();
-    exDiv.appendChild(exLabel);
-    exDiv.appendChild(document.createTextNode(getEx(item)));
-    var actDiv=document.createElement("div");
-    actDiv.className="card-actions";
-    var learnBtn=document.createElement("button");
-    learnBtn.className="btn-learn"+(item.learned?" done":"");
-    learnBtn.textContent=item.learned?"✅ Вивчено":"📌 Вивчив";
-    learnBtn.addEventListener("click",function(e){e.stopPropagation();_words[i].learned=!_words[i].learned;if(_words[i].learned){confetti();showToast("🎉 Відмічено як вивчене!");}renderWords();});
-    actDiv.appendChild(learnBtn);
-    card.appendChild(delBtn);
-    card.appendChild(wordDiv);
-    card.appendChild(transDiv);
-    card.appendChild(exDiv);
-    if(item.learned){var badge=document.createElement("div");badge.className="learned-badge";badge.textContent="✅ Вивчено";card.appendChild(badge);}else{var hint=document.createElement("div");hint.className="hint";hint.textContent="👆 натисни";card.appendChild(hint);}
-    card.appendChild(actDiv);
-    card.addEventListener("click",function(){this.classList.toggle("flipped");var h=this.querySelector(".hint");if(h)h.style.display=this.classList.contains("flipped")?"none":"block";});
-    c.appendChild(card);
-  });
-  updateStats();
+var q=(document.getElementById("searchInput").value||"").toLowerCase();
+var c=document.getElementById("cards");
+c.innerHTML="";
+var f=_words.filter(function(w){return !q||w.word.toLowerCase().includes(q)||getTrans(w).toLowerCase().includes(q);});
+if(!f.length){c.innerHTML='<div class="empty">Нічого не знайдено 🤷</div>';return;}
+f.forEach(function(item){
+var i=_words.indexOf(item);
+var card=document.createElement("div");
+card.className="card"+(item.learned?" learned":"");
+var delBtn=document.createElement("button");
+delBtn.className="delete-btn";
+delBtn.textContent="✕";
+delBtn.addEventListener("click",function(e){e.stopPropagation();_words.splice(i,1);renderWords();});
+var wordDiv=document.createElement("div");
+wordDiv.className="word";
+wordDiv.textContent=item.word;
+var transDiv=document.createElement("div");
+transDiv.className="translation";
+transDiv.textContent=getTrans(item);
+var exDiv=document.createElement("div");
+exDiv.className="example";
+var exLabel=document.createElement("span");
+exLabel.className="ex-label";
+exLabel.textContent=getExLabel();
+exDiv.appendChild(exLabel);
+exDiv.appendChild(document.createTextNode(getEx(item)));
+var actDiv=document.createElement("div");
+actDiv.className="card-actions";
+var learnBtn=document.createElement("button");
+learnBtn.className="btn-learn"+(item.learned?" done":"");
+learnBtn.textContent=item.learned?"✅ Вивчено":"📌 Вивчив";
+learnBtn.addEventListener("click",function(e){e.stopPropagation();_words[i].learned=!_words[i].learned;if(_words[i].learned){confetti();showToast("🎉 Відмічено як вивчене!");}renderWords();});
+actDiv.appendChild(learnBtn);
+card.appendChild(delBtn);
+card.appendChild(wordDiv);
+card.appendChild(transDiv);
+card.appendChild(exDiv);
+if(item.learned){var badge=document.createElement("div");badge.className="learned-badge";badge.textContent="✅ Вивчено";card.appendChild(badge);}else{var hint=document.createElement("div");hint.className="hint";hint.textContent="👆 натисни";card.appendChild(hint);}
+card.appendChild(actDiv);
+card.addEventListener("click",function(){this.classList.toggle("flipped");var h=this.querySelector(".hint");if(h)h.style.display=this.classList.contains("flipped")?"none":"block";});
+c.appendChild(card);
+});
+updateStats();
 }
-function addWord(){var w=document.getElementById("wordInput").value.trim(),ua=document.getElementById("transUaInput").value.trim(),ru=document.getElementById("transRuInput").value.trim();if(!w)return;_words.push({word:w,ua:ua||"—",ru:ru||"—",learned:false,exDe:"",exUa:"",exRu:""});document.getElementById("wordInput").value="";document.getElementById("transUaInput").value="";document.getElementById("transRuInput").value="";showToast("✅ Слово додано!");renderWords();}
+function addWord(){var w=document.getElementById("wordInput").value.trim(),ua=document.getElementById("transUaInput").value.trim(),ru=document.getElementById("transRuInput").value.trim(),en=document.getElementById("transEnInput").value.trim();if(!w)return;_words.push({word:w,ua:ua||"—",ru:ru||"—",en:en||"—",learned:false,exDe:"",exUa:"",exRu:"",exEn:""});document.getElementById("wordInput").value="";document.getElementById("transUaInput").value="";document.getElementById("transRuInput").value="";document.getElementById("transEnInput").value="";showToast("✅ Слово додано!");renderWords();}
 function renderSentences(){
-  var wrap=document.getElementById("sentences-wrap");
-  wrap.innerHTML="";
-  _groups.forEach(function(group,gi){
-    var sec=document.createElement("div");
-    sec.style.marginBottom="28px";
-    var title=document.createElement("div");
-    title.className="group-title";
-    title.textContent=group.title;
-    sec.appendChild(title);
-    var nav=document.createElement("div");
-    nav.className="sent-nav";
-    var btnPrev=document.createElement("button");
-    btnPrev.textContent="←";
-    var counter=document.createElement("span");
-    counter.className="sent-counter";
-    var btnNext=document.createElement("button");
-    btnNext.textContent="→";
-    nav.appendChild(btnPrev);
-    nav.appendChild(counter);
-    nav.appendChild(btnNext);
-    sec.appendChild(nav);
-    var cardArea=document.createElement("div");
-    sec.appendChild(cardArea);
-    wrap.appendChild(sec);
-    var idx=0;
-    function showCard(){
-      var s=group.sentences[idx];
-      counter.textContent=(idx+1)+" / "+group.sentences.length;
-      btnPrev.disabled=(idx===0);
-      btnNext.disabled=(idx===group.sentences.length-1);
-      cardArea.innerHTML="";
-      var card=document.createElement("div");
-      card.className="sentence-card";
-      var numDiv=document.createElement("div");
-      numDiv.className="num";
-      numDiv.textContent="№ "+(idx+1);
-      var deDiv=document.createElement("div");
-      deDiv.className="de";
-      deDiv.textContent=s.de;
-      var transDiv=document.createElement("div");
-      transDiv.className="trans";
-      transDiv.textContent=getSentTrans(s);
-      var hintDiv=document.createElement("div");
-      hintDiv.className="s-hint";
-      hintDiv.textContent="👆 натисни, щоб побачити переклад";
-      card.appendChild(numDiv);
-      card.appendChild(deDiv);
-      card.appendChild(transDiv);
-      card.appendChild(hintDiv);
-      card.addEventListener("click",function(){this.classList.toggle("flipped");});
-      cardArea.appendChild(card);
-    }
-    btnPrev.addEventListener("click",function(){if(idx>0){idx--;showCard();}});
-    btnNext.addEventListener("click",function(){if(idx<group.sentences.length-1){idx++;showCard();}});
-    showCard();
-  });
-  updateStats();
+var wrap=document.getElementById("sentences-wrap");
+wrap.innerHTML="";
+_groups.forEach(function(group,gi){
+var sec=document.createElement("div");
+sec.style.marginBottom="28px";
+var title=document.createElement("div");
+title.className="group-title";
+title.textContent=group.title;
+sec.appendChild(title);
+var nav=document.createElement("div");
+nav.className="sent-nav";
+var btnPrev=document.createElement("button");
+btnPrev.textContent="←";
+var counter=document.createElement("span");
+counter.className="sent-counter";
+var btnNext=document.createElement("button");
+btnNext.textContent="→";
+nav.appendChild(btnPrev);
+nav.appendChild(counter);
+nav.appendChild(btnNext);
+sec.appendChild(nav);
+var cardArea=document.createElement("div");
+sec.appendChild(cardArea);
+wrap.appendChild(sec);
+var idx=0;
+function showCard(){
+var s=group.sentences[idx];
+counter.textContent=(idx+1)+" / "+group.sentences.length;
+btnPrev.disabled=(idx===0);
+btnNext.disabled=(idx===group.sentences.length-1);
+cardArea.innerHTML="";
+var card=document.createElement("div");
+card.className="sentence-card";
+var numDiv=document.createElement("div");
+numDiv.className="num";
+numDiv.textContent="№ "+(idx+1);
+var deDiv=document.createElement("div");
+deDiv.className="de";
+deDiv.textContent=s.de;
+var transDiv=document.createElement("div");
+transDiv.className="trans";
+transDiv.textContent=getSentTrans(s);
+var hintDiv=document.createElement("div");
+hintDiv.className="s-hint";
+hintDiv.textContent="👆 натисни, щоб побачити переклад";
+card.appendChild(numDiv);
+card.appendChild(deDiv);
+card.appendChild(transDiv);
+card.appendChild(hintDiv);
+card.addEventListener("click",function(){this.classList.toggle("flipped");});
+cardArea.appendChild(card);
+}
+btnPrev.addEventListener("click",function(){if(idx>0){idx--;showCard();}});
+btnNext.addEventListener("click",function(){if(idx<group.sentences.length-1){idx++;showCard();}});
+showCard();
+});
+updateStats();
 }
 function startQuiz(){
-  var u=_words.filter(function(w){return !w.learned;});
-  if(u.length<2){
-    var area=document.getElementById("quiz-area");
-    area.innerHTML="";
-    var qcard=document.createElement("div");
-    qcard.className="quiz-card";
-    var qq=document.createElement("div");
-    qq.className="quiz-question";
-    qq.textContent="🎉 Всі слова вивчені!";
-    qcard.appendChild(qq);
-    area.appendChild(qcard);
-    var btns=document.createElement("div");
-    btns.className="quiz-btns";
-    var b=document.createElement("button");
-    b.className="btn-show";
-    b.textContent="← До слів";
-    b.addEventListener("click",function(){switchTab("words");});
-    btns.appendChild(b);
-    area.appendChild(btns);
-    return;
-  }
-  _quizOrder=u.map(function(w){return _words.indexOf(w);}).sort(function(){return Math.random()-0.5;});
-  _quizIndex=0;_quizScore=0;
-  showQuizCard();
+var u=_words.filter(function(w){return !w.learned;});
+if(u.length<2){
+var area=document.getElementById("quiz-area");
+area.innerHTML="";
+var qcard=document.createElement("div");
+qcard.className="quiz-card";
+var qq=document.createElement("div");
+qq.className="quiz-question";
+qq.textContent="🎉 Всі слова вивчені!";
+qcard.appendChild(qq);
+area.appendChild(qcard);
+var btns=document.createElement("div");
+btns.className="quiz-btns";
+var b=document.createElement("button");
+b.className="btn-show";
+b.textContent="← До слів";
+b.addEventListener("click",function(){switchTab("words");});
+btns.appendChild(b);
+area.appendChild(btns);
+return;
+}
+_quizOrder=u.map(function(w){return _words.indexOf(w);}).sort(function(){return Math.random()-0.5;});
+_quizIndex=0;_quizScore=0;
+showQuizCard();
 }
 function showQuizCard(){
-  var area=document.getElementById("quiz-area");
-  area.innerHTML="";
-  if(_quizIndex>=_quizOrder.length){
-    var pct=Math.round((_quizScore/_quizOrder.length)*100);
-    var qcard=document.createElement("div");qcard.className="quiz-card";
-    var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=_quizScore+"/"+_quizOrder.length;qcard.appendChild(qq);
-    var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent=(pct>=80?"🔥 Відмінно!":pct>=50?"👍 Непогано!":"💪 Продовжуй!")+" "+pct+"%";qcard.appendChild(qs);
-    var pb=document.createElement("div");pb.className="progress-bar";var pf=document.createElement("div");pf.className="progress-fill";pf.style.width=pct+"%";pb.appendChild(pf);qcard.appendChild(pb);
-    area.appendChild(qcard);
-    var btns=document.createElement("div");btns.className="quiz-btns";
-    var b1=document.createElement("button");b1.className="btn-show";b1.textContent="🔄 Ще раз";b1.addEventListener("click",startQuiz);btns.appendChild(b1);
-    var b2=document.createElement("button");b2.className="btn-correct";b2.textContent="← До слів";b2.addEventListener("click",function(){switchTab("words");});btns.appendChild(b2);
-    area.appendChild(btns);
-    if(pct>=80)confetti();
-    return;
-  }
-  var w=_words[_quizOrder[_quizIndex]];
-  var pct=Math.round((_quizIndex/_quizOrder.length)*100);
-  var prog=document.createElement("div");prog.className="quiz-progress";prog.textContent=(_quizIndex+1)+" / "+_quizOrder.length;area.appendChild(prog);
-  var score=document.createElement("div");score.className="quiz-score";score.textContent="✅ "+_quizScore+" вірних | 🔥 "+_quizStreak+" підряд";area.appendChild(score);
-  var pb=document.createElement("div");pb.className="progress-bar";var pf=document.createElement("div");pf.className="progress-fill";pf.style.width=pct+"%";pb.appendChild(pf);area.appendChild(pb);
-  var qcard=document.createElement("div");qcard.className="quiz-card";
-  var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent="Як перекладається?";qcard.appendChild(qs);
-  var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=w.word;qcard.appendChild(qq);
-  var ans=document.createElement("div");ans.className="quiz-answer";ans.id="quiz-ans";
-  ans.textContent=getTrans(w);
-  var exem=document.createElement("em");exem.style.cssText="font-size:12px;color:#aaa;display:block;margin-top:6px";exem.textContent=getEx(w);ans.appendChild(exem);
-  qcard.appendChild(ans);
-  area.appendChild(qcard);
-  var btns=document.createElement("div");btns.className="quiz-btns";
-  var bShow=document.createElement("button");bShow.className="btn-show";bShow.textContent="👁 Показати";
-  var bOk=document.createElement("button");bOk.className="btn-correct";bOk.textContent="✅ Знав";bOk.style.display="none";
-  var bNo=document.createElement("button");bNo.className="btn-wrong";bNo.textContent="❌ Не знав";bNo.style.display="none";
-  bShow.addEventListener("click",function(){ans.style.display="block";bShow.style.display="none";bOk.style.display="inline-block";bNo.style.display="inline-block";});
-  bOk.addEventListener("click",function(){_quizScore++;_quizStreak++;showToast("🎉 Правильно!");if(_quizStreak%3===0)confetti();updateStats();_quizIndex++;setTimeout(showQuizCard,400);});
-  bNo.addEventListener("click",function(){_quizStreak=0;showToast("❌ Наступного разу!");updateStats();_quizIndex++;setTimeout(showQuizCard,400);});
-  btns.appendChild(bShow);btns.appendChild(bOk);btns.appendChild(bNo);
-  area.appendChild(btns);
+var area=document.getElementById("quiz-area");
+area.innerHTML="";
+if(_quizIndex>=_quizOrder.length){
+var pct=Math.round((_quizScore/_quizOrder.length)*100);
+var qcard=document.createElement("div");qcard.className="quiz-card";
+var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=_quizScore+"/"+_quizOrder.length;qcard.appendChild(qq);
+var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent=(pct>=80?"🔥 Відмінно!":pct>=50?"👍 Непогано!":"💪 Продовжуй!")+" "+pct+"%";qcard.appendChild(qs);
+var pb=document.createElement("div");pb.className="progress-bar";var pf=document.createElement("div");pf.className="progress-fill";pf.style.width=pct+"%";pb.appendChild(pf);qcard.appendChild(pb);
+area.appendChild(qcard);
+var btns=document.createElement("div");btns.className="quiz-btns";
+var b1=document.createElement("button");b1.className="btn-show";b1.textContent="🔄 Ще раз";b1.addEventListener("click",startQuiz);btns.appendChild(b1);
+var b2=document.createElement("button");b2.className="btn-correct";b2.textContent="← До слів";b2.addEventListener("click",function(){switchTab("words");});btns.appendChild(b2);
+area.appendChild(btns);
+if(pct>=80)confetti();
+return;
+}
+var w=_words[_quizOrder[_quizIndex]];
+var pct=Math.round((_quizIndex/_quizOrder.length)*100);
+var prog=document.createElement("div");prog.className="quiz-progress";prog.textContent=(_quizIndex+1)+" / "+_quizOrder.length;area.appendChild(prog);
+var score=document.createElement("div");score.className="quiz-score";score.textContent="✅ "+_quizScore+" вірних | 🔥 "+_quizStreak+" підряд";area.appendChild(score);
+var pb=document.createElement("div");pb.className="progress-bar";var pf=document.createElement("div");pf.className="progress-fill";pf.style.width=pct+"%";pb.appendChild(pf);area.appendChild(pb);
+var qcard=document.createElement("div");qcard.className="quiz-card";
+var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent="Як перекладається?";qcard.appendChild(qs);
+var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=w.word;qcard.appendChild(qq);
+var ans=document.createElement("div");ans.className="quiz-answer";ans.id="quiz-ans";
+ans.textContent=getTrans(w);
+var exem=document.createElement("em");exem.style.cssText="font-size:12px;color:#aaa;display:block;margin-top:6px";exem.textContent=getEx(w);ans.appendChild(exem);
+qcard.appendChild(ans);
+area.appendChild(qcard);
+var btns=document.createElement("div");btns.className="quiz-btns";
+var bShow=document.createElement("button");bShow.className="btn-show";bShow.textContent="👁 Показати";
+var bOk=document.createElement("button");bOk.className="btn-correct";bOk.textContent="✅ Знав";bOk.style.display="none";
+var bNo=document.createElement("button");bNo.className="btn-wrong";bNo.textContent="❌ Не знав";bNo.style.display="none";
+bShow.addEventListener("click",function(){ans.style.display="block";bShow.style.display="none";bOk.style.display="inline-block";bNo.style.display="inline-block";});
+bOk.addEventListener("click",function(){_quizScore++;_quizStreak++;showToast("🎉 Правильно!");if(_quizStreak%3===0)confetti();updateStats();_quizIndex++;setTimeout(showQuizCard,400);});
+bNo.addEventListener("click",function(){_quizStreak=0;showToast("❌ Наступного разу!");updateStats();_quizIndex++;setTimeout(showQuizCard,400);});
+btns.appendChild(bShow);btns.appendChild(bOk);btns.appendChild(bNo);
+area.appendChild(btns);
 }
 renderWords();renderSentences();updateStats();
 </script>
-
 <script>
 (function(){
-  function _save(){try{localStorage.setItem('jane_words',JSON.stringify(_words));localStorage.setItem('jane_groups',JSON.stringify(_groups));}catch(e){}}
-  function _load(){
-    try{
-      var sw=localStorage.getItem('jane_words');
-      var sg=localStorage.getItem('jane_groups');
-      if(sw){var pw=JSON.parse(sw);var orig=_words.map(function(w){return w.word;});pw.forEach(function(w){var i=orig.indexOf(w.word);if(i===-1){_words.push(w);}else{_words[i].learned=w.learned;}});}
-      if(sg){var pg=JSON.parse(sg);var origT=_groups.map(function(g){return g.title;});pg.forEach(function(g){if(origT.indexOf(g.title)===-1){_groups.push(g);}});}
-    }catch(e){}
-  }
-  var _oa=window.addWord;window.addWord=function(){_oa();_save();};
-  var _or=window.renderWords;window.renderWords=function(){_or();document.querySelectorAll('.delete-btn').forEach(function(b){b.addEventListener('click',function(){setTimeout(_save,100);});});document.querySelectorAll('.btn-learn').forEach(function(b){b.addEventListener('click',function(){setTimeout(_save,100);});});};
-  _load();renderWords();renderSentences();updateStats();
+function _save(){try{localStorage.setItem('jane_words',JSON.stringify(_words));localStorage.setItem('jane_groups',JSON.stringify(_groups));}catch(e){}}
+function _load(){
+try{
+var sw=localStorage.getItem('jane_words');
+var sg=localStorage.getItem('jane_groups');
+if(sw){var pw=JSON.parse(sw);var orig=_words.map(function(w){return w.word;});pw.forEach(function(w){var i=orig.indexOf(w.word);if(i===-1){_words.push(w);}else{_words[i].learned=w.learned;}});}
+if(sg){var pg=JSON.parse(sg);var origT=_groups.map(function(g){return g.title;});pg.forEach(function(g){if(origT.indexOf(g.title)===-1){_groups.push(g);}});}
+}catch(e){}
+}
+var _oa=window.addWord;window.addWord=function(){_oa();_save();};
+var _or=window.renderWords;window.renderWords=function(){_or();document.querySelectorAll('.delete-btn').forEach(function(b){b.addEventListener('click',function(){setTimeout(_save,100);});});document.querySelectorAll('.btn-learn').forEach(function(b){b.addEventListener('click',function(){setTimeout(_save,100);});});};
+_load();renderWords();renderSentences();updateStats();
 })();
 </script>
 </body>
