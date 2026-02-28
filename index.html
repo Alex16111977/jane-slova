@@ -541,28 +541,59 @@ function renderEnSentences(){
   var wrap = document.getElementById('en-sent-wrap');
   if(!wrap) return;
   var lang = _lang;
-  var words = _enWords.filter(function(w){ return w.exEn && w.exEn.length > 0; });
-  if(words.length === 0){
-    wrap.innerHTML = '<p style="text-align:center;color:#888;margin-top:40px;">No sentences yet. Add words with example sentences.</p>';
-    return;
-  }
-  var html = '';
-  words.forEach(function(w){
-    var trans = lang==='ru' ? w.ru : (lang==='de' ? w.de : w.ua);
-    var exTrans = lang==='ru' ? w.exRu : (lang==='de' ? w.exDe : w.exUa);
-    html += '<div class="sent-card" style="background:white;border-radius:14px;padding:18px 22px;margin-bottom:14px;box-shadow:0 2px 8px rgba(21,101,192,0.08);border-left:4px solid #1565c0;">';
-    html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">';
-    html += '<span style="font-size:16px;font-weight:700;color:#1565c0;">'+w.word+'</span>';
-    html += '<span style="font-size:13px;color:#888;">— '+trans+'</span>';
-    html += '</div>';
-    html += '<div style="font-size:15px;font-weight:600;color:#222;margin-bottom:6px;">'+w.exEn+'</div>';
-    if(exTrans){
-      html += '<div style="font-size:13px;color:#555;font-style:italic;">'+exTrans+'</div>';
+
+  var groups = [
+    {
+      title: lang==='ru' ? 'История 1: Карьера' : (lang==='de' ? 'Geschichte 1: Karriere' : (lang==='ua' ? 'Історія 1: Кар'єра' : 'Story 1: Career')),
+      en: 'She is a <b>well-known</b> designer who decided to <b>arrange</b> her own studio <b>in order to</b> work freely. Her projects <b>include</b> logos, websites and illustrations. <b>Besides</b> design, she also teaches online courses.',
+      ua: 'Вона — <b>відома</b> дизайнерка, яка вирішила <b>організувати</b> власну студію <b>для того щоб</b> працювати вільно. Її проєкти <b>включають</b> логотипи, сайти та ілюстрації. <b>Крім того</b>, вона також викладає онлайн-курси.',
+      ru: 'Она — <b>известный</b> дизайнер, которая решила <b>организовать</b> собственную студию <b>для того чтобы</b> работать свободно. Её проекты <b>включают</b> логотипы, сайты и иллюстрации. <b>Кроме того</b>, она также ведёт онлайн-курсы.',
+      de: 'Sie ist eine <b>bekannte</b> Designerin, die beschlossen hat, ein eigenes Studio zu <b>arrangieren</b>, <b>um</b> frei arbeiten zu können. Ihre Projekte <b>beinhalten</b> Logos, Websites und Illustrationen. <b>Außerdem</b> gibt sie Online-Kurse.'
+    },
+    {
+      title: lang==='ru' ? 'История 2: Путешествие' : (lang==='de' ? 'Geschichte 2: Reise' : (lang==='ua' ? 'Історія 2: Подорож' : 'Story 2: Travel')),
+      en: 'Tom wanted to visit a <b>well-known</b> city in Europe, so he started to <b>arrange</b> his trip <b>in order to</b> save money. His travel plan did <b>include</b> museums and local food. <b>Besides</b> sightseeing, he also planned to meet local friends.',
+      ua: 'Том хотів відвідати <b>відоме</b> місто в Європі, тому почав <b>організовувати</b> свою подорож <b>для того щоб</b> зекономити гроші. Його план <b>включав</b> музеї та місцеву кухню. <b>Крім екскурсій</b>, він також планував зустрітися з місцевими друзями.',
+      ru: 'Том хотел посетить <b>известный</b> город в Европе, поэтому начал <b>организовывать</b> свою поездку <b>для того чтобы</b> сэкономить деньги. Его план <b>включал</b> музеи и местную кухню. <b>Кроме</b> экскурсий, он также планировал встретиться с местными друзьями.',
+      de: 'Tom wollte eine <b>bekannte</b> Stadt in Europa besuchen und begann, seine Reise zu <b>arrangieren</b>, <b>um</b> Geld zu sparen. Sein Reiseplan <b>beinhaltete</b> Museen und lokale Küche. <b>Außerdem</b> plante er, lokale Freunde zu treffen.'
+    },
+    {
+      title: lang==='ru' ? 'История 3: Учёба' : (lang==='de' ? 'Geschichte 3: Studium' : (lang==='ua' ? 'Історія 3: Навчання' : 'Story 3: Studies')),
+      en: 'Anna reads books by <b>well-known</b> authors every week <b>in order to</b> improve her English. Her reading list <b>includes</b> novels, articles and short stories. <b>Besides</b> reading, she tries to <b>arrange</b> conversations with native speakers.',
+      ua: 'Анна щотижня читає книги <b>відомих</b> авторів <b>для того щоб</b> покращити свою англійську. Її список для читання <b>включає</b> романи, статті та оповідання. <b>Крім читання</b>, вона намагається <b>організовувати</b> розмови з носіями мови.',
+      ru: 'Анна каждую неделю читает книги <b>известных</b> авторов <b>для того чтобы</b> улучшить свой английский. Её список для чтения <b>включает</b> романы, статьи и рассказы. <b>Кроме</b> чтения, она старается <b>организовывать</b> разговоры с носителями языка.',
+      de: 'Anna liest jede Woche Bücher <b>bekannter</b> Autoren, <b>um</b> ihr Englisch zu verbessern. Ihre Leseliste <b>beinhaltet</b> Romane, Artikel und Kurzgeschichten. <b>Außerdem</b> versucht sie, Gespräche mit Muttersprachlern zu <b>arrangieren</b>.'
     }
+  ];
+
+  var wordsLabel = lang==='ru' ? 'Слова в тексте' : (lang==='de' ? 'Wörter im Text' : (lang==='ua' ? 'Слова в тексті' : 'Words used'));
+  var wordsList = '<span style="background:#e3f0ff;color:#1565c0;border-radius:8px;padding:2px 8px;font-size:12px;margin:2px;display:inline-block;">include</span><span style="background:#e3f0ff;color:#1565c0;border-radius:8px;padding:2px 8px;font-size:12px;margin:2px;display:inline-block;">besides</span><span style="background:#e3f0ff;color:#1565c0;border-radius:8px;padding:2px 8px;font-size:12px;margin:2px;display:inline-block;">well-known</span><span style="background:#e3f0ff;color:#1565c0;border-radius:8px;padding:2px 8px;font-size:12px;margin:2px;display:inline-block;">arrange</span><span style="background:#e3f0ff;color:#1565c0;border-radius:8px;padding:2px 8px;font-size:12px;margin:2px;display:inline-block;">in order to</span>';
+
+  var html = '<div style="max-width:760px;margin:0 auto;">';
+  html += '<div style="text-align:center;margin-bottom:20px;">';
+  html += '<div style="font-size:13px;color:#888;margin-bottom:8px;">'+wordsLabel+':</div>';
+  html += wordsList;
+  html += '</div>';
+
+  groups.forEach(function(g, idx){
+    var text = lang==='ru' ? g.ru : (lang==='de' ? g.de : (lang==='ua' ? g.ua : g.en));
+    var title = lang==='ru' ? g.title.replace('История','История') : g.title;
+    // re-compute title with correct lang
+    var titles = ['Story 1: Career','Story 2: Travel','Story 3: Studies'];
+    var titlesUA = ['Історія 1: Кар'єра','Історія 2: Подорож','Історія 3: Навчання'];
+    var titlesRU = ['История 1: Карьера','История 2: Путешествие','История 3: Учёба'];
+    var titlesDE = ['Geschichte 1: Karriere','Geschichte 2: Reise','Geschichte 3: Studium'];
+    var t = lang==='ru' ? titlesRU[idx] : (lang==='de' ? titlesDE[idx] : (lang==='ua' ? titlesUA[idx] : titles[idx]));
+    html += '<div style="background:white;border-radius:16px;padding:22px 26px;margin-bottom:18px;box-shadow:0 2px 12px rgba(21,101,192,0.1);border-left:5px solid #1565c0;">';
+    html += '<div style="font-size:14px;font-weight:700;color:#1565c0;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.5px;">'+t+'</div>';
+    html += '<div style="font-size:15px;line-height:1.8;color:#222;">'+text+'</div>';
     html += '</div>';
   });
+
+  html += '</div>';
   wrap.innerHTML = html;
 }
+
 function renderEnWords(){
   var q=(document.getElementById("enSearchInput").value||"").toLowerCase();
   var c=document.getElementById("en-cards");c.innerHTML="";
