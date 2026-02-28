@@ -226,6 +226,7 @@ h1{text-align:center;color:#3a3a6e;margin-bottom:4px;font-size:26px;}
     <button class="en-tab-btn active" id="en-tab-words" onclick="switchEnTab('words')">🔤 Words</button>
     <button class="en-tab-btn en-repeat-tab" id="en-tab-repeat" onclick="switchEnTab('repeat')">🔁 Repeat <span class="en-repeat-count" id="en-repeat-count">0</span></button>
     <button class="en-tab-btn" id="en-tab-quiz" onclick="switchEnTab('quiz')">🎯 Quiz</button>
+    <button class="en-tab-btn" id="en-tab-sent" onclick="switchEnTab('sent')">📖 Sentences</button>
   </div>
   <div class="section active" id="en-words-section">
     <div class="search-bar"><input type="text" id="enSearchInput" placeholder="🔍 Search words..." oninput="renderEnWords()"/></div>
@@ -240,6 +241,7 @@ h1{text-align:center;color:#3a3a6e;margin-bottom:4px;font-size:26px;}
   </div>
   <div class="section" id="en-repeat-section"><div id="en-repeat-inner"></div></div>
   <div class="section" id="en-quiz-section"><div class="quiz-area" id="en-quiz-area"></div></div>
+  <div class="section" id="en-sent-section"><div class="sentences-wrap" id="en-sent-wrap"></div></div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -522,15 +524,45 @@ function getEnExLabel(){return _lang==="ru"?"Пример:":(_lang==="en"?"DE:":
 /* ======= EN TABS ======= */
 function switchEnTab(tab){
   _curEnTab=tab;
-  ["words","repeat","quiz"].forEach(function(t){
-    document.getElementById("en-tab-"+t).classList.toggle("active",t===tab);
-    document.getElementById("en-"+t+"-section").classList.toggle("active",t===tab);
+  ["words","repeat","quiz","sent"].forEach(t=>{
+    var s=document.getElementById("en-"+t+"-section");
+    if(s) s.classList.toggle("active",t===tab);
+    var b=document.getElementById("en-tab-"+t);
+    if(b) b.classList.toggle("active",t===tab);
   });
-  if(tab==="quiz")startEnQuiz();
-  if(tab==="repeat")renderEnRepeat();
+  if(tab==="words") renderEnWords();
+  if(tab==="repeat") renderEnRepeat();
+  if(tab==="quiz") renderEnQuiz();
+  if(tab==="sent") renderEnSentences();
 }
 
 /* ======= EN WORDS ======= */
+function renderEnSentences(){
+  var wrap = document.getElementById('en-sent-wrap');
+  if(!wrap) return;
+  var lang = _lang;
+  var words = _enWords.filter(function(w){ return w.exEn && w.exEn.length > 0; });
+  if(words.length === 0){
+    wrap.innerHTML = '<p style="text-align:center;color:#888;margin-top:40px;">No sentences yet. Add words with example sentences.</p>';
+    return;
+  }
+  var html = '';
+  words.forEach(function(w){
+    var trans = lang==='ru' ? w.ru : (lang==='de' ? w.de : w.ua);
+    var exTrans = lang==='ru' ? w.exRu : (lang==='de' ? w.exDe : w.exUa);
+    html += '<div class="sent-card" style="background:white;border-radius:14px;padding:18px 22px;margin-bottom:14px;box-shadow:0 2px 8px rgba(21,101,192,0.08);border-left:4px solid #1565c0;">';
+    html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">';
+    html += '<span style="font-size:16px;font-weight:700;color:#1565c0;">'+w.word+'</span>';
+    html += '<span style="font-size:13px;color:#888;">— '+trans+'</span>';
+    html += '</div>';
+    html += '<div style="font-size:15px;font-weight:600;color:#222;margin-bottom:6px;">'+w.exEn+'</div>';
+    if(exTrans){
+      html += '<div style="font-size:13px;color:#555;font-style:italic;">'+exTrans+'</div>';
+    }
+    html += '</div>';
+  });
+  wrap.innerHTML = html;
+}
 function renderEnWords(){
   var q=(document.getElementById("enSearchInput").value||"").toLowerCase();
   var c=document.getElementById("en-cards");c.innerHTML="";
