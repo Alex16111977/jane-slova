@@ -724,15 +724,29 @@ renderWords();renderSentences();updateStats();
 function speakEn(word){
   if(!window.speechSynthesis)return;
   window.speechSynthesis.cancel();
-  var u=new SpeechSynthesisUtterance(word);
-  u.lang="en-US";
-  u.rate=0.9;
-  // try to find English voice
-  var voices=window.speechSynthesis.getVoices();
-  var enVoice=voices.find(function(v){return v.lang.startsWith("en")&&v.localService;});
-  if(!enVoice) enVoice=voices.find(function(v){return v.lang.startsWith("en");});
-  if(enVoice) u.voice=enVoice;
-  window.speechSynthesis.speak(u);
+  function doSpeak(){
+    var u=new SpeechSynthesisUtterance(word);
+    u.lang="en-US";
+    u.rate=0.85;
+    u.pitch=1.0;
+    u.volume=1.0;
+    var vs=window.speechSynthesis.getVoices();
+    var pref=["Samantha","Daniel","Aaron","Karen","Moira","Veena","Fiona"];
+    var v=null;
+    for(var p=0;p<pref.length;p++){
+      for(var i=0;i<vs.length;i++){
+        if(vs[i].name===pref[p]){v=vs[i];break;}
+      }
+      if(v)break;
+    }
+    if(!v) for(var i=0;i<vs.length;i++){if(vs[i].lang==="en-US"){v=vs[i];break;}}
+    if(!v) for(var i=0;i<vs.length;i++){if(vs[i].lang.indexOf("en")===0){v=vs[i];break;}}
+    if(v) u.voice=v;
+    window.speechSynthesis.speak(u);
+  }
+  var vs=window.speechSynthesis.getVoices();
+  if(vs.length>0){ doSpeak(); }
+  else { window.speechSynthesis.onvoiceschanged=function(){ doSpeak(); window.speechSynthesis.onvoiceschanged=null; }; }
 }
 
 </script>
