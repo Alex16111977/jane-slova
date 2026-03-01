@@ -173,6 +173,7 @@ h1{text-align:center;color:#3a3a6e;margin-bottom:4px;font-size:26px;}
 /* EN section accent */
 .en-section-wrap .stat strong{color:#1565c0;}
 </style>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=FREE"></script>
 </head>
 <body>
 <h1>jane-slova</h1>
@@ -722,6 +723,10 @@ function showEnQuizCard(){
 
 renderWords();renderSentences();updateStats();
 function speakEn(word){
+  if(typeof responsiveVoice!=="undefined"){
+    responsiveVoice.speak(word,"UK English Male",{rate:0.9,volume:1});
+    return;
+  }
   if(!window.speechSynthesis)return;
   window.speechSynthesis.cancel();
   function doSpeak(){
