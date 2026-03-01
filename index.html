@@ -721,9 +721,6 @@ function showEnQuizCard(){
 }
 
 renderWords();renderSentences();updateStats();
-</script>
-<script>
-(function(){
 function speakEn(word){
   if(!window.speechSynthesis)return;
   window.speechSynthesis.cancel();
@@ -737,6 +734,10 @@ function speakEn(word){
   if(enVoice) u.voice=enVoice;
   window.speechSynthesis.speak(u);
 }
+
+</script>
+<script>
+(function(){
 function _save(){try{localStorage.setItem('jane_words',JSON.stringify(_words));localStorage.setItem('jane_groups',JSON.stringify(_groups));localStorage.setItem('jane_en_words',JSON.stringify(_enWords));}catch(e){}}
 function _load(){try{
   var sw=localStorage.getItem('jane_words');var sg=localStorage.getItem('jane_groups');var se=localStorage.getItem('jane_en_words');
