@@ -173,7 +173,6 @@ h1{text-align:center;color:#3a3a6e;margin-bottom:4px;font-size:26px;}
 /* EN section accent */
 .en-section-wrap .stat strong{color:#1565c0;}
 </style>
-<script src="https://code.responsivevoice.org/responsivevoice.js?key=FREE"></script>
 </head>
 <body>
 <h1>jane-slova</h1>
@@ -723,35 +722,20 @@ function showEnQuizCard(){
 
 renderWords();renderSentences();updateStats();
 function speakEn(word){
-  if(typeof responsiveVoice!=="undefined"){
-    responsiveVoice.speak(word,"UK English Male",{rate:0.9,volume:1});
-    return;
-  }
-  if(!window.speechSynthesis)return;
-  window.speechSynthesis.cancel();
-  function doSpeak(){
+  var url="https://translate.googleapis.com/translate_tts?ie=UTF-8&q="+encodeURIComponent(word)+"&tl=en-US&client=tw-ob";
+  var a=new Audio(url);
+  a.volume=1.0;
+  a.play().catch(function(){
+    if(!window.speechSynthesis)return;
+    window.speechSynthesis.cancel();
     var u=new SpeechSynthesisUtterance(word);
-    u.lang="en-US";
-    u.rate=0.85;
-    u.pitch=1.0;
-    u.volume=1.0;
+    u.lang="en-US";u.rate=0.85;u.volume=1.0;
     var vs=window.speechSynthesis.getVoices();
-    var pref=["Samantha","Daniel","Aaron","Karen","Moira","Veena","Fiona"];
     var v=null;
-    for(var p=0;p<pref.length;p++){
-      for(var i=0;i<vs.length;i++){
-        if(vs[i].name===pref[p]){v=vs[i];break;}
-      }
-      if(v)break;
-    }
-    if(!v) for(var i=0;i<vs.length;i++){if(vs[i].lang==="en-US"){v=vs[i];break;}}
-    if(!v) for(var i=0;i<vs.length;i++){if(vs[i].lang.indexOf("en")===0){v=vs[i];break;}}
-    if(v) u.voice=v;
+    for(var i=0;i<vs.length;i++){if(vs[i].lang.indexOf("en")===0){v=vs[i];break;}}
+    if(v)u.voice=v;
     window.speechSynthesis.speak(u);
-  }
-  var vs=window.speechSynthesis.getVoices();
-  if(vs.length>0){ doSpeak(); }
-  else { window.speechSynthesis.onvoiceschanged=function(){ doSpeak(); window.speechSynthesis.onvoiceschanged=null; }; }
+  });
 }
 
 </script>
