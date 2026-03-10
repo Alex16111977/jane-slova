@@ -620,7 +620,7 @@ function showQuizCard(){
   mt.appendChild(mBtnK);mt.appendChild(mBtnT);area.appendChild(mt);
   var qc=document.createElement("div");qc.className="quiz-card";
   var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent="Як перекладається?";qc.appendChild(qs);
-  var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=w.de;qc.appendChild(qq);
+  var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=w.word;qc.appendChild(qq);
   var ans=document.createElement("div");ans.className="quiz-answer";ans.style.color="#1565c0";ans.style.background="#e3f2fd";ans.textContent=getTrans(w);
   qc.appendChild(ans);area.appendChild(qc);
   if(!_quizTypingMode){
