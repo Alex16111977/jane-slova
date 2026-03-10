@@ -519,7 +519,7 @@ function buildCard(item,i,isEn){
   repBtn.textContent=item.repeat?"🔁 В списку":"🔁 Повторити";
   repBtn.addEventListener("click",function(e){e.stopPropagation();item.repeat=!item.repeat;showToast(item.repeat?"🔁 Додано до повторення!":"Прибрано з повторення");if(isEn){renderEnWords();renderEnRepeat();}else{renderWords();renderRepeat();}});
   actDiv.appendChild(learnBtn);actDiv.appendChild(repBtn);
-  card.appendChild(delBtn);card.appendChild(wordDiv); if(item.type){var tb=document.createElement("div");tb.className="type-badge type-"+item.type;var typeLabels={noun:"🔵 Іменник",verb:"🟢 Дієслово",adj:"🟠 Прикметн.",adv:"🟣 Прислівн.",phrase:"🔴 Фраза"};tb.textContent=typeLabels[item.type]||item.type;card.insertBefore(tb,wordDiv);}card.appendChild(transDiv);card.appendChild(exDiv);
+  card.appendChild(delBtn);card.appendChild(wordDiv); if(item.type){var tb=document.createElement("div");tb.className="type-badge type-"+item.type;var typeLabels={noun:"🔵 Іменник",verb:"🟢 Дієслово",adj:"🟠 Прикметн.",adv:"🟣 Прислівн.",phrase:"🔴 Фраза"};tb.textContent=typeLabels[item.type]||item.type;if(wordDiv.parentNode===card){card.insertBefore(tb,wordDiv);}else{card.prepend(tb);};}card.appendChild(transDiv);card.appendChild(exDiv);
   if(item.repeat&&!item.learned){var rb=document.createElement("div");rb.className="repeat-badge";rb.textContent="🔁 До повторення";card.appendChild(rb);}
   else if(item.learned){var b=document.createElement("div");b.className="learned-badge";b.textContent="✅ Вивчено";card.appendChild(b);}
   else{var h=document.createElement("div");h.className="hint";h.textContent="👆 натисни";card.appendChild(h);}
