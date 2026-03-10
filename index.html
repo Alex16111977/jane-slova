@@ -161,6 +161,17 @@ h1{text-align:center;color:#3a3a6e;margin-bottom:4px;font-size:26px;}
 .quiz-score{font-size:14px;font-weight:600;color:#3a3a6e;margin-bottom:12px;}
 .progress-bar{background:#e0e0f0;border-radius:10px;height:7px;margin-bottom:18px;overflow:hidden;}
 .progress-fill{background:#6c63ff;height:100%;border-radius:10px;transition:width 0.4s;}
+.quiz-mode-toggle{display:flex;justify-content:center;gap:8px;margin-bottom:14px;}
+.quiz-mode-btn{padding:6px 16px;border-radius:16px;border:2px solid #6c63ff;background:white;color:#6c63ff;font-size:12px;cursor:pointer;font-weight:600;transition:all 0.2s;}
+.quiz-mode-btn.active{background:#6c63ff;color:white;}
+.quiz-typing-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;}
+.quiz-typing-input{width:100%;max-width:340px;padding:10px 16px;border:2px solid #d0d0e8;border-radius:10px;font-size:16px;text-align:center;outline:none;transition:border 0.2s;}
+.quiz-typing-input:focus{border-color:#6c63ff;}
+.quiz-typing-input.correct{border-color:#4caf50;background:#f0fff4;}
+.quiz-typing-input.wrong{border-color:#e53935;background:#fff5f5;}
+.quiz-check-btn{padding:10px 28px;border-radius:12px;border:none;background:#6c63ff;color:white;font-size:14px;cursor:pointer;font-weight:600;transition:all 0.2s;}
+.quiz-check-btn:hover{background:#574fd6;}
+.quiz-typing-hint{font-size:13px;color:#e53935;margin-top:4px;display:none;}
 .delete-btn{position:absolute;top:9px;right:11px;background:none;border:none;color:#ddd;font-size:16px;cursor:pointer;transition:color 0.2s;line-height:1;}
 .delete-btn:hover{color:#ff6b6b;}
 .section{display:none;}
@@ -247,7 +258,8 @@ h1{text-align:center;color:#3a3a6e;margin-bottom:4px;font-size:26px;}
 <div class="toast" id="toast"></div>
 <script>
 /* ======= STATE ======= */
-var _lang="ua",_quizStreak=0,_quizScore=0,_quizIndex=0,_quizOrder=[];
+var _lang="ua",_quizStreak=0,_quizScore=0,_quizIndex=0,_quizOrder=[];var _quizTypingMode=false,_enQuizTypingMode=false;
+
 var _repeatMode="cards";
 var _fcList=[],_fcIndex=0,_fcScore=0,_fcAgainList=[];
 var _enRepeatMode="cards";
@@ -593,16 +605,58 @@ function startQuiz(){
 }
 function showQuizCard(){
   var area=document.getElementById("quiz-area");area.innerHTML="";
-  if(_quizIndex>=_quizOrder.length){var pct=Math.round((_quizScore/_quizOrder.length)*100);var qc=document.createElement("div");qc.className="quiz-card";var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=_quizScore+"/"+_quizOrder.length;qc.appendChild(qq);var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent=(pct>=80?"🔥 Відмінно!":pct>=50?"👍 Непогано!":"💪 Продовжуй!")+" "+pct+"%";qc.appendChild(qs);var pb=document.createElement("div");pb.className="progress-bar";var pf=document.createElement("div");pf.className="progress-fill";pf.style.width=pct+"%";pb.appendChild(pf);qc.appendChild(pb);area.appendChild(qc);var bt=document.createElement("div");bt.className="quiz-btns";var b1=document.createElement("button");b1.className="btn-show";b1.textContent="🔄 Ще раз";b1.addEventListener("click",startQuiz);bt.appendChild(b1);area.appendChild(bt);if(pct>=80)confetti();return;}
+  if(_quizIndex>=_quizOrder.length){
+    var pct=Math.round((_quizScore/_quizOrder.length)*100);var qc=document.createElement("div");qc.className="quiz-card";var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=_quizScore+"/"+_quizOrder.length+" — "+pct+"%";
+    var bt=document.createElement("div");bt.className="quiz-btns";var b1=document.createElement("button");b1.style.background="#6c63ff";b1.style.color="white";b1.style.border="none";b1.style.padding="11px 28px";b1.style.borderRadius="12px";b1.style.fontSize="14px";b1.style.cursor="pointer";b1.style.fontWeight="600";b1.textContent="🔄 Ще раз";b1.addEventListener("click",function(){startQuiz();});bt.appendChild(b1);qc.appendChild(qq);qc.appendChild(bt);area.appendChild(qc);updateStats();return;
+  }
   var w=_words[_quizOrder[_quizIndex]];var pct=Math.round((_quizIndex/_quizOrder.length)*100);
   var prog=document.createElement("div");prog.className="quiz-progress";prog.textContent=(_quizIndex+1)+" / "+_quizOrder.length;area.appendChild(prog);
   var pb=document.createElement("div");pb.className="progress-bar";var pf=document.createElement("div");pf.className="progress-fill";pf.style.width=pct+"%";pb.appendChild(pf);area.appendChild(pb);
-  var qc=document.createElement("div");qc.className="quiz-card";var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent="Як перекладається?";qc.appendChild(qs);var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=w.word;qc.appendChild(qq);var ans=document.createElement("div");ans.className="quiz-answer";ans.textContent=getTrans(w);if(w.exDe){var ed=document.createElement("em");ed.style.cssText="font-size:11px;color:#3a3a6e;font-weight:600;font-style:normal;display:block;margin-top:6px";ed.textContent=w.exDe;ans.appendChild(ed);}qc.appendChild(ans);area.appendChild(qc);
-  var bt=document.createElement("div");bt.className="quiz-btns";var bSh=document.createElement("button");bSh.className="btn-show";bSh.textContent="👁 Показати";var bOk=document.createElement("button");bOk.className="btn-correct";bOk.textContent="✅ Знав";bOk.style.display="none";var bNo=document.createElement("button");bNo.className="btn-wrong";bNo.textContent="❌ Не знав";bNo.style.display="none";
-  bSh.addEventListener("click",function(){ans.style.display="block";bSh.style.display="none";bOk.style.display="inline-block";bNo.style.display="inline-block";});
-  bOk.addEventListener("click",function(){_quizScore++;_quizStreak++;showToast("🎉 Правильно!");if(_quizStreak%3===0)confetti();updateStats();_quizIndex++;setTimeout(showQuizCard,400);});
-  bNo.addEventListener("click",function(){_quizStreak=0;updateStats();_quizIndex++;setTimeout(showQuizCard,400);});
-  bt.appendChild(bSh);bt.appendChild(bOk);bt.appendChild(bNo);area.appendChild(bt);
+  var mt=document.createElement("div");mt.className="quiz-mode-toggle";
+  var mBtnK=document.createElement("button");mBtnK.className="quiz-mode-btn"+(_quizTypingMode?"":" active");mBtnK.textContent="🎭 Знав/не знав";
+  var mBtnT=document.createElement("button");mBtnT.className="quiz-mode-btn"+(_quizTypingMode?" active":"");mBtnT.textContent="⌨️ Введення";
+  mBtnK.addEventListener("click",function(){_quizTypingMode=false;showQuizCard();});
+  mBtnT.addEventListener("click",function(){_quizTypingMode=true;showQuizCard();});
+  mt.appendChild(mBtnK);mt.appendChild(mBtnT);area.appendChild(mt);
+  var qc=document.createElement("div");qc.className="quiz-card";
+  var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent="Як перекладається?";qc.appendChild(qs);
+  var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=w.de;qc.appendChild(qq);
+  var ans=document.createElement("div");ans.className="quiz-answer";ans.style.color="#1565c0";ans.style.background="#e3f2fd";ans.textContent=getTrans(w);
+  qc.appendChild(ans);area.appendChild(qc);
+  if(!_quizTypingMode){
+    ans.style.display="none";
+    var bt=document.createElement("div");bt.className="quiz-btns";
+    var bSh=document.createElement("button");bSh.className="btn-show";bSh.textContent="👁 Показати";
+    var bOk=document.createElement("button");bOk.className="btn-correct";bOk.textContent="✅ Знав";bOk.style.display="none";
+    var bNo=document.createElement("button");bNo.className="btn-wrong";bNo.textContent="❌ Не знав";bNo.style.display="none";
+    bSh.addEventListener("click",function(){ans.style.display="block";bSh.style.display="none";bOk.style.display="inline-block";bNo.style.display="inline-block";});
+    bOk.addEventListener("click",function(){_quizScore++;_quizStreak++;showToast("🎉 Правильно!");if(_quizStreak%3===0)confetti();updateStats();_quizIndex++;setTimeout(showQuizCard,400);});
+    bNo.addEventListener("click",function(){_quizStreak=0;updateStats();_quizIndex++;setTimeout(showQuizCard,400);});
+    bt.appendChild(bSh);bt.appendChild(bOk);bt.appendChild(bNo);area.appendChild(bt);
+  } else {
+    var tw=document.createElement("div");tw.className="quiz-typing-wrap";
+    var inp=document.createElement("input");inp.className="quiz-typing-input";inp.type="text";inp.placeholder="Введіть переклад...";inp.autocomplete="off";
+    var hint=document.createElement("div");hint.className="quiz-typing-hint";
+    var chk=document.createElement("button");chk.className="quiz-check-btn";chk.textContent="Перевірити →";
+    function checkAnswer(){
+      var userAns=inp.value.trim().toLowerCase();
+      var correct=getTrans(w).toLowerCase().trim();
+      if(userAns===correct){
+        inp.classList.add("correct");hint.style.display="none";
+        _quizScore++;_quizStreak++;showToast("🎉 Правильно!");if(_quizStreak%3===0)confetti();updateStats();
+        setTimeout(function(){_quizIndex++;showQuizCard();},700);
+      } else {
+        inp.classList.add("wrong");
+        hint.textContent="✗ Правильно: "+getTrans(w);hint.style.display="block";
+        _quizStreak=0;updateStats();
+        chk.textContent="Далі →";chk.onclick=function(){_quizIndex++;showQuizCard();};
+      }
+    }
+    chk.addEventListener("click",checkAnswer);
+    inp.addEventListener("keydown",function(e){if(e.key==="Enter")checkAnswer();});
+    tw.appendChild(inp);tw.appendChild(chk);tw.appendChild(hint);area.appendChild(tw);
+    setTimeout(function(){inp.focus();},100);
+  }
 }
 
 /* ======= EN HELPERS ======= */
@@ -768,28 +822,60 @@ function startEnQuiz(){
 function showEnQuizCard(){
   var area=document.getElementById("en-quiz-area");area.innerHTML="";
   if(_enQuizIndex>=_enQuizOrder.length){
-    var pct=Math.round((_enQuizScore/_enQuizOrder.length)*100);
-    var qc=document.createElement("div");qc.className="quiz-card";var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=_enQuizScore+"/"+_enQuizOrder.length;qc.appendChild(qq);var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent=(pct>=80?"🔥 Excellent!":pct>=50?"👍 Good!":"💪 Keep going!")+" "+pct+"%";qc.appendChild(qs);var pb2=document.createElement("div");pb2.className="progress-bar";var pf2=document.createElement("div");pf2.className="progress-fill";pf2.style.background="#1565c0";pf2.style.width=pct+"%";pb2.appendChild(pf2);qc.appendChild(pb2);area.appendChild(qc);
-    var bt=document.createElement("div");bt.className="quiz-btns";var b1=document.createElement("button");b1.style.background="#1565c0";b1.style.color="white";b1.style.border="none";b1.style.padding="11px 26px";b1.style.borderRadius="12px";b1.style.fontWeight="600";b1.style.cursor="pointer";b1.textContent="🔄 Again";b1.addEventListener("click",startEnQuiz);bt.appendChild(b1);area.appendChild(bt);if(pct>=80)confetti();return;
+    var pct=Math.round((_enQuizScore/_enQuizOrder.length)*100);var qc=document.createElement("div");qc.className="quiz-card";var qq=document.createElement("div");qq.className="quiz-question";qq.style.color="#1565c0";qq.textContent=_enQuizScore+"/"+_enQuizOrder.length+" — "+pct+"%";
+    var bt=document.createElement("div");bt.className="quiz-btns";var b1=document.createElement("button");b1.style.background="#1565c0";b1.style.color="white";b1.style.border="none";b1.style.padding="11px 28px";b1.style.borderRadius="12px";b1.style.fontSize="14px";b1.style.cursor="pointer";b1.style.fontWeight="600";b1.textContent="🔄 Ще раз";b1.addEventListener("click",function(){startEnQuiz();});bt.appendChild(b1);qc.appendChild(qq);qc.appendChild(bt);area.appendChild(qc);updateStats();return;
   }
   var w=_enWords[_enQuizOrder[_enQuizIndex]];var pct=Math.round((_enQuizIndex/_enQuizOrder.length)*100);
   var prog=document.createElement("div");prog.className="quiz-progress";prog.textContent=(_enQuizIndex+1)+" / "+_enQuizOrder.length;area.appendChild(prog);
   var pb=document.createElement("div");pb.className="progress-bar";var pf=document.createElement("div");pf.className="progress-fill";pf.style.background="#1565c0";pf.style.width=pct+"%";pb.appendChild(pf);area.appendChild(pb);
-  var qc=document.createElement("div");qc.className="quiz-card";var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent="How to translate?";qc.appendChild(qs);
+  var mt=document.createElement("div");mt.className="quiz-mode-toggle";
+  var mBtnK=document.createElement("button");mBtnK.className="quiz-mode-btn"+(_enQuizTypingMode?"":" active");mBtnK.style.borderColor="#1565c0";if(!_enQuizTypingMode){mBtnK.style.background="#1565c0";mBtnK.style.color="white";}mBtnK.textContent="🎭 Знав/не знав";
+  var mBtnT=document.createElement("button");mBtnT.className="quiz-mode-btn"+(_enQuizTypingMode?" active":"");mBtnT.style.borderColor="#1565c0";if(_enQuizTypingMode){mBtnT.style.background="#1565c0";mBtnT.style.color="white";}mBtnT.textContent="⌨️ Введення";
+  mBtnK.addEventListener("click",function(){_enQuizTypingMode=false;showEnQuizCard();});
+  mBtnT.addEventListener("click",function(){_enQuizTypingMode=true;showEnQuizCard();});
+  mt.appendChild(mBtnK);mt.appendChild(mBtnT);area.appendChild(mt);
+  var qc=document.createElement("div");qc.className="quiz-card";
+  var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent="How to translate?";qc.appendChild(qs);
   var qq=document.createElement("div");qq.className="quiz-question";qq.style.color="#1565c0";qq.textContent=w.word;qc.appendChild(qq);
   var ans=document.createElement("div");ans.className="quiz-answer";ans.style.color="#1565c0";ans.style.background="#e3f2fd";ans.textContent=getEnTrans(w);
-  if(w.exEn){var es=document.createElement("em");es.style.cssText="font-size:11px;color:#3a3a6e;font-weight:600;font-style:normal;display:block;margin-top:6px";es.textContent=w.exEn;ans.appendChild(es);}
-  var ext=document.createElement("em");ext.style.cssText="font-size:11px;color:#aaa;display:block;margin-top:3px";ext.textContent=getEnEx(w);ans.appendChild(ext);
+  if(w.exEn){var es=document.createElement("em");es.style.cssText="font-size:11px;color:#3a3a6e;font-weight:600;font-style:normal;display:block;margin-top:6px";es.textContent=getEnExLabel();ans.appendChild(es);var ext=document.createElement("em");ext.style.cssText="font-size:11px;color:#aaa;display:block;margin-top:3px";ext.textContent=getEnEx(w);ans.appendChild(ext);}
   qc.appendChild(ans);area.appendChild(qc);
-  var bt=document.createElement("div");bt.className="quiz-btns";
-  var bSh=document.createElement("button");bSh.style.cssText="background:#1565c0;color:white;border:none;padding:11px 26px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer";bSh.textContent="👁 Show";
-  var bOk=document.createElement("button");bOk.className="btn-correct";bOk.textContent="✅ Knew it";bOk.style.display="none";
-  var bNo=document.createElement("button");bNo.className="btn-wrong";bNo.textContent="❌ Didn't know";bNo.style.display="none";
-  bSh.addEventListener("click",function(){ans.style.display="block";bSh.style.display="none";bOk.style.display="inline-block";bNo.style.display="inline-block";});
-  bOk.addEventListener("click",function(){_enQuizScore++;_enQuizStreak++;showToast("🎉 Correct!");updateStats();_enQuizIndex++;setTimeout(showEnQuizCard,400);});
-  bNo.addEventListener("click",function(){_enQuizStreak=0;_enQuizIndex++;setTimeout(showEnQuizCard,400);});
-  bt.appendChild(bSh);bt.appendChild(bOk);bt.appendChild(bNo);area.appendChild(bt);
+  if(!_enQuizTypingMode){
+    ans.style.display="none";
+    var bt=document.createElement("div");bt.className="quiz-btns";
+    var bSh=document.createElement("button");bSh.style.cssText="background:#1565c0;color:white;border:none;padding:11px 26px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;";bSh.textContent="👁 Show";
+    var bOk=document.createElement("button");bOk.className="btn-correct";bOk.textContent="✅ Knew it";bOk.style.display="none";
+    var bNo=document.createElement("button");bNo.className="btn-wrong";bNo.textContent="❌ Didn't know";bNo.style.display="none";
+    bSh.addEventListener("click",function(){ans.style.display="block";bSh.style.display="none";bOk.style.display="inline-block";bNo.style.display="inline-block";});
+    bOk.addEventListener("click",function(){_enQuizScore++;_enQuizStreak++;showToast("🎉 Correct!");updateStats();_enQuizIndex++;setTimeout(showEnQuizCard,400);});
+    bNo.addEventListener("click",function(){_enQuizStreak=0;_enQuizIndex++;setTimeout(showEnQuizCard,400);});
+    bt.appendChild(bSh);bt.appendChild(bOk);bt.appendChild(bNo);area.appendChild(bt);
+  } else {
+    var tw=document.createElement("div");tw.className="quiz-typing-wrap";
+    var inp=document.createElement("input");inp.className="quiz-typing-input";inp.type="text";inp.placeholder="Enter translation...";inp.autocomplete="off";inp.style.borderColor="#1565c0";
+    var hint=document.createElement("div");hint.className="quiz-typing-hint";
+    var chk=document.createElement("button");chk.className="quiz-check-btn";chk.style.background="#1565c0";chk.textContent="Check →";
+    function checkEnAnswer(){
+      var userAns=inp.value.trim().toLowerCase();
+      var correct=getEnTrans(w).toLowerCase().trim();
+      if(userAns===correct){
+        inp.classList.add("correct");hint.style.display="none";
+        _enQuizScore++;_enQuizStreak++;showToast("🎉 Correct!");updateStats();
+        setTimeout(function(){_enQuizIndex++;showEnQuizCard();},700);
+      } else {
+        inp.classList.add("wrong");
+        hint.textContent="✗ Correct: "+getEnTrans(w);hint.style.display="block";
+        _enQuizStreak=0;
+        chk.textContent="Next →";chk.onclick=function(){_enQuizIndex++;showEnQuizCard();};
+      }
+    }
+    chk.addEventListener("click",checkEnAnswer);
+    inp.addEventListener("keydown",function(e){if(e.key==="Enter")checkEnAnswer();});
+    tw.appendChild(inp);tw.appendChild(chk);tw.appendChild(hint);area.appendChild(tw);
+    setTimeout(function(){inp.focus();},100);
+  }
 }
+
 
 renderWords();renderSentences();updateStats();
 function speakEn(word){
