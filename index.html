@@ -700,6 +700,40 @@ function renderSentences(){
 
 /* ======= DENTAL TAB ======= */
 var _dentalWords=["der Zahnarzt","die Zahnschmerzen","die Karies","die Füllung","bohren","die Betäubung","das Zahnfleisch","die Zahnreinigung","den Zahn ziehen","der Weisheitszahn","die Krone","röntgen","die Zahnspange","ausspülen","die Wurzelbehandlung","der Backenzahn","der Schneidezahn","die Spritze","die Praxis","der Termin","empfindlich","das Implantat","die Prothese","die Zahnpasta","die Zahnseide","die Mundspülung","die Schwellung","entzündet","die Kontrolle","Zähne putzen","plombieren","der Mundgeruch"];
+var _dentalDesc={
+"der Zahnarzt":"Так називають зубного лікаря. Кажеш: «Ich gehe zum Zahnarzt» — йду до стоматолога.",
+"die Zahnschmerzen":"Зубний біль. Завжди множина (Zahnschmerzen). «Ich habe Zahnschmerzen» — у мене болить зуб.",
+"die Karies":"Карієс — коли зуб починає руйнуватися. Лікар каже: «Sie haben Karies» — у вас карієс.",
+"die Füllung":"Пломба — те, чим заповнюють дірку в зубі після лікування карієсу.",
+"bohren":"Свердлити — це те, що робить лікар бормашиною. «Wir müssen bohren» — треба посвердлити.",
+"die Betäubung":"Знеболення, анестезія. Лікар питає: «Möchten Sie eine Betäubung?» — бажаєте анестезію?",
+"das Zahnfleisch":"Ясна — мʼяка тканина навколо зубів. «Mein Zahnfleisch blutet» — мої ясна кровоточать.",
+"die Zahnreinigung":"Професійна чистка зубів — процедура для видалення нальоту і каменю.",
+"den Zahn ziehen":"Видалити зуб. Ziehen = тягнути. «Der Zahn muss gezogen werden» — зуб треба видалити.",
+"der Weisheitszahn":"Зуб мудрості — останні зуби, що зʼявляються у дорослому віці (Weisheit = мудрість).",
+"die Krone":"Коронка — штучна «шапочка» на зуб, коли свій зуб сильно зруйнований.",
+"röntgen":"Робити рентген. Названо на честь Вільгельма Рентгена. «Wir müssen röntgen» — треба зробити знімок.",
+"die Zahnspange":"Брекети або скоба для вирівнювання зубів. Spange = скоба, застібка.",
+"ausspülen":"Полоскати рот. «Bitte ausspülen!» — будь ласка, прополощіть! Aus- = ви-, spülen = полоскати.",
+"die Wurzelbehandlung":"Лікування кореневого каналу. Wurzel = корінь, Behandlung = лікування. Роблять, коли карієс дійшов до нерва.",
+"der Backenzahn":"Корінний зуб — великий задній зуб для жування. Backe = щока, тобто «зуб біля щоки».",
+"der Schneidezahn":"Різець — передній зуб, яким ріжеш їжу. Schneiden = різати.",
+"die Spritze":"Шприц, укол. Лікар робить Spritze для знеболення. «Haben Sie Angst vor der Spritze?»",
+"die Praxis":"Кабінет лікаря. «Die Zahnarztpraxis» — стоматологічний кабінет. Не плутай з практикою!",
+"der Termin":"Запис на прийом. «Einen Termin vereinbaren» — записатися. Дуже важливе слово для лікаря!",
+"empfindlich":"Чутливий. «Empfindliche Zähne» — чутливі зуби (реагують на холодне/гаряче).",
+"das Implantat":"Імплант — штучний корінь зуба, який вкручують у кістку замість видаленого зуба.",
+"die Prothese":"Протез — знімна конструкція, що замінює відсутні зуби. Бабуся може мати Prothese.",
+"die Zahnpasta":"Зубна паста. Zahn + Pasta. Просто і зрозуміло!",
+"die Zahnseide":"Зубна нитка. Seide = шовк. Для чищення між зубами.",
+"die Mundspülung":"Ополіскувач для рота. Mund = рот, Spülung = полоскання.",
+"die Schwellung":"Набряк, припухлість. Після видалення зуба може бути Schwellung на щоці.",
+"entzündet":"Запалений. «Das Zahnfleisch ist entzündet» — ясна запалені. Entzündung = запалення.",
+"die Kontrolle":"Контрольний огляд. «Zur Kontrolle kommen» — прийти на перевірку через час.",
+"Zähne putzen":"Чистити зуби. Putzen = чистити. «Zweimal am Tag Zähne putzen!» — двічі на день!",
+"plombieren":"Пломбувати зуб. Від слова Plombe (пломба). Більш офіційне слово ніж «füllen».",
+"der Mundgeruch":"Неприємний запах з рота. Mund = рот, Geruch = запах. Може бути ознакою проблем з яснами."
+};
 function renderDental(){
   var wrap=document.getElementById("dental-wrap");wrap.innerHTML="";
   /* header */
@@ -707,12 +741,22 @@ function renderDental(){
   hdr.style.cssText="text-align:center;margin:18px 0 18px;";
   hdr.innerHTML="<div style='font-size:38px;'>🦷</div><div style='font-size:20px;font-weight:700;color:#5b4fc4;margin-top:4px;'>Beim Zahnarzt</div><div style='color:#888;font-size:13px;margin-top:2px;'>Слова та фрази для візиту до стоматолога</div>";
   wrap.appendChild(hdr);
-  /* cards */
+  /* cards with descriptions */
   var cWrap=document.createElement("div");cWrap.className="cards";
   var dWords=_words.filter(function(w){return _dentalWords.indexOf(w.word)!==-1;});
-  dWords.forEach(function(w,i){
+  dWords.forEach(function(w){
     var realIdx=_words.indexOf(w);
-    cWrap.appendChild(buildCard(w,realIdx,false));
+    var card=buildCard(w,realIdx,false);
+    /* add description */
+    var desc=_dentalDesc[w.word];
+    if(desc){
+      var dd=document.createElement("div");
+      dd.style.cssText="background:#f0edff;border-radius:10px;padding:8px 12px;margin:8px 0 4px;font-size:13px;color:#444;line-height:1.5;border-left:3px solid #6c63ff;";
+      dd.textContent="💡 "+desc;
+      var acts=card.querySelector(".card-actions");
+      if(acts){card.insertBefore(dd,acts);}else{card.appendChild(dd);}
+    }
+    cWrap.appendChild(card);
   });
   wrap.appendChild(cWrap);
   /* sentences from Group 17 */
