@@ -9,6 +9,8 @@
   --gold-bg:#fbf1dc;
   --green:#2e7d4f;
   --green-bg:#eef8f0;
+  --mnemo:#6b46c1;
+  --mnemo-bg:#f3ecfc;
   --line:#e9e2d3;
   --shadow:0 4px 18px rgba(42,39,51,0.06);
 }
@@ -124,6 +126,10 @@ h1,h2{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;}
 
 .warning-box{background:#fdecea;border:1px solid #f3c6c0;border-radius:14px;padding:20px 22px;margin:18px 0;}
 .warning-box .example-label{color:#b3261e;}
+
+.mnemonic{background:var(--mnemo-bg);border:1px solid #ddd0f5;border-radius:14px;padding:16px 20px;margin:16px 0;}
+.mnemonic-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--mnemo);margin-bottom:8px;}
+.mnemonic p{font-family:Georgia,"Iowan Old Style",serif;font-style:italic;color:#432a6b;margin:0;line-height:1.6;}
 
 .group-divider{max-width:680px;margin:36px auto 4px;padding:0 20px;text-align:center;position:relative;}
 .group-divider::before{content:"";position:absolute;left:20px;right:20px;top:50%;height:1px;background:var(--line);}
