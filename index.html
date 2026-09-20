@@ -1,1098 +1,515 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>jane-slova</title>
+<title>НМТ 2027 — конспекти з підготовки</title>
+<meta name="description" content="Конспекти з підготовки до НМТ: як улаштований іспит, розподіл часу, конкурсний бал, план боротьби зі стресом і розбір тесту з української мови по блоках.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%93%3C/text%3E%3C/svg%3E">
 <style>
+:root{
+  --bg:#faf7f1;
+  --paper:#ffffff;
+  --ink:#2a2733;
+  --sub:#6f6b7a;
+  --accent:#2451c4;
+  --accent-ink:#173a94;
+  --gold:#b9790e;
+  --gold-bg:#fbf1dc;
+  --green:#2e7d4f;
+  --green-bg:#eef8f0;
+  --line:#e9e2d3;
+  --shadow:0 4px 18px rgba(42,39,51,0.06);
+}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',sans-serif;background:#f0f4ff;min-height:100vh;padding:24px 20px;}
-h1{text-align:center;margin-bottom:0;font-size:0;line-height:1;}
-.site-header{text-align:center;padding:10px 0 4px;}
-.site-title{display:inline-block;font-size:32px;font-weight:800;background:linear-gradient(135deg,#6c63ff 0%,#a78bfa 50%,#f472b6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.5px;line-height:1.2;}
-.site-title-de{font-size:13px;color:#aaa;letter-spacing:3px;text-transform:uppercase;margin-top:2px;display:block;}
-.subtitle{text-align:center;color:#bbb;margin-bottom:14px;font-size:12px;letter-spacing:0.5px;}
-.stats{display:flex;justify-content:center;gap:16px;margin-bottom:16px;flex-wrap:wrap;}
-.stat{background:white;border-radius:12px;padding:9px 18px;font-size:12px;color:#555;box-shadow:0 2px 8px rgba(108,99,255,0.08);text-align:center;}
-.stat strong{display:block;font-size:19px;color:#6c63ff;}
-.lang-bar{display:flex;justify-content:center;align-items:center;gap:10px;margin-bottom:14px;font-size:13px;color:#888;}
-.lang-switch{display:flex;background:#e8e8f8;border-radius:20px;padding:3px;gap:2px;}
-.lang-switch button{padding:6px 16px;border:none;border-radius:16px;font-size:13px;font-weight:600;cursor:pointer;background:transparent;color:#888;transition:all 0.2s;}
-.lang-switch button.active{background:#6c63ff;color:white;box-shadow:0 2px 8px rgba(108,99,255,0.25);}
-/* top-level section switcher */
-.section-switcher{display:flex;justify-content:center;gap:12px;margin-bottom:20px;}
-.sec-btn{padding:10px 28px;border-radius:22px;border:2px solid #6c63ff;background:white;color:#6c63ff;font-size:15px;cursor:pointer;font-weight:700;transition:all 0.2s;}
-.sec-btn.active{background:#6c63ff;color:white;box-shadow:0 4px 14px rgba(108,99,255,0.3);}
-.sec-btn.eng-btn{border-color:#1565c0;color:#1565c0;}
-.sec-btn.eng-btn.active{background:#1565c0;color:white;box-shadow:0 4px 14px rgba(21,101,192,0.3);}
-/* inner tabs (DE) */
-.tabs{display:flex;justify-content:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
-.tab-btn{padding:9px 20px;border-radius:20px;border:2px solid #6c63ff;background:white;color:#6c63ff;font-size:14px;cursor:pointer;font-weight:600;transition:all 0.2s;}
-.tab-btn.active{background:#6c63ff;color:white;}
-.tab-btn.repeat-tab{border-color:#ff9800;color:#ff9800;}
-.tab-btn.repeat-tab.active{background:#ff9800;color:white;box-shadow:0 0 14px rgba(255,152,0,0.45);}
-.tab-btn.repeat-tab .repeat-count{background:#ff9800;color:white;border-radius:10px;padding:1px 7px;font-size:11px;margin-left:4px;display:inline-block;}
-.tab-btn.repeat-tab.active .repeat-count{background:white;color:#ff9800;}
-/* english inner tabs */
-.en-tabs{display:flex;justify-content:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
-.en-tab-btn{padding:9px 20px;border-radius:20px;border:2px solid #1565c0;background:white;color:#1565c0;font-size:14px;cursor:pointer;font-weight:600;transition:all 0.2s;}
-.en-tab-btn.active{background:#1565c0;color:white;}
-.en-tab-btn.en-repeat-tab{border-color:#ff9800;color:#ff9800;}
-.en-tab-btn.en-repeat-tab.active{background:#ff9800;color:white;}
-.en-tab-btn.en-repeat-tab .en-repeat-count{background:#ff9800;color:white;border-radius:10px;padding:1px 7px;font-size:11px;margin-left:4px;display:inline-block;}
-.en-tab-btn.en-repeat-tab.active .en-repeat-count{background:white;color:#ff9800;}
-/* add form */
-.add-form{display:flex;gap:10px;max-width:960px;margin:0 auto 20px;flex-wrap:wrap;}
-.add-form input{flex:1;padding:11px 14px;border:2px solid #c5cee0;border-radius:12px;font-size:14px;outline:none;transition:border 0.2s;min-width:110px;font-family:inherit;}
-.add-form input:focus{border-color:#6c63ff;}
-.add-form button{padding:11px 20px;background:#6c63ff;color:white;border:none;border-radius:12px;font-size:14px;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
-.add-form button:hover{background:#574fd6;}
-.add-form.en-form input:focus{border-color:#1565c0;}
-.add-form.en-form button{background:#1565c0;}
-.add-form.en-form button:hover{background:#0d47a1;}
-.search-bar{max-width:750px;margin:0 auto 18px;}
-.search-bar input{width:100%;padding:10px 16px;border:2px solid #c5cee0;border-radius:12px;font-size:14px;outline:none;font-family:inherit;transition:border 0.2s;}
-.search-bar input:focus{border-color:#6c63ff;}
-/* cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;max-width:900px;margin:0 auto;}
-.card{background:white;border-radius:16px;padding:20px 18px;box-shadow:0 4px 15px rgba(108,99,255,0.08);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;position:relative;min-height:115px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;user-select:none;}
-.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(108,99,255,0.16);}
-.card.learned{border:2px solid #4caf50;background:#f8fff8;}
-.card.repeat{border:2px solid #ff9800;background:#fffaf0;animation:glow-repeat 2s ease-in-out infinite alternate;}
-.card.en-card{box-shadow:0 4px 15px rgba(21,101,192,0.1);}
-.card.en-card:hover{box-shadow:0 8px 22px rgba(21,101,192,0.2);}
-.card.en-card.repeat{border:2px solid #ff9800;animation:glow-repeat 2s ease-in-out infinite alternate;}
-@keyframes glow-repeat{0%{box-shadow:0 4px 18px rgba(255,152,0,0.22);}100%{box-shadow:0 4px 28px rgba(255,152,0,0.5),0 0 0 3px rgba(255,152,0,0.2);}}
-.card .word{font-size:20px;font-weight:700;color:#3a3a6e;margin-bottom:6px;}
-.card.en-card .word{color:#1565c0;}
-.card .translation{font-size:14px;color:#6c63ff;display:none;margin-top:2px;}
-.card.en-card .translation{color:#1565c0;}
-.card.flipped .translation{display:block;}
-.card.flipped .word{color:#aaa;font-size:13px;}
-.card .hint{font-size:10px;color:#ccc;margin-top:6px;}
-.card .example{font-size:12px;color:#999;margin-top:8px;display:none;text-align:left;padding:6px 10px;background:#f7f7ff;border-radius:8px;border-left:3px solid #6c63ff;width:100%;line-height:1.5;}
-.card.en-card .example{background:#f0f4ff;border-left-color:#1565c0;}
-.card.flipped .example{display:block;}
-.card .ex-src{font-size:12px;color:#3a3a6e;font-weight:600;display:block;margin-bottom:3px;font-style:normal;}
-.card .ex-label{font-size:10px;font-weight:700;color:#6c63ff;text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:2px;font-style:normal;}
-.card.en-card .ex-label{color:#1565c0;}
-.card .ex-trans{font-size:12px;color:#888;font-style:italic;display:block;}
-.card .learned-badge{font-size:10px;color:#4caf50;font-weight:700;margin-top:5px;}
-.card .repeat-badge{font-size:10px;color:#ff9800;font-weight:700;margin-top:5px;} .type-badge{display:inline-block;font-size:9px;font-weight:800;padding:2px 7px;border-radius:8px;margin-bottom:4px;letter-spacing:0.4px;text-transform:uppercase;} .type-noun{background:#e3f2fd;color:#1565c0;} .type-verb{background:#e8f5e9;color:#2e7d32;} .type-adj{background:#fff3e0;color:#e65100;} .type-adv{background:#f3e5f5;color:#6a1b9a;} .type-phrase{background:#fce4ec;color:#ad1457;}
-.card-actions{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;justify-content:center;}
-.card-actions button{font-size:12px;padding:4px 10px;border-radius:8px;border:none;cursor:pointer;transition:all 0.2s;}
-.btn-learn{background:#e8f5e9;color:#4caf50;}
-.btn-learn:hover,.btn-learn.done{background:#4caf50;color:white;}
-.btn-repeat{background:#fff3e0;color:#ff9800;}
-.btn-repeat:hover,.btn-repeat.on{background:#ff9800;color:white;}
-/* repeat header */
-.repeat-section-header{max-width:900px;margin:0 auto 16px;padding:14px 20px;background:linear-gradient(135deg,#ff9800,#ffb74d);border-radius:14px;color:white;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
-.repeat-mode-btns{display:flex;gap:8px;}
-.repeat-mode-btn{padding:7px 18px;border-radius:12px;border:2px solid white;background:transparent;color:white;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.2s;}
-.repeat-mode-btn.active{background:white;color:#ff9800;}
-/* flashcard */
-.flashcard-wrap{max-width:560px;margin:0 auto;text-align:center;}
-.flashcard-progress-bar{background:rgba(255,152,0,0.15);border-radius:10px;height:7px;margin-bottom:18px;overflow:hidden;}
-.flashcard-progress-fill{background:#ff9800;height:100%;border-radius:10px;transition:width 0.4s;}
-.flashcard-counter{font-size:13px;color:#ff9800;font-weight:700;margin-bottom:14px;}
-.flashcard{background:white;border-radius:24px;padding:44px 36px;box-shadow:0 8px 32px rgba(255,152,0,0.18);min-height:220px;display:flex;flex-direction:column;justify-content:center;align-items:center;cursor:pointer;transition:transform 0.15s;position:relative;border:2px solid #ffe0b2;user-select:none;}
-.flashcard:hover{transform:translateY(-3px);}
-.flashcard.en-flash{border-color:#bbdefb;box-shadow:0 8px 32px rgba(21,101,192,0.15);}
-.flashcard .fc-word{font-size:34px;font-weight:800;color:#3a3a6e;margin-bottom:8px;}
-.flashcard.en-flash .fc-word{color:#1565c0;}
-.flashcard .fc-hint{font-size:12px;color:#ccc;margin-top:10px;}
-.flashcard .fc-trans{display:none;font-size:22px;color:#ff9800;font-weight:700;margin-top:8px;}
-.flashcard.en-flash .fc-trans{color:#1565c0;}
-.flashcard .fc-example{display:none;margin-top:14px;padding:10px 14px;background:#fff8f0;border-radius:10px;border-left:3px solid #ff9800;text-align:left;width:100%;}
-.flashcard.en-flash .fc-example{background:#e3f2fd;border-left-color:#1565c0;}
-.flashcard .fc-ex-src{font-size:13px;color:#3a3a6e;font-weight:600;display:block;margin-bottom:4px;}
-.flashcard .fc-ex-label{font-size:10px;font-weight:700;color:#ff9800;text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:2px;}
-.flashcard.en-flash .fc-ex-label{color:#1565c0;}
-.flashcard .fc-ex-trans{font-size:12px;color:#aaa;font-style:italic;display:block;}
-.flashcard.revealed .fc-trans,.flashcard.revealed .fc-example{display:block;}
-.flashcard.revealed .fc-hint{display:none;}
-.flashcard-btns{display:flex;gap:14px;justify-content:center;margin-top:22px;flex-wrap:wrap;}
-.flashcard-btns button{padding:12px 30px;border-radius:14px;border:none;font-size:15px;cursor:pointer;font-weight:700;transition:all 0.2s;}
-.fc-btn-show{background:#ff9800;color:white;}
-.fc-btn-show:hover{background:#e65100;}
-.flashcard.en-flash~div .fc-btn-show,.en-flash-mode .fc-btn-show{background:#1565c0;}
-.fc-btn-know{background:#e8f5e9;color:#4caf50;font-size:13px;padding:10px 22px;}
-.fc-btn-know:hover{background:#4caf50;color:white;}
-.fc-btn-again{background:#ffeaea;color:#e53935;font-size:13px;padding:10px 22px;}
-.fc-btn-again:hover{background:#e53935;color:white;}
-.fc-result{background:white;border-radius:20px;padding:36px 28px;box-shadow:0 6px 25px rgba(255,152,0,0.15);text-align:center;}
-.fc-result h2{font-size:28px;color:#3a3a6e;margin-bottom:8px;}
-.fc-result .fc-score{font-size:48px;font-weight:800;color:#ff9800;display:block;margin-bottom:4px;}
-.fc-result p{font-size:15px;color:#888;margin-bottom:20px;}
-/* english EN flashcard blue accent */
-.en-fc-wrap .fc-btn-show{background:#1565c0;}
-.en-fc-wrap .fc-btn-show:hover{background:#0d47a1;}
-.en-fc-wrap .flashcard-progress-fill{background:#1565c0;}
-.en-fc-wrap .flashcard-counter{color:#1565c0;}
-.en-fc-wrap .fc-result .fc-score{color:#1565c0;}
-/* sentences */
-.sentences-wrap{max-width:820px;margin:0 auto;}
-.group-title{background:linear-gradient(135deg,#6c63ff,#a78bfa);color:white;border-radius:14px;padding:12px 20px;margin-bottom:16px;font-size:13px;font-weight:700;line-height:1.5;}
-.sent-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:18px;}
-.sent-nav button{width:44px;height:44px;border-radius:50%;border:2px solid #6c63ff;background:white;color:#6c63ff;font-size:20px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;}
-.sent-nav button:hover{background:#6c63ff;color:white;}
-.sent-nav button:disabled{opacity:0.3;cursor:default;}
-.sent-counter{font-size:14px;font-weight:700;color:#6c63ff;}
-.sentence-card{background:white;border-radius:16px;padding:24px 26px;box-shadow:0 4px 15px rgba(108,99,255,0.08);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;min-height:130px;}
-.sentence-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(108,99,255,0.16);}
-.sentence-card .num{font-size:11px;font-weight:700;color:#6c63ff;letter-spacing:1px;margin-bottom:8px;text-transform:uppercase;}
-.sentence-card .de{font-size:16px;font-weight:600;color:#3a3a6e;line-height:1.6;}
-.sentence-card .trans{font-size:14px;color:#6c63ff;line-height:1.6;margin-top:12px;padding-top:12px;border-top:1px dashed #e0e0f0;display:none;}
-.sentence-card.flipped .trans{display:block;}
-.s-hint{font-size:11px;color:#bbb;margin-top:8px;}
-.sentence-card.flipped .s-hint{display:none;}
-/* quiz */
-.quiz-area{max-width:600px;margin:0 auto;text-align:center;}
-.quiz-card{background:white;border-radius:20px;padding:38px 30px;box-shadow:0 6px 25px rgba(108,99,255,0.12);margin-bottom:22px;min-height:175px;display:flex;flex-direction:column;justify-content:center;align-items:center;}
-.quiz-question{font-size:26px;font-weight:700;color:#3a3a6e;margin-bottom:6px;}
-.quiz-sub{font-size:13px;color:#aaa;margin-bottom:16px;}
-.quiz-answer{display:none;font-size:17px;color:#6c63ff;margin-top:14px;padding:12px;background:#f0eeff;border-radius:12px;width:100%;}
-.quiz-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.quiz-btns button{padding:11px 26px;border-radius:12px;border:none;font-size:14px;cursor:pointer;font-weight:600;transition:all 0.2s;}
-.btn-show{background:#6c63ff;color:white;}
-.btn-show:hover{background:#574fd6;}
-.btn-correct{background:#e8f5e9;color:#4caf50;}
-.btn-correct:hover{background:#4caf50;color:white;}
-.btn-wrong{background:#ffeaea;color:#e53935;}
-.btn-wrong:hover{background:#e53935;color:white;}
-.quiz-progress{font-size:13px;color:#aaa;margin-bottom:12px;}
-.quiz-score{font-size:14px;font-weight:600;color:#3a3a6e;margin-bottom:12px;}
-.progress-bar{background:#e0e0f0;border-radius:10px;height:7px;margin-bottom:18px;overflow:hidden;}
-.progress-fill{background:#6c63ff;height:100%;border-radius:10px;transition:width 0.4s;}
-.quiz-mode-toggle{display:flex;justify-content:center;gap:8px;margin-bottom:14px;}
-.quiz-mode-btn{padding:6px 16px;border-radius:16px;border:2px solid #6c63ff;background:white;color:#6c63ff;font-size:12px;cursor:pointer;font-weight:600;transition:all 0.2s;}
-.quiz-mode-btn.active{background:#6c63ff;color:white;}
-.quiz-typing-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;}
-.quiz-typing-input{width:100%;max-width:340px;padding:10px 16px;border:2px solid #d0d0e8;border-radius:10px;font-size:16px;text-align:center;outline:none;transition:border 0.2s;}
-.quiz-typing-input:focus{border-color:#6c63ff;}
-.quiz-typing-input.correct{border-color:#4caf50;background:#f0fff4;}
-.quiz-typing-input.wrong{border-color:#e53935;background:#fff5f5;}
-.quiz-check-btn{padding:10px 28px;border-radius:12px;border:none;background:#6c63ff;color:white;font-size:14px;cursor:pointer;font-weight:600;transition:all 0.2s;}
-.quiz-check-btn:hover{background:#574fd6;}
-.quiz-typing-hint{font-size:13px;color:#e53935;margin-top:4px;display:none;}
-.delete-btn{position:absolute;top:9px;right:11px;background:none;border:none;color:#ddd;font-size:16px;cursor:pointer;transition:color 0.2s;line-height:1;}
-.delete-btn:hover{color:#ff6b6b;}
-.section{display:none;}
-.section.active{display:block;}
-.empty{text-align:center;color:#bbb;padding:40px;font-size:15px;}
-.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(100px);background:#3a3a6e;color:white;padding:11px 22px;border-radius:14px;font-size:14px;font-weight:600;opacity:0;transition:all 0.3s;pointer-events:none;z-index:9999;}
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
-.confetti-piece{position:fixed;width:10px;height:10px;border-radius:2px;animation:fall 1.5s ease-in forwards;pointer-events:none;z-index:9999;}
-@keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}
-/* EN section accent */
-.en-section-wrap .stat strong{color:#1565c0;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.7;
+  padding-bottom:60px;
+}
+h1,h2{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;}
+
+/* progress bar */
+.progress-bar{position:fixed;top:0;left:0;width:100%;height:3px;background:transparent;z-index:100;}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--gold));transition:width 0.1s linear;}
+
+/* hero */
+.hero{max-width:680px;margin:0 auto;padding:56px 20px 8px;text-align:center;}
+.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px;}
+.hero h1{font-size:42px;font-weight:700;color:var(--ink);letter-spacing:-0.5px;margin-bottom:16px;}
+.lede{font-size:18px;color:var(--sub);line-height:1.6;max-width:560px;margin:0 auto;}
+
+/* main switcher (Огляд / Предмети) */
+.main-switcher{display:flex;justify-content:center;gap:12px;margin:28px auto 4px;padding:0 20px;flex-wrap:wrap;}
+.main-btn{padding:11px 26px;border-radius:22px;border:2px solid var(--accent);background:var(--paper);color:var(--accent);font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:inherit;}
+.main-btn:hover{background:#f1f5ff;}
+.main-btn.active{background:var(--accent);color:white;box-shadow:0 4px 14px rgba(36,81,196,0.28);}
+
+.panel{display:none;}
+.panel.active{display:block;}
+
+/* subject tabs */
+.subject-tabs{display:flex;justify-content:center;gap:10px;margin:24px auto 4px;padding:0 20px;flex-wrap:wrap;}
+.subject-btn{padding:9px 20px;border-radius:18px;border:2px solid var(--gold);background:var(--paper);color:var(--gold);font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:inherit;}
+.subject-btn:hover{background:var(--gold-bg);}
+.subject-btn.active{background:var(--gold);color:white;}
+.subject-content{display:none;}
+.subject-content.active{display:block;}
+.subject-intro{max-width:680px;margin:18px auto 0;padding:0 20px;color:var(--sub);font-size:15px;}
+
+/* toc */
+.toc{
+  position:sticky;top:3px;z-index:90;
+  display:flex;gap:8px;overflow-x:auto;white-space:nowrap;
+  padding:12px 16px;margin:18px 0 20px;
+  background:rgba(250,247,241,0.92);backdrop-filter:blur(6px);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.toc::-webkit-scrollbar{display:none;}
+@media (min-width:760px){
+  .toc{flex-wrap:wrap;overflow-x:visible;justify-content:center;max-width:900px;margin-left:auto;margin-right:auto;}
+}
+.toc-pill{
+  flex:0 0 auto;
+  display:inline-block;padding:7px 14px;border-radius:16px;
+  border:1.5px solid var(--line);background:var(--paper);
+  color:var(--sub);font-size:13px;font-weight:600;text-decoration:none;
+  transition:all 0.15s;
+}
+.toc-pill:hover{border-color:var(--accent);color:var(--accent);}
+.toc-pill.active{background:var(--accent);border-color:var(--accent);color:white;}
+
+/* content */
+.content{max-width:680px;margin:0 auto;padding:8px 20px 20px;}
+.block{padding:34px 0;border-bottom:1px solid var(--line);scroll-margin-top:66px;}
+.block:last-child{border-bottom:none;}
+.block h2{font-size:24px;font-weight:700;color:var(--ink);margin-bottom:16px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.block h2 .num{font-size:14px;font-weight:700;color:var(--gold);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:1px;}
+.block h2 .ts{font-size:11px;font-weight:600;color:#b7b2a8;margin-left:auto;white-space:nowrap;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+.block p{font-size:16px;color:var(--ink);margin-bottom:14px;}
+.block p:last-child{margin-bottom:0;}
+
+.plain-list{list-style:none;margin:0 0 14px 0;}
+.plain-list li{position:relative;padding-left:20px;margin-bottom:8px;font-size:16px;}
+.plain-list li::before{content:"—";position:absolute;left:0;color:var(--gold);font-weight:700;}
+
+.steps-intro{margin-bottom:8px;}
+.steps-list{margin:0 0 16px 22px;}
+.steps-list li{font-size:16px;margin-bottom:8px;padding-left:4px;}
+.steps-list li::marker{color:var(--accent);font-weight:700;}
+
+/* quotes */
+.quote{
+  position:relative;
+  margin:18px 0;padding:14px 22px 14px 26px;
+  border-left:3px solid var(--gold);
+  background:var(--gold-bg);
+  border-radius:0 10px 10px 0;
+}
+.quote p{font-family:Georgia,"Iowan Old Style",serif;font-style:italic;font-size:16px;color:#4a3d20;margin:0;line-height:1.6;}
+.quote.small{margin:14px 0;padding:10px 18px 10px 22px;}
+.quote.small p{font-size:14px;}
+
+/* example / guaranteed boxes */
+.example-box{background:#f1f5ff;border:1px solid #d7e1fb;border-radius:14px;padding:20px 22px;margin:18px 0;}
+.example-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+.example-box p{font-size:15px;margin-bottom:10px;}
+.example-box p:last-of-type{margin-bottom:0;}
+.example-box .quote{background:#e4ebfd;border-left-color:var(--accent);}
+.example-box .quote p{color:var(--accent-ink);}
+
+.guaranteed-box{background:var(--green-bg);border:1px solid #cfe9d6;border-radius:14px;padding:20px 22px;margin:18px 0;}
+.guaranteed-box .example-label{color:var(--green);}
+.guaranteed-list{list-style:none;margin:0;}
+.guaranteed-list li{position:relative;padding-left:26px;margin-bottom:10px;font-size:15px;}
+.guaranteed-list li:last-child{margin-bottom:0;}
+.guaranteed-list li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800;}
+
+/* tables */
+.table-caption{font-size:13px;color:var(--sub);margin-bottom:8px;font-weight:600;}
+.table-wrap{overflow-x:auto;margin:10px 0 18px;border-radius:12px;box-shadow:var(--shadow);}
+table{width:100%;border-collapse:collapse;background:var(--paper);font-size:14px;min-width:340px;}
+th{text-align:left;padding:11px 16px;background:var(--accent);color:white;font-weight:700;font-size:13px;}
+td{padding:10px 16px;border-bottom:1px solid var(--line);}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:nth-child(even){background:#faf9f6;}
+tr.highlight-row td{background:var(--gold-bg);font-weight:700;color:#6b4a08;}
+table.plan-table td:first-child{color:#a03a3a;font-weight:600;}
+table.plan-table td:last-child{color:var(--green);}
+
+.note{font-size:14px;color:var(--sub);background:#f4f2ec;border-radius:10px;padding:12px 16px;}
+.closing{font-size:17px;font-weight:600;color:var(--ink);}
+
+/* footer */
+.site-footer{max-width:680px;margin:0 auto;padding:30px 20px 10px;text-align:center;color:#b7b2a8;font-size:12px;}
+
+/* back to top */
+.to-top{
+  position:fixed;right:20px;bottom:24px;width:44px;height:44px;border-radius:50%;
+  border:none;background:var(--accent);color:white;font-size:18px;cursor:pointer;
+  box-shadow:0 6px 18px rgba(36,81,196,0.35);
+  opacity:0;transform:translateY(10px);pointer-events:none;transition:all 0.25s;z-index:95;
+}
+.to-top.show{opacity:1;transform:translateY(0);pointer-events:auto;}
+.to-top:hover{background:var(--accent-ink);}
+
+@media (max-width:480px){
+  .hero{padding:40px 16px 6px;}
+  .hero h1{font-size:32px;}
+  .lede{font-size:16px;}
+  .block h2{font-size:20px;}
+  .block h2 .ts{margin-left:0;}
+}
 </style>
 </head>
 <body>
-<h1></h1>
-<div class="site-header">
-  <span class="site-title">✨ Jane’s Wörterbuch</span>
-  <span class="site-title-de">Deutsch · Ukrainian · English</span>
-</div>
-<p class="subtitle">💬 Натисни на карточку, щоб побачити переклад</p>
-<div class="stats">
-  <div class="stat"><strong id="stat-total">0</strong>DE слів</div>
-  <div class="stat"><strong id="stat-learned">0</strong>вивчено</div>
-  <div class="stat"><strong id="stat-repeat">0</strong>повторити</div>
-  <div class="stat"><strong id="stat-en-total">0</strong>EN слів</div>
-  <div class="stat"><strong id="stat-sentences">0</strong>речень</div>
-  <div class="stat"><strong id="stat-streak">0🔥</strong>підряд</div>
-</div>
-<div class="lang-bar"><span>Мова перекладу (DE):</span><div class="lang-switch">
-  <button id="lang-ua" class="active" onclick="setLang('ua')">🇺🇦 UA</button>
-  <button id="lang-ru" onclick="setLang('ru')">🇷🇺 RU</button>
-  <button id="lang-en" onclick="setLang('en')">🇬🇧 EN</button>
-</div></div>
 
-<div class="section-switcher">
-  <button class="sec-btn active" id="sec-de" onclick="switchSection('de')">🇩🇪 Deutsch</button>
-  <button class="sec-btn eng-btn" id="sec-en" onclick="switchSection('en')">🇬🇧 English</button>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<header class="hero">
+  <p class="eyebrow">Конспекти з підготовки</p>
+  <h1>НМТ 2027</h1>
+  <p class="lede">Як улаштований іспит і що саме перевіряють по кожному предмету — без води, по суті.</p>
+</header>
+
+<nav class="main-switcher">
+  <button class="main-btn active" data-target="overview">📋 Огляд іспиту</button>
+  <button class="main-btn" data-target="subjects">📚 Предмети</button>
+</nav>
+
+<!-- ============ ОГЛЯД ІСПИТУ ============ -->
+<div class="panel active" id="overview">
+
+  <nav class="toc" id="toc-overview" aria-label="Зміст">
+    <a href="#format" class="toc-pill">🖥️ Формат</a>
+    <a href="#day" class="toc-pill">🪪 День іспиту</a>
+    <a href="#irrelevant" class="toc-pill">🚫 Що не рахується</a>
+    <a href="#program" class="toc-pill">📘 Програма</a>
+    <a href="#strategy" class="toc-pill">🧭 Час у блоці</a>
+    <a href="#score" class="toc-pill">🎯 Конкурсний бал</a>
+    <a href="#time" class="toc-pill">⏳ Скільки є часу</a>
+    <a href="#train" class="toc-pill">🔁 Тренуй формат</a>
+    <a href="#rest" class="toc-pill">😴 Сон і вигорання</a>
+    <a href="#plan" class="toc-pill">🗺️ План дій</a>
+    <a href="#lifehack" class="toc-pill">✂️ Лайфхак</a>
+    <a href="#ritual" class="toc-pill">🕯️ Ритуал</a>
+  </nav>
+
+  <main class="content">
+
+    <section id="format" class="block">
+      <h2><span class="num">01</span>🖥️ Формат іспиту</h2>
+      <p>НМТ — це комп’ютерне тестування, і складається воно за один день. Чотири предмети: українська мова, математика та історія України — обов’язково, плюс один предмет на вибір.</p>
+      <p>День поділений на два блоки по <strong>120 хвилин</strong>, між ними — перерва <strong>20 хвилин</strong>:</p>
+      <ul class="plain-list">
+        <li><strong>1-й блок</strong> — українська мова + математика</li>
+        <li><strong>2-й блок</strong> — історія України + предмет на вибір</li>
+      </ul>
+      <p>Головне, що варто зрозуміти заздалегідь: усередині блоку можна вільно перемикатися між двома предметами і самому вирішувати, скільки часу на що витратити.</p>
+      <div class="quote"><p>Якщо ви знаєте, що українська для вас дуже легка, ви можете її писати 30 хвилин, а 90 хвилин писати математику.</p></div>
+      <p>А ось додаткового часу ніхто не дасть:</p>
+      <div class="quote"><p>Ні, комп’ютер закривається, все, тестування закінчується.</p></div>
+    </section>
+
+    <section id="day" class="block">
+      <h2><span class="num">02</span>🪪 День іспиту</h2>
+      <p>Найбільший стрес часто виникає ще до першого завдання — на вході:</p>
+      <div class="quote"><p>Перший етап і найбільший стрес одразу… тебе оце перевіряють, все металодетектор.</p></div>
+      <p>Бувають і суто технічні накладки: комп’ютер може зависнути, і людину пересаджують за інший — це передбачена ситуація, а не привід панікувати. На перерві між блоками телефонами користуватися заборонено, і цього року за цим стежили особливо суворо.</p>
+    </section>
+
+    <section id="irrelevant" class="block">
+      <h2><span class="num">03</span>🚫 Що не впливає на вступ</h2>
+      <p>Олімпіади, «Кенгуру», «Левеня», конкурс Петра Яцика, шкільний табель, золота медаль — усе це залишається за дужками НМТ.</p>
+      <div class="quote"><p>НМТ не перевіряє вашу геніальність.</p></div>
+      <p>Воно перевіряє конкретні, наперед відомі типи завдань — і саме на них варто зосередити час.</p>
+    </section>
+
+    <section id="program" class="block">
+      <h2><span class="num">04</span>📘 Програма НМТ ≠ шкільна програма</h2>
+      <p>Легко пропустити важливий нюанс: шкільна програма не дорівнює програмі НМТ. У школі можуть вчити багато того, чого на іспиті не буде, а щось із програми НМТ школа може недодавати. Тому програму НМТ варто відкрити окремо і звірити з нею, а не покладатися на «ми це проходили».</p>
+      <p>Хороша новина — формат передбачуваний:</p>
+      <div class="quote"><p>Немає нічого нового, типи завдань незмінні… НМТ — це система, яку можна зрозуміти.</p></div>
+    </section>
+
+    <section id="strategy" class="block">
+      <h2><span class="num">05</span>🧭 Як ділити час усередині блоку</h2>
+      <p>Розподіл часу — окремий навик, який варто напрацювати заздалегідь, а не вигадувати на ходу. Логіка одного з реальних прикладів: математика забирає більше зусиль, тож починати варто саме з неї, а решту часу — скільки залишиться — віддати українській. У підсумку на математику пішла 1 година 20 хвилин, на українську — 40.</p>
+      <p>Але виснажує не лише складність завдань, а й саме перемикання між предметами:</p>
+      <div class="quote"><p>Мій мозок просто кипів не через те, що були супер складні завдання, а через те, що йому було складно переключитися одразу.</p></div>
+      <p>Це саме той навик, що тренується на пробних тестуваннях: коли заздалегідь відомо, що потрібно не 60, а 80 хвилин на предмет, це вже не сюрприз у день іспиту.</p>
+    </section>
+
+    <section id="score" class="block">
+      <h2><span class="num">06</span>🎯 Конкурсний бал і четвертий предмет</h2>
+      <p>Тут — головна пастка, в яку потрапляють навіть сильні учні. Бал НМТ і конкурсний бал вступу — це не одне й те саме:</p>
+      <div class="quote"><p>На різні спеціальності діють різні коефіцієнти на предмети. І від того, який предмет ти складаєш, залежить твій конкурсний бал.</p></div>
+      <p>Тому четвертий предмет варто обирати «не той, що легший, а той, що вигідний» — той, який дає більший коефіцієнт саме для обраної спеціальності.</p>
+
+      <div class="example-box">
+        <p class="example-label">Реальний приклад</p>
+        <p>Бали НМТ: <strong>183 · 176 · 179 · 173</strong> — справді сильний результат. Мрія — економіка, четвертий предмет — англійська. Але для економіки більшу вагу має географія.</p>
+        <p>Конкурсний бал з англійською: <strong>171,15</strong> — не вистачило.<br>З тими самими балами, але з географією замість англійської — вистачило б на бюджет.</p>
+        <div class="quote small"><p>Високі бали — це не є ще вашою гарантією вступу.</p></div>
+      </div>
+
+      <p>Питання «що краще — більший коефіцієнт чи вищий бал» не має єдиної відповіді, це завжди конкретний рахунок: 100 балів проти 200 — очевидно, 200 краще. А от 180 балів з меншим коефіцієнтом проти 170 балів з більшим — тут 170 балів «дасть більший буст».</p>
+
+      <p class="steps-intro">Звідси — три практичні кроки:</p>
+      <ol class="steps-list">
+        <li>визначити напрямок і кілька конкретних спеціальностей;</li>
+        <li>свідомо обрати четвертий предмет під ці спеціальності;</li>
+        <li>порахувати коефіцієнти й конкурсний бал заздалегідь — а не після результатів.</li>
+      </ol>
+
+      <p class="table-caption">Прохідні конкурсні бали на бюджет (2026) — для орієнтиру:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Університет / спеціальність</th><th>Бал</th></tr></thead>
+          <tbody>
+            <tr><td>НаУКМА, міжнародні відносини</td><td>187,629</td></tr>
+            <tr><td>КНУ, журналістика</td><td>~183</td></tr>
+            <tr><td>Київська школа економіки, право</td><td>191</td></tr>
+            <tr><td>Львівська політехніка, менеджмент</td><td>177</td></tr>
+            <tr><td>ЛНУ ім. Франка, психологія</td><td>169</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Окремо варто пам’ятати про технічні спеціальності: прохідні бали там часто помітно нижчі просто через меншу конкуренцію, а фахівці цих напрямів на ринку праці цінуються не менше.</p>
+    </section>
+
+    <section id="time" class="block">
+      <h2><span class="num">07</span>⏳ Скільки реально є часу</h2>
+      <p>Перш ніж планувати підготовку, корисно чесно порахувати добу. Якщо почати у вересні, 24 години розкладаються приблизно так:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Пункт</th><th>Годин</th></tr></thead>
+          <tbody>
+            <tr><td>Школа + дорога</td><td>8</td></tr>
+            <tr><td>Додаткові заняття</td><td>1</td></tr>
+            <tr><td>Домашнє завдання для школи</td><td>1,5</td></tr>
+            <tr><td>Домашнє завдання для репетиторів</td><td>1,5</td></tr>
+            <tr><td>Харчування</td><td>~1,5</td></tr>
+            <tr><td>Сон</td><td>8</td></tr>
+            <tr class="highlight-row"><td>Залишається на відпочинок</td><td>≈ 2,5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Якщо почати лише в січні: додаткові заняття зростають до 2 годин, домашка для репетиторів — до 3 (треба наздоганяти). Результат:</p>
+      <div class="quote"><p>Час на відпочинок рівно нуль.</p></div>
+      <p>Звідси практичний висновок: вчитися 24/7 — це не план, а пряма дорога до вигорання. Забирати в себе всі вихідні та відпочинок не варто.</p>
+    </section>
+
+    <section id="train" class="block">
+      <h2><span class="num">08</span>🔁 Тренуй не лише знання, а й формат</h2>
+      <p>Знання — це лише половина підготовки. Друга половина — сам формат: комп’ютер, обмежений час, необхідність перемикатися між предметами.</p>
+      <div class="quote"><p>Потрібно тренувати не тільки знання, але й сам формат НМТ.</p></div>
+      <p>Варто одразу закласти в очікування, що на реальному іспиті результат може бути нижчим, ніж на тренуваннях:</p>
+      <div class="quote"><p>На реальному НМТ ваш бал дійсно може бути нижчим на 10–15%, ніж на імітаціях.</p></div>
+      <p>Причина проста й водночас дуже практична:</p>
+      <div class="quote"><p>У моменти стресу ви не піднімаєтеся до рівня своїх очікувань, а опускаєтеся до рівня своєї підготовки.</p></div>
+      <p>Звідси й формат регулярних тренувань: раз на місяць — повна імітація іспиту в реальному часі, з фіксацією прогресу від разу до разу. Саме на таких імітаціях стає зрозуміло, скільки часу насправді потрібно на кожен предмет і як діяти, якщо щось іде не за планом — щоб у день іспиту це вже не було несподіванкою.</p>
+    </section>
+
+    <section id="rest" class="block">
+      <h2><span class="num">09</span>😴 Сон і вигорання</h2>
+      <p>Показова деталь: перед іспитом головним пріоритетом називають не додаткове повторення матеріалу, а сон.</p>
+      <div class="quote"><p>Я вирішив, що головне, що може статися зі мною… це виспатися нормально. Я думаю, що це максимально важлива річ.</p></div>
+      <div class="quote"><p>Уявіть собі, що ви мобільний телефон… ви забулися поставити телефон на зарядку, а на ньому уже 20%. Чи зможете ви довго на ньому працювати? Ви дійдете до нуля.</p></div>
+      <p>Підготовка без відпочинку працює так само — рано чи пізно ресурс закінчується.</p>
+    </section>
+
+    <section id="plan" class="block">
+      <h2><span class="num">10</span>🗺️ План дій проти конкретного страху</h2>
+      <div class="table-wrap">
+        <table class="plan-table">
+          <thead><tr><th>Страх</th><th>Дія</th></tr></thead>
+          <tbody>
+            <tr><td>не знаю, з чого почати</td><td>пройти пробне тестування, визначити точку А</td></tr>
+            <tr><td>не встигну все вивчити</td><td>розкласти програму на 9 місяців</td></tr>
+            <tr><td>боюся вигоріти</td><td>класно спати і відпочивати</td></tr>
+            <tr><td>не знаю, який предмет обрати</td><td>визначити спеціальність → рахувати коефіцієнти</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="lifehack" class="block">
+      <h2><span class="num">11</span>✂️ Лайфхак «Зайчик-пальчик»</h2>
+      <p>Маленький, суто технічний лайфхак для завдань з переведенням одиниць вимірювання — стане в пригоді і в географії, і в математиці:</p>
+      <ul class="plain-list">
+        <li><strong>сантиметри → метри:</strong> закреслити два нулі — це «зайчик»;</li>
+        <li><strong>сантиметри → кілометри:</strong> закреслити п’ять нулів — це «пальчик».</li>
+      </ul>
+      <p>Дрібниця, але на тестуванні з обмеженим часом вона важить чимало: «цей лайфхак вам зможе зберегти хвилин п’ять на НМТ».</p>
+    </section>
+
+    <section id="ritual" class="block">
+      <h2><span class="num">12</span>🕯️ Ритуал перед іспитом</h2>
+      <p>І наостанок — не про знання, а про стан перед іспитом:</p>
+      <div class="quote"><p>Знайдіть якийсь свій ритуал, який вам допомагає… якщо ми в щось віримо, у нас завжди вийде.</p></div>
+      <p>Але тут же — уточнення, яке не дає цій пораді перетворитися на порожній «позитив»:</p>
+      <div class="quote"><p>Віра завжди може базуватися тільки на впевненості.</p></div>
+      <p class="closing">А впевненість будується не на настрої в конкретний день, а на системній довгій підготовці — тобто на всьому, що описано вище.</p>
+    </section>
+
+  </main>
 </div>
 
-<!-- ============ DE SECTION ============ -->
-<div id="de-section" class="section active">
-  <div class="tabs">
-    <button class="tab-btn active" id="tab-words" onclick="switchTab('words')">🔤 Слова</button>
-    <button class="tab-btn repeat-tab" id="tab-repeat" onclick="switchTab('repeat')">🔁 Повторити <span class="repeat-count" id="repeat-count">0</span></button>
-    <button class="tab-btn" id="tab-sentences" onclick="switchTab('sentences')">📝 Речення</button>
-    <button class="tab-btn" id="tab-quiz" onclick="switchTab('quiz')">🎯 Квіз</button>
-    <button class="tab-btn" id="tab-dental" onclick="switchTab('dental')">🦷 Стоматолог</button>
+<!-- ============ ПРЕДМЕТИ ============ -->
+<div class="panel" id="subjects">
+
+  <nav class="subject-tabs">
+    <button class="subject-btn active" data-subject="ukr">🇺🇦 Українська мова</button>
+  </nav>
+
+  <div class="subject-content active" id="subject-ukr">
+    <p class="subject-intro">Розбір за таймкодами одного відео про те, як улаштований тест з української мови на НМТ: з яких блоків він складається і що можна вважати гарантованим з року в рік.</p>
+
+    <nav class="toc" id="toc-ukr" aria-label="Зміст: українська мова">
+      <a href="#ukr-structure" class="toc-pill">🧩 Структура</a>
+      <a href="#ukr-phonetics" class="toc-pill">🔊 Наголоси</a>
+      <a href="#ukr-spelling" class="toc-pill">✍️ Правопис</a>
+      <a href="#ukr-grammar" class="toc-pill">🛠️ Граматика</a>
+      <a href="#ukr-text" class="toc-pill">📄 Текст</a>
+      <a href="#ukr-matching" class="toc-pill">🔗 Зіставлення</a>
+      <a href="#ukr-summary" class="toc-pill">✅ Підсумок</a>
+    </nav>
+
+    <main class="content">
+
+      <section id="ukr-structure" class="block">
+        <h2><span class="num">01</span>🧩 Загальна структура тесту<span class="ts">0:00–0:45</span></h2>
+        <p>Тест НМТ з української мови складається з кількох блоків: тестів з однією правильною відповіддю (з варіантами), блоку роботи з текстом і блоку завдань на зіставлення. Цю структуру видно, якщо відкрити будь-який пробний тест або тест попередніх років — вона не секрет і повторюється щороку.</p>
+      </section>
+
+      <section id="ukr-phonetics" class="block">
+        <h2><span class="num">02</span>🔊 Наголоси і фонетика<span class="ts">0:45–1:56</span></h2>
+        <p>Перші два тести стосуються наголосів і фонетики — всього, що пов’язано зі звуками. Це одна з найстабільніших частин іспиту: вона повторюється в усіх сесіях НМТ без винятку.</p>
+      </section>
+
+      <section id="ukr-spelling" class="block">
+        <h2><span class="num">03</span>✍️ Правопис<span class="ts">1:56–2:54</span></h2>
+        <p>Далі йде блок завдань з правопису — орієнтовно 5–7 балів на різні теми: вживання м’якого знака, апостроф, подовження приголосних, написання складних слів тощо.</p>
+        <p>Окремо варто виділити тест формату «орфографічну помилку допущено» — найпідступніший у цьому блоці. На відміну від інших завдань з правопису, тут перевіряється не одне конкретне правило, а вміння відшукати помилку серед речень, спираючись одразу на всі відомі правила.</p>
+        <p>Важливо чітко розрізняти чотири типи помилок — орфографічну, пунктуаційну, граматичну та лексичну, — щоб не шукати в завданні той тип помилки, який там узагалі не перевіряється.</p>
+      </section>
+
+      <section id="ukr-grammar" class="block">
+        <h2><span class="num">04</span>🛠️ Граматика, лексичні помилки, редагування<span class="ts">2:54–3:47</span></h2>
+        <p>Наступний блок — граматика, лексичні помилки та різні види редагування речення. Доволі часто трапляється завдання з формулюванням «редагування потребує речення» — і воно вимагає окремої підготовки: треба розуміти, які типи редагування можуть перевірятися, а які ні, і вміти застосовувати відповідні правила.</p>
+        <p>Важливий нюанс: у завданнях цього типу не йдеться про орфографічні помилки, і шукати неправильно написані слова тут не потрібно — перевіряються інші, окремі моменти.</p>
+      </section>
+
+      <section id="ukr-text" class="block">
+        <h2><span class="num">05</span>📄 Робота з текстом<span class="ts">3:47–5:31</span></h2>
+        <p>У цьому блоці дають текст із графічними позначками, і потрібно, зокрема, розставити речення в логічній послідовності. Виглядає незвично, але це не найскладніше завдання серед тих, що йдуть до того самого тексту.</p>
+        <p>Складнішим — за відгуками учнів — є завдання на пунктуаційну помилку: речень багато, вони насичені розділовими знаками, і треба знайти конкретне місце, де щось поставлено неправильно або чогось бракує. Це вимагає високої концентрації та уважного аналізу кожного речення, тому саме тут учні найчастіше починають нервувати.</p>
+        <p>До того самого тексту можуть додаватися також завдання на лексику (заміна слова) і на визначення типів речень.</p>
+      </section>
+
+      <section id="ukr-matching" class="block">
+        <h2><span class="num">06</span>🔗 Блок зіставлення<span class="ts">5:31–9:39</span></h2>
+        <p>Блок зіставлення — найцінніший, і підготовку варто починати саме з нього: ці завдання переважно стосуються синтаксису — речень, відокремлених членів речення, простих і складних речень.</p>
+        <p>Найчастіше повторюваний тип — зіставлення видів речень (складносурядне, складнопідрядне, безсполучникове). Часто трапляється й великий за обсягом тест на зіставлення виділених фрагментів тексту (два стовпчики для зіставлення) — виглядає лячно, але складність не варто перебільшувати: кожен стовпчик можна розв’язувати окремо.</p>
+        <p>Інші варіанти завдань на зіставлення:</p>
+        <ul class="plain-list">
+          <li>зіставлення членів речення;</li>
+          <li>зіставлення відокремлених конструкцій;</li>
+          <li>визначення причини для тире (важливо розуміти саме причину постановки тире, а не лише факт, що воно там стоїть);</li>
+          <li>зіставлення, пов’язані з лексикою — здебільшого фразеологізми за значенням чи контекстом, значення слів (зокрема запозичених), застарілі слова.</li>
+        </ul>
+        <p>Окремо в блоці граматики є одне завдання на один бал про значення конкретного слова. Чіткого закритого переліку слів, які точно трапляться на іспиті, не існує — тому протягом року варто поступово розширювати словниковий запас і опрацьовувати значення нових слів та їхні синоніми, а не сподіватися на випадковий збіг.</p>
+        <p>Ще один тест, що трапляється в кожній сесії, — зіставлення слів із частинами мови. Він потребує застосування знань з усіх частин мови одразу.</p>
+      </section>
+
+      <section id="ukr-summary" class="block">
+        <h2><span class="num">07</span>✅ Що гарантовано буде на іспиті<span class="ts">9:39–10:10</span></h2>
+        <div class="guaranteed-box">
+          <p class="example-label">Гарантовано в кожній сесії</p>
+          <ul class="guaranteed-list">
+            <li>завдання на наголоси (перелік слів обмежений і поданий у програмі)</li>
+            <li>завдання на фонетику</li>
+            <li>завдання на розрізнення частин мови (зі своїми тонкощами)</li>
+            <li>завдання на фразеологізми та значення запозичених чи рідковживаних українських слів</li>
+            <li>завдання з граматики й правопису — самі будуть точно, а от конкретна тема наперед не на 100% передбачувана</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
   </div>
-  <div class="section active" id="words-section">
-    <div class="search-bar"><input type="text" id="searchInput" placeholder="🔍 Пошук слів..." oninput="renderWords()"/></div><div id="type-filters" style="display:flex;justify-content:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><button class="type-filter-btn active" onclick="setTypeFilter('all')" data-type="all" style="padding:5px 14px;border-radius:14px;border:2px solid #ccc;background:white;font-size:12px;font-weight:700;cursor:pointer;color:#555;">Всі</button><button class="type-filter-btn" onclick="setTypeFilter('noun')" data-type="noun" style="padding:5px 14px;border-radius:14px;border:2px solid #1565c0;background:white;font-size:12px;font-weight:700;cursor:pointer;color:#1565c0;">🔵 Іменники</button><button class="type-filter-btn" onclick="setTypeFilter('verb')" data-type="verb" style="padding:5px 14px;border-radius:14px;border:2px solid #2e7d32;background:white;font-size:12px;font-weight:700;cursor:pointer;color:#2e7d32;">🟢 Дієслова</button><button class="type-filter-btn" onclick="setTypeFilter('adj')" data-type="adj" style="padding:5px 14px;border-radius:14px;border:2px solid #e65100;background:white;font-size:12px;font-weight:700;cursor:pointer;color:#e65100;">🟠 Прикметники</button><button class="type-filter-btn" onclick="setTypeFilter('adv')" data-type="adv" style="padding:5px 14px;border-radius:14px;border:2px solid #6a1b9a;background:white;font-size:12px;font-weight:700;cursor:pointer;color:#6a1b9a;">🟣 Прислівники</button><button class="type-filter-btn" onclick="setTypeFilter('phrase')" data-type="phrase" style="padding:5px 14px;border-radius:14px;border:2px solid #ad1457;background:white;font-size:12px;font-weight:700;cursor:pointer;color:#ad1457;">🔴 Фрази</button></div>
-    <div class="add-form">
-      <input type="text" id="wordInput" placeholder="Слово (DE)"/>
-      <input type="text" id="transUaInput" placeholder="Переклад UA"/>
-      <input type="text" id="transRuInput" placeholder="Перевод RU"/>
-      <input type="text" id="transEnInput" placeholder="Translation EN"/>
-      <button onclick="addWord()">+ Додати</button>
-    </div>
-    <div class="cards" id="cards"></div>
-  </div>
-  <div class="section" id="repeat-section"><div id="repeat-inner"></div></div>
-  <div class="section" id="sentences-section"><div class="sentences-wrap" id="sentences-wrap"></div></div>
-  <div class="section" id="quiz-section"><div class="quiz-area" id="quiz-area"></div></div>
-  <div class="section" id="dental-section"><div id="dental-wrap" style="max-width:820px;margin:0 auto;"></div></div>
+
 </div>
 
-<!-- ============ EN SECTION ============ -->
-<div id="en-section" class="section">
-  <div class="en-tabs">
-    <button class="en-tab-btn active" id="en-tab-words" onclick="switchEnTab('words')">🔤 Words</button>
-    <button class="en-tab-btn en-repeat-tab" id="en-tab-repeat" onclick="switchEnTab('repeat')">🔁 Repeat <span class="en-repeat-count" id="en-repeat-count">0</span></button>
-    <button class="en-tab-btn" id="en-tab-quiz" onclick="switchEnTab('quiz')">🎯 Quiz</button>
-    <button class="en-tab-btn" id="en-tab-sent" onclick="switchEnTab('sent')">📖 Sentences</button>
-  </div>
-  <div class="section active" id="en-words-section">
-    <div class="search-bar"><input type="text" id="enSearchInput" placeholder="🔍 Search words..." oninput="renderEnWords()"/></div>
-    <div class="add-form en-form">
-      <input type="text" id="enWordInput" placeholder="Word (EN)"/>
-      <input type="text" id="enTransUaInput" placeholder="Переклад UA"/>
-      <input type="text" id="enTransRuInput" placeholder="Перевод RU"/>
-      <input type="text" id="enTransDeInput" placeholder="Übersetzung DE"/>
-      <button onclick="addEnWord()">+ Add</button>
-    </div>
-    <div class="cards" id="en-cards"></div>
-  </div>
-  <div class="section" id="en-repeat-section"><div id="en-repeat-inner"></div></div>
-  <div class="section" id="en-quiz-section"><div class="quiz-area" id="en-quiz-area"></div></div>
-  <div class="section" id="en-sent-section"><div class="sentences-wrap" id="en-sent-wrap"></div></div>
-</div>
+<footer class="site-footer">
+  <p>Конспекти на основі вебінару про НМТ та розбору тесту з української мови</p>
+</footer>
 
-<div class="toast" id="toast"></div>
-<script>
-/* ======= STATE ======= */
-var _lang="ua",_quizStreak=0,_quizScore=0,_quizIndex=0,_quizOrder=[];var _quizTypingMode=false,_enQuizTypingMode=false;
+<button id="toTop" class="to-top" aria-label="Нагору">↑</button>
 
-var _repeatMode="cards";
-var _fcList=[],_fcIndex=0,_fcScore=0,_fcAgainList=[];
-var _enRepeatMode="cards";
-var _enFcList=[],_enFcIndex=0,_enFcScore=0,_enFcAgainList=[];
-var _enQuizStreak=0,_enQuizScore=0,_enQuizIndex=0,_enQuizOrder=[];
-var _curSection="de", _curEnTab="words"; var _typeFilter="all"; function setTypeFilter(t){_typeFilter=t;document.querySelectorAll(".type-filter-btn").forEach(function(b){b.style.background=b.dataset.type===t?"#6c63ff":"white";b.style.color=b.dataset.type===t?"white":b.style.color;if(b.dataset.type===t){b.classList.add("active");}else{b.classList.remove("active");}});renderWords();}
-
-/* ======= DE WORDS ======= */
-var _words=[
-{"word":"sichtlich","ua":"очевидно, явно","ru":"очевидно, явно","en":"obviously, visibly","learned":false,"repeat":false,"type":"adv","exDe":"Er war sichtlich erschöpft nach der langen Reise.","exUa":"Він був явно виснажений після довгої подорожі.","exRu":"Он был явно измотан после долгой поездки.","exEn":"He was visibly exhausted after the long journey."},
-{"word":"derart","ua":"настільки, таким чином","ru":"настолько, таким образом","en":"so much, in such a way","learned":false,"repeat":false,"type":"adv","exDe":"Das Wasser war derart kalt, dass ich sofort aufgehört habe zu schwimmen.","exUa":"Вода була настільки холодною, що я одразу перестав плавати.","exRu":"Вода была настолько холодной, что я сразу перестал плавать.","exEn":"The water was so cold that I immediately stopped swimming."},
-{"word":"beinahe","ua":"майже, мало не","ru":"почти, едва не","en":"almost, nearly","learned":false,"repeat":false,"type":"adv","exDe":"Ich hätte beinahe den Zug verpasst.","exUa":"Я мало не пропустив поїзд.","exRu":"Я едва не опоздал на поезд.","exEn":"I almost missed the train."},
-{"word":"ausrenken","ua":"вивихнути, викрутити","ru":"вывихнуть, выкрутить","en":"to dislocate","learned":false,"repeat":false,"type":"verb","exDe":"Er hat sich beim Sport den Arm ausgerenkt.","exUa":"Він вивихнув руку під час занять спортом.","exRu":"Он вывихнул руку во время тренировки.","exEn":"He dislocated his arm during sports."},
-{"word":"fürchten","ua":"боятися, побоюватися","ru":"бояться, опасаться","en":"to fear, to be afraid","learned":false,"repeat":false,"type":"verb","exDe":"Die Kinder fürchten sich im Dunkeln.","exUa":"Діти бояться темряви.","exRu":"Дети боятся темноты.","exEn":"The children are afraid of the dark."},
-{"word":"geschmeidig","ua":"гнучкий, пластичний","ru":"гибкий, пластичный","en":"supple, flexible","learned":false,"repeat":false,"type":"adj","exDe":"Die Katze bewegt sich geschmeidig durch den Raum.","exUa":"Кіт рухається гнучко по кімнаті.","exRu":"Кошка гибко движется по комнате.","exEn":"The cat moves smoothly through the room."},
-{"word":"grausam","ua":"жорстокий, страшний","ru":"жестокий, ужасный","en":"cruel, dreadful","learned":false,"repeat":false,"type":"adj","exDe":"Der Winter war dieses Jahr grausam kalt.","exUa":"Цього року зима була жорстоко холодною.","exRu":"Этой зимой было жестоко холодно.","exEn":"The winter was dreadfully cold this year."},
-{"word":"die Unwissenheit","ua":"незнання, невігластво","ru":"незнание, невежество","en":"ignorance","learned":false,"repeat":false,"type":"noun","exDe":"Unwissenheit schützt nicht vor Strafe.","exUa":"Незнання закону не звільняє від відповідальності.","exRu":"Незнание закона не освобождает от ответственности.","exEn":"Ignorance is no protection from punishment."},
-{"word":"die Tatsache","ua":"факт, дійсність","ru":"факт, действительность","en":"fact, reality","learned":false,"repeat":false,"type":"noun","exDe":"Es ist eine Tatsache, dass die Erde rund ist.","exUa":"Це факт, що Земля кругла.","exRu":"Это факт, что Земля круглая.","exEn":"It is a fact that the Earth is round."},
-{"word":"hektisch","ua":"метушливий, хаотичний","ru":"суетливый, хаотичный","en":"hectic, frantic","learned":false,"repeat":false,"type":"adj","exDe":"Der Montagmorgen ist immer sehr hektisch.","exUa":"Понеділковий ранок завжди дуже метушливий.","exRu":"Понедельничное утро всегда очень суетливое.","exEn":"Monday morning is always very hectic."},
-{"word":"unmittelbar","ua":"безпосередній, одразу","ru":"непосредственный, сразу","en":"immediate, directly","learned":false,"repeat":false,"type":"adv","exDe":"Er reagierte unmittelbar auf die Nachricht.","exUa":"Він відреагував одразу на новину.","exRu":"Он отреагировал сразу на новость.","exEn":"He reacted immediately to the news."},
-{"word":"kraftvoll","ua":"потужний, сильний","ru":"мощный, сильный","en":"powerful, forceful","learned":false,"repeat":false,"type":"adj","exDe":"Der Sportler machte eine kraftvolle Bewegung.","exUa":"Спортсмен зробив потужний рух.","exRu":"Спортсмен сделал мощное движение.","exEn":"The athlete made a powerful movement."},
-{"word":"die Gestalt","ua":"фігура, образ, постать","ru":"фигура, образ, облик","en":"figure, shape, form","learned":false,"repeat":false,"type":"noun","exDe":"Eine dunkle Gestalt stand im Schatten.","exUa":"Темна постать стояла в тіні.","exRu":"Тёмная фигура стояла в тени.","exEn":"A dark figure stood in the shadows."},
-{"word":"schlugen","ua":"(вони) вдарили, билися","ru":"(они) ударили, бились","en":"(they) struck, beat","learned":false,"repeat":false,"type":"verb","exDe":"Die Wellen schlugen heftig gegen die Küste.","exUa":"Хвилі сильно вдаряли об берег.","exRu":"Волны сильно ударяли о берег.","exEn":"The waves struck hard against the coast."},
-{"word":"einmal","ua":"одного разу, одного дня","ru":"однажды, один раз","en":"once, one day","learned":false,"repeat":false,"type":"adv","exDe":"Einmal im Jahr fahren wir in den Urlaub.","exUa":"Один раз на рік ми їдемо у відпустку.","exRu":"Один раз в год мы едем в отпуск.","exEn":"Once a year we go on vacation."},
-{"word":"das Elend","ua":"злидні, горе, нещастя","ru":"нищета, горе, несчастье","en":"misery, poverty","learned":false,"repeat":false,"type":"noun","exDe":"Das Elend der Kriegsflüchtlinge ist kaum zu ertragen.","exUa":"Злидні військових біженців важко витримати.","exRu":"Нищета военных беженцев едва переносима.","exEn":"The misery of war refugees is hard to bear."},
-{"word":"künftig","ua":"майбутній, у майбутньому","ru":"будущий, в будущем","en":"future, henceforth","learned":false,"repeat":false,"type":"adj","exDe":"Künftig werden wir alles besser planen.","exUa":"У майбутньому ми будемо все краще планувати.","exRu":"В будущем мы будем всё лучше планировать.","exEn":"In the future we will plan everything better."},
-{"word":"beschleunigen","ua":"прискорювати","ru":"ускорять","en":"to accelerate, to speed up","learned":false,"repeat":false,"type":"verb","exDe":"Wir müssen das Tempo beschleunigen.","exUa":"Нам потрібно прискорити темп.","exRu":"Нам нужно ускорить темп.","exEn":"We need to speed up the pace."},
-{"word":"die Arglosigkeit","ua":"довірливість, безтурботність","ru":"доверчивость, беззаботность","en":"naivety, guilelessness","learned":false,"repeat":false,"type":"noun","exDe":"Seine Arglosigkeit machte ihn verletzlich.","exUa":"Його довірливість робила його вразливим.","exRu":"Его доверчивость делала его уязвимым.","exEn":"His naivety made him vulnerable."},
-{"word":"gedankenlos","ua":"легковажний, необдуманий","ru":"легкомысленный, необдуманный","en":"thoughtless, careless","learned":false,"repeat":false,"type":"adj","exDe":"Er handelte gedankenlos und bereute es später.","exUa":"Він діяв необдумано і пізніше шкодував про це.","exRu":"Он действовал необдуманно и потом пожалел об этом.","exEn":"He acted thoughtlessly and regretted it later."},
-{"word":"ehe","ua":"перш ніж, до того як","ru":"прежде чем, до того как","en":"before, ere","learned":false,"repeat":false,"type":"phrase","exDe":"Ehe du gehst, sag mir Bescheid.","exUa":"Перш ніж іти, дай мені знати.","exRu":"Прежде чем уйти, дай мне знать.","exEn":"Before you leave, let me know."},
-{"word":"ordentlich","ua":"акуратний, порядний","ru":"аккуратный, порядочный","en":"neat, tidy, proper","learned":false,"repeat":false,"type":"adj","exDe":"Sie ist ordentlich und hält ihr Zimmer immer sauber.","exUa":"Вона акуратна і завжди тримає свою кімнату в чистоті.","exRu":"Она аккуратная и всегда держит свою комнату в чистоте.","exEn":"She is tidy and always keeps her room clean."},
-{"word":"buchstäblich","ua":"буквально, дослівно","ru":"буквально, дословно","en":"literally, word for word","learned":false,"repeat":false,"type":"adv","exDe":"Er war buchstäblich sprachlos vor Staunen.","exUa":"Він буквально знімів від здивування.","exRu":"Он буквально онемел от удивления.","exEn":"He was literally speechless with amazement."},
-{"word":"hinunterlaufen","ua":"збігати вниз, текти вниз","ru":"сбегать вниз, течь вниз","en":"to run down, to flow down","learned":false,"repeat":false,"type":"verb","exDe":"Die Tränen liefen ihr langsam die Wangen hinunter.","exUa":"Сльози повільно текли по її щоках донизу.","exRu":"Слёзы медленно текли по её щекам вниз.","exEn":"The tears slowly ran down her cheeks."},
-{"word":"unwesentlich","ua":"несуттєвий, незначний","ru":"несущественный, незначительный","en":"insignificant, trivial","learned":false,"repeat":false,"type":"adj","exDe":"Der Unterschied zwischen den beiden Versionen ist unwesentlich.","exUa":"Різниця між двома версіями незначна.","exRu":"Разница между двумя версиями несущественна.","exEn":"The difference between the two versions is insignificant."},
-{"word":"angesagt","ua":"модний, популярний","ru":"модный, популярный","en":"trendy, fashionable","learned":false,"repeat":false,"type":"adj","exDe":"Dieses Restaurant ist gerade sehr angesagt in der Stadt.","exUa":"Цей ресторан зараз дуже популярний у місті.","exRu":"Этот ресторан сейчас очень популярен в городе.","exEn":"This restaurant is very trendy right now."},
-{"word":"die Vorliebe","ua":"уподобання, пристрасть","ru":"пристрастие, предпочтение","en":"preference, fondness","learned":false,"repeat":false,"type":"noun","exDe":"Er hat eine Vorliebe für klassische Musik.","exUa":"Він має пристрасть до класичної музики.","exRu":"У него пристрастие к классической музыке.","exEn":"He has a fondness for classical music."},
-{"word":"mitunter","ua":"інколи, часом","ru":"иногда, порой","en":"sometimes, occasionally","learned":false,"repeat":false,"type":"adv","exDe":"Mitunter vergisst man die wichtigsten Dinge im Leben.","exUa":"Інколи забуваєш найважливіші речі в житті.","exRu":"Порой забываешь самые важные вещи в жизни.","exEn":"Sometimes you forget the most important things in life."},
-{"word":"rätselhaft","ua":"загадковий, таємничий","ru":"загадочный, таинственный","en":"mysterious, enigmatic","learned":false,"repeat":false,"type":"adj","exDe":"Sein Verschwinden blieb rätselhaft für alle.","exUa":"Його зникнення залишилося загадковим для всіх.","exRu":"Его исчезновение осталось загадочным для всех.","exEn":"His disappearance remained mysterious to everyone."},
-{"word":"ausgesetzt","ua":"підданий; залишений","ru":"подверженный; брошенный","en":"exposed to; abandoned","learned":false,"repeat":false,"type":"adj","exDe":"Die Kinder waren der Kälte stundenlang ausgesetzt.","exUa":"Діти були піддані холоду годинами.","exRu":"Дети были подвергнуты холоду часами.","exEn":"The children were exposed to the cold for hours."},
-{"word":"umschlagen","ua":"перевернутися; змінитися","ru":"перевернуться; измениться","en":"to turn; to change abruptly","learned":false,"repeat":false,"type":"verb","exDe":"Das Wetter kann in den Bergen schnell umschlagen.","exUa":"Погода в горах може різко змінитися.","exRu":"Погода в горах может резко измениться.","exEn":"The weather in the mountains can change suddenly."},
-{"word":"befangen","ua":"збентежений, упереджений","ru":"смущённый, предвзятый","en":"self-conscious, biased","learned":false,"repeat":false,"type":"adj","exDe":"Er wirkte befangen, als er die Frage beantworten musste.","exUa":"Він виглядав збентеженим, коли мав відповідати.","exRu":"Он выглядел смущённым, когда отвечал на вопрос.","exEn":"He seemed self-conscious when answering the question."},
-{"word":"herablassend","ua":"зверхній, зневажливий","ru":"снисходительный, высокомерный","en":"condescending, patronizing","learned":false,"repeat":false,"type":"adj","exDe":"Er sprach in einem herablassenden Ton mit seinen Kollegen.","exUa":"Він розмовляв зі своїми колегами зверхнім тоном.","exRu":"Он разговаривал с коллегами снисходительным тоном.","exEn":"He spoke to his colleagues in a condescending tone."},
-{"word":"der Wirt","ua":"господар, власник закладу","ru":"хозяин, владелец заведения","en":"host, landlord, innkeeper","learned":false,"repeat":false,"type":"noun","exDe":"Der Wirt begrüßte jeden Gast herzlich an der Tür.","exUa":"Господар сердечно вітав кожного гостя.","exRu":"Хозяин сердечно приветствовал каждого гостя.","exEn":"The host warmly greeted every guest at the door."},
-{"word":"jählings","ua":"раптово, зненацька","ru":"внезапно, стремительно","en":"suddenly, abruptly","learned":false,"repeat":false,"type":"adv","exDe":"Er hielt jählings inne, als er die Nachricht hörte.","exUa":"Він раптово зупинився, почувши новину.","exRu":"Он внезапно остановился, услышав новость.","exEn":"He stopped abruptly when he heard the news."},
-{"word":"mitnichten","ua":"аж ніяк, зовсім ні","ru":"отнюдь нет, вовсе нет","en":"by no means, not at all","learned":false,"repeat":false,"type":"adv","exDe":"Das ist mitnichten so einfach, wie es klingt.","exUa":"Це аж ніяк не так просто, як здається.","exRu":"Это отнюдь не так просто, как кажется.","exEn":"This is by no means as simple as it sounds."},
-{"word":"vorwerfen","ua":"докоряти, звинувачувати","ru":"упрекать, обвинять","en":"to accuse, to reproach","learned":false,"repeat":false,"type":"verb","exDe":"Er wirft ihr vor, nie ehrlich zu sein.","exUa":"Він докоряє їй у нечесності.","exRu":"Он упрекает её в нечестности.","exEn":"He accuses her of never being honest."},
-{"word":"verabscheuen","ua":"гидувати, ненавидіти","ru":"ненавидеть, презирать","en":"to detest, to loathe","learned":false,"repeat":false,"type":"verb","exDe":"Sie verabscheut jede Form von Gewalt.","exUa":"Вона відчуває огиду до будь-якої форми насильства.","exRu":"Она испытывает отвращение к любой форме насилия.","exEn":"She detests any form of violence."},
-{"word":"träge","ua":"лінивий, млявий, інертний","ru":"ленивый, вялый, инертный","en":"sluggish, lazy, lethargic","learned":false,"repeat":false,"type":"adj","exDe":"An Regentagen fühlt er sich immer besonders träge.","exUa":"У дощові дні він завжди почувається особливо млявим.","exRu":"В дождливые дни он всегда чувствует себя вялым.","exEn":"On rainy days he always feels particularly sluggish."},
-{"word":"allerlei","ua":"всілякий, різноманітний","ru":"всякий, разнообразный","en":"all sorts of, various","learned":false,"repeat":false,"type":"adj","exDe":"Sie hat allerlei interessante Bücher zu Hause.","exUa":"Вдома у неї є всілякі цікаві книги.","exRu":"Дома у неё есть всякие интересные книги.","exEn":"She has all sorts of interesting books at home."},
-{"word":"niedlich","ua":"милий, чарівний","ru":"милый, прелестный","en":"cute, sweet, adorable","learned":false,"repeat":false,"type":"adj","exDe":"Das Kätzchen sieht so niedlich aus.","exUa":"Кошеня виглядає таким милим.","exRu":"Котёнок выглядит таким милым.","exEn":"The kitten looks so cute."},
-{"word":"herauskommen","ua":"виходити, виявлятися","ru":"выходить, выясняться","en":"to come out, to turn out","learned":false,"repeat":false,"type":"verb","exDe":"Wann kommt sein neues Buch heraus?","exUa":"Коли виходить його нова книга?","exRu":"Когда выходит его новая книга?","exEn":"When is his new book coming out?"},
-{"word":"genüsslich","ua":"із задоволенням, смакуючи","ru":"с наслаждением, смакуя","en":"with pleasure, savoring","learned":false,"repeat":false,"type":"adv","exDe":"Sie trank genüsslich ihren Morgenkaffee.","exUa":"Вона із задоволенням пила свою ранкову каву.","exRu":"Она с наслаждением пила свой утренний кофе.","exEn":"She savored her morning coffee with pleasure."},
-{"word":"äußerst","ua":"надзвичайно, вкрай","ru":"чрезвычайно, крайне","en":"extremely, utterly","learned":false,"repeat":false,"type":"adv","exDe":"Die Situation war äußerst schwierig.","exUa":"Ситуація була надзвичайно складною.","exRu":"Ситуация была крайне сложной.","exEn":"The situation was extremely difficult."},
-{"word":"der Abfall","ua":"сміття, відходи; спад","ru":"мусор, отходы; спад","en":"waste, garbage; decline","learned":false,"repeat":false,"type":"noun","exDe":"Bitte wirf den Abfall in den richtigen Behälter.","exUa":"Будь ласка, кидай сміття у правильний контейнер.","exRu":"Пожалуйста, выбрасывай мусор в правильный контейнер.","exEn":"Please throw the waste into the correct container."},
-{"word":"mürrisch","ua":"буркотливий, похмурий","ru":"ворчливый, угрюмый","en":"grumpy, sullen, gruff","learned":false,"repeat":false,"type":"adj","exDe":"Er antwortete mürrisch, ohne aufzublicken.","exUa":"Він відповів буркотливо, не піднімаючи погляду.","exRu":"Он ответил ворчливо, не поднимая взгляда.","exEn":"He answered gruffly without looking up."},
- {"word":"schaffen","ua":"створювати, справлятися","ru":"создавать, справляться","en":"to create, to manage","learned":false,"repeat":false,"type":"verb","exDe":"Er hat es geschafft, das Projekt rechtzeitig fertigzustellen.","exUa":"Йому вдалося завершити проєкт вчасно.","exRu":"Ему удалось завершить проект вовремя.","exEn":"He managed to finish the project on time."},
- {"word":"zufolge","ua":"згідно з, відповідно до","ru":"согласно, в соответствии с","en":"according to","learned":false,"repeat":false,"type":"phrase","exDe":"Dem Bericht zufolge steigen die Temperaturen weltweit.","exUa":"Згідно зі звітом, температура у світі зростає.","exRu":"Согласно отчёту, температура в мире растёт.","exEn":"According to the report, temperatures are rising worldwide."},
- {"word":"gönnen","ua":"не заздрити, дозволяти собі","ru":"не завидовать, позволять","en":"to not begrudge, to grant","learned":false,"repeat":false,"type":"verb","exDe":"Ich gönne ihr den Erfolg von ganzem Herzen.","exUa":"Я щиро радію за її успіх.","exRu":"Я от всей души рад её успеху.","exEn":"I wholeheartedly begrudge her nothing for her success."},
- {"word":"betrachten","ua":"розглядати, споглядати","ru":"рассматривать, созерцать","en":"to observe, to consider","learned":false,"repeat":false,"type":"verb","exDe":"Er betrachtete das Gemälde lange und schweigend.","exUa":"Він довго й мовчки розглядав картину.","exRu":"Он долго и молча рассматривал картину.","exEn":"He observed the painting for a long time in silence."},
- {"word":"überaus","ua":"надзвичайно, вкрай","ru":"чрезвычайно, крайне","en":"extremely, exceedingly","learned":false,"repeat":false,"type":"adv","exDe":"Das war überaus freundlich von dir.","exUa":"Це було надзвичайно люб'язно з твого боку.","exRu":"Это было крайне любезно с твоей стороны.","exEn":"That was extremely kind of you."},
- {"word":"das Gedächtnis","ua":"пам'ять","ru":"память","en":"memory","learned":false,"repeat":false,"type":"noun","exDe":"Sein Gedächtnis lässt mit dem Alter nach.","exUa":"Його пам'ять погіршується з віком.","exRu":"Его память ухудшается с возрастом.","exEn":"His memory is declining with age."},
- {"word":"die Sprünge","ua":"стрибки, стрімкий прогрес","ru":"прыжки, стремительный прогресс","en":"leaps, jumps","learned":false,"repeat":false,"type":"noun","exDe":"Die Technologie macht riesige Sprünge nach vorne.","exUa":"Технологія робить величезні стрибки вперед.","exRu":"Технология делает огромные скачки вперёд.","exEn":"Technology is making huge leaps forward."},
- {"word":"erbrechen","ua":"блювати, зригувати","ru":"рвать, тошнить","en":"to vomit","learned":false,"repeat":false,"type":"verb","exDe":"Das Kind musste sich nach dem Essen erbrechen.","exUa":"Дитина змушена була зригнути після їжі.","exRu":"Ребёнок вынужден был вырвать после еды.","exEn":"The child had to vomit after eating."},
- {"word":"entgeistern","ua":"приголомшувати, шокувати","ru":"ошарашивать, шокировать","en":"to flabbergast, to astound","learned":false,"repeat":false,"type":"verb","exDe":"Die Nachricht entgeisterte alle Anwesenden.","exUa":"Новина приголомшила всіх присутніх.","exRu":"Новость ошарашила всех присутствующих.","exEn":"The news flabbergasted everyone present."},
- {"word":"der Gasthof","ua":"заїжджий двір, готель, корчма","ru":"постоялый двор, гостиница, трактир","en":"inn, tavern, guesthouse","learned":false,"repeat":false,"type":"noun","exDe":"Wir übernachteten in einem gemütlichen Gasthof am Waldrand.","exUa":"Ми ночували в затишному готелі на узліссі.","exRu":"Мы ночевали в уютной гостинице на опушке леса.","exEn":"We stayed overnight in a cosy inn at the edge of the forest."},
- {"word":"an dessen","ua":"при якому, біля якого","ru":"при котором, у которого","en":"at which, next to which","learned":false,"repeat":false,"type":"phrase","exDe":"Das ist das Haus, an dessen Tür ein Schild hängt.","exUa":"Це будинок, на дверях якого висить табличка.","exRu":"Это дом, на двери которого висит табличка.","exEn":"This is the house at whose door a sign is hanging."},
- {"word":"denkwürdig","ua":"пам'ятний, визначний","ru":"памятный, достопримечательный","en":"memorable, remarkable","learned":false,"repeat":false,"type":"adj","exDe":"Es war ein denkwürdiger Abend voller Überraschungen.","exUa":"Це був пам'ятний вечір, сповнений сюрпризів.","exRu":"Это был памятный вечер, полный сюрпризов.","exEn":"It was a memorable evening full of surprises."},
- {"word":"umso","ua":"тим більше, тим (+ порівн.)","ru":"тем более, тем (+ сравн.)","en":"all the more, so much the","learned":false,"repeat":false,"type":"adv","exDe":"Je mehr er übte, umso besser wurde er.","exUa":"Чим більше він тренувався, тим кращим ставав.","exRu":"Чем больше он тренировался, тем лучше становился.","exEn":"The more he practised, the better he became."},
- {"word":"letztendlich","ua":"зрештою, врешті-решт","ru":"в конечном счёте, в итоге","en":"ultimately, in the end","learned":false,"repeat":false,"type":"adv","exDe":"Letztendlich hat er die richtige Entscheidung getroffen.","exUa":"Зрештою він прийняв правильне рішення.","exRu":"В конечном счёте он принял правильное решение.","exEn":"Ultimately he made the right decision."},
- {"word":"murren","ua":"буркотіти, нарікати","ru":"ворчать, роптать","en":"to grumble, to mutter","learned":false,"repeat":false,"type":"verb","exDe":"Die Mitarbeiter murrten über die neuen Regeln.","exUa":"Працівники буркотіли через нові правила.","exRu":"Сотрудники ворчали из-за новых правил.","exEn":"The employees grumbled about the new rules."},
- {"word":"unterbreiten","ua":"пропонувати, представляти","ru":"предлагать, представлять","en":"to submit, to present, to put forward","learned":false,"repeat":false,"type":"verb","exDe":"Er unterbreitete dem Chef einen neuen Vorschlag.","exUa":"Він представив керівнику нову пропозицію.","exRu":"Он представил руководителю новое предложение.","exEn":"He submitted a new proposal to the boss."},
- {"word":"anlangen","ua":"прибувати, досягати","ru":"прибывать, достигать","en":"to arrive, to reach","learned":false,"repeat":false,"type":"verb","exDe":"Als wir endlich anlangten, war es schon dunkel.","exUa":"Коли ми нарешті прибули, вже стемніло.","exRu":"Когда мы наконец прибыли, уже стемнело.","exEn":"When we finally arrived, it was already dark."},
- {"word":"darauf bestehen","ua":"наполягати на цьому","ru":"настаивать на этом","en":"to insist on it","learned":false,"repeat":false,"type":"phrase","exDe":"Sie bestand darauf, die Rechnung selbst zu bezahlen.","exUa":"Вона наполягала на тому, щоб самостійно оплатити рахунок.","exRu":"Она настаивала на том, чтобы самостоятельно оплатить счёт.","exEn":"She insisted on paying the bill herself."},
- {"word":"durchsetzen","ua":"домагатися, проштовхувати, впроваджувати","ru":"добиваться, продвигать, внедрять","en":"to push through, to assert, to implement","learned":false,"repeat":false,"type":"verb","exDe":"Er hat seinen Plan trotz vieler Hindernisse durchgesetzt.","exUa":"Він провадив свій план, попри численні перешкоди.","exRu":"Он продвигал свой план несмотря на многочисленные препятствия.","exEn":"He pushed his plan through despite many obstacles."},
- {"word":"der Wille","ua":"воля, бажання","ru":"воля, желание","en":"will, willpower","learned":false,"repeat":false,"type":"noun","exDe":"Mit starkem Willen kann man vieles erreichen.","exUa":"Із сильною волею можна досягти багато чого.","exRu":"С сильной волей можно многого достичь.","exEn":"With strong willpower one can achieve a great deal."},
- {"word":"bislang","ua":"досі, до цього часу","ru":"до сих пор, до этого времени","en":"so far, up to now","learned":false,"repeat":false,"type":"adv","exDe":"Bislang hat niemand eine bessere Lösung gefunden.","exUa":"Досі ніхто не знайшов кращого рішення.","exRu":"До сих пор никто не нашёл лучшего решения.","exEn":"So far nobody has found a better solution."},
- {"word":"die Beharrlichkeit","ua":"наполегливість, завзятість","ru":"настойчивость, упорство","en":"persistence, perseverance","learned":false,"repeat":false,"type":"noun","exDe":"Dank seiner Beharrlichkeit hat er das Ziel erreicht.","exUa":"Завдяки своїй наполегливості він досяг мети.","exRu":"Благодаря своей настойчивости он достиг цели.","exEn":"Thanks to his persistence he reached the goal."},
- {"word":"sich vergewissern","ua":"переконуватися, впевнятися","ru":"удостовериться, убедиться","en":"to make sure, to verify","learned":false,"repeat":false,"type":"phrase","exDe":"Vergewissere dich, dass alle Fenster geschlossen sind.","exUa":"Переконайся, що всі вікна зачинені.","exRu":"Убедись, что все окна закрыты.","exEn":"Make sure that all the windows are closed."},
- {"word":"mehrmals","ua":"кілька разів, неодноразово","ru":"несколько раз, неоднократно","en":"several times, repeatedly","learned":false,"repeat":false,"type":"adv","exDe":"Er hat mehrmals versucht, sie anzurufen.","exUa":"Він кілька разів намагався їй зателефонувати.","exRu":"Он несколько раз пытался ей позвонить.","exEn":"He tried to call her several times."},
- {"word":"die Ankündigung","ua":"оголошення, анонс, повідомлення","ru":"объявление, анонс, уведомление","en":"announcement, notification","learned":false,"repeat":false,"type":"noun","exDe":"Die Ankündigung des Konzerts überraschte alle Fans.","exUa":"Оголошення про концерт здивувало всіх шанувальників.","exRu":"Объявление о концерте удивило всех поклонников.","exEn":"The announcement of the concert surprised all fans."},
- {"word":"seit Langem","ua":"давно, вже довгий час","ru":"давно, уже долгое время","en":"for a long time, long since","learned":false,"repeat":false,"type":"phrase","exDe":"Ich kenne ihn seit Langem und schätze ihn sehr.","exUa":"Я знаю його давно і дуже ціную.","exRu":"Я знаю его давно и очень ценю.","exEn":"I have known him for a long time and appreciate him very much."},
- {"word":"sich etwas kosten lassen","ua":"не шкодувати грошей, витрачатися","ru":"не жалеть денег, раскошелиться","en":"to spare no expense, to go all out","learned":false,"repeat":false,"type":"phrase","exDe":"Für diesen Urlaub haben wir uns nichts kosten lassen.","exUa":"На цю відпустку ми не пошкодували грошей.","exRu":"На этот отпуск мы не пожалели денег.","exEn":"We spared no expense for this holiday."},
- {"word":"im Freien","ua":"просто неба, на вулиці","ru":"на улице, под открытым небом","en":"outdoors, in the open air","learned":false,"repeat":false,"type":"phrase","exDe":"Im Sommer essen wir am liebsten im Freien.","exUa":"Влітку ми найбільше любимо їсти просто неба.","exRu":"Летом мы больше всего любим есть на улице.","exEn":"In summer we love eating outdoors most of all."},
- {"word":"vom Becken","ua":"від басейну, від чаші","ru":"от бассейна, от чаши","en":"from the pool, from the basin","learned":false,"repeat":false,"type":"phrase","exDe":"Vom Becken aus hatte man einen herrlichen Blick auf die Berge.","exUa":"Від басейну відкривався чудовий вид на гори.","exRu":"От бассейна открывался прекрасный вид на горы.","exEn":"From the pool one had a wonderful view of the mountains."},
- {"word":"der Ausblick","ua":"вид, перспектива, краєвид","ru":"вид, перспектива, обзор","en":"view, outlook, panorama","learned":false,"repeat":false,"type":"noun","exDe":"Der Ausblick vom Gipfel war atemberaubend schön.","exUa":"Вид із вершини був захопливо гарний.","exRu":"Вид с вершины был захватывающе красивым.","exEn":"The view from the summit was breathtakingly beautiful."},
- {"word":"umbauen","ua":"перебудовувати, реконструювати","ru":"перестраивать, реконструировать","en":"to renovate, to convert, to rebuild","learned":false,"repeat":false,"type":"verb","exDe":"Sie planen, das alte Haus komplett umzubauen.","exUa":"Вони планують повністю перебудувати старий будинок.","exRu":"Они планируют полностью перестроить старый дом.","exEn":"They are planning to completely renovate the old house."},
- {"word":"die Unterkunft","ua":"помешкання, житло, місце проживання","ru":"жильё, место проживания, жилище","en":"accommodation, lodging","learned":false,"repeat":false,"type":"noun","exDe":"Wir haben eine günstige Unterkunft direkt am Meer gefunden.","exUa":"Ми знайшли недороге житло прямо біля моря.","exRu":"Мы нашли недорогое жильё прямо у моря.","exEn":"We found affordable accommodation right by the sea."},
- {"word":"des Öfteren","ua":"досить часто, неодноразово","ru":"довольно часто, неоднократно","en":"quite often, on several occasions","learned":false,"repeat":false,"type":"phrase","exDe":"Er hat des Öfteren betont, wie wichtig ihm die Familie ist.","exUa":"Він неодноразово підкреслював, як важлива для нього сім'я.","exRu":"Он неоднократно подчёркивал, как важна для него семья.","exEn":"He has on several occasions emphasised how important family is to him."},
- {"word":"das Zugabteil","ua":"купе (у потязі)","ru":"купе (в поезде)","en":"train compartment","learned":false,"repeat":false,"type":"noun","exDe":"Im Zugabteil saßen vier fremde Menschen schweigend nebeneinander.","exUa":"У купе мовчки сиділи поруч четверо незнайомих людей.","exRu":"В купе молча сидели рядом четыре незнакомых человека.","exEn":"In the train compartment four strangers sat silently side by side."},
- {"word":"stattdessen","ua":"натомість, замість цього","ru":"вместо этого, взамен","en":"instead, in its place","learned":false,"repeat":false,"type":"adv","exDe":"Er wollte nicht schlafen, stattdessen las er bis Mitternacht.","exUa":"Він не хотів спати, натомість читав до опівночі.","exRu":"Он не хотел спать, вместо этого читал до полуночи.","exEn":"He did not want to sleep; instead he read until midnight."},
- {"word":"blicken","ua":"дивитися, поглядати","ru":"смотреть, взглядывать","en":"to look, to glance","learned":false,"repeat":false,"type":"verb","exDe":"Sie blickte aus dem Fenster und beobachtete die Landschaft.","exUa":"Вона дивилася у вікно і спостерігала за пейзажем.","exRu":"Она смотрела в окно и наблюдала за пейзажем.","exEn":"She looked out of the window and observed the landscape."},
- {"word":"immerzu","ua":"весь час, невпинно, постійно","ru":"всё время, непрестанно, постоянно","en":"all the time, constantly, incessantly","learned":false,"repeat":false,"type":"adv","exDe":"Das Kind fragte immerzu, wann sie endlich ankommen.","exUa":"Дитина весь час питала, коли вони нарешті приїдуть.","exRu":"Ребёнок всё время спрашивал, когда они наконец приедут.","exEn":"The child kept asking all the time when they would finally arrive."},
- {"word":"kündigen","ua":"звільнятися, розривати договір","ru":"увольняться, расторгать договор","en":"to resign, to give notice, to cancel","learned":false,"repeat":false,"type":"verb","exDe":"Sie hat ihre Stelle gekündigt und sucht jetzt etwas Neues.","exUa":"Вона звільнилася з посади і тепер шукає щось нове.","exRu":"Она уволилась с должности и теперь ищет что-то новое.","exEn":"She has resigned from her position and is now looking for something new."},
- {"word":"der Schaffner","ua":"провідник (у потязі), кондуктор","ru":"проводник (в поезде), кондуктор","en":"conductor, ticket inspector","learned":false,"repeat":false,"type":"noun","exDe":"Der Schaffner kontrollierte die Fahrkarten im Zug.","exUa":"Провідник перевіряв квитки у потязі.","exRu":"Проводник проверял билеты в поезде.","exEn":"The conductor checked the tickets on the train."},
- {"word":"baldige","ua":"скоре, найближче (прикм.)","ru":"скорое, ближайшее (прил.)","en":"early, speedy, imminent (adj.)","learned":false,"repeat":false,"type":"adj","exDe":"Wir wünschen Ihnen eine baldige Genesung.","exUa":"Бажаємо вам швидкого одужання.","exRu":"Желаем вам скорейшего выздоровления.","exEn":"We wish you a speedy recovery."},
- {"word":"beschwingt","ua":"окрилений, піднесений, жвавий","ru":"окрылённый, приподнятый, бодрый","en":"elated, buoyant, light-hearted","learned":false,"repeat":false,"type":"adj","exDe":"Nach dem Konzert verließ sie beschwingt den Saal.","exUa":"Після концерту вона вийшла із зали окриленою.","exRu":"После концерта она вышла из зала окрылённой.","exEn":"After the concert she left the hall feeling elated."},
- {"word":"schieben","ua":"штовхати, сувати, пересувати","ru":"толкать, двигать, задвигать","en":"to push, to slide, to shove","learned":false,"repeat":false,"type":"verb","exDe":"Er schob den schweren Koffer unter die Sitzbank.","exUa":"Він засунув важку валізу під лавку.","exRu":"Он задвинул тяжёлый чемодан под скамейку.","exEn":"He pushed the heavy suitcase under the seat."},
- {"word":"bezogen","ua":"пов'язаний з, що стосується","ru":"связанный с, относящийся к","en":"related to, in reference to","learned":false,"repeat":false,"type":"adj","exDe":"Bezogen auf deine Frage möchte ich Folgendes sagen.","exUa":"Стосовно твого запитання хочу сказати наступне.","exRu":"Относительно твоего вопроса хочу сказать следующее.","exEn":"In reference to your question I would like to say the following."}
-,
-{"word":"vorliegen","ua":"мати місце, бути в наявності, бути поданим","ru":"иметься, быть представленным, быть в наличии","en":"to be available, to be present, to exist","learned":false,"repeat":false,"type":"verb","exDe":"Die Ergebnisse liegen noch nicht vor.","exUa":"Результати ще не готові.","exRu":"Результаты ещё не готовы.","exEn":"The results are not yet available."},
-{"word":"erscheinen","ua":"з'являтися, здаватися, виходити (про книгу)","ru":"появляться, казаться, выходить (о книге)","en":"to appear, to seem, to be published","learned":false,"repeat":false,"type":"verb","exDe":"Das Buch erscheint nächsten Monat.","exUa":"Книга виходить наступного місяця.","exRu":"Книга выходит в следующем месяце.","exEn":"The book will be published next month."},
-{"word":"abbilden","ua":"зображати, відображати","ru":"изображать, отображать","en":"to depict, to illustrate, to represent","learned":false,"repeat":false,"type":"verb","exDe":"Das Foto bildet die Landschaft perfekt ab.","exUa":"Фото ідеально відображає пейзаж.","exRu":"Фото идеально отображает пейзаж.","exEn":"The photo perfectly depicts the landscape."},
-{"word":"verdeutlichen","ua":"роз'яснювати, унаочнювати, пояснювати","ru":"пояснять, наглядно показывать, уточнять","en":"to clarify, to illustrate, to make clear","learned":false,"repeat":false,"type":"verb","exDe":"Er versuchte, seine Idee mit einem Beispiel zu verdeutlichen.","exUa":"Він намагався пояснити свою ідею на прикладі.","exRu":"Он пытался пояснить свою идею на примере.","exEn":"He tried to clarify his idea with an example."},
-{"word":"nämlich","ua":"а саме, адже, тому що","ru":"а именно, ведь, потому что","en":"namely, because, you see","learned":false,"repeat":false,"type":"adv","exDe":"Ich komme nicht, ich bin nämlich krank.","exUa":"Я не прийду, бо я хворий.","exRu":"Я не приду, потому что я болен.","exEn":"I won\'t come — I\'m sick, you see."},
-{"word":"aufzeichnen","ua":"записувати, фіксувати","ru":"записывать, фиксировать","en":"to record, to document","learned":false,"repeat":false,"type":"verb","exDe":"Es ist wichtig, alle Beobachtungen sorgfältig aufzuzeichnen.","exUa":"Важливо ретельно фіксувати всі спостереження.","exRu":"Важно тщательно фиксировать все наблюдения.","exEn":"It is important to carefully record all observations."},
-{"word":"die Aufzeichnung","ua":"запис, нотатка, фіксація","ru":"запись, фиксация","en":"record, note, recording","learned":false,"repeat":false,"type":"noun","exDe":"Die Aufzeichnung der Daten erfolgt automatisch.","exUa":"Запис даних відбувається автоматично.","exRu":"Запись данных происходит автоматически.","exEn":"The recording of data happens automatically."},
-{"word":"die Befunde","ua":"результати, дані, висновки (мн.)","ru":"результаты, данные, выводы (мн.)","en":"findings, results, data","learned":false,"repeat":false,"type":"noun","exDe":"Die Befunde der Untersuchung waren überraschend.","exUa":"Результати дослідження були несподіваними.","exRu":"Результаты исследования оказались неожиданными.","exEn":"The findings of the investigation were surprising."},
-{"word":"abrufbar","ua":"доступний (для завантаження/отримання)","ru":"доступный (для получения/загрузки)","en":"retrievable, accessible, available on demand","learned":false,"repeat":false,"type":"adj","exDe":"Die Daten sind jederzeit online abrufbar.","exUa":"Дані доступні онлайн у будь-який момент.","exRu":"Данные доступны онлайн в любой момент.","exEn":"The data are retrievable online at any time."},
-{"word":"offenlegen","ua":"розкривати, оприлюднювати","ru":"раскрывать, обнародовать","en":"to disclose, to reveal, to make public","learned":false,"repeat":false,"type":"verb","exDe":"Das Unternehmen muss seine Finanzen offenlegen.","exUa":"Компанія повинна розкрити свої фінанси.","exRu":"Компания обязана раскрыть свои финансы.","exEn":"The company must disclose its finances."},
-{"word":"anlegen","ua":"створювати, закладати, розробляти","ru":"создавать, закладывать, разрабатывать","en":"to create, to establish, to set up","learned":false,"repeat":false,"type":"verb","exDe":"Wir sollten eine neue Datenbank anlegen.","exUa":"Нам слід створити нову базу даних.","exRu":"Нам следует создать новую базу данных.","exEn":"We should set up a new database."},
-{"word":"pflegen","ua":"доглядати, підтримувати, плекати","ru":"ухаживать, поддерживать, культивировать","en":"to care for, to maintain, to cultivate","learned":false,"repeat":false,"type":"verb","exDe":"Es ist wichtig, gute Gewohnheiten zu pflegen.","exUa":"Важливо підтримувати хороші звички.","exRu":"Важно поддерживать хорошие привычки.","exEn":"It is important to cultivate good habits."},
-{"word":"der Ansatz","ua":"підхід, метод, концепція","ru":"подход, метод, концепция","en":"approach, method, concept","learned":false,"repeat":false,"type":"noun","exDe":"Dieser Ansatz zur Problemlösung ist sehr effektiv.","exUa":"Цей підхід до розв'язання проблем дуже ефективний.","exRu":"Этот подход к решению проблем очень эффективен.","exEn":"This approach to problem-solving is very effective."},
-{"word":"die Vorbeugung","ua":"профілактика, запобігання","ru":"профилактика, предупреждение","en":"prevention, precaution","learned":false,"repeat":false,"type":"noun","exDe":"Vorbeugung ist besser als Behandlung.","exUa":"Профілактика краща за лікування.","exRu":"Профилактика лучше, чем лечение.","exEn":"Prevention is better than treatment."},
-{"word":"im Hinblick auf","ua":"з огляду на, стосовно","ru":"с учётом, в отношении","en":"with regard to, in view of","learned":false,"repeat":false,"type":"phrase","exDe":"Im Hinblick auf die Zukunft müssen wir jetzt handeln.","exUa":"З огляду на майбутнє, ми повинні діяти зараз.","exRu":"С учётом будущего нам нужно действовать сейчас.","exEn":"With regard to the future, we must act now."},
-{"word":"ebenfalls","ua":"також, так само","ru":"также, тоже, точно так же","en":"likewise, also, as well","learned":false,"repeat":false,"type":"adv","exDe":"Er hat ebenfalls an dem Projekt mitgearbeitet.","exUa":"Він також брав участь у проекті.","exRu":"Он также участвовал в проекте.","exEn":"He likewise participated in the project."},
-{"word":"preiswert","ua":"недорогий, вигідний за ціною","ru":"недорогой, выгодный по цене","en":"affordable, good value, inexpensive","learned":false,"repeat":false,"type":"adj","exDe":"Das Restaurant ist preiswert und trotzdem sehr gut.","exUa":"Ресторан недорогий і водночас дуже хороший.","exRu":"Ресторан недорогой и при этом очень хороший.","exEn":"The restaurant is affordable and still very good."},
-{"word":"beitragen","ua":"робити внесок, сприяти","ru":"вносить вклад, способствовать","en":"to contribute, to help bring about","learned":false,"repeat":false,"type":"verb","exDe":"Jeder kann dazu beitragen, die Umwelt zu schützen.","exUa":"Кожен може зробити внесок у захист довкілля.","exRu":"Каждый может внести вклад в защиту окружающей среды.","exEn":"Everyone can contribute to protecting the environment."},
-{"word":"das hieße","ua":"це означало б, тобто","ru":"это означало бы, то есть","en":"that would mean, that is to say","learned":false,"repeat":false,"type":"phrase","exDe":"Das hieße, wir müssten von vorne anfangen.","exUa":"Це означало б, що нам доведеться починати спочатку.","exRu":"Это означало бы, что нам придётся начинать заново.","exEn":"That would mean we\'d have to start over."},
-{"word":"die Stiftung","ua":"фонд, установа; заснування","ru":"фонд, учреждение; основание","en":"foundation, endowment; establishment","learned":false,"repeat":false,"type":"noun","exDe":"Die Stiftung unterstützt junge Wissenschaftler.","exUa":"Фонд підтримує молодих науковців.","exRu":"Фонд поддерживает молодых учёных.","exEn":"The foundation supports young scientists."},
-{"word":"lässt zu wünschen übrig","ua":"залишає бажати кращого","ru":"оставляет желать лучшего","en":"leaves something to be desired","learned":false,"repeat":false,"type":"phrase","exDe":"Die Qualität dieser Arbeit lässt zu wünschen übrig.","exUa":"Якість цієї роботи залишає бажати кращого.","exRu":"Качество этой работы оставляет желать лучшего.","exEn":"The quality of this work leaves something to be desired."},
-{"word":"der Zahnarzt","ua":"стоматолог, зубний лікар","ru":"стоматолог, зубной врач","en":"dentist","learned":false,"repeat":false,"type":"noun","exDe":"Ich muss dringend zum Zahnarzt gehen, weil mein Zahn wehtut.","exUa":"Мені терміново треба піти до стоматолога, бо зуб болить.","exRu":"Мне срочно нужно пойти к стоматологу, потому что зуб болит.","exEn":"I urgently need to go to the dentist because my tooth hurts."},
-{"word":"die Zahnschmerzen","ua":"зубний біль","ru":"зубная боль","en":"toothache","learned":false,"repeat":false,"type":"noun","exDe":"Seit gestern habe ich starke Zahnschmerzen auf der linken Seite.","exUa":"З учора в мене сильний зубний біль з лівого боку.","exRu":"Со вчера у меня сильная зубная боль с левой стороны.","exEn":"Since yesterday I have a strong toothache on the left side."},
-{"word":"die Karies","ua":"карієс","ru":"кариес","en":"cavity, caries","learned":false,"repeat":false,"type":"noun","exDe":"Der Zahnarzt hat bei mir eine kleine Karies im hinteren Backenzahn entdeckt.","exUa":"Стоматолог виявив у мене невеликий карієс у задньому корінному зубі.","exRu":"Стоматолог обнаружил у меня небольшой кариес в заднем коренном зубе.","exEn":"The dentist discovered a small cavity in my back molar."},
-{"word":"die Füllung","ua":"пломба","ru":"пломба","en":"filling","learned":false,"repeat":false,"type":"noun","exDe":"Die alte Füllung ist herausgefallen und muss ersetzt werden.","exUa":"Стара пломба випала і її треба замінити.","exRu":"Старая пломба выпала и её нужно заменить.","exEn":"The old filling fell out and needs to be replaced."},
-{"word":"bohren","ua":"свердлити, бурити","ru":"сверлить","en":"to drill","learned":false,"repeat":false,"type":"verb","exDe":"Keine Sorge, wir müssen nur ein bisschen bohren, das tut nicht weh.","exUa":"Не хвилюйтесь, треба лише трохи посвердлити, це не болітиме.","exRu":"Не волнуйтесь, нужно лишь немного посверлить, это не будет больно.","exEn":"Don't worry, we just need to drill a little, it won't hurt."},
-{"word":"die Betäubung","ua":"анестезія, знеболення","ru":"анестезия, обезболивание","en":"anesthesia, numbing","learned":false,"repeat":false,"type":"noun","exDe":"Möchten Sie eine Betäubung, bevor wir anfangen?","exUa":"Бажаєте анестезію, перш ніж ми почнемо?","exRu":"Хотите анестезию, прежде чем мы начнём?","exEn":"Would you like anesthesia before we start?"},
-{"word":"das Zahnfleisch","ua":"ясна","ru":"дёсны","en":"gums","learned":false,"repeat":false,"type":"noun","exDe":"Mein Zahnfleisch blutet beim Zähneputzen.","exUa":"Мої ясна кровоточать під час чищення зубів.","exRu":"Мои дёсны кровоточат при чистке зубов.","exEn":"My gums bleed when I brush my teeth."},
-{"word":"die Zahnreinigung","ua":"чистка зубів (професійна)","ru":"чистка зубов (профессиональная)","en":"dental cleaning","learned":false,"repeat":false,"type":"noun","exDe":"Ich lasse zweimal im Jahr eine professionelle Zahnreinigung machen.","exUa":"Я роблю професійну чистку зубів двічі на рік.","exRu":"Я делаю профессиональную чистку зубов дважды в год.","exEn":"I get a professional dental cleaning twice a year."},
-{"word":"den Zahn ziehen","ua":"видалити зуб","ru":"удалить зуб","en":"to pull/extract a tooth","learned":false,"repeat":false,"type":"phrase","exDe":"Der Weisheitszahn muss leider gezogen werden.","exUa":"На жаль, зуб мудрості доведеться видалити.","exRu":"К сожалению, зуб мудрости придётся удалить.","exEn":"Unfortunately, the wisdom tooth has to be extracted."},
-{"word":"der Weisheitszahn","ua":"зуб мудрості","ru":"зуб мудрости","en":"wisdom tooth","learned":false,"repeat":false,"type":"noun","exDe":"Mein Weisheitszahn wächst schief und drückt auf die anderen Zähne.","exUa":"Мій зуб мудрості росте криво і тисне на інші зуби.","exRu":"Мой зуб мудрости растёт криво и давит на остальные зубы.","exEn":"My wisdom tooth is growing crooked and pressing on the other teeth."},
-{"word":"die Krone","ua":"коронка","ru":"коронка","en":"crown (dental)","learned":false,"repeat":false,"type":"noun","exDe":"Nach der Wurzelbehandlung bekomme ich eine Krone auf den Zahn.","exUa":"Після лікування каналу мені поставлять коронку на зуб.","exRu":"После лечения канала мне поставят коронку на зуб.","exEn":"After the root canal treatment I will get a crown on the tooth."},
-{"word":"röntgen","ua":"робити рентген","ru":"делать рентген","en":"to x-ray","learned":false,"repeat":false,"type":"verb","exDe":"Wir müssen den Zahn erst röntgen, um das Problem zu sehen.","exUa":"Спочатку треба зробити рентген зуба, щоб побачити проблему.","exRu":"Сначала нужно сделать рентген зуба, чтобы увидеть проблему.","exEn":"We need to x-ray the tooth first to see the problem."},
-{"word":"die Zahnspange","ua":"брекети, скоба","ru":"брекеты, скобка","en":"braces","learned":false,"repeat":false,"type":"noun","exDe":"Meine Tochter trägt seit einem Jahr eine Zahnspange.","exUa":"Моя донька вже рік носить брекети.","exRu":"Моя дочь уже год носит брекеты.","exEn":"My daughter has been wearing braces for a year."},
-{"word":"ausspülen","ua":"полоскати, промивати","ru":"полоскать, промывать","en":"to rinse","learned":false,"repeat":false,"type":"verb","exDe":"Bitte spülen Sie den Mund kurz mit Wasser aus.","exUa":"Будь ласка, прополощіть рот водою.","exRu":"Пожалуйста, прополощите рот водой.","exEn":"Please rinse your mouth briefly with water."},
-{"word":"die Wurzelbehandlung","ua":"лікування каналу","ru":"лечение канала","en":"root canal treatment","learned":false,"repeat":false,"type":"noun","exDe":"Eine Wurzelbehandlung klingt schlimm, ist aber heutzutage kaum schmerzhaft.","exUa":"Лікування каналу звучить страшно, але сьогодні це майже безболісно.","exRu":"Лечение канала звучит страшно, но сегодня это почти безболезненно.","exEn":"A root canal treatment sounds bad, but nowadays it's hardly painful."},
-{"word":"der Backenzahn","ua":"корінний зуб","ru":"коренной зуб","en":"molar","learned":false,"repeat":false,"type":"noun","exDe":"Der obere Backenzahn rechts tut mir beim Kauen weh.","exUa":"Верхній корінний зуб справа болить при жуванні.","exRu":"Верхний коренной зуб справа болит при жевании.","exEn":"The upper right molar hurts when I chew."},
-{"word":"der Schneidezahn","ua":"різець","ru":"резец","en":"incisor","learned":false,"repeat":false,"type":"noun","exDe":"Mein Kind hat sich den vorderen Schneidezahn abgebrochen.","exUa":"Моя дитина зламала передній різець.","exRu":"Мой ребёнок сломал передний резец.","exEn":"My child broke the front incisor."},
-{"word":"die Spritze","ua":"шприц, укол","ru":"шприц, укол","en":"injection, syringe","learned":false,"repeat":false,"type":"noun","exDe":"Haben Sie Angst vor der Spritze? Das ist nur ein kleiner Pieks.","exUa":"Боїтесь уколу? Це лише маленький укольчик.","exRu":"Боитесь укола? Это лишь маленький укольчик.","exEn":"Are you afraid of the injection? It's just a small pinch."},
-{"word":"die Praxis","ua":"кабінет лікаря, практика","ru":"кабинет врача, практика","en":"doctor's office, practice","learned":false,"repeat":false,"type":"noun","exDe":"Die Zahnarztpraxis ist montags bis freitags von 8 bis 17 Uhr geöffnet.","exUa":"Стоматологічний кабінет працює з понеділка по п'ятницю з 8 до 17.","exRu":"Стоматологический кабинет работает с понедельника по пятницу с 8 до 17.","exEn":"The dental office is open Monday to Friday from 8 to 5."},
-{"word":"der Termin","ua":"запис, прийом","ru":"запись, приём","en":"appointment","learned":false,"repeat":false,"type":"noun","exDe":"Ich möchte bitte einen Termin für nächste Woche vereinbaren.","exUa":"Я хотів би записатися на прийом на наступний тиждень.","exRu":"Я хотел бы записаться на приём на следующую неделю.","exEn":"I would like to make an appointment for next week."},
-{"word":"empfindlich","ua":"чутливий","ru":"чувствительный","en":"sensitive","learned":false,"repeat":false,"type":"adj","exDe":"Meine Zähne sind sehr empfindlich gegen Kälte und Hitze.","exUa":"Мої зуби дуже чутливі до холоду та спеки.","exRu":"Мои зубы очень чувствительны к холоду и жаре.","exEn":"My teeth are very sensitive to cold and heat."},
-{"word":"das Implantat","ua":"імплант","ru":"имплант","en":"implant","learned":false,"repeat":false,"type":"noun","exDe":"Nach dem Zahnverlust hat der Arzt mir ein Implantat empfohlen.","exUa":"Після втрати зуба лікар порекомендував мені імплант.","exRu":"После потери зуба врач порекомендовал мне имплант.","exEn":"After the tooth loss the doctor recommended an implant."},
-{"word":"die Prothese","ua":"протез","ru":"протез","en":"denture, prosthesis","learned":false,"repeat":false,"type":"noun","exDe":"Meine Oma trägt eine Prothese, weil sie kaum noch eigene Zähne hat.","exUa":"Моя бабуся носить протез, бо в неї майже не залишилось своїх зубів.","exRu":"Моя бабушка носит протез, потому что у неё почти не осталось своих зубов.","exEn":"My grandma wears dentures because she hardly has any teeth left."},
-{"word":"die Zahnpasta","ua":"зубна паста","ru":"зубная паста","en":"toothpaste","learned":false,"repeat":false,"type":"noun","exDe":"Der Zahnarzt hat mir eine spezielle Zahnpasta für empfindliche Zähne empfohlen.","exUa":"Стоматолог порадив мені спеціальну зубну пасту для чутливих зубів.","exRu":"Стоматолог посоветовал мне специальную зубную пасту для чувствительных зубов.","exEn":"The dentist recommended a special toothpaste for sensitive teeth."},
-{"word":"die Zahnseide","ua":"зубна нитка","ru":"зубная нить","en":"dental floss","learned":false,"repeat":false,"type":"noun","exDe":"Benutzen Sie täglich Zahnseide, um Karies zwischen den Zähnen zu vermeiden.","exUa":"Використовуйте зубну нитку щодня, щоб уникнути карієсу між зубами.","exRu":"Используйте зубную нить ежедневно, чтобы избежать кариеса между зубами.","exEn":"Use dental floss daily to avoid cavities between teeth."},
-{"word":"die Mundspülung","ua":"ополіскувач для рота","ru":"ополаскиватель для рта","en":"mouthwash","learned":false,"repeat":false,"type":"noun","exDe":"Nach dem Zähneputzen benutze ich immer eine antibakterielle Mundspülung.","exUa":"Після чищення зубів я завжди використовую антибактеріальний ополіскувач.","exRu":"После чистки зубов я всегда использую антибактериальный ополаскиватель.","exEn":"After brushing my teeth I always use an antibacterial mouthwash."},
-{"word":"die Schwellung","ua":"набряк, припухлість","ru":"отёк, припухлость","en":"swelling","learned":false,"repeat":false,"type":"noun","exDe":"Nach der Behandlung hatte ich eine leichte Schwellung an der Wange.","exUa":"Після лікування в мене був невеликий набряк на щоці.","exRu":"После лечения у меня был небольшой отёк на щеке.","exEn":"After the treatment I had a slight swelling on my cheek."},
-{"word":"entzündet","ua":"запалений","ru":"воспалённый","en":"inflamed","learned":false,"repeat":false,"type":"adj","exDe":"Das Zahnfleisch um den Zahn herum ist stark entzündet.","exUa":"Ясна навколо зуба сильно запалені.","exRu":"Десна вокруг зуба сильно воспалена.","exEn":"The gum around the tooth is heavily inflamed."},
-{"word":"die Kontrolle","ua":"контроль, перевірка","ru":"контроль, проверка","en":"check-up","learned":false,"repeat":false,"type":"noun","exDe":"Kommen Sie bitte in sechs Monaten zur Kontrolle wieder.","exUa":"Приходьте, будь ласка, через шість місяців на перевірку.","exRu":"Приходите, пожалуйста, через шесть месяцев на проверку.","exEn":"Please come back in six months for a check-up."},
-{"word":"Zähne putzen","ua":"чистити зуби","ru":"чистить зубы","en":"to brush teeth","learned":false,"repeat":false,"type":"phrase","exDe":"Man sollte mindestens zweimal am Tag die Zähne putzen.","exUa":"Потрібно чистити зуби щонайменше двічі на день.","exRu":"Нужно чистить зубы минимум два раза в день.","exEn":"One should brush teeth at least twice a day."},
-{"word":"plombieren","ua":"пломбувати","ru":"пломбировать","en":"to fill (a tooth)","learned":false,"repeat":false,"type":"verb","exDe":"Der Zahnarzt muss den Zahn heute noch plombieren, damit sich die Karies nicht ausbreitet.","exUa":"Стоматолог повинен сьогодні ще запломбувати зуб, щоб карієс не поширився.","exRu":"Стоматолог должен сегодня ещё запломбировать зуб, чтобы кариес не распространился.","exEn":"The dentist has to fill the tooth today so the cavity doesn't spread."},
-{"word":"der Mundgeruch","ua":"неприємний запах з рота","ru":"неприятный запах изо рта","en":"bad breath","learned":false,"repeat":false,"type":"noun","exDe":"Mundgeruch kann ein Zeichen für Probleme mit dem Zahnfleisch sein.","exUa":"Неприємний запах з рота може бути ознакою проблем з яснами.","exRu":"Неприятный запах изо рта может быть признаком проблем с дёснами.","exEn":"Bad breath can be a sign of gum problems."}
-];
-/* ======= EN WORDS ======= */
-var _enWords=[
-{"word":"include","ua":"включати, містити","ru":"включать, содержать","de":"einschließen, beinhalten","learned":false,"repeat":false,
-"exEn":"The price includes breakfast and dinner.","exUa":"Ціна включає сніданок і вечерю.","exRu":"Цена включает завтрак и ужин.","exDe":"Der Preis schließt Frühstück und Abendessen ein."},
-{"word":"besides","ua":"крім того, до того ж, окрім","ru":"кроме того, помимо, к тому же","de":"außerdem, abgesehen davon, neben","learned":false,"repeat":false,
-"exEn":"Besides studying, she works part-time at a café.","exUa":"Крім навчання, вона підробляє в кафе неповний робочий день.","exRu":"Помимо учёбы, она подрабатывает в кафе.","exDe":"Neben dem Studium arbeitet sie Teilzeit in einem Café."},
-{"word":"well-known","ua":"відомий, добре відомий","ru":"хорошо известный, знаменитый","de":"bekannt, gut bekannt, berühmt","learned":false,"repeat":false,
-"exEn":"She is a well-known author of crime novels.","exUa":"Вона відома авторка детективних романів.","exRu":"Она — хорошо известный автор детективных романов.","exDe":"Sie ist eine bekannte Autorin von Kriminalromanen."},
-{"word":"arrange","ua":"організовувати, влаштовувати, розставляти","ru":"организовывать, устраивать, расставлять","de":"arrangieren, organisieren, anordnen","learned":false,"repeat":false,
-"exEn":"Can you arrange a meeting for tomorrow morning?","exUa":"Чи можеш ти організувати зустріч на завтра вранці?","exRu":"Ты можешь организовать встречу на завтра утром?","exDe":"Kannst du ein Treffen für morgen früh arrangieren?"},
-{"word":"in order to","ua":"для того щоб, з метою","ru":"для того чтобы, с целью","de":"um zu, damit","learned":false,"repeat":false,
-"exEn":"She studied hard in order to pass the exam.","exUa":"Вона наполегливо навчалася, щоб скласти іспит.","exRu":"Она усердно занималась, чтобы сдать экзамен.","exDe":"Sie hat fleißig gelernt, um die Prüfung zu bestehen."}
-];
-var _enGroups=[
-{"title":"Group 1: include · besides · well-known · arrange · in order to","sentences":[
-{"en":"She is a well-known designer who decided to arrange her own studio in order to work freely. Her projects include logos, websites and illustrations. Besides design, she also teaches online courses.",
-"ua":"Вона — відома дизайнерка, яка вирішила організувати власну студію, щоб працювати вільно. Її проєкти включають логотипи, сайти та ілюстрації. Крім того, вона також викладає онлайн-курси.",
-"ru":"Она — известный дизайнер, которая решила организовать собственную студию, чтобы работать свободно. Её проекты включают логотипы, сайты и иллюстрации. Кроме того, она ведёт онлайн-курсы.",
-"de":"Sie ist eine bekannte Designerin, die beschlossen hat, ein eigenes Studio zu arrangieren, um frei arbeiten zu können. Ihre Projekte beinhalten Logos, Websites und Illustrationen. Außerdem gibt sie Online-Kurse."},
-{"en":"Tom wanted to visit a well-known city in Europe, so he started to arrange his trip in order to save money. His travel plan did include museums and local food. Besides sightseeing, he also planned to meet local friends.",
-"ua":"Том хотів відвідати відоме місто в Європі, тому почав організовувати подорож для того, щоб зекономити гроші. Його план включав музеї та місцеву кухню. Крім екскурсій, він також планував зустрітися з місцевими друзями.",
-"ru":"Том хотел посетить известный город в Европе, поэтому начал организовывать поездку, чтобы сэкономить деньги. Его план включал музеи и местную кухню. Кроме экскурсий, он также планировал встретиться с местными друзьями.",
-"de":"Tom wollte eine bekannte Stadt in Europa besuchen und begann, seine Reise zu arrangieren, um Geld zu sparen. Sein Reiseplan beinhaltete Museen und lokale Küche. Außerdem plante er, lokale Freunde zu treffen."},
-{"en":"Anna reads books by well-known authors every week in order to improve her English. Her reading list includes novels, articles and short stories. Besides reading, she tries to arrange conversations with native speakers.",
-"ua":"Анна щотижня читає книги відомих авторів, щоб покращити англійську. її список включає романи, статті та оповідання. Крім читання, вона намагається організовувати розмови з носіями мови.",
-"ru":"Анна каждую неделю читает книги известных авторов, чтобы улучшить английский. Её список включает романы, статьи и рассказы. Кроме чтения, она старается организовывать разговоры с носителями языка.",
-"de":"Anna liest jede Woche Bücher bekannter Autoren, um ihr Englisch zu verbessern. Ihre Leseliste beinhaltet Romane, Artikel und Kurzgeschichten. Außerdem versucht sie, Gespräche mit Muttersprachlern zu arrangieren."}
-]}
-];
-
-var _groups=[
-{"title":"📚 Група 1: sichtlich · derart · beinahe · ausrenken · fürchten · geschmeidig · grausam · die Unwissenheit · die Tatsache · hektisch · unmittelbar","sentences":[
-{"de":"Er war sichtlich erschöpft, als er beinahe ausgerenkt wurde, während er sich derart geschmeidig bewegte, dass niemand die Tatsache bemerkte.","ua":"Він був явно виснажений, коли мало не вивихнув суглоб, рухаючись настільки гнучко, що ніхто не помітив цього факту.","ru":"Он был явно измотан, когда едва не вывихнул сустав, двигаясь так гибко, что никто не заметил этого факта.","en":"He was visibly exhausted when he almost dislocated a joint, moving so flexibly that nobody noticed this fact."},
-{"de":"Die Unwissenheit war grausam, denn beinahe jeder fürchtete die hektische Stimmung, die sichtlich unmittelbar nach der Nachricht entstand.","ua":"Незнання було жорстоким, адже майже кожен боявся метушливого настрою, який явно виник одразу після новини.","ru":"Незнание было жестоким — почти каждый боялся хаотичного настроения, явно возникшего сразу после новости.","en":"The ignorance was cruel, as almost everyone feared the hectic mood that visibly arose immediately after the news."},
-{"de":"Es war derart hektisch, dass man sich beinahe den Arm ausrenken konnte, und niemand fürchtete die Tatsache, sichtlich überfordert zu wirken.","ua":"Було настільки метушливо, що можна було майже вивихнути руку, і ніхто не боявся явно виглядати перевантаженим.","ru":"Было настолько суетливо, что можно было едва не вывихнуть руку, и никто не боялся выглядеть перегруженным.","en":"It was so hectic that one could nearly dislocate an arm, and nobody feared visibly appearing overwhelmed."},
-{"de":"Die Unwissenheit machte alles derart schwer, dass er sich unmittelbar fürchtete und sichtlich hektisch wurde.","ua":"Незнання зробило все настільки важким, що він одразу злякався і явно занервував.","ru":"Незнание сделало всё настолько тяжёлым, что он сразу испугался и явно занервничал.","en":"The ignorance made everything so hard that he immediately grew afraid and visibly panicked."},
-{"de":"Beinahe geschmeidig, aber sichtlich erschöpft, fürchtete er die Tatsache, dass die grausame Unwissenheit ihn unmittelbar in eine hektische Lage gebracht hatte.","ua":"Майже гнучко, але явно виснажено він боявся факту, що жорстоке незнання кинуло його в метушливу ситуацію.","ru":"Почти гибко, но явно изнурённо, он боялся, что жестокое незнание бросило его в суетливую ситуацию.","en":"Almost gracefully but visibly exhausted, he feared that cruel ignorance had thrown him into a hectic situation."}
-]},
-{"title":"🔥 Група 2: kraftvoll · die Gestalt · schlugen · einmal · das Elend","sentences":[
-{"de":"Einmal stand eine kraftvolle Gestalt am Fenster, während die Wellen schlugen und das Elend der Stadt sichtbar wurde.","ua":"Одного разу потужна постать стояла біля вікна, поки хвилі вдаряли й горе міста ставало помітним.","ru":"Однажды мощная фигура стояла у окна, пока волны ударяли и горе города становилось заметным.","en":"Once a powerful figure stood at the window while the waves crashed and the city misery became visible."},
-{"de":"Die Gestalt war kraftvoll, aber einmal hatte das Elend sie so hart getroffen, dass die Tränen schlugen wie Regen.","ua":"Постать була потужною, але одного разу горе вдарило її так сильно, що сльози лились, як дощ.","ru":"Фигура была мощной, но однажды горе ударило её так сильно, что слёзы лились как дождь.","en":"The figure was powerful, but once the misery had struck it so hard that the tears fell like rain."},
-{"de":"Einmal versuchte die kraftvolle Gestalt, das Elend zu überwinden, aber die Wellen schlugen immer wieder gegen ihre Hoffnungen.","ua":"Одного разу потужна постать намагалася подолати горе, але хвилі знову й знову вдаряли по її надіям.","ru":"Однажды мощная фигура пыталась преодолеть горе, но волны снова и снова ударяли по её надеждам.","en":"Once the powerful figure tried to overcome the misery, but the waves kept crashing against its hopes."},
-{"de":"Kraftvoll und entschlossen stand die Gestalt einmal mitten im Elend, während ringsum die Herzen schlugen vor Angst.","ua":"Потужно і рішуче постать стояла одного разу посеред горя, поки навколо серця билися від страху.","ru":"Мощно и решительно фигура стояла посреди горя, пока вокруг сердца бились от страха.","en":"Powerfully and decisively the figure stood once in the midst of misery while hearts around it beat with fear."}
-]},
-{"title":"✨ Група 3: künftig · beschleunigen · die Arglosigkeit · gedankenlos · ehe","sentences":[
-{"de":"Ehe er gedankenlos handelte, wollte er künftig seine Arglosigkeit überwinden und das Leben bewusst beschleunigen.","ua":"Перш ніж діяти необдумано, він хотів у майбутньому подолати свою довірливість і свідомо прискорити своє життя.","ru":"Прежде чем действовать необдуманно, он хотел в будущем преодолеть свою доверчивость и ускорить жизнь.","en":"Before acting thoughtlessly, he wanted to overcome his naivety in the future and consciously speed up his life."},
-{"de":"Künftig wollte er nicht mehr gedankenlos sein, ehe er wichtige Entscheidungen traf, denn seine Arglosigkeit hatte alles beschleunigt.","ua":"У майбутньому він більше не хотів бути необдуманим перш ніж приймати важливі рішення, адже його довірливість прискорила все.","ru":"В будущем он не хотел быть необдуманным перед важными решениями, ведь его доверчивость ускорила всё.","en":"In the future he did not want to be thoughtless before making important decisions, as his naivety had accelerated everything."},
-{"de":"Seine gedankenlose Arglosigkeit beschleunigte den Fehler, ehe er ihn bemerkte, und künftig schwor er sich, vorsichtiger zu sein.","ua":"Його необдумана довірливість прискорила помилку, перш ніж він її помітив, і у майбутньому він поклявся бути обережнішим.","ru":"Его необдуманная доверчивость ускорила ошибку прежде, чем он её заметил, и в будущем он поклялся быть осторожнее.","en":"His thoughtless naivety accelerated the mistake before he noticed it, and in the future he swore to be more careful."}
-]},
-{"title":"🌟 Група 4: ordentlich · buchstäblich · hinunterlaufen · unwesentlich","sentences":[
-{"de":"Die ordentliche Frau bemerkte buchstäblich jeden unwesentlichen Tropfen, der die Fensterscheibe hinunterlief.","ua":"Акуратна жінка буквально помічала кожну незначну краплю, яка стікала по шибці вниз.","ru":"Аккуратная женщина буквально замечала каждую незначительную каплю, стекающую по стеклу.","en":"The tidy woman literally noticed every insignificant drop that ran down the windowpane."},
-{"de":"Das Wasser lief ordentlich hinunter, und buchstäblich jedes unwesentliche Hindernis wurde weggeschwemmt.","ua":"Вода акуратно стікала донизу, і буквально кожна незначна перешкода була змита.","ru":"Вода аккуратно стекала вниз, и буквально каждое несущественное препятствие было смыто.","en":"The water ran neatly down, and literally every insignificant obstacle was washed away."}
-]},
-{"title":"💫 Група 5: angesagt · die Vorliebe · mitunter · rätselhaft · ausgesetzt · umschlagen","sentences":[
-{"de":"Mitunter ist das Rätselhafteste an einem angesagten Ort, dass man seiner Vorliebe so ausgesetzt ist, bis die Stimmung umschlägt.","ua":"Інколи найзагадковіше в модному місці — те, що так піддаєшся своєму уподобанню, поки настрій різко не змінюється.","ru":"Порой самое загадочное в модном месте — как подвергаешься своему пристрастию, пока настроение не меняется.","en":"Sometimes the most mysterious thing about a trendy place is how exposed you are to your preference until the mood changes."},
-{"de":"Das angesagte Café war rätselhaft leer, und mitunter fragte man sich, welcher Vorliebe man dort ausgesetzt war, bevor alles umschlug.","ua":"Модне кафе було загадково порожнє, і інколи думав, якому уподобанню там піддавався, перш ніж усе змінилося.","ru":"Модное кафе было загадочно пусто, и порой думал, какому пристрастию подвергался там, прежде чем всё изменилось.","en":"The trendy café was mysteriously empty, and sometimes one wondered what preference they were exposed to before everything changed."}
-]},
-{"title":"🎭 Група 6: befangen · herablassend · der Wirt · jählings · mitnichten","sentences":[
-{"de":"Der Wirt wirkte befangen, als der herablassende Gast jählings mitnichten zufrieden war.","ua":"Господар виглядав збентеженим, коли зверхній гість раптово виявився аж ніяк не задоволеним.","ru":"Хозяин выглядел смущённым, когда высокомерный гость внезапно оказался отнюдь не доволен.","en":"The host seemed self-conscious when the condescending guest was suddenly by no means satisfied."},
-{"de":"Befangen und still stand der Wirt da, während der herablassende Mann jählings erklärte, er wolle mitnichten bleiben.","ua":"Збентежений і тихий стояв господар, поки зверхній чоловік раптово заявив, що аж ніяк не хоче залишатися.","ru":"Смущённый и тихий стоял хозяин, пока высокомерный мужчина внезапно заявил, что отнюдь не хочет оставаться.","en":"Self-conscious and silent, the host stood there while the condescending man suddenly declared he had no intention of staying."}
-]},
-{"title":"🌈 Група 7: vorwerfen · verabscheuen · träge · allerlei · niedlich","sentences":[
-{"de":"Er warf ihr allerlei Dinge vor, obwohl sie das träge Verhalten verabscheute und nur niedlich wirken wollte.","ua":"Він докоряв їй за всілякі речі, хоча вона відчувала огиду до млявої поведінки і хотіла лише виглядати милою.","ru":"Он упрекал её за всякие вещи, хотя она испытывала отвращение к вялому поведению и хотела казаться милой.","en":"He blamed her for all sorts of things, although she loathed sluggish behavior and only wanted to seem cute."},
-{"de":"Sie verabscheute es, wenn man ihr vorwarf, träge zu sein, dabei liebte sie allerlei niedliche Ablenkungen.","ua":"Вона відчувала огиду, коли їй закидали лінь, хоча насправді вона любила всілякі милі розваги.","ru":"Она испытывала отвращение, когда её упрекали в лени, хотя на самом деле любила всякие милые развлечения.","en":"She loathed it when accused of being sluggish, yet in reality she loved all sorts of cute distractions."}
-]},
-{"title":"🍂 Група 8: herauskommen · genüsslich · äußerst · der Abfall · mürrisch","sentences":[
-{"de":"Äußerst mürrisch kam er heraus und trank genüsslich seinen Kaffee, ohne den Abfall zu bemerken.","ua":"Надзвичайно буркотливий, він вийшов і із задоволенням пив каву, не помічаючи сміття.","ru":"Крайне ворчливый, он вышел и с наслаждением пил кофе, не замечая мусора.","en":"Extremely grumpy, he came out and savored his coffee with pleasure, not noticing the trash."},
-{"de":"Es kam äußerst unangenehm heraus: mürrisch und genüsslich zugleich sortierte er den Abfall in der Küche.","ua":"Виявилося надзвичайно неприємно: буркотливий і водночас із задоволенням він сортував сміття на кухні.","ru":"Выяснилось крайне неприятное: ворчливый и одновременно с наслаждением он сортировал мусор на кухне.","en":"It turned out extremely unpleasant: grumpily and yet with pleasure, he sorted the trash in the kitchen."}
-]},
- {"title":"🌟 Група 9: schaffen · zufolge · gönnen · betrachten · überaus · das Gedächtnis · die Sprünge · erbrechen · entgeistern","sentences":[
-  {"de":"Dem Bericht zufolge hat er es geschafft, überaus schnell zu lernen, weil sein Gedächtnis betrachtenswert ist.","ua":"Згідно зі звітом, йому вдалося навчатися надзвичайно швидко, адже його пам'ять заслуговує на увагу.","ru":"Согласно отчёту, ему удалось учиться чрезвычайно быстро, поскольку его память заслуживает внимания.","en":"According to the report, he managed to learn extremely quickly because his memory is remarkable."},
-  {"de":"Er betrachtete die Sprünge seiner Entwicklung überaus stolz, denn er hatte es geschafft, seinem Freund den Erfolg zu gönnen.","ua":"Він із надзвичайною гордістю спостерігав за стрибками свого розвитку, адже йому вдалося порадіти успіху друга.","ru":"Он с чрезвычайной гордостью рассматривал скачки своего развития, ведь ему удалось порадоваться успеху друга.","en":"He observed the leaps of his development with extreme pride, as he had managed to genuinely grant his friend success."},
-  {"de":"Die Nachricht entgeisterte ihn zufolge der Umstände so sehr, dass er sich erbrechen musste und sein Gedächtnis alles überaus deutlich festhielt.","ua":"Новина приголомшила його настільки, що, згідно з обставинами, йому стало зле, а пам'ять надзвичайно чітко зафіксувала все.","ru":"Новость ошарашила его настолько, что, согласно обстоятельствам, его вырвало, а память чрезвычайно чётко зафиксировала всё.","en":"The news flabbergasted him so much that, given the circumstances, he had to vomit, and his memory recorded everything extremely clearly."},
-  {"de":"Er gönnte sich eine Pause, betrachtete ruhig die überaus schöne Landschaft und schaute auf die Sprünge der Rehe im Wald.","ua":"Він дозволив собі відпочинок, спокійно споглядав надзвичайно гарний краєвид і дивився на стрибки козуль у лісі.","ru":"Он позволил себе отдых, спокойно созерцал чрезвычайно красивый пейзаж и смотрел на прыжки косуль в лесу.","en":"He granted himself a rest, calmly observed the extremely beautiful landscape and watched the leaps of the deer in the forest."},
-  {"de":"Es hat ihn überaus entgeistert, dass er es zufolge seiner schlechten Vorbereitung nicht geschafft hat, das Gedächtnis zu trainieren, ohne sich zu erbrechen.","ua":"Це надзвичайно приголомшило його, що через погану підготовку йому не вдалося тренувати пам'ять, не почуваючись погано.","ru":"Его чрезвычайно поразило, что из-за плохой подготовки ему не удалось тренировать память, не чувствуя тошноты.","en":"It flabbergasted him extremely that due to his poor preparation he had not managed to train his memory without feeling sick."}
- ]},
- {"title":"🏨 Група 10: der Gasthof · an dessen · denkwürdig · umso · letztendlich · murren · unterbreiten · anlangen · darauf bestehen · durchsetzen · der Wille · bislang · die Beharrlichkeit · sich vergewissern · mehrmals · die Ankündigung","sentences":[
-  {"de":"Als wir im Gasthof anlangten, an dessen Eingang eine denkwürdige Ankündigung hing, murrten einige Gäste laut über die neuen Regeln.","ua":"Коли ми прибули до готелю, при вході якого висіло пам'ятне оголошення, деякі гості голосно буркотіли через нові правила.","ru":"Когда мы прибыли в гостиницу, у входа которой висело памятное объявление, некоторые гости громко ворчали из-за новых правил.","en":"When we arrived at the inn at whose entrance a memorable announcement hung, some guests were grumbling loudly about the new rules."},
-  {"de":"Der Wirt unterbreitete mehrmals einen Vorschlag, doch der Gast bestand darauf, letztendlich seinen Willen durchzusetzen.","ua":"Господар кілька разів представляв пропозицію, але гість наполягав на тому, щоб врешті-решт провести свою волю.","ru":"Хозяин несколько раз представлял предложение, но гость настаивал на том, чтобы в итоге провести свою волю.","en":"The host submitted a proposal several times, but the guest insisted on ultimately pushing through his will."},
-  {"de":"Dank seiner Beharrlichkeit hat er es bislang geschafft, umso mehr zu erreichen, und mehrmals darauf bestanden, sich zu vergewissern, dass alles stimmt.","ua":"Завдяки своїй наполегливості він досі зумів досягти тим більшого і кілька разів наполягав на тому, щоб переконатися, що все гаразд.","ru":"Благодаря своей настойчивости он до сих пор умудрялся достигать тем большего и несколько раз настаивал на том, чтобы убедиться, что всё в порядке.","en":"Thanks to his perseverance he has so far managed to achieve all the more and has insisted several times on making sure that everything is correct."},
-  {"de":"Der Gasthof, an dessen Küche man sich mehrmals vergewissert hatte, bot letztendlich ein denkwürdiges Erlebnis, umso mehr als die Ankündigung versprochen hatte.","ua":"Готель, на кухні якого кілька разів переконувалися, зрештою подарував пам'ятні враження — тим більше, ніж обіцяло оголошення.","ru":"Гостиница, на кухне которой несколько раз убеждались, в итоге подарила памятные впечатления — тем более, чем обещало объявление.","en":"The inn whose kitchen had been verified several times ultimately offered a memorable experience, all the more so than the announcement had promised."},
-  {"de":"Bislang hatte niemand gewagt, dem Chef einen neuen Plan zu unterbreiten, doch sein starker Wille und seine Beharrlichkeit setzten sich letztendlich durch, ohne zu murren.","ua":"Досі ніхто не наважувався представити керівнику новий план, але його сильна воля та наполегливість зрештою взяли гору, без нарікань.","ru":"До сих пор никто не решался представить руководителю новый план, но его сильная воля и настойчивость в итоге победили, без ворчания.","en":"So far nobody had dared to submit a new plan to the boss, but his strong will and perseverance ultimately prevailed without any grumbling."}
- ]},
- {"title":"🌿 Група 11: seit Langem · sich etwas kosten lassen · im Freien · vom Becken · der Ausblick · umbauen · die Unterkunft · des Öfteren · das Zugabteil","sentences":[
-  {"de":"Seit Langem träumten wir von einer Unterkunft mit einem Ausblick auf die Berge, bei der man sich nichts kosten lässt.","ua":"Давно ми мріяли про помешкання з видом на гори, де не шкодують грошей.","ru":"Давно мы мечтали о жилье с видом на горы, где не жалеют денег.","en":"For a long time we had dreamed of accommodation with a view of the mountains where you spare no expense."},
-  {"de":"Vom Becken aus genoss man seit Langem den schönsten Ausblick, und des Öfteren saßen die Gäste bis spät im Freien.","ua":"Від басейну давно насолоджувалися найкращим видом, і гості неодноразово сиділи надвечір просто неба.","ru":"От бассейна давно наслаждались лучшим видом, и гости неоднократно сидели допоздна под открытым небом.","en":"From the pool one had long enjoyed the finest view, and on several occasions guests sat outside until late in the open air."},
-  {"de":"Sie haben die alte Unterkunft umgebaut und des Öfteren im Freien Feste gefeiert, wobei sie sich nichts kosten ließen.","ua":"Вони перебудували старе помешкання і неодноразово влаштовували свята просто неба, не шкодуючи грошей.","ru":"Они перестроили старое жильё и неоднократно устраивали праздники под открытым небом, не жалея денег.","en":"They renovated the old accommodation and on several occasions celebrated outdoors, sparing no expense."},
-  {"de":"Im Zugabteil sprachen sie seit Langem über den geplanten Ausblick vom neuen Becken und darüber, wie man die Unterkunft umbauen sollte.","ua":"У купе вони давно обговорювали запланований вид із нового басейну та те, як слід перебудувати помешкання.","ru":"В купе они давно обсуждали запланированный вид с нового бассейна и то, как следует перестроить жильё.","en":"In the train compartment they had long been talking about the planned view from the new pool and how the accommodation should be renovated."},
-  {"de":"Des Öfteren saßen sie im Freien, vom Becken bis zum Ausblick auf den Horizont, und ließen sich seit Langem nichts mehr kosten.","ua":"Неодноразово вони сиділи просто неба, від басейну до краєвиду на обрій, і давно вже не шкодували ні на що грошей.","ru":"Неоднократно они сидели под открытым небом, от бассейна до вида на горизонт, и давно уже не жалели ни на что денег.","en":"On several occasions they sat outdoors, from the pool to the view on the horizon, and had long since been sparing no expense."}
- ]},
- {"title":"🚂 Група 12: stattdessen · blicken · immerzu · kündigen · der Schaffner · baldige · beschwingt · schieben · bezogen","sentences":[
-  {"de":"Der Schaffner blickte immerzu ins Abteil, stattdessen hätte er die Koffer schieben können, die niemand bezogen auf seinen Platz gestellt hatte.","ua":"Провідник весь час поглядав у купе, натомість міг би пересувати валізи, які ніхто не поставив стосовно свого місця.","ru":"Проводник всё время заглядывал в купе, вместо этого мог бы двигать чемоданы, которые никто не поставил относительно своего места.","en":"The conductor kept glancing into the compartment; instead he could have been moving the suitcases that nobody had placed with reference to their seat."},
-  {"de":"Beschwingt kündigte er seine Stelle und blickte immerzu nach vorne, stattdessen an die Vergangenheit zu denken.","ua":"Окрилений, він звільнився з роботи і постійно дивився вперед, замість того щоб думати про минуле.","ru":"Окрылённый, он уволился с работы и постоянно смотрел вперёд, вместо того чтобы думать о прошлом.","en":"Elated, he resigned from his job and kept looking forward instead of thinking about the past."},
-  {"de":"Bezogen auf die baldige Abreise schob er seinen Koffer ins Zugabteil und blickte beschwingt aus dem Fenster.","ua":"Стосовно швидкого від'їзду він засунув валізу в купе і окрилено дивився у вікно.","ru":"Относительно скорого отъезда он задвинул чемодан в купе и окрылённо смотрел в окно.","en":"In reference to the imminent departure he pushed his suitcase into the train compartment and looked out of the window feeling elated."},
-  {"de":"Der Schaffner bat ihn immerzu, stattdessen einen anderen Platz zu nehmen, doch bezogen auf seine baldige Kündigung war ihm das gleichgültig.","ua":"Провідник весь час просив його натомість зайняти інше місце, але стосовно свого скорого звільнення йому було байдуже.","ru":"Проводник всё время просил его вместо этого занять другое место, но относительно своего скорого увольнения ему было всё равно.","en":"The conductor kept asking him to take a different seat instead, but in reference to his imminent resignation he did not care."},
-  {"de":"Beschwingt schob sie die Tür auf, blickte immerzu lächelnd um sich und wünschte dem Schaffner baldige Erholung, stattdessen ihn zu fragen, warum er gekündigt hatte.","ua":"Окрилено вона відчинила двері, весь час посміхаючись дивилась навколо і бажала провіднику швидкого відпочинку, замість того щоб питати, чому він звільнився.","ru":"Окрылённо она открыла дверь, постоянно улыбаясь смотрела вокруг и желала проводнику скорейшего отдыха, вместо того чтобы спрашивать, почему он уволился.","en":"Elated, she pushed the door open, kept looking around with a smile and wished the conductor a speedy rest instead of asking him why he had resigned."}
- ]}
-,
-{"title":"🔬 Група 13: vorliegen · erscheinen · abbilden · verdeutlichen · nämlich","sentences":[
-{"de":"Die Studie liegt nun vor und erscheint nächste Woche, um nämlich die Daten abzubilden, die das Problem verdeutlichen sollen.","ua":"Дослідження вже готове й виходить наступного тижня, щоб саме відобразити дані, які мають пояснити проблему.","ru":"Исследование уже готово и выйдет на следующей неделе, чтобы именно отобразить данные, которые должны прояснить проблему.","en":"The study is now available and will be published next week, namely to depict the data that should clarify the problem."},
-{"de":"Es liegen nämlich mehrere Beschwerden vor, die verdeutlichen, wie schwer es erscheint, die Realität korrekt abzubilden.","ua":"Адже надійшло декілька скарг, які пояснюють, наскільки важким здається правильно відобразити реальність.","ru":"Ведь поступило несколько жалоб, которые показывают, насколько сложным кажется правильно отобразить реальность.","en":"Namely, several complaints are present which clarify how difficult it appears to depict reality correctly."},
-{"de":"Der Bericht bildet die Lage ab und verdeutlicht nämlich, warum so viele Probleme vorliegen und wie sie erscheinen können.","ua":"Звіт відображає ситуацію і саме пояснює, чому існує стільки проблем і як вони можуть проявлятися.","ru":"Отчёт отображает ситуацию и именно поясняет, почему существует столько проблем и как они могут проявляться.","en":"The report depicts the situation and namely clarifies why so many problems exist and how they can appear."},
-{"de":"Es erscheint wichtig, die Ergebnisse abzubilden, nämlich weil keine vergleichbaren Daten vorliegen, die das verdeutlichen könnten.","ua":"Здається важливим відображати результати, адже не існує жодних порівнянних даних, які б це пояснили.","ru":"Кажется важным отображать результаты, ведь не существует сопоставимых данных, которые могли бы это прояснить.","en":"It appears important to depict the results, namely because no comparable data are available that could clarify this."},
-{"de":"Um das Konzept zu verdeutlichen, liegen mehrere Beispiele vor, die nämlich abbilden, wie Ideen in der Praxis erscheinen.","ua":"Щоб пояснити концепцію, підготовлено кілька прикладів, які саме відображають, як ідеї виглядають на практиці.","ru":"Чтобы прояснить концепцию, подготовлено несколько примеров, которые именно отображают, как идеи выглядят на практике.","en":"To clarify the concept, several examples are available that namely depict how ideas appear in practice."}
-]},
-{"title":"📋 Група 14: aufzeichnen · die Aufzeichnung · die Befunde · abrufbar · offenlegen · anlegen","sentences":[
-{"de":"Es ist entscheidend, alle Befunde sorgfältig aufzuzeichnen und die Aufzeichnungen so anzulegen, dass sie jederzeit abrufbar sind.","ua":"Дуже важливо ретельно фіксувати всі результати та вести записи так, щоб вони були доступні будь-коли.","ru":"Крайне важно тщательно фиксировать все данные и вести записи так, чтобы они были доступны в любой момент.","en":"It is crucial to carefully record all findings and to set up the records so that they are retrievable at any time."},
-{"de":"Die Befunde wurden aufgezeichnet und in einer Datenbank angelegt, damit sie für alle Beteiligten abrufbar bleiben.","ua":"Результати були зафіксовані та внесені до бази даних, щоб вони залишалися доступними для всіх учасників.","ru":"Результаты были зафиксированы и занесены в базу данных, чтобы они оставались доступными для всех участников.","en":"The findings were recorded and stored in a database so that they remain retrievable for all participants."},
-{"de":"Das Unternehmen muss seine Aufzeichnungen offenlegen und dafür sorgen, dass alle Daten korrekt angelegt wurden.","ua":"Компанія повинна оприлюднити свої записи та подбати про те, щоб усі дані були правильно оформлені.","ru":"Компания обязана раскрыть свои записи и позаботиться о том, чтобы все данные были правильно оформлены.","en":"The company must disclose its records and ensure that all data has been set up correctly."},
-{"de":"Um die Befunde offenzulegen, müssen zunächst alle Aufzeichnungen angelegt und in einem System abrufbar gemacht werden.","ua":"Щоб оприлюднити результати, спочатку потрібно скласти всі записи й зробити їх доступними в системі.","ru":"Чтобы раскрыть результаты, сначала нужно составить все записи и сделать их доступными в системе.","en":"In order to disclose the findings, all records must first be set up and made retrievable in a system."},
-{"de":"Wer keine genauen Aufzeichnungen anlegt und die Befunde nicht aufzeichnet, riskiert, dass wichtige Informationen nicht mehr abrufbar sind.","ua":"Той, хто не веде точних записів і не фіксує результати, ризикує втратою доступу до важливої інформації.","ru":"Тот, кто не ведёт точных записей и не фиксирует результаты, рискует потерять доступ к важной информации.","en":"Anyone who does not keep accurate records and does not record the findings risks losing access to important information."}
-]},
-{"title":"🌱 Група 15: pflegen · der Ansatz · die Vorbeugung · im Hinblick auf · ebenfalls · preiswert","sentences":[
-{"de":"Im Hinblick auf die Vorbeugung von Krankheiten ist ein ganzheitlicher Ansatz ebenfalls wichtig, den man konsequent pflegen sollte.","ua":"З огляду на профілактику захворювань, цілісний підхід також важливий, і його слід послідовно підтримувати.","ru":"С учётом профилактики заболеваний целостный подход также важен, и его следует последовательно поддерживать.","en":"With regard to the prevention of diseases, a holistic approach is likewise important and should be consistently maintained."},
-{"de":"Dieser Ansatz zur Vorbeugung ist ebenfalls preiswert, wenn man ihn im Hinblick auf langfristige Ergebnisse pflegt.","ua":"Цей підхід до профілактики також є економічним, якщо його підтримувати з огляду на довгострокові результати.","ru":"Этот подход к профилактике также экономичен, если поддерживать его с учётом долгосрочных результатов.","en":"This approach to prevention is likewise affordable when maintained with regard to long-term results."},
-{"de":"Im Hinblick auf Nachhaltigkeit sollte man ebenfalls preiswerte Lösungen pflegen und dabei einen klaren Ansatz verfolgen.","ua":"З огляду на сталий розвиток, слід також підтримувати недорогі рішення та дотримуватися чіткого підходу.","ru":"С учётом устойчивого развития следует также поддерживать доступные решения и придерживаться чёткого подхода.","en":"With regard to sustainability, one should also cultivate affordable solutions and follow a clear approach."},
-{"de":"Die Vorbeugung lässt sich ebenfalls durch preiswerte Maßnahmen erreichen, wenn man den richtigen Ansatz im Hinblick auf die Ursachen pflegt.","ua":"Профілактики також можна досягти завдяки недорогим заходам, якщо підтримувати правильний підхід з огляду на причини.","ru":"Профилактики также можно достичь с помощью доступных мер, если поддерживать правильный подход с учётом причин.","en":"Prevention can likewise be achieved through affordable measures if one maintains the right approach with regard to the causes."},
-{"de":"Ebenfalls im Hinblick auf die Vorbeugung sollte man einen Ansatz pflegen, der preiswert und für alle zugänglich ist.","ua":"Також з огляду на профілактику слід підтримувати підхід, який є доступним за ціною та відкритим для всіх.","ru":"Также с учётом профилактики следует поддерживать подход, который доступен по цене и открыт для всех.","en":"Likewise with regard to prevention, one should maintain an approach that is affordable and accessible to all."}
-]},
-{"title":"🤝 Група 16: beitragen · das hieße · die Stiftung · lässt zu wünschen übrig","sentences":[
-{"de":"Die Stiftung möchte dazu beitragen, dass niemand zurückgelassen wird – das hieße, jedem die gleichen Chancen zu geben.","ua":"Фонд прагне зробити внесок у те, щоб нікого не залишили позаду — це означало б надати кожному рівні можливості.","ru":"Фонд стремится внести вклад в то, чтобы никто не был оставлен позади — это означало бы дать каждому равные возможности.","en":"The foundation wants to contribute to ensuring no one is left behind — that would mean giving everyone equal opportunities."},
-{"de":"Die aktuelle Lage lässt zu wünschen übrig, aber die Stiftung ist bereit, aktiv dazu beizutragen, sie zu verbessern.","ua":"Нинішня ситуація залишає бажати кращого, але фонд готовий активно сприяти її покращенню.","ru":"Нынешняя ситуация оставляет желать лучшего, но фонд готов активно способствовать её улучшению.","en":"The current situation leaves something to be desired, but the foundation is ready to actively contribute to improving it."},
-{"de":"Das hieße, dass jeder dazu beitragen muss – denn wenn nur eine Stiftung handelt, lässt das Ergebnis zu wünschen übrig.","ua":"Це означало б, що кожен має зробити свій внесок — адже якщо діє лише один фонд, результат залишає бажати кращого.","ru":"Это означало бы, что каждый должен внести вклад — ведь если действует только один фонд, результат оставляет желать лучшего.","en":"That would mean everyone must contribute — because if only one foundation acts, the result leaves something to be desired."},
-{"de":"Die Stiftung trägt erheblich dazu bei, Bildung zu fördern, auch wenn das Angebot manchmal zu wünschen übrig lässt.","ua":"Фонд суттєво сприяє розвитку освіти, навіть якщо пропозиція іноді залишає бажати кращого.","ru":"Фонд существенно способствует развитию образования, даже если предложение иногда оставляет желать лучшего.","en":"The foundation contributes significantly to promoting education, even though the offering sometimes leaves something to be desired."},
-{"de":"Das hieße zwar, mehr Mittel einzusetzen, aber die Stiftung ist bereit dazu beizutragen, damit die Qualität nicht mehr zu wünschen übrig lässt.","ua":"Це означало б, звісно, витратити більше коштів, але фонд готовий зробити внесок, щоб якість більше не залишала бажати кращого.","ru":"Это означало бы, конечно, вложить больше средств, но фонд готов внести вклад, чтобы качество больше не оставляло желать лучшего.","en":"That would mean investing more resources, but the foundation is prepared to contribute so that quality no longer leaves something to be desired."}
-]},
-{"title":"🦷 Група 17: Zahnarzt · Zahnschmerzen · Karies · Füllung · bohren · Betäubung · Zahnfleisch · röntgen · Termin · empfindlich","sentences":[
-{"de":"Ich hatte seit Tagen starke Zahnschmerzen und bin endlich zum Zahnarzt gegangen. Er hat den Zahn geröntgt und eine tiefe Karies entdeckt.","ua":"У мене вже кілька днів був сильний зубний біль, і я нарешті пішов до стоматолога. Він зробив рентген зуба і виявив глибокий карієс.","ru":"У меня уже несколько дней была сильная зубная боль, и я наконец пошёл к стоматологу. Он сделал рентген зуба и обнаружил глубокий кариес.","en":"I had a strong toothache for days and finally went to the dentist. He x-rayed the tooth and discovered a deep cavity."},
-{"de":"Der Zahnarzt hat mir eine Betäubung gegeben, bevor er angefangen hat zu bohren. Danach hat er eine neue Füllung eingesetzt.","ua":"Стоматолог зробив мені анестезію, перш ніж почав свердлити. Потім він поставив нову пломбу.","ru":"Стоматолог сделал мне анестезию, прежде чем начал сверлить. Потом он поставил новую пломбу.","en":"The dentist gave me anesthesia before he started drilling. Then he placed a new filling."},
-{"de":"Mein Zahnfleisch war entzündet, und der Zahnarzt hat eine professionelle Zahnreinigung empfohlen, damit es nicht schlimmer wird.","ua":"Мої ясна були запалені, і стоматолог порекомендував професійну чистку зубів, щоб не стало гірше.","ru":"Мои дёсны были воспалены, и стоматолог порекомендовал профессиональную чистку зубов, чтобы не стало хуже.","en":"My gums were inflamed, and the dentist recommended a professional dental cleaning so it wouldn't get worse."},
-{"de":"Die Karies war so tief, dass eine einfache Füllung nicht mehr gereicht hat — ich brauchte eine Wurzelbehandlung und danach eine Krone.","ua":"Карієс був настільки глибоким, що звичайної пломби вже не вистачало — мені знадобилося лікування каналу, а потім коронка.","ru":"Кариес был настолько глубоким, что обычной пломбы уже не хватало — мне понадобилось лечение канала, а потом коронка.","en":"The cavity was so deep that a simple filling was no longer enough — I needed a root canal treatment and then a crown."},
-{"de":"Nach der Behandlung hat der Zahnarzt gesagt: Bitte spülen Sie den Mund aus und kommen Sie in zwei Wochen zur Kontrolle wieder.","ua":"Після лікування стоматолог сказав: будь ласка, прополощіть рот і приходьте через два тижні на контроль.","ru":"После лечения стоматолог сказал: пожалуйста, прополощите рот и приходите через две недели на контроль.","en":"After the treatment the dentist said: please rinse your mouth and come back in two weeks for a check-up."},
-{"de":"Ich muss unbedingt einen Termin in der Zahnarztpraxis vereinbaren — mein Backenzahn ist seit einer Woche empfindlich gegen Kälte.","ua":"Мені обовʼязково треба записатися на прийом до стоматолога — мій корінний зуб вже тиждень чутливий до холоду.","ru":"Мне обязательно нужно записаться на приём к стоматологу — мой коренной зуб уже неделю чувствителен к холоду.","en":"I definitely need to make an appointment at the dental office — my molar has been sensitive to cold for a week."},
-{"de":"Der Zahnarzt hat gesagt, ich soll täglich Zahnseide benutzen und eine Mundspülung nehmen, um Mundgeruch und Karies vorzubeugen.","ua":"Стоматолог сказав, що мені слід щодня користуватися зубною ниткою та ополіскувачем, щоб запобігти неприємному запаху з рота та карієсу.","ru":"Стоматолог сказал, что мне следует ежедневно пользоваться зубной нитью и ополаскивателем, чтобы предотвратить неприятный запах и кариес.","en":"The dentist said I should use dental floss and mouthwash daily to prevent bad breath and cavities."},
-{"de":"Nach dem Ziehen des Weisheitszahns hatte ich eine starke Schwellung an der Wange, aber die Spritze hat gut gewirkt und ich hatte kaum Schmerzen.","ua":"Після видалення зуба мудрості у мене був сильний набряк на щоці, але укол подіяв добре і болю майже не було.","ru":"После удаления зуба мудрости у меня был сильный отёк на щеке, но укол подействовал хорошо и боли почти не было.","en":"After the wisdom tooth extraction I had a strong swelling on my cheek, but the injection worked well and I hardly had any pain."}
-]}];
-/* ======= HELPERS ======= */
-function getTrans(w){return _lang==="ru"?w.ru:(_lang==="en"?w.en:w.ua);}
-function getEx(w){return _lang==="ru"?w.exRu:(_lang==="en"?w.exEn:w.exUa);}
-function getExLabel(){return _lang==="ru"?"Пример:":(_lang==="en"?"Example:":"Приклад:");}
-function getSentTrans(s){return _lang==="ru"?s.ru:(_lang==="en"?s.en:s.ua);}
-function showToast(msg){var t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(function(){t.classList.remove("show");},2200);}
-function confetti(){var c=["#6c63ff","#ff6584","#ffbe0b","#4caf50","#1565c0"];for(var i=0;i<28;i++){var el=document.createElement("div");el.className="confetti-piece";el.style.cssText="left:"+(Math.random()*100)+"vw;top:-10px;background:"+c[Math.floor(Math.random()*5)]+";animation-delay:"+(Math.random()*0.6)+"s;width:"+(6+Math.random()*8)+"px;height:"+(6+Math.random()*8)+"px;";document.body.appendChild(el);setTimeout(function(){el.remove();},2000);}}
-
-function updateStats(){
-  var total=0;_groups.forEach(function(g){total+=g.sentences.length;});
-  var rep=_words.filter(function(w){return w.repeat;}).length;
-  document.getElementById("stat-total").textContent=_words.length;
-  document.getElementById("stat-learned").textContent=_words.filter(function(w){return w.learned;}).length;
-  document.getElementById("stat-repeat").textContent=rep;
-  document.getElementById("stat-en-total").textContent=_enWords.length;
-  document.getElementById("stat-sentences").textContent=total;
-  document.getElementById("stat-streak").textContent=_quizStreak+"🔥";
-  document.getElementById("repeat-count").textContent=rep;
-  document.getElementById("en-repeat-count").textContent=_enWords.filter(function(w){return w.repeat;}).length;
-}
-
-/* ======= SECTION SWITCHER ======= */
-function switchSection(sec){
-  _curSection=sec;
-  document.getElementById("sec-de").classList.toggle("active",sec==="de");
-  document.getElementById("sec-en").classList.toggle("active",sec==="en");
-  document.getElementById("de-section").classList.toggle("active",sec==="de");
-  document.getElementById("en-section").classList.toggle("active",sec==="en");
-  if(sec==="en") renderEnWords();
-}
-
-function setLang(l){
-  _lang=l;
-  ["ua","ru","en"].forEach(function(x){document.getElementById("lang-"+x).classList.toggle("active",x===l);});
-  renderWords();renderRepeat();renderSentences();
-}
-
-/* ======= DE TABS ======= */
-function switchTab(tab){
-  ["words","repeat","sentences","quiz","dental"].forEach(function(t){
-    document.getElementById("tab-"+t).classList.toggle("active",t===tab);
-    document.getElementById(t+"-section").classList.toggle("active",t===tab);
-  });
-  if(tab==="quiz")startQuiz();
-  if(tab==="repeat")renderRepeat();
-  if(tab==="dental")renderDental();
-}
-
-/* ======= DE CARD BUILDER ======= */
-function buildCard(item,i,isEn){
-  var card=document.createElement("div");
-  card.className="card"+(isEn?" en-card":"")+(item.learned?" learned":"")+(item.repeat?" repeat":"");
-  var delBtn=document.createElement("button");delBtn.className="delete-btn";delBtn.textContent="✕";
-  delBtn.addEventListener("click",function(e){e.stopPropagation();if(isEn){_enWords.splice(i,1);renderEnWords();renderEnRepeat();}else{_words.splice(i,1);renderWords();renderRepeat();}});
-  var wordDiv=document.createElement("div");wordDiv.className="word";wordDiv.textContent=item.word;
-  if(isEn){var speakBtn=document.createElement("button");speakBtn.innerHTML="🔊";speakBtn.title="Listen";speakBtn.style.cssText="background:none;border:none;font-size:18px;cursor:pointer;margin-left:8px;vertical-align:middle;padding:2px;line-height:1;";speakBtn.onclick=function(e){e.stopPropagation();speakEn(item.word);};wordDiv.appendChild(speakBtn);}
-  var transDiv=document.createElement("div");transDiv.className="translation";
-  transDiv.textContent=isEn?getEnTrans(item):getTrans(item);
-  var exDiv=document.createElement("div");exDiv.className="example";
-  var srcSpan=document.createElement("span");srcSpan.className="ex-src";
-  srcSpan.textContent=isEn?(item.exEn||""):(item.exDe||"");
-  var exLabel=document.createElement("span");exLabel.className="ex-label";
-  exLabel.textContent=isEn?getEnExLabel():getExLabel();
-  var exTrans=document.createElement("span");exTrans.className="ex-trans";
-  exTrans.textContent=isEn?getEnEx(item):(getEx(item)||"");
-  if(srcSpan.textContent)exDiv.appendChild(srcSpan);
-  exDiv.appendChild(exLabel);exDiv.appendChild(exTrans);
-  var actDiv=document.createElement("div");actDiv.className="card-actions";
-  var learnBtn=document.createElement("button");learnBtn.className="btn-learn"+(item.learned?" done":"");
-  learnBtn.textContent=item.learned?"✅ Вивчено":"📌 Вивчив";
-  learnBtn.addEventListener("click",function(e){e.stopPropagation();item.learned=!item.learned;if(item.learned){confetti();showToast("🎉 Відмічено як вивчене!");}if(isEn){renderEnWords();renderEnRepeat();}else{renderWords();renderRepeat();}});
-  var repBtn=document.createElement("button");repBtn.className="btn-repeat"+(item.repeat?" on":"");
-  repBtn.textContent=item.repeat?"🔁 В списку":"🔁 Повторити";
-  repBtn.addEventListener("click",function(e){e.stopPropagation();item.repeat=!item.repeat;showToast(item.repeat?"🔁 Додано до повторення!":"Прибрано з повторення");if(isEn){renderEnWords();renderEnRepeat();}else{renderWords();renderRepeat();}});
-  actDiv.appendChild(learnBtn);actDiv.appendChild(repBtn);
-  card.appendChild(delBtn);card.appendChild(wordDiv); if(item.type){var tb=document.createElement("div");tb.className="type-badge type-"+item.type;var typeLabels={noun:"🔵 Іменник",verb:"🟢 Дієслово",adj:"🟠 Прикметн.",adv:"🟣 Прислівн.",phrase:"🔴 Фраза"};tb.textContent=typeLabels[item.type]||item.type;if(wordDiv.parentNode===card){card.insertBefore(tb,wordDiv);}else{card.prepend(tb);};}card.appendChild(transDiv);card.appendChild(exDiv);
-  if(item.repeat&&!item.learned){var rb=document.createElement("div");rb.className="repeat-badge";rb.textContent="🔁 До повторення";card.appendChild(rb);}
-  else if(item.learned){var b=document.createElement("div");b.className="learned-badge";b.textContent="✅ Вивчено";card.appendChild(b);}
-  else{var h=document.createElement("div");h.className="hint";h.textContent="👆 натисни";card.appendChild(h);}
-  card.appendChild(actDiv);
-  card.addEventListener("click",function(){this.classList.toggle("flipped");var h=this.querySelector(".hint");if(h)h.style.display=this.classList.contains("flipped")?"none":"block";});
-  return card;
-}
-
-function renderWords(){
-  var q=(document.getElementById("searchInput").value||"").toLowerCase();
-  var c=document.getElementById("cards");c.innerHTML="";
-  var f=_words.filter(function(w){var matchQ=!q||w.word.toLowerCase().includes(q)||getTrans(w).toLowerCase().includes(q);var matchT=_typeFilter==="all"||w.type===_typeFilter;return matchQ&&matchT;});
-  if(!f.length){c.innerHTML='<div class="empty">Нічого не знайдено 🤷</div>';return;}
-  f.forEach(function(item){c.appendChild(buildCard(item,_words.indexOf(item),false));});
-  updateStats();
-}
-
-function addWord(){
-  var w=document.getElementById("wordInput").value.trim(),ua=document.getElementById("transUaInput").value.trim(),ru=document.getElementById("transRuInput").value.trim(),en=document.getElementById("transEnInput").value.trim();
-  if(!w)return;
-  _words.push({word:w,ua:ua||"—",ru:ru||"—",en:en||"—",learned:false,repeat:false,exDe:"",exUa:"",exRu:"",exEn:""});
-  ["wordInput","transUaInput","transRuInput","transEnInput"].forEach(function(id){document.getElementById(id).value="";});
-  showToast("✅ Слово додано!");renderWords();
-}
-
-/* ======= DE REPEAT ======= */
-function renderRepeat(){
-  var inner=document.getElementById("repeat-inner");inner.innerHTML="";
-  var rep=_words.filter(function(w){return w.repeat;});
-  if(!rep.length){inner.innerHTML='<div class="empty">Натисни 🔁 на карточці, щоб додати сюди слово.</div>';updateStats();return;}
-  var hdr=document.createElement("div");hdr.className="repeat-section-header";
-  var title=document.createElement("span");title.innerHTML="🔁 Слова для повторення: <strong>"+rep.length+"</strong>";
-  var mbtns=document.createElement("div");mbtns.className="repeat-mode-btns";
-  var mC=document.createElement("button");mC.className="repeat-mode-btn"+(_repeatMode==="cards"?" active":"");mC.textContent="🃏 Карточки";
-  var mF=document.createElement("button");mF.className="repeat-mode-btn"+(_repeatMode==="flash"?" active":"");mF.textContent="⚡ По одній";
-  mC.addEventListener("click",function(){_repeatMode="cards";renderRepeat();});
-  mF.addEventListener("click",function(){_repeatMode="flash";renderRepeat();});
-  mbtns.appendChild(mC);mbtns.appendChild(mF);
-  hdr.appendChild(title);hdr.appendChild(mbtns);inner.appendChild(hdr);
-  if(_repeatMode==="cards"){var grid=document.createElement("div");grid.className="cards";rep.forEach(function(item){grid.appendChild(buildCard(item,_words.indexOf(item),false));});inner.appendChild(grid);}
-  else startFlashcards(rep,inner,false);
-  updateStats();
-}
-
-/* ======= DE SENTENCES ======= */
-function renderSentences(){
-  var wrap=document.getElementById("sentences-wrap");wrap.innerHTML="";
-  _groups.forEach(function(group){
-    var sec=document.createElement("div");sec.style.marginBottom="28px";
-    var title=document.createElement("div");title.className="group-title";title.textContent=group.title;sec.appendChild(title);
-    var nav=document.createElement("div");nav.className="sent-nav";
-    var bP=document.createElement("button");bP.textContent="←";
-    var cnt=document.createElement("span");cnt.className="sent-counter";
-    var bN=document.createElement("button");bN.textContent="→";
-    nav.appendChild(bP);nav.appendChild(cnt);nav.appendChild(bN);sec.appendChild(nav);
-    var ca=document.createElement("div");sec.appendChild(ca);wrap.appendChild(sec);
-    var idx=0;
-    function sc(){var s=group.sentences[idx];cnt.textContent=(idx+1)+" / "+group.sentences.length;bP.disabled=(idx===0);bN.disabled=(idx===group.sentences.length-1);ca.innerHTML="";var card=document.createElement("div");card.className="sentence-card";var num=document.createElement("div");num.className="num";num.textContent="№ "+(idx+1);var de=document.createElement("div");de.className="de";de.textContent=s.de;var tr=document.createElement("div");tr.className="trans";tr.textContent=getSentTrans(s);var hi=document.createElement("div");hi.className="s-hint";hi.textContent="👆 натисни, щоб побачити переклад";card.appendChild(num);card.appendChild(de);card.appendChild(tr);card.appendChild(hi);card.addEventListener("click",function(){this.classList.toggle("flipped");});ca.appendChild(card);}
-    bP.addEventListener("click",function(){if(idx>0){idx--;sc();}});
-    bN.addEventListener("click",function(){if(idx<group.sentences.length-1){idx++;sc();}});
-    sc();
-  });updateStats();
-}
-
-/* ======= DENTAL TAB ======= */
-var _dentalWords=["der Zahnarzt","die Zahnschmerzen","die Karies","die Füllung","bohren","die Betäubung","das Zahnfleisch","die Zahnreinigung","den Zahn ziehen","der Weisheitszahn","die Krone","röntgen","die Zahnspange","ausspülen","die Wurzelbehandlung","der Backenzahn","der Schneidezahn","die Spritze","die Praxis","der Termin","empfindlich","das Implantat","die Prothese","die Zahnpasta","die Zahnseide","die Mundspülung","die Schwellung","entzündet","die Kontrolle","Zähne putzen","plombieren","der Mundgeruch"];
-var _dentalDesc={
-"der Zahnarzt":"Так називають зубного лікаря. Кажеш: «Ich gehe zum Zahnarzt» — йду до стоматолога.",
-"die Zahnschmerzen":"Зубний біль. Завжди множина (Zahnschmerzen). «Ich habe Zahnschmerzen» — у мене болить зуб.",
-"die Karies":"Карієс — коли зуб починає руйнуватися. Лікар каже: «Sie haben Karies» — у вас карієс.",
-"die Füllung":"Пломба — те, чим заповнюють дірку в зубі після лікування карієсу.",
-"bohren":"Свердлити — це те, що робить лікар бормашиною. «Wir müssen bohren» — треба посвердлити.",
-"die Betäubung":"Знеболення, анестезія. Лікар питає: «Möchten Sie eine Betäubung?» — бажаєте анестезію?",
-"das Zahnfleisch":"Ясна — мʼяка тканина навколо зубів. «Mein Zahnfleisch blutet» — мої ясна кровоточать.",
-"die Zahnreinigung":"Професійна чистка зубів — процедура для видалення нальоту і каменю.",
-"den Zahn ziehen":"Видалити зуб. Ziehen = тягнути. «Der Zahn muss gezogen werden» — зуб треба видалити.",
-"der Weisheitszahn":"Зуб мудрості — останні зуби, що зʼявляються у дорослому віці (Weisheit = мудрість).",
-"die Krone":"Коронка — штучна «шапочка» на зуб, коли свій зуб сильно зруйнований.",
-"röntgen":"Робити рентген. Названо на честь Вільгельма Рентгена. «Wir müssen röntgen» — треба зробити знімок.",
-"die Zahnspange":"Брекети або скоба для вирівнювання зубів. Spange = скоба, застібка.",
-"ausspülen":"Полоскати рот. «Bitte ausspülen!» — будь ласка, прополощіть! Aus- = ви-, spülen = полоскати.",
-"die Wurzelbehandlung":"Лікування кореневого каналу. Wurzel = корінь, Behandlung = лікування. Роблять, коли карієс дійшов до нерва.",
-"der Backenzahn":"Корінний зуб — великий задній зуб для жування. Backe = щока, тобто «зуб біля щоки».",
-"der Schneidezahn":"Різець — передній зуб, яким ріжеш їжу. Schneiden = різати.",
-"die Spritze":"Шприц, укол. Лікар робить Spritze для знеболення. «Haben Sie Angst vor der Spritze?»",
-"die Praxis":"Кабінет лікаря. «Die Zahnarztpraxis» — стоматологічний кабінет. Не плутай з практикою!",
-"der Termin":"Запис на прийом. «Einen Termin vereinbaren» — записатися. Дуже важливе слово для лікаря!",
-"empfindlich":"Чутливий. «Empfindliche Zähne» — чутливі зуби (реагують на холодне/гаряче).",
-"das Implantat":"Імплант — штучний корінь зуба, який вкручують у кістку замість видаленого зуба.",
-"die Prothese":"Протез — знімна конструкція, що замінює відсутні зуби. Бабуся може мати Prothese.",
-"die Zahnpasta":"Зубна паста. Zahn + Pasta. Просто і зрозуміло!",
-"die Zahnseide":"Зубна нитка. Seide = шовк. Для чищення між зубами.",
-"die Mundspülung":"Ополіскувач для рота. Mund = рот, Spülung = полоскання.",
-"die Schwellung":"Набряк, припухлість. Після видалення зуба може бути Schwellung на щоці.",
-"entzündet":"Запалений. «Das Zahnfleisch ist entzündet» — ясна запалені. Entzündung = запалення.",
-"die Kontrolle":"Контрольний огляд. «Zur Kontrolle kommen» — прийти на перевірку через час.",
-"Zähne putzen":"Чистити зуби. Putzen = чистити. «Zweimal am Tag Zähne putzen!» — двічі на день!",
-"plombieren":"Пломбувати зуб. Від слова Plombe (пломба). Більш офіційне слово ніж «füllen».",
-"der Mundgeruch":"Неприємний запах з рота. Mund = рот, Geruch = запах. Може бути ознакою проблем з яснами."
-};
-function renderDental(){
-  var wrap=document.getElementById("dental-wrap");wrap.innerHTML="";
-  /* header */
-  var hdr=document.createElement("div");
-  hdr.style.cssText="text-align:center;margin:18px 0 18px;";
-  hdr.innerHTML="<div style='font-size:38px;'>🦷</div><div style='font-size:20px;font-weight:700;color:#5b4fc4;margin-top:4px;'>Beim Zahnarzt</div><div style='color:#888;font-size:13px;margin-top:2px;'>Слова та фрази для візиту до стоматолога</div>";
-  wrap.appendChild(hdr);
-  /* cards with descriptions */
-  var cWrap=document.createElement("div");cWrap.className="cards";
-  var dWords=_words.filter(function(w){return _dentalWords.indexOf(w.word)!==-1;});
-  dWords.forEach(function(w){
-    var realIdx=_words.indexOf(w);
-    var card=buildCard(w,realIdx,false);
-    /* add description */
-    var desc=_dentalDesc[w.word];
-    if(desc){
-      var dd=document.createElement("div");
-      dd.style.cssText="background:#f0edff;border-radius:10px;padding:8px 12px;margin:8px 0 4px;font-size:13px;color:#444;line-height:1.5;border-left:3px solid #6c63ff;";
-      dd.textContent="💡 "+desc;
-      var acts=card.querySelector(".card-actions");
-      if(acts){card.insertBefore(dd,acts);}else{card.appendChild(dd);}
-    }
-    cWrap.appendChild(card);
-  });
-  wrap.appendChild(cWrap);
-  /* sentences from Group 17 */
-  var dGroup=_groups.filter(function(g){return g.title.indexOf("Група 17")!==-1;})[0];
-  if(dGroup){
-    var sec=document.createElement("div");sec.style.marginTop="28px";
-    var title=document.createElement("div");title.className="group-title";title.textContent="📝 Речення: "+dGroup.title.replace(/.*Група \d+:\s*/,"");sec.appendChild(title);
-    var nav=document.createElement("div");nav.className="sent-nav";
-    var bP=document.createElement("button");bP.textContent="←";
-    var cnt=document.createElement("span");cnt.className="sent-counter";
-    var bN=document.createElement("button");bN.textContent="→";
-    nav.appendChild(bP);nav.appendChild(cnt);nav.appendChild(bN);sec.appendChild(nav);
-    var ca=document.createElement("div");sec.appendChild(ca);wrap.appendChild(sec);
-    var idx=0;
-    function sc(){var s=dGroup.sentences[idx];cnt.textContent=(idx+1)+" / "+dGroup.sentences.length;bP.disabled=(idx===0);bN.disabled=(idx===dGroup.sentences.length-1);ca.innerHTML="";var card=document.createElement("div");card.className="sentence-card";var num=document.createElement("div");num.className="num";num.textContent="№ "+(idx+1);var de=document.createElement("div");de.className="de";de.textContent=s.de;var tr=document.createElement("div");tr.className="trans";tr.textContent=getSentTrans(s);var hi=document.createElement("div");hi.className="s-hint";hi.textContent="👆 натисни, щоб побачити переклад";card.appendChild(num);card.appendChild(de);card.appendChild(tr);card.appendChild(hi);card.addEventListener("click",function(){this.classList.toggle("flipped");});ca.appendChild(card);}
-    bP.addEventListener("click",function(){if(idx>0){idx--;sc();}});
-    bN.addEventListener("click",function(){if(idx<dGroup.sentences.length-1){idx++;sc();}});
-    sc();
-  }
-}
-
-/* ======= DE QUIZ ======= */
-function startQuiz(){
-  var u=_words.filter(function(w){return !w.learned;});
-  if(u.length<2){var area=document.getElementById("quiz-area");area.innerHTML="";var qc=document.createElement("div");qc.className="quiz-card";var qq=document.createElement("div");qq.className="quiz-question";qq.textContent="🎉 Всі слова вивчені!";qc.appendChild(qq);area.appendChild(qc);return;}
-  _quizOrder=u.map(function(w){return _words.indexOf(w);}).sort(function(){return Math.random()-0.5;});
-  _quizIndex=0;_quizScore=0;showQuizCard();
-}
-function showQuizCard(){
-  var area=document.getElementById("quiz-area");area.innerHTML="";
-  if(_quizIndex>=_quizOrder.length){
-    var pct=Math.round((_quizScore/_quizOrder.length)*100);var qc=document.createElement("div");qc.className="quiz-card";var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=_quizScore+"/"+_quizOrder.length+" — "+pct+"%";
-    var bt=document.createElement("div");bt.className="quiz-btns";var b1=document.createElement("button");b1.style.background="#6c63ff";b1.style.color="white";b1.style.border="none";b1.style.padding="11px 28px";b1.style.borderRadius="12px";b1.style.fontSize="14px";b1.style.cursor="pointer";b1.style.fontWeight="600";b1.textContent="🔄 Ще раз";b1.addEventListener("click",function(){startQuiz();});bt.appendChild(b1);qc.appendChild(qq);qc.appendChild(bt);area.appendChild(qc);updateStats();return;
-  }
-  var w=_words[_quizOrder[_quizIndex]];var pct=Math.round((_quizIndex/_quizOrder.length)*100);
-  var prog=document.createElement("div");prog.className="quiz-progress";prog.textContent=(_quizIndex+1)+" / "+_quizOrder.length;area.appendChild(prog);
-  var pb=document.createElement("div");pb.className="progress-bar";var pf=document.createElement("div");pf.className="progress-fill";pf.style.width=pct+"%";pb.appendChild(pf);area.appendChild(pb);
-  var mt=document.createElement("div");mt.className="quiz-mode-toggle";
-  var mBtnK=document.createElement("button");mBtnK.className="quiz-mode-btn"+(_quizTypingMode?"":" active");mBtnK.textContent="🎭 Знав/не знав";
-  var mBtnT=document.createElement("button");mBtnT.className="quiz-mode-btn"+(_quizTypingMode?" active":"");mBtnT.textContent="⌨️ Введення";
-  mBtnK.addEventListener("click",function(){_quizTypingMode=false;showQuizCard();});
-  mBtnT.addEventListener("click",function(){_quizTypingMode=true;showQuizCard();});
-  mt.appendChild(mBtnK);mt.appendChild(mBtnT);area.appendChild(mt);
-  var qc=document.createElement("div");qc.className="quiz-card";
-  var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent="Як перекладається?";qc.appendChild(qs);
-  var qq=document.createElement("div");qq.className="quiz-question";qq.textContent=w.word;qc.appendChild(qq);
-  var ans=document.createElement("div");ans.className="quiz-answer";ans.style.color="#1565c0";ans.style.background="#e3f2fd";ans.textContent=getTrans(w);
-  qc.appendChild(ans);area.appendChild(qc);
-  if(!_quizTypingMode){
-    ans.style.display="none";
-    var bt=document.createElement("div");bt.className="quiz-btns";
-    var bSh=document.createElement("button");bSh.className="btn-show";bSh.textContent="👁 Показати";
-    var bOk=document.createElement("button");bOk.className="btn-correct";bOk.textContent="✅ Знав";bOk.style.display="none";
-    var bNo=document.createElement("button");bNo.className="btn-wrong";bNo.textContent="❌ Не знав";bNo.style.display="none";
-    bSh.addEventListener("click",function(){ans.style.display="block";bSh.style.display="none";bOk.style.display="inline-block";bNo.style.display="inline-block";});
-    bOk.addEventListener("click",function(){_quizScore++;_quizStreak++;showToast("🎉 Правильно!");if(_quizStreak%3===0)confetti();updateStats();_quizIndex++;setTimeout(showQuizCard,400);});
-    bNo.addEventListener("click",function(){_quizStreak=0;updateStats();_quizIndex++;setTimeout(showQuizCard,400);});
-    bt.appendChild(bSh);bt.appendChild(bOk);bt.appendChild(bNo);area.appendChild(bt);
-  } else {
-    var tw=document.createElement("div");tw.className="quiz-typing-wrap";
-    var inp=document.createElement("input");inp.className="quiz-typing-input";inp.type="text";inp.placeholder="Введіть переклад...";inp.autocomplete="off";
-    var hint=document.createElement("div");hint.className="quiz-typing-hint";
-    var chk=document.createElement("button");chk.className="quiz-check-btn";chk.textContent="Перевірити →";
-    function checkAnswer(){
-      var userAns=inp.value.trim().toLowerCase();
-      var correct=getTrans(w).toLowerCase().trim();
-      if(userAns===correct){
-        inp.classList.add("correct");hint.style.display="none";
-        _quizScore++;_quizStreak++;showToast("🎉 Правильно!");if(_quizStreak%3===0)confetti();updateStats();
-        setTimeout(function(){_quizIndex++;showQuizCard();},700);
-      } else {
-        inp.classList.add("wrong");
-        hint.textContent="✗ Правильно: "+getTrans(w);hint.style.display="block";
-        _quizStreak=0;updateStats();
-        chk.textContent="Далі →";chk.onclick=function(){_quizIndex++;showQuizCard();};
-      }
-    }
-    chk.addEventListener("click",checkAnswer);
-    inp.addEventListener("keydown",function(e){if(e.key==="Enter")checkAnswer();});
-    tw.appendChild(inp);tw.appendChild(chk);tw.appendChild(hint);area.appendChild(tw);
-    setTimeout(function(){inp.focus();},100);
-  }
-}
-
-/* ======= EN HELPERS ======= */
-function getEnTrans(w){return _lang==="ru"?w.ru:(_lang==="en"?w.de:w.ua);}
-function getEnEx(w){return _lang==="ru"?w.exRu:(_lang==="en"?w.exDe:w.exUa);}
-function getEnExLabel(){return _lang==="ru"?"Пример:":(_lang==="en"?"DE:":"Приклад:");}
-
-/* ======= EN TABS ======= */
-function switchEnTab(tab){
-  _curEnTab=tab;
-  ["words","repeat","quiz","sent"].forEach(t=>{
-    var s=document.getElementById("en-"+t+"-section");
-    if(s) s.classList.toggle("active",t===tab);
-    var b=document.getElementById("en-tab-"+t);
-    if(b) b.classList.toggle("active",t===tab);
-  });
-  if(tab==="words") renderEnWords();
-  if(tab==="repeat") renderEnRepeat();
-  if(tab==="quiz") startEnQuiz();
-  if(tab==="sent") renderEnSentences();
-}
-
-/* ======= EN WORDS ======= */
-function renderEnSentences(){
-  var wrap=document.getElementById("en-sent-wrap");
-  if(!wrap)return;
-  var lang=_lang;
-  if(!_enGroups||_enGroups.length===0){wrap.innerHTML="<p style='text-align:center;color:#888;margin-top:40px;'>No sentence groups yet.</p>";return;}
-  var html="";
-  _enGroups.forEach(function(g,gi){
-    var cur=g._cur||0;
-    var total=g.sentences.length;
-    var s=g.sentences[cur];
-    var trans=lang==="ru"?s.ru:(lang==="de"?s.de:s.ua);
-    var tapLabel=lang==="ru"?"нажми, чтобы увидеть перевод":(lang==="de"?"tippen für Übersetzung":"натисни, щоб побачити переклад");
-    html+='<div class="group-title" style="background:linear-gradient(135deg,#1565c0,#42a5f5);">'+g.title+'</div>';
-    html+='<div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:12px;">';
-    html+='<button onclick="enSentNav('+gi+',-1)" style="width:38px;height:38px;border-radius:50%;border:2px solid #1565c0;background:white;color:#1565c0;font-size:18px;cursor:pointer;">&larr;</button>';
-    html+='<span style="font-size:14px;color:#555;">' +(cur+1)+ ' / ' +total+ '</span>';
-    html+='<button onclick="enSentNav('+gi+',1)" style="width:38px;height:38px;border-radius:50%;border:2px solid #1565c0;background:white;color:#1565c0;font-size:18px;cursor:pointer;">&rarr;</button>';
-    html+='</div>';
-    html+='<div class="sent-item" id="en-sent-'+gi+'" onclick="enSentToggle('+gi+')" style="cursor:pointer;">';
-    html+='<div style="font-size:15px;font-weight:700;color:#1a237e;line-height:1.7;margin-bottom:8px;">'+s.en+'</div>';
-    html+='<div id="en-st-'+gi+'" style="font-size:13px;color:#1565c0;font-style:italic;display:none;">'+trans+'</div>';
-    html+='<div id="en-tap-'+gi+'" style="font-size:12px;color:#aaa;">💧 '+tapLabel+'</div>';
-    html+='</div><br>';
-  });
-  wrap.innerHTML=html;
-}
-function enSentToggle(gi){
-  var tr=document.getElementById("en-st-"+gi);
-  var tap=document.getElementById("en-tap-"+gi);
-  if(!tr)return;
-  if(tr.style.display==="none"){tr.style.display="block";tap.style.display="none";}
-  else{tr.style.display="none";tap.style.display="block";}
-}
-function enSentNav(gi,dir){
-  var g=_enGroups[gi];
-  if(!g)return;
-  g._cur=g._cur||0;
-  g._cur=(g._cur+dir+g.sentences.length)%g.sentences.length;
-  renderEnSentences();
-}
-
-
-
-
-function renderEnWords(){
-  var q=(document.getElementById("enSearchInput").value||"").toLowerCase();
-  var c=document.getElementById("en-cards");c.innerHTML="";
-  var f=_enWords.filter(function(w){return !q||w.word.toLowerCase().includes(q)||getEnTrans(w).toLowerCase().includes(q);});
-  if(!f.length){c.innerHTML='<div class="empty">No words found 🤷</div>';return;}
-  f.forEach(function(item){c.appendChild(buildCard(item,_enWords.indexOf(item),true));});
-  updateStats();
-}
-
-function addEnWord(){
-  var w=document.getElementById("enWordInput").value.trim(),ua=document.getElementById("enTransUaInput").value.trim(),ru=document.getElementById("enTransRuInput").value.trim(),de=document.getElementById("enTransDeInput").value.trim();
-  if(!w)return;
-  _enWords.push({word:w,ua:ua||"—",ru:ru||"—",de:de||"—",learned:false,repeat:false,exEn:"",exUa:"",exRu:"",exDe:""});
-  ["enWordInput","enTransUaInput","enTransRuInput","enTransDeInput"].forEach(function(id){document.getElementById(id).value="";});
-  showToast("✅ Word added!");renderEnWords();
-}
-
-/* ======= EN REPEAT ======= */
-function renderEnRepeat(){
-  var inner=document.getElementById("en-repeat-inner");inner.innerHTML="";
-  var rep=_enWords.filter(function(w){return w.repeat;});
-  if(!rep.length){inner.innerHTML='<div class="empty">Click 🔁 on a card to add a word here.</div>';updateStats();return;}
-  var hdr=document.createElement("div");hdr.className="repeat-section-header";
-  var title=document.createElement("span");title.innerHTML="🔁 Words to repeat: <strong>"+rep.length+"</strong>";
-  var mbtns=document.createElement("div");mbtns.className="repeat-mode-btns";
-  var mC=document.createElement("button");mC.className="repeat-mode-btn"+(_enRepeatMode==="cards"?" active":"");mC.textContent="🃏 Cards";
-  var mF=document.createElement("button");mF.className="repeat-mode-btn"+(_enRepeatMode==="flash"?" active":"");mF.textContent="⚡ Flashcards";
-  mC.addEventListener("click",function(){_enRepeatMode="cards";renderEnRepeat();});
-  mF.addEventListener("click",function(){_enRepeatMode="flash";renderEnRepeat();});
-  mbtns.appendChild(mC);mbtns.appendChild(mF);hdr.appendChild(title);hdr.appendChild(mbtns);inner.appendChild(hdr);
-  if(_enRepeatMode==="cards"){var grid=document.createElement("div");grid.className="cards";rep.forEach(function(item){grid.appendChild(buildCard(item,_enWords.indexOf(item),true));});inner.appendChild(grid);}
-  else startFlashcards(rep,inner,true);
-  updateStats();
-}
-
-/* ======= FLASHCARD ENGINE (shared, isEn flag) ======= */
-function startFlashcards(list,container,isEn){
-  var arr=isEn?_enFcList:_fcList;
-  if(isEn){_enFcList=list.slice().sort(function(){return Math.random()-0.5;});_enFcIndex=0;_enFcScore=0;_enFcAgainList=[];}
-  else{_fcList=list.slice().sort(function(){return Math.random()-0.5;});_fcIndex=0;_fcScore=0;_fcAgainList=[];}
-  showFlashcard(container,isEn);
-}
-function showFlashcard(container,isEn){
-  var old=container.querySelector(".flashcard-wrap");if(old)old.remove();
-  var list=isEn?_enFcList:_fcList;
-  var idx=isEn?_enFcIndex:_fcIndex;
-  if(idx>=list.length){showFlashResult(container,isEn);return;}
-  var w=list[idx];var total=list.length;var pct=Math.round((idx/total)*100);
-  var wrap=document.createElement("div");wrap.className="flashcard-wrap"+(isEn?" en-fc-wrap":"");
-  var counter=document.createElement("div");counter.className="flashcard-counter";counter.textContent=(idx+1)+" / "+total;wrap.appendChild(counter);
-  var pb=document.createElement("div");pb.className="flashcard-progress-bar";var pf=document.createElement("div");pf.className="flashcard-progress-fill";pf.style.width=pct+"%";pb.appendChild(pf);wrap.appendChild(pb);
-  var fc=document.createElement("div");fc.className="flashcard"+(isEn?" en-flash":"");
-  var fcW=document.createElement("div");fcW.className="fc-word";fcW.textContent=w.word;
-  var fcH=document.createElement("div");fcH.className="fc-hint";fcH.textContent="👆 tap to see translation";
-  var fcT=document.createElement("div");fcT.className="fc-trans";fcT.textContent=isEn?getEnTrans(w):getTrans(w);
-  var fcEx=document.createElement("div");fcEx.className="fc-example";
-  var fcSrc=document.createElement("span");fcSrc.className="fc-ex-src";fcSrc.textContent=isEn?(w.exEn||""):(w.exDe||"");
-  var fcL=document.createElement("span");fcL.className="fc-ex-label";fcL.textContent=isEn?getEnExLabel():getExLabel();
-  var fcET=document.createElement("span");fcET.className="fc-ex-trans";fcET.textContent=isEn?getEnEx(w):getEx(w);
-  if(fcSrc.textContent)fcEx.appendChild(fcSrc);fcEx.appendChild(fcL);fcEx.appendChild(fcET);
-  fc.appendChild(fcW);fc.appendChild(fcH);fc.appendChild(fcT);fc.appendChild(fcEx);
-  var btns=document.createElement("div");btns.className="flashcard-btns";
-  var bSh=document.createElement("button");bSh.className="fc-btn-show";bSh.textContent="👁 Show translation";
-  var bK=document.createElement("button");bK.className="fc-btn-know";bK.textContent="✅ I knew it";bK.style.display="none";
-  var bA=document.createElement("button");bA.className="fc-btn-again";bA.textContent="🔄 Again";bA.style.display="none";
-  fc.addEventListener("click",function(){fc.classList.add("revealed");bSh.style.display="none";bK.style.display="inline-block";bA.style.display="inline-block";});
-  bSh.addEventListener("click",function(){fc.classList.add("revealed");bSh.style.display="none";bK.style.display="inline-block";bA.style.display="inline-block";});
-  bK.addEventListener("click",function(){if(isEn){_enFcScore++;_enFcIndex++;}else{_fcScore++;_fcIndex++;}showToast("✅ Great!");showFlashcard(container,isEn);});
-  bA.addEventListener("click",function(){if(isEn){_enFcAgainList.push(w);_enFcIndex++;}else{_fcAgainList.push(w);_fcIndex++;}showFlashcard(container,isEn);});
-  btns.appendChild(bSh);btns.appendChild(bK);btns.appendChild(bA);
-  wrap.appendChild(fc);wrap.appendChild(btns);container.appendChild(wrap);
-}
-function showFlashResult(container,isEn){
-  var old=container.querySelector(".flashcard-wrap");if(old)old.remove();
-  var score=isEn?_enFcScore:_fcScore;var total=(isEn?_enFcList:_fcList).length;var again=isEn?_enFcAgainList:_fcAgainList;
-  var pct=total>0?Math.round((score/total)*100):0;
-  var wrap=document.createElement("div");wrap.className="flashcard-wrap"+(isEn?" en-fc-wrap":"");
-  var res=document.createElement("div");res.className="fc-result";
-  res.innerHTML="<h2>"+(pct>=80?"🎉 Excellent!":pct>=50?"👍 Good!":"💪 Keep going!")+"</h2><span class='fc-score'>"+score+"/"+total+"</span><p>"+pct+"%</p>";
-  wrap.appendChild(res);if(pct>=80)confetti();
-  var btns=document.createElement("div");btns.className="flashcard-btns";
-  var bR=document.createElement("button");bR.className="fc-btn-show";bR.textContent="🔄 Again";
-  bR.addEventListener("click",function(){var list=isEn?_enWords.filter(function(w){return w.repeat;}):_words.filter(function(w){return w.repeat;});startFlashcards(list,container,isEn);});
-  btns.appendChild(bR);
-  if(again.length>0){var bW=document.createElement("button");bW.className="fc-btn-again";bW.textContent="🔁 Retry "+again.length+" hard";bW.addEventListener("click",function(){if(isEn){_enFcList=again.slice().sort(function(){return Math.random()-0.5;});_enFcIndex=0;_enFcScore=0;_enFcAgainList=[];}else{_fcList=again.slice().sort(function(){return Math.random()-0.5;});_fcIndex=0;_fcScore=0;_fcAgainList=[];}showFlashcard(container,isEn);});btns.appendChild(bW);}
-  wrap.appendChild(btns);container.appendChild(wrap);
-}
-
-/* ======= EN QUIZ ======= */
-function startEnQuiz(){
-  var u=_enWords.filter(function(w){return !w.learned;});
-  if(u.length<2){var area=document.getElementById("en-quiz-area");area.innerHTML="<div class='empty' style='padding:60px'>🎉 All words learned!</div>";return;}
-  _enQuizOrder=u.map(function(w){return _enWords.indexOf(w);}).sort(function(){return Math.random()-0.5;});
-  _enQuizIndex=0;_enQuizScore=0;showEnQuizCard();
-}
-function showEnQuizCard(){
-  var area=document.getElementById("en-quiz-area");area.innerHTML="";
-  if(_enQuizIndex>=_enQuizOrder.length){
-    var pct=Math.round((_enQuizScore/_enQuizOrder.length)*100);var qc=document.createElement("div");qc.className="quiz-card";var qq=document.createElement("div");qq.className="quiz-question";qq.style.color="#1565c0";qq.textContent=_enQuizScore+"/"+_enQuizOrder.length+" — "+pct+"%";
-    var bt=document.createElement("div");bt.className="quiz-btns";var b1=document.createElement("button");b1.style.background="#1565c0";b1.style.color="white";b1.style.border="none";b1.style.padding="11px 28px";b1.style.borderRadius="12px";b1.style.fontSize="14px";b1.style.cursor="pointer";b1.style.fontWeight="600";b1.textContent="🔄 Ще раз";b1.addEventListener("click",function(){startEnQuiz();});bt.appendChild(b1);qc.appendChild(qq);qc.appendChild(bt);area.appendChild(qc);updateStats();return;
-  }
-  var w=_enWords[_enQuizOrder[_enQuizIndex]];var pct=Math.round((_enQuizIndex/_enQuizOrder.length)*100);
-  var prog=document.createElement("div");prog.className="quiz-progress";prog.textContent=(_enQuizIndex+1)+" / "+_enQuizOrder.length;area.appendChild(prog);
-  var pb=document.createElement("div");pb.className="progress-bar";var pf=document.createElement("div");pf.className="progress-fill";pf.style.background="#1565c0";pf.style.width=pct+"%";pb.appendChild(pf);area.appendChild(pb);
-  var mt=document.createElement("div");mt.className="quiz-mode-toggle";
-  var mBtnK=document.createElement("button");mBtnK.className="quiz-mode-btn"+(_enQuizTypingMode?"":" active");mBtnK.style.borderColor="#1565c0";if(!_enQuizTypingMode){mBtnK.style.background="#1565c0";mBtnK.style.color="white";}mBtnK.textContent="🎭 Знав/не знав";
-  var mBtnT=document.createElement("button");mBtnT.className="quiz-mode-btn"+(_enQuizTypingMode?" active":"");mBtnT.style.borderColor="#1565c0";if(_enQuizTypingMode){mBtnT.style.background="#1565c0";mBtnT.style.color="white";}mBtnT.textContent="⌨️ Введення";
-  mBtnK.addEventListener("click",function(){_enQuizTypingMode=false;showEnQuizCard();});
-  mBtnT.addEventListener("click",function(){_enQuizTypingMode=true;showEnQuizCard();});
-  mt.appendChild(mBtnK);mt.appendChild(mBtnT);area.appendChild(mt);
-  var qc=document.createElement("div");qc.className="quiz-card";
-  var qs=document.createElement("div");qs.className="quiz-sub";qs.textContent="How to translate?";qc.appendChild(qs);
-  var qq=document.createElement("div");qq.className="quiz-question";qq.style.color="#1565c0";qq.textContent=w.word;qc.appendChild(qq);
-  var ans=document.createElement("div");ans.className="quiz-answer";ans.style.color="#1565c0";ans.style.background="#e3f2fd";ans.textContent=getEnTrans(w);
-  if(w.exEn){var es=document.createElement("em");es.style.cssText="font-size:11px;color:#3a3a6e;font-weight:600;font-style:normal;display:block;margin-top:6px";es.textContent=getEnExLabel();ans.appendChild(es);var ext=document.createElement("em");ext.style.cssText="font-size:11px;color:#aaa;display:block;margin-top:3px";ext.textContent=getEnEx(w);ans.appendChild(ext);}
-  qc.appendChild(ans);area.appendChild(qc);
-  if(!_enQuizTypingMode){
-    ans.style.display="none";
-    var bt=document.createElement("div");bt.className="quiz-btns";
-    var bSh=document.createElement("button");bSh.style.cssText="background:#1565c0;color:white;border:none;padding:11px 26px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;";bSh.textContent="👁 Show";
-    var bOk=document.createElement("button");bOk.className="btn-correct";bOk.textContent="✅ Knew it";bOk.style.display="none";
-    var bNo=document.createElement("button");bNo.className="btn-wrong";bNo.textContent="❌ Didn't know";bNo.style.display="none";
-    bSh.addEventListener("click",function(){ans.style.display="block";bSh.style.display="none";bOk.style.display="inline-block";bNo.style.display="inline-block";});
-    bOk.addEventListener("click",function(){_enQuizScore++;_enQuizStreak++;showToast("🎉 Correct!");updateStats();_enQuizIndex++;setTimeout(showEnQuizCard,400);});
-    bNo.addEventListener("click",function(){_enQuizStreak=0;_enQuizIndex++;setTimeout(showEnQuizCard,400);});
-    bt.appendChild(bSh);bt.appendChild(bOk);bt.appendChild(bNo);area.appendChild(bt);
-  } else {
-    var tw=document.createElement("div");tw.className="quiz-typing-wrap";
-    var inp=document.createElement("input");inp.className="quiz-typing-input";inp.type="text";inp.placeholder="Enter translation...";inp.autocomplete="off";inp.style.borderColor="#1565c0";
-    var hint=document.createElement("div");hint.className="quiz-typing-hint";
-    var chk=document.createElement("button");chk.className="quiz-check-btn";chk.style.background="#1565c0";chk.textContent="Check →";
-    function checkEnAnswer(){
-      var userAns=inp.value.trim().toLowerCase();
-      var correct=getEnTrans(w).toLowerCase().trim();
-      if(userAns===correct){
-        inp.classList.add("correct");hint.style.display="none";
-        _enQuizScore++;_enQuizStreak++;showToast("🎉 Correct!");updateStats();
-        setTimeout(function(){_enQuizIndex++;showEnQuizCard();},700);
-      } else {
-        inp.classList.add("wrong");
-        hint.textContent="✗ Correct: "+getEnTrans(w);hint.style.display="block";
-        _enQuizStreak=0;
-        chk.textContent="Next →";chk.onclick=function(){_enQuizIndex++;showEnQuizCard();};
-      }
-    }
-    chk.addEventListener("click",checkEnAnswer);
-    inp.addEventListener("keydown",function(e){if(e.key==="Enter")checkEnAnswer();});
-    tw.appendChild(inp);tw.appendChild(chk);tw.appendChild(hint);area.appendChild(tw);
-    setTimeout(function(){inp.focus();},100);
-  }
-}
-
-
-renderWords();renderSentences();updateStats();
-function speakEn(word){
-  var url="https://translate.googleapis.com/translate_tts?ie=UTF-8&q="+encodeURIComponent(word)+"&tl=en-US&client=tw-ob";
-  var a=new Audio(url);
-  a.volume=1.0;
-  a.play().catch(function(){
-    if(!window.speechSynthesis)return;
-    window.speechSynthesis.cancel();
-    var u=new SpeechSynthesisUtterance(word);
-    u.lang="en-US";u.rate=0.85;u.volume=1.0;
-    var vs=window.speechSynthesis.getVoices();
-    var v=null;
-    for(var i=0;i<vs.length;i++){if(vs[i].lang.indexOf("en")===0){v=vs[i];break;}}
-    if(v)u.voice=v;
-    window.speechSynthesis.speak(u);
-  });
-}
-
-</script>
 <script>
 (function(){
-function _save(){try{localStorage.setItem('jane_words',JSON.stringify(_words));localStorage.setItem('jane_groups',JSON.stringify(_groups));localStorage.setItem('jane_en_words',JSON.stringify(_enWords));}catch(e){}}
-function _load(){try{
-  var sw=localStorage.getItem('jane_words');var sg=localStorage.getItem('jane_groups');var se=localStorage.getItem('jane_en_words');
-  if(sw){var pw=JSON.parse(sw);var orig=_words.map(function(w){return w.word;});pw.forEach(function(w){var i=orig.indexOf(w.word);if(i===-1){_words.push(w);}else{_words[i].learned=w.learned;_words[i].repeat=w.repeat||false;}});}
-  if(sg){var pg=JSON.parse(sg);var origN=_groups.map(function(g){var m=g.title.match(/Група\s+(\d+)/);return m?m[1]:'';});pg.forEach(function(g){var m=g.title.match(/Група\s+(\d+)/);var num=m?m[1]:'';if(num&&origN.indexOf(num)===-1){_groups.push(g);}else if(!num&&_groups.map(function(x){return x.title;}).indexOf(g.title)===-1){_groups.push(g);}});}
-  if(se){var pe=JSON.parse(se);var origE=_enWords.map(function(w){return w.word;});pe.forEach(function(w){var i=origE.indexOf(w.word);if(i===-1){_enWords.push(w);}else{_enWords[i].learned=w.learned;_enWords[i].repeat=w.repeat||false;}});}
-}catch(e){}}
-var _oa=window.addWord;window.addWord=function(){_oa();_save();};
-var _oea=window.addEnWord;window.addEnWord=function(){_oea();_save();};
-var _or=window.renderWords;window.renderWords=function(){_or();_save();};
-var _oer=window.renderEnWords;window.renderEnWords=function(){_oer();_save();};
-_load();renderWords();renderEnWords();renderSentences();updateStats();
+  var fill = document.getElementById('progressFill');
+  var toTop = document.getElementById('toTop');
+
+  function onScroll(){
+    var doc = document.documentElement;
+    var scrollTop = doc.scrollTop || document.body.scrollTop;
+    var scrollHeight = (doc.scrollHeight || document.body.scrollHeight) - doc.clientHeight;
+    var pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    fill.style.width = pct + '%';
+    if(scrollTop > 500){ toTop.classList.add('show'); } else { toTop.classList.remove('show'); }
+  }
+  toTop.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  function initScrollspy(navId){
+    var nav = document.getElementById(navId);
+    if(!nav) return;
+    var pills = Array.prototype.slice.call(nav.querySelectorAll('.toc-pill'));
+    var sections = pills.map(function(p){ return document.querySelector(p.getAttribute('href')); });
+    if(!('IntersectionObserver' in window)) return;
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var idx = sections.indexOf(entry.target);
+        if(idx === -1) return;
+        if(entry.isIntersecting){
+          pills.forEach(function(p){ p.classList.remove('active'); });
+          pills[idx].classList.add('active');
+          pills[idx].scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'});
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    sections.forEach(function(s){ if(s) observer.observe(s); });
+  }
+  initScrollspy('toc-overview');
+  initScrollspy('toc-ukr');
+
+  function wireGroup(selector, panelPrefix, panelSelector){
+    var btns = Array.prototype.slice.call(document.querySelectorAll(selector));
+    btns.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        btns.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var key = btn.dataset.target || btn.dataset.subject;
+        document.querySelectorAll(panelSelector).forEach(function(p){
+          p.classList.toggle('active', p.id === panelPrefix + key);
+        });
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+    });
+  }
+  wireGroup('.main-btn', '', '.panel');
+  wireGroup('.subject-btn', 'subject-', '.subject-content');
 })();
 </script>
+
 </body>
 </html>
