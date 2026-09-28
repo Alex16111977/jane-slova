@@ -34,6 +34,7 @@
 
 <div class="toc-scope">
 <nav class="toc" id="toc-mathnotes" aria-label="Зміст">
+  <a href="#mn-before" class="toc-pill">🧠 Основи</a>
   <a href="#mn-format" class="toc-pill">📋 Формат</a>
   <a href="#mn-tricks" class="toc-pill">🛠️ Прийоми</a>
   <a href="#mn-numbers" class="toc-pill">🔢 Числа й степені</a>
@@ -51,8 +52,22 @@
 
 <main class="content">
 
+  <section id="mn-before" class="block">
+    <h2><span class="num">01</span>🧠 Основи, які варто пригадати</h2>
+    <p>Розбір нижче охоплює одразу багато тем шкільної програми. Це не новий матеріал, а швидке нагадування базових речей, на яких тримається більшість із 50 задач.</p>
+    <div class="basics-box">
+      <p class="basics-label">Пригадати перед стартом</p>
+      <p><strong>Порядок дій:</strong> спочатку дії в дужках, потім степені й корені, далі множення й ділення (зліва направо), і насамкінець додавання й віднімання. Наприклад, 2+3×4 — спершу множення (3×4=12), тому відповідь 14, а не (2+3)×4=20.</p>
+      <p><strong>Степінь з натуральним показником</strong> — скорочений запис повторюваного множення: a³=a·a·a (тричі помножити a саме на себе), 2⁴=2·2·2·2=16. Звідси випливають два правила, які на перший погляд здаються дивними: a⁰=1 (для a≠0) — бо a³:a³ дорівнює і 1 (будь-яке число, поділене само на себе), і водночас a³⁻³=a⁰ за правилом ділення степенів, тож a⁰ мусить дорівнювати 1; a<sup>−n</sup>=<span class="frac"><span class="frac-num">1</span><span class="frac-den">a<sup>n</sup></span></span> — від’ємний показник означає «стільки ж, але в знаменнику»: 2⁻²=<span class="frac"><span class="frac-num">1</span><span class="frac-den">2²</span></span>=<span class="frac"><span class="frac-num">1</span><span class="frac-den">4</span></span>.</p>
+      <p><strong>Корінь n-го степеня</strong> з числа b — число, яке в степені n дає b: √9=3, бо 3²=9; ∛8=2, бо 2³=8. Корінь — дія, обернена до піднесення в степінь, так само як віднімання обернене до додавання.</p>
+      <p><strong>Дії з дробами:</strong> дріб <span class="frac"><span class="frac-num">a</span><span class="frac-den">b</span></span> означає «a поділити на b». Додавання й віднімання — через спільний знаменник (½+⅓ = <span class="frac"><span class="frac-num">3</span><span class="frac-den">6</span></span>+<span class="frac"><span class="frac-num">2</span><span class="frac-den">6</span></span> = <span class="frac"><span class="frac-num">5</span><span class="frac-den">6</span></span>); множення — окремо чисельники, окремо знаменники (⅔×¾ = <span class="frac"><span class="frac-num">6</span><span class="frac-den">12</span></span> = ½); ділення на дріб — множення на обернений (⅔:¾ = ⅔×<span class="frac"><span class="frac-num">4</span><span class="frac-den">3</span></span> = <span class="frac"><span class="frac-num">8</span><span class="frac-den">9</span></span>).</p>
+      <p><strong>Рівняння, нерівність, функція</strong> — три різні типи задач, які легко сплутати. Рівняння (2x+1=7) — потрібно знайти конкретне число замість x, за якого рівність правильна (тут x=3). Нерівність (2x+1&gt;7) — те саме, але відповідь не одне число, а цілий проміжок (тут x&gt;3). Функція (y=2x+1) — не задача на розв’язання, а опис залежності: для кожного x вона одразу дає відповідне y (при x=3 маємо y=7), без «розв’язування».</p>
+    </div>
+    <p class="note">Специфічні поняття для геометрії, похідної, комбінаторики тощо пояснюються ближче до відповідного розділу нижче — тут лише наскрізні базові речі.</p>
+  </section>
+
   <section id="mn-format" class="block">
-    <h2><span class="num">01</span>📋 Формат діагностичного тесту</h2>
+    <h2><span class="num">02</span>📋 Формат діагностичного тесту</h2>
     <ul class="plain-list">
       <li>50 завдань різної складності: частина — з варіантами відповідей (А–Д), частина — з короткою відповіддю без варіантів;</li>
       <li>комбінаторика на реальному НМТ винесена в окрему велику тему;</li>
@@ -67,10 +82,10 @@
   </section>
 
   <section id="mn-tricks" class="block">
-    <h2><span class="num">02</span>🛠️ Практичні прийоми на всі теми</h2>
+    <h2><span class="num">03</span>🛠️ Практичні прийоми на всі теми</h2>
     <ul class="plain-list">
       <li><strong>Дріб → десятковий без калькулятора:</strong> підібрати множник, щоб у знаменнику вийшло 100 (25 → 100, помножити чисельник і знаменник на 4).</li>
-      <li><strong>Обернені тригонометричні вирази</strong> (наприклад, від cos x / sin x до tg x = sin x / cos x): просто «перевернути» дріб.</li>
+      <li><strong>Обернені тригонометричні вирази</strong> (наприклад, від <span class="frac"><span class="frac-num">cos x</span><span class="frac-den">sin x</span></span> до tg x = <span class="frac"><span class="frac-num">sin x</span><span class="frac-den">cos x</span></span>): просто «перевернути» дріб.</li>
       <li><strong>Розкриття модуля:</strong> якщо вираз під модулем від’ємний, модуль розкривається зі зміною знака на протилежний.</li>
       <li><strong>Спільний множник в обох частинах рівняння</strong> — його можна одразу скоротити з обох боків.</li>
       <li><strong>Знак кутового коефіцієнта за кресленням:</strong> тупий кут нахилу → коефіцієнт від’ємний; гострий → додатний. Дає змогу відкидати варіанти без обчислень.</li>
@@ -83,7 +98,7 @@
   </section>
 
   <section id="mn-numbers" class="block">
-    <h2><span class="num">03</span>🔢 Числа, дроби, степені, корені</h2>
+    <h2><span class="num">04</span>🔢 Числа, дроби, степені, корені</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>№</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -97,16 +112,16 @@
           <tr><td>7</td><td>0,08 м у см: помножити на 100 (в 1 м — 100 см)</td><td>8 см</td></tr>
           <tr><td>8</td><td>⅓ − ½ = −(½ − ⅓) — зміна місць доданків = множення на −1</td><td>−m</td></tr>
           <tr><td>9</td><td>√18 : √2 = √(18:2) = √9</td><td>3</td></tr>
-          <tr><td>10</td><td>tg x обернений до заданого cos/sin: перевернути дріб 10/1 → 1/10</td><td>0,1</td></tr>
+          <tr><td>10</td><td>tg x обернений до заданого <span class="frac"><span class="frac-num">cos</span><span class="frac-den">sin</span></span>: перевернути дріб <span class="frac"><span class="frac-num">10</span><span class="frac-den">1</span></span> → <span class="frac"><span class="frac-num">1</span><span class="frac-den">10</span></span></td><td>0,1</td></tr>
           <tr><td>11</td><td>log₇9 = log₇3² = 2·log₇3 (степінь виносимо множником)</td><td>2m</td></tr>
-          <tr><td>12</td><td>5^(x−2) = 5ˣ : 5² = 20 : 25, звести дріб до знаменника 100 (×4)</td><td>0,8</td></tr>
+          <tr><td>12</td><td>5<sup>x−2</sup> = 5ˣ : 5² = 20 : 25, звести дріб до знаменника 100 (×4)</td><td>0,8</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="mn-functions" class="block">
-    <h2><span class="num">04</span>📈 Функції та графіки</h2>
+    <h2><span class="num">05</span>📈 Функції та графіки</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>№</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -121,7 +136,7 @@
   </section>
 
   <section id="mn-equations" class="block">
-    <h2><span class="num">05</span>⚖️ Рівняння</h2>
+    <h2><span class="num">06</span>⚖️ Рівняння</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>№</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -129,14 +144,14 @@
           <tr><td>17</td><td>Доданок 5x однаковий в обох частинах — скоротити одразу; лишається −2x = 0</td><td>В (x = 0)</td></tr>
           <tr><td>18</td><td>Показник 4 — спільний множник в обох частинах, ділимо на 4: 3ˣ = 9 = 3²</td><td>В (x = 2)</td></tr>
           <tr><td>19</td><td>Система: додати рівняння почленно, доданки з y скорочуються (+y і −y)</td><td>В = 3</td></tr>
-          <tr><td>20</td><td>(2sin x):2 = 1 → sin x = 1 → x = π/2 (за таблицею значень)</td><td>А</td></tr>
+          <tr><td>20</td><td>(2sin x):2 = 1 → sin x = 1 → x = <span class="frac"><span class="frac-num">π</span><span class="frac-den">2</span></span> (за таблицею значень)</td><td>А</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="mn-inequalities" class="block">
-    <h2><span class="num">06</span>📐 Нерівності</h2>
+    <h2><span class="num">07</span>📐 Нерівності</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>№</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -150,14 +165,14 @@
   </section>
 
   <section id="mn-word" class="block">
-    <h2><span class="num">07</span>💬 Текстові задачі</h2>
+    <h2><span class="num">08</span>💬 Текстові задачі</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>№</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
         <tbody>
           <tr><td>24</td><td>Рух у протилежні боки: відстань = сума пройдених шляхів (90 + 70 за хвилину)</td><td>А = 160 м</td></tr>
           <tr><td>25</td><td>(a+1) повідомлень/хв × a хвилин, розкрити дужки: a·a + a·1</td><td>Б = a² + a</td></tr>
-          <tr><td>26</td><td>12 год з 24 → 12/24 = 1/2, перевести у відсотки (×100%)</td><td>50%</td></tr>
+          <tr><td>26</td><td>12 год з 24 → <span class="frac"><span class="frac-num">12</span><span class="frac-den">24</span></span> = <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span>, перевести у відсотки (×100%)</td><td>50%</td></tr>
           <tr><td>27</td><td>Мінімізація вартості для 5 людей: групи по 2+2+1, а не поштучно</td><td>7600 грн</td></tr>
           <tr><td>28</td><td>Ділення навпіл на кожному кроці: 32 → 16 → 8</td><td>8</td></tr>
         </tbody>
@@ -166,7 +181,7 @@
   </section>
 
   <section id="mn-calculus" class="block">
-    <h2><span class="num">08</span>📉 Похідна та інтеграл</h2>
+    <h2><span class="num">09</span>📉 Похідна та інтеграл</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>№</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -180,12 +195,12 @@
   </section>
 
   <section id="mn-planimetry" class="block">
-    <h2><span class="num">09</span>🔺 Планіметрія</h2>
+    <h2><span class="num">10</span>🔺 Планіметрія</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>№</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
         <tbody>
-          <tr><td>32</td><td>Квадрат зі стороною 1 см поділений на 6 рівних частин, одна зафарбована: 1:6</td><td>А = 1/6 см²</td></tr>
+          <tr><td>32</td><td>Квадрат зі стороною 1 см поділений на 6 рівних частин, одна зафарбована: 1:6</td><td>А = <span class="frac"><span class="frac-num">1</span><span class="frac-den">6</span></span> см²</td></tr>
           <tr><td>33</td><td>Прямокутник + півколо радіуса 6: AD = 2R = 12 = BC, AB = R = 6; P = 2(AB+BC)</td><td>36</td></tr>
           <tr><td>36</td><td>Ділянку «розрізають» на два прямокутники: 6×8=48, плюс площа залишку</td><td>68</td></tr>
         </tbody>
@@ -194,7 +209,7 @@
   </section>
 
   <section id="mn-attention" class="block">
-    <h2><span class="num">10</span>👁️ Задачі на уважність</h2>
+    <h2><span class="num">11</span>👁️ Задачі на уважність</h2>
     <p>Кілька завдань розв’язуються не обчисленням, а лише уважним аналізом малюнка — і теж дають один бал:</p>
     <ul class="plain-list">
       <li><strong>№34</strong> — серед майже однакових пар окулярів знайти одну, що відрізняється від решти;</li>
@@ -204,13 +219,13 @@
   </section>
 
   <section id="mn-stereometry" class="block">
-    <h2><span class="num">11</span>🧊 Стереометрія та вектори</h2>
+    <h2><span class="num">12</span>🧊 Стереометрія та вектори</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>№</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
         <tbody>
           <tr><td>37</td><td>Кругла основа + прямі бічні стінки = циліндр (не куб, конус чи куля)</td><td>циліндр</td></tr>
-          <tr><td>38</td><td>Куля на 8 частин: V = (4/3)πR³ : 8 = (1/6)πR³</td><td>Г</td></tr>
+          <tr><td>38</td><td>Куля на 8 частин: V = (<span class="frac"><span class="frac-num">4</span><span class="frac-den">3</span></span>)πR³ : 8 = (<span class="frac"><span class="frac-num">1</span><span class="frac-den">6</span></span>)πR³</td><td>Г</td></tr>
           <tr><td>39</td><td>Співнапрямлені вектори — не просто паралельні, а в один і той самий бік</td><td>В</td></tr>
           <tr><td>41</td><td>Точка в площині ZY: координата вздовж перпендикулярної осі Ox дорівнює 0</td><td>А</td></tr>
           <tr><td>42</td><td>Координати точки за симетрією протилежних вершин верхньої грані призми</td><td>В</td></tr>
@@ -221,7 +236,7 @@
   </section>
 
   <section id="mn-combinatorics" class="block">
-    <h2><span class="num">12</span>🎲 Комбінаторика, ймовірність, діаграми</h2>
+    <h2><span class="num">13</span>🎲 Комбінаторика, ймовірність, діаграми</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>№</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -231,14 +246,14 @@
           <tr><td>46</td><td>Діаграма: сума значень 11-Б і 11-В</td><td>А</td></tr>
           <tr><td>47</td><td>Пастка у формулюванні — жоден клас не має 30+ учнів, якщо уважно подивитися на діаграму</td><td>0</td></tr>
           <tr><td>48</td><td>Середнє арифметичне: сума учнів у класах : кількість класів</td><td>23,7</td></tr>
-          <tr><td>49</td><td>Замість поштучного підрахунку — умовні однакові «блоки» по кольору: 1 із 6</td><td>Д = 1/6</td></tr>
+          <tr><td>49</td><td>Замість поштучного підрахунку — умовні однакові «блоки» по кольору: 1 із 6</td><td>Д = <span class="frac"><span class="frac-num">1</span><span class="frac-den">6</span></span></td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="mn-parameter" class="block">
-    <h2><span class="num">13</span>🔍 Задача з параметром</h2>
+    <h2><span class="num">14</span>🔍 Задача з параметром</h2>
     <p><strong>№50.</strong> Рівняння з параметром a; потрібне значення a, за якого рівняння має рівно один корінь.</p>
     <div class="example-box">
       <p class="example-label">Метод розв’язання</p>
@@ -255,6 +270,7 @@
 
 <div class="toc-scope">
 <nav class="toc" id="toc-maththeme2" aria-label="Зміст: тема 2">
+  <a href="#mt2-before" class="toc-pill">🧠 Основи</a>
   <a href="#mt2-format" class="toc-pill">📋 Формат і довідники</a>
   <a href="#mt2-tricks" class="toc-pill">🛠️ Прийоми</a>
   <a href="#mt2-mental" class="toc-pill">🧮 Усно й уважно</a>
@@ -268,8 +284,19 @@
 
 <main class="content">
 
+  <section id="mt2-before" class="block">
+    <h2><span class="num">15</span>🧠 Основи, які варто пригадати</h2>
+    <div class="basics-box">
+      <p class="basics-label">Пригадати перед стартом</p>
+      <p><strong>Раціональний вираз</strong> — вираз, побудований із чисел і змінних через додавання, віднімання, множення й ділення; окремий випадок — алгебраїчний дріб на кшталт (x+2)/(x−3), де в чисельнику й знаменнику стоять вирази зі змінною. Головне обмеження: на 0 ділити не можна, тому знаменник ніколи не повинен дорівнювати нулю (тут x≠3).</p>
+      <p><strong>Чому степені множаться саме так:</strong> добуток a<sup>m</sup>·a<sup>n</sup> — це (m разів помножити a) і ще (n разів помножити a) поспіль, тобто разом (m+n) множників: a<sup>m</sup>·a<sup>n</sup>=a<sup>m+n</sup>. Наприклад, a²·a³ = (a·a)·(a·a·a) = a⁵. Ділення — обернена дія, тому показники віднімаються: a<sup>m</sup>:a<sup>n</sup>=a<sup>m−n</sup>. А «степінь від степеня» (a<sup>m</sup>)<sup>n</sup> означає взяти a<sup>m</sup> і ще раз піднести весь результат до степеня n — це те саме, що (m·n) множників: (a<sup>m</sup>)<sup>n</sup>=a<sup>mn</sup>.</p>
+      <p><strong>Формули скороченого множення</strong> — не окремі правила для заучування, а звичайний наслідок розкриття дужок, який просто зручно тримати в голові готовим. Наприклад: (a−b)(a+b) = a·a+a·b−b·a−b·b = a²+ab−ab−b² = a²−b² (доданки ab скорочуються). Так само (a+b)² = (a+b)(a+b) = a²+ab+ab+b² = a²+2ab+b².</p>
+      <p><strong>Скорочення дробу</strong> — ділення чисельника й знаменника на той самий (ненульовий) спільний множник; значення дробу від цього не змінюється, бо фактично ми ділимо і множимо на те саме число: <span class="frac"><span class="frac-num">6</span><span class="frac-den">8</span></span> = (2·3)/(2·4) = <span class="frac"><span class="frac-num">3</span><span class="frac-den">4</span></span> (скоротили спільний множник 2).</p>
+    </div>
+  </section>
+
   <section id="mt2-format" class="block">
-    <h2><span class="num">14</span>📋 Формат і довідникові матеріали</h2>
+    <h2><span class="num">16</span>📋 Формат і довідникові матеріали</h2>
     <ul class="plain-list">
       <li>Формули на НМТ подано з кольоровим маркуванням: на <strong>жовтому</strong> фоні — формули, яких у довідкових матеріалах на іспиті не буде (потрібно знати напам’ять); на <strong>зеленому/синьому</strong> — формули, які надаються в довіднику й лише застосовуються, не заучуються.</li>
       <li>У системі натуральних чисел, прийнятій в Україні, число 0 <strong>не є</strong> натуральним (на відміну, наприклад, від Франції).</li>
@@ -282,7 +309,7 @@
   </section>
 
   <section id="mt2-tricks" class="block">
-    <h2><span class="num">15</span>🛠️ Практичні прийоми</h2>
+    <h2><span class="num">17</span>🛠️ Практичні прийоми</h2>
     <ul class="plain-list">
       <li><strong>Усне додавання кількох доданків:</strong> переставляти й групувати доданки для отримання круглих чисел (переставна й сполучна властивість), а не рахувати по порядку зліва направо.</li>
       <li><strong>Протилежні числа</strong> у виразі (наприклад, +341 і −341) одразу «занулюються» й прибираються з обчислення.</li>
@@ -299,7 +326,7 @@
   </section>
 
   <section id="mt2-mental" class="block">
-    <h2><span class="num">16</span>🧮 Усний рахунок і задачі на уважність</h2>
+    <h2><span class="num">18</span>🧮 Усний рахунок і задачі на уважність</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -307,9 +334,9 @@
           <tr><td>132+68+243+57</td><td>групувати зручні пари: (132+68)+(243+57)=200+300</td><td>500</td></tr>
           <tr><td>265+341−341+5</td><td>+341 і −341 взаємно знищуються, лишається 265+5</td><td>270</td></tr>
           <tr><td>½+3,5 — натуральне число?</td><td>0,5+3,5=4 — натуральне</td><td>так</td></tr>
-          <tr><td>⅓−8/6 — ціле число?</td><td>8/6 скорочується до 4/3; ⅓−4/3=−1</td><td>так, ціле</td></tr>
-          <tr><td>10/35+12/7 — раціональне, але НЕ ціле?</td><td>10/35=2/7; 2/7+12/7=14/7=2 — це ціле число</td><td>ні, твердження хибне</td></tr>
-          <tr><td>Координата точки серед 18/5, 11/6, 19/9, 29/7, ¾</td><td>перевести кожен неправильний дріб у мішане число (18/5=3⅗ тощо) і порівняти з поміткою на промені</td><td>варіант А</td></tr>
+          <tr><td>⅓−<span class="frac"><span class="frac-num">8</span><span class="frac-den">6</span></span> — ціле число?</td><td><span class="frac"><span class="frac-num">8</span><span class="frac-den">6</span></span> скорочується до <span class="frac"><span class="frac-num">4</span><span class="frac-den">3</span></span>; ⅓−<span class="frac"><span class="frac-num">4</span><span class="frac-den">3</span></span>=−1</td><td>так, ціле</td></tr>
+          <tr><td><span class="frac"><span class="frac-num">10</span><span class="frac-den">35</span></span>+<span class="frac"><span class="frac-num">12</span><span class="frac-den">7</span></span> — раціональне, але НЕ ціле?</td><td><span class="frac"><span class="frac-num">10</span><span class="frac-den">35</span></span>=<span class="frac"><span class="frac-num">2</span><span class="frac-den">7</span></span>; <span class="frac"><span class="frac-num">2</span><span class="frac-den">7</span></span>+<span class="frac"><span class="frac-num">12</span><span class="frac-den">7</span></span>=<span class="frac"><span class="frac-num">14</span><span class="frac-den">7</span></span>=2 — це ціле число</td><td>ні, твердження хибне</td></tr>
+          <tr><td>Координата точки серед <span class="frac"><span class="frac-num">18</span><span class="frac-den">5</span></span>, <span class="frac"><span class="frac-num">11</span><span class="frac-den">6</span></span>, <span class="frac"><span class="frac-num">19</span><span class="frac-den">9</span></span>, <span class="frac"><span class="frac-num">29</span><span class="frac-den">7</span></span>, ¾</td><td>перевести кожен неправильний дріб у мішане число (<span class="frac"><span class="frac-num">18</span><span class="frac-den">5</span></span>=3⅗ тощо) і порівняти з поміткою на промені</td><td>варіант А</td></tr>
         </tbody>
       </table>
     </div>
@@ -317,7 +344,7 @@
   </section>
 
   <section id="mt2-fractions" class="block">
-    <h2><span class="num">17</span>➗ Скорочення дробів і винесення множника</h2>
+    <h2><span class="num">19</span>➗ Скорочення дробів і винесення множника</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -325,16 +352,16 @@
           <tr><td>(24+12)/12</td><td>у чисельнику знак «+» — спершу додати (24+12=36), тоді ділити на 12</td><td>3</td></tr>
           <tr><td>(74×23)/74</td><td>у чисельнику знак «×» — можна скорочувати 74 з 74 напряму</td><td>23</td></tr>
           <tr><td>(n+2)/n, n — натуральне</td><td>чисельник рівно на 2 більший за знаменник</td><td>варіант В</td></tr>
-          <tr><td>30ab/(5ab)</td><td>скоротити однакові множники a і b, лишається 30/5</td><td>6</td></tr>
+          <tr><td>30ab/(5ab)</td><td>скоротити однакові множники a і b, лишається <span class="frac"><span class="frac-num">30</span><span class="frac-den">5</span></span></td><td>6</td></tr>
           <tr><td>(9a+9b)/(a+b)</td><td>винести спільний множник 9 у чисельнику: 9(a+b)/(a+b)</td><td>9</td></tr>
-          <tr><td>(7+21a)/7</td><td>два способи: почленне ділення (7/7+21a/7) або винесення 7(1+3a)/7</td><td>1+3a</td></tr>
+          <tr><td>(7+21a)/7</td><td>два способи: почленне ділення (<span class="frac"><span class="frac-num">7</span><span class="frac-den">7</span></span>+<span class="frac"><span class="frac-num">21a</span><span class="frac-den">7</span></span>) або винесення 7(1+3a)/7</td><td>1+3a</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="mt2-fsm" class="block">
-    <h2><span class="num">18</span>📐 Формули скороченого множення в дробах</h2>
+    <h2><span class="num">20</span>📐 Формули скороченого множення в дробах</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -350,24 +377,24 @@
   </section>
 
   <section id="mt2-powers" class="block">
-    <h2><span class="num">19</span>🔢 Степені</h2>
+    <h2><span class="num">21</span>🔢 Степені</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
         <tbody>
-          <tr><td>7^(1+a)×7^(1−a)</td><td>однакова основа — показники додаються: (1+a)+(1−a)=2</td><td>49</td></tr>
+          <tr><td>7<sup>1+a</sup>×7<sup>1−a</sup></td><td>однакова основа — показники додаються: (1+a)+(1−a)=2</td><td>49</td></tr>
           <tr><td>4x²×x⁻²</td><td>степінь добутку 4² та додавання показників x²·x⁻²=x⁰=1</td><td>16</td></tr>
-          <tr><td>(2/7)⁴×7⁴</td><td>степінь частки (2/7)⁴=2⁴/7⁴; 7⁴ скорочується</td><td>16</td></tr>
+          <tr><td>(<span class="frac"><span class="frac-num">2</span><span class="frac-den">7</span></span>)⁴×7⁴</td><td>степінь частки (<span class="frac"><span class="frac-num">2</span><span class="frac-den">7</span></span>)⁴=<span class="frac"><span class="frac-num">2⁴</span><span class="frac-den">7⁴</span></span>; 7⁴ скорочується</td><td>16</td></tr>
           <tr><td>10⁰+(10⁻²)⁻¹</td><td>10⁰=1; обернений до 10⁻² дорівнює 10²=100</td><td>101</td></tr>
-          <tr><td>a^18/a^15 при a=−2</td><td>спростити до a³=(−2)³ і лише тоді підставити</td><td>−8</td></tr>
-          <tr><td>9⁵·a⁹/(3⁹·a¹⁰) при a=−2</td><td>9⁵=3¹⁰; спростити до 3·a⁻¹=3/a, тоді підставити</td><td>−1,5</td></tr>
+          <tr><td><span class="frac"><span class="frac-num">a<sup>18</sup></span><span class="frac-den">a<sup>15</sup></span></span> при a=−2</td><td>спростити до a³=(−2)³ і лише тоді підставити</td><td>−8</td></tr>
+          <tr><td>9⁵·a⁹/(3⁹·a¹⁰) при a=−2</td><td>9⁵=3¹⁰; спростити до 3·a⁻¹=<span class="frac"><span class="frac-num">3</span><span class="frac-den">a</span></span>, тоді підставити</td><td>−1,5</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="mt2-modulus" class="block">
-    <h2><span class="num">20</span>〽️ Модуль</h2>
+    <h2><span class="num">22</span>〽️ Модуль</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -385,7 +412,7 @@
   </section>
 
   <section id="mt2-substitution" class="block">
-    <h2><span class="num">21</span>🔤 Підстановка значення змінної</h2>
+    <h2><span class="num">23</span>🔤 Підстановка значення змінної</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -397,11 +424,11 @@
         </tbody>
       </table>
     </div>
-    <p class="note">Приклади зі степенями, де підстановка йде після спрощення виразу (a^18/a^15 і 9⁵·a⁹/(3⁹·a¹⁰) при a=−2), розібрано в розділі «Степені».</p>
+    <p class="note">Приклади зі степенями, де підстановка йде після спрощення виразу (<span class="frac"><span class="frac-num">a<sup>18</sup></span><span class="frac-den">a<sup>15</sup></span></span> і 9⁵·a⁹/(3⁹·a¹⁰) при a=−2), розібрано в розділі «Степені».</p>
   </section>
 
   <section id="mt2-parameter" class="block">
-    <h2><span class="num">22</span>🔍 Задача з параметром</h2>
+    <h2><span class="num">24</span>🔍 Задача з параметром</h2>
     <p>За якого найменшого натурального значення a дріб (3a+65)/(5a+3) є правильним (тобто його значення менше 1)?</p>
     <div class="example-box">
       <p class="example-label">Хід розв’язання</p>
@@ -418,6 +445,7 @@
 
 <div class="toc-scope">
 <nav class="toc" id="toc-maththeme3" aria-label="Зміст: тема 3">
+  <a href="#mt3-before" class="toc-pill">🧠 Основи</a>
   <a href="#mt3-format" class="toc-pill">📋 Формат і уточнення</a>
   <a href="#mt3-tricks" class="toc-pill">🛠️ Прийоми</a>
   <a href="#mt3-factoring" class="toc-pill">✖️ Розкладання на множники</a>
@@ -431,8 +459,19 @@
 
 <main class="content">
 
+  <section id="mt3-before" class="block">
+    <h2><span class="num">25</span>🧠 Основи, які варто пригадати</h2>
+    <div class="basics-box">
+      <p class="basics-label">Пригадати перед стартом</p>
+      <p><strong>Корінь — дія, обернена до степеня:</strong> √b — число, яке в квадраті дає b. Тому під квадратним (і будь-яким парним) коренем не може бути від’ємне число: яке число не візьми, його квадрат ніколи не буде від’ємним (навіть (−3)²=9, а не −9), тож немає числа, з якого добудеш квадратний корінь із −9. А під непарним коренем (кубічним і подібними) від’ємні числа цілком можливі: ∛(−8)=−2, бо (−2)³=−8.</p>
+      <p><strong>Чому можна «затиснути» незручний корінь між двома зручними:</strong> що більше число під коренем, то більше й саме значення кореня (корінь — «зростаюча» функція). Тому якщо число всередині лежить між двома зручними квадратами, наприклад 9&lt;13&lt;16, то й корені йдуть у тому самому порядку: √9&lt;√13&lt;√16, тобто 3&lt;√13&lt;4.</p>
+      <p><strong>Одиничне коло</strong> — коло радіусом 1 із центром у точці (0;0), на якому позначають кут α, відлічений від додатного напрямку осі x. Косинус цього кута — x-координата точки на колі, синус — y-координата. Оскільки точка лежить на колі радіусом 1, за теоремою Піфагора x²+y²=1² — звідси напряму випливає основна тригонометрична тотожність cos²α+sin²α=1.</p>
+      <p><strong>Радіани</strong> — інша одиниця виміру кута: половина кола (180°) дорівнює π радіан. Переклад найпоширеніших кутів: 90°=<span class="frac"><span class="frac-num">π</span><span class="frac-den">2</span></span>, 60°=<span class="frac"><span class="frac-num">π</span><span class="frac-den">3</span></span>, 45°=<span class="frac"><span class="frac-num">π</span><span class="frac-den">4</span></span>, 30°=<span class="frac"><span class="frac-num">π</span><span class="frac-den">6</span></span> — ці значення варто впізнавати одразу, без перерахунку.</p>
+    </div>
+  </section>
+
   <section id="mt3-format" class="block">
-    <h2><span class="num">23</span>📋 Формат і уточнення</h2>
+    <h2><span class="num">26</span>📋 Формат і уточнення</h2>
     <ul class="plain-list">
       <li>Уточнення означення «неправильний дріб»: дріб є неправильним, якщо його значення більше <strong>або дорівнює</strong> одиниці (нестрога нерівність), а не лише строго більше — це впливає на межові значення у задачах з параметром.</li>
       <li>Під коренем <strong>непарного</strong> степеня (кубічний, п’ятого тощо) можуть стояти від’ємні числа, і знак мінус можна виносити з-під кореня; під коренем <strong>парного</strong> степеня (квадратний, четвертого) від’ємних чисел бути не може.</li>
@@ -441,24 +480,24 @@
   </section>
 
   <section id="mt3-tricks" class="block">
-    <h2><span class="num">24</span>🛠️ Практичні прийоми</h2>
+    <h2><span class="num">27</span>🛠️ Практичні прийоми</h2>
     <ul class="plain-list">
       <li><strong>Винесення спільного множника:</strong> переписати доданки так, щоб спільний множник було явно видно (наприклад, 5+10a як 5×1+5×2a), і винести його за дужки.</li>
       <li><strong>Формули скороченого множення «замасковано»:</strong> числа й вирази під коренем чи в степені спочатку подати у вигляді квадрата (100 як 10², 9c² як (3c)²), щоб побачити потрібну формулу.</li>
       <li><strong>Усне добування коренів</strong> — спираючись на таблицю квадратів/кубів (√49=7, бо 7²=49; ∛8=2, бо 2³=8), а не підбором на калькуляторі, якого на НМТ не буде.</li>
       <li><strong>Корінь добутку/частки</strong> можна розписати як добуток/частку окремих коренів і навпаки — об’єднати два корені під одним, якщо між ними стоїть множення чи ділення. Але <strong>ніколи</strong> — якщо між ними додавання чи віднімання (типова помилка).</li>
       <li><strong>Оцінка «незручного» кореня:</strong> затиснути число між двома найближчими «зручними» квадратами/кубами (√13 лежить між √9=3 і √16=4, бо 9&lt;13&lt;16).</li>
-      <li><strong>Перехід від дробового степеня до кореня:</strong> a^(1/n) записується як корінь n-го степеня з a — зручно, коли степінь і корінь «зустрічаються» в одному виразі й скорочуються.</li>
+      <li><strong>Перехід від дробового степеня до кореня:</strong> a<sup>1/n</sup> записується як корінь n-го степеня з a — зручно, коли степінь і корінь «зустрічаються» в одному виразі й скорочуються.</li>
       <li><strong>Порівняння цілого числа з коренем під модулем:</strong> переписати «незручне» ціле число (2, 6) у вигляді кореня (2=√4, 6=√36), щоб порівнювати однорідні величини.</li>
       <li><strong>Одиничне коло:</strong> абсциса точки — це косинус кута, ордината — синус; для кута поза таблицею значення зчитують за наближеним положенням точки на колі.</li>
-      <li><strong>Формули зведення й періодичність:</strong> sin(2π+α)=sin α, cos(2π+α)=cos α, tg(π+α)=tg α — «незручний» аргумент (наприклад, 7π/3) спочатку зводять до «зручного» кута, виділивши повні оберти.</li>
+      <li><strong>Формули зведення й періодичність:</strong> sin(2π+α)=sin α, cos(2π+α)=cos α, tg(π+α)=tg α — «незручний» аргумент (наприклад, <span class="frac"><span class="frac-num">7π</span><span class="frac-den">3</span></span>) спочатку зводять до «зручного» кута, виділивши повні оберти.</li>
       <li><strong>Основна тригонометрична тотожність</strong> sin²α+cos²α=1 — замінювати одиницю цією сумою (або навпаки), щоб скоротити однакові доданки в чисельнику й знаменнику.</li>
       <li><strong>Параметр з умовою «натуральне число»:</strong> ввести нову змінну n (натуральне число), виразити параметр через n і послідовно підставляти n=1,2,3…, доки значення параметра не вийде за межі заданого проміжку.</li>
     </ul>
   </section>
 
   <section id="mt3-factoring" class="block">
-    <h2><span class="num">25</span>✖️ Розкладання на множники</h2>
+    <h2><span class="num">28</span>✖️ Розкладання на множники</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -475,20 +514,20 @@
   </section>
 
   <section id="mt3-roots" class="block">
-    <h2><span class="num">26</span>√ Тотожні перетворення коренів</h2>
+    <h2><span class="num">29</span>√ Тотожні перетворення коренів</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
         <tbody>
           <tr><td>4−√36 — чи ціле число?</td><td>√36=6; 4−6=−2 належить множині цілих чисел</td><td>так, ціле</td></tr>
           <tr><td>√2×√8 — чи ірраціональне?</td><td>знак множення — об’єднати під одним коренем: √16=4, число раціональне</td><td>ні, твердження хибне</td></tr>
-          <tr><td>∛(24/3) — чи натуральне?</td><td>знак ділення — об’єднати під одним коренем: ∛8=2</td><td>так, натуральне</td></tr>
+          <tr><td>∛(<span class="frac"><span class="frac-num">24</span><span class="frac-den">3</span></span>) — чи натуральне?</td><td>знак ділення — об’єднати під одним коренем: ∛8=2</td><td>так, натуральне</td></tr>
           <tr><td>(5√2)²</td><td>квадрат добутку (ab)²=a²b²: 5²×(√2)²=25×2</td><td>50</td></tr>
           <tr><td>(−2∛5)³</td><td>куб добутку (ab)³=a³b³: (−2)³×(∛5)³=−8×5</td><td>−40</td></tr>
           <tr><td>(√4,6)²−(√0,6)²</td><td>квадрат і корінь — взаємно обернені дії, корені зникають</td><td>4</td></tr>
           <tr><td>32/(√7−√3) : (√7+√3)</td><td>ділення → множення на обернений вираз; у знаменнику різниця квадратів (√7)²−(√3)²=4</td><td>8</td></tr>
           <tr><td>(√10−0,5)²</td><td>квадрат різниці: (√10)²−2×√10×0,5+0,5²</td><td>10,25−√10</td></tr>
-          <tr><td>√100, ∛1000, ⁴√10000</td><td>корінь n-го степеня зі степеня 10ⁿ завжди дорівнює 10</td><td>по 10</td></tr>
+          <tr><td>√100, ∛1000, ⁴√10000</td><td>корінь n-го степеня зі степеня 10<sup>n</sup> завжди дорівнює 10</td><td>по 10</td></tr>
           <tr><td>∛(−1000)</td><td>під непарним коренем — від’ємне число, мінус виноситься (НЕ нуль — типова помилка)</td><td>−10</td></tr>
         </tbody>
       </table>
@@ -496,7 +535,7 @@
   </section>
 
   <section id="mt3-estimate" class="block">
-    <h2><span class="num">27</span>🔍 Обчислення й оцінка «незручних» коренів</h2>
+    <h2><span class="num">30</span>🔍 Обчислення й оцінка «незручних» коренів</h2>
     <div class="example-box">
       <p class="example-label">√(841×9+841×16) — точне обчислення без калькулятора</p>
       <p>Виносимо спільний множник 841 за дужки під коренем: √[841×(9+16)]=√(841×25). Під коренем добуток — розбиваємо на два окремі корені: √841×√25=29×5. Для зручності 29 подаємо як (30−1): 30×5−1×5=150−5=145.</p>
@@ -510,14 +549,14 @@
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
         <tbody>
           <tr><td>∛25</td><td>затиснути між ∛8=2 і ∛27=3</td><td>між 2 і 3</td></tr>
-          <tr><td>400^(2/4), де 400=20²</td><td>спростити показник до 20^(1/2)=√20, затиснути між √16=4 і √25=5</td><td>між 4 і 5</td></tr>
+          <tr><td>400<sup>2/4</sup>, де 400=20²</td><td>спростити показник до 20<sup>1/2</sup>=√20, затиснути між √16=4 і √25=5</td><td>між 4 і 5</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="mt3-modulus" class="block">
-    <h2><span class="num">28</span>〽️ Модуль із коренями</h2>
+    <h2><span class="num">31</span>〽️ Модуль із коренями</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
@@ -531,7 +570,7 @@
   </section>
 
   <section id="mt3-circle" class="block">
-    <h2><span class="num">29</span>⭕ Тригонометрія: одиничне коло</h2>
+    <h2><span class="num">32</span>⭕ Тригонометрія: одиничне коло</h2>
     <p class="note">Абсциса (x) точки на одиничному колі — це косинус кута, ордината (y) — синус кута.</p>
     <div class="table-wrap">
       <table class="rule-table">
@@ -547,27 +586,27 @@
   </section>
 
   <section id="mt3-trigformulas" class="block">
-    <h2><span class="num">30</span>📐 Тригонометричні формули й спрощення</h2>
+    <h2><span class="num">33</span>📐 Тригонометричні формули й спрощення</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
         <tbody>
-          <tr><td>sin 2α при α=20°</td><td>подвоїти аргумент до sin 40°, затиснути між sin 30°=1/2 і sin 45°=√2/2</td><td>варіант Б</td></tr>
-          <tr><td>cos²α−sin²α при α=8°</td><td>формула cos 2α; подвоїти аргумент до cos 16°, затиснути між cos 0°=1 і cos 30°=√3/2</td><td>між √3/2 і 1</td></tr>
-          <tr><td>(1−cos²α)/(3sin²α)</td><td>замінити 1 на sin²α+cos²α; доданки cos²α скорочуються</td><td>1/3</td></tr>
-          <tr><td>cos³α/sin²α × tg²α</td><td>tg²α=sin²α/cos²α; скоротити sin²α і два множники cos α</td><td>cos α</td></tr>
-          <tr><td>|cos(π/4)−√3/2|</td><td>cos(π/4)=√2/2; √2&lt;√3 — модуль змінює знак; домножити на спряжений (√3+√2)</td><td>0,5</td></tr>
+          <tr><td>sin 2α при α=20°</td><td>подвоїти аргумент до sin 40°, затиснути між sin 30°=<span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> і sin 45°=<span class="frac"><span class="frac-num">√2</span><span class="frac-den">2</span></span></td><td>варіант Б</td></tr>
+          <tr><td>cos²α−sin²α при α=8°</td><td>формула cos 2α; подвоїти аргумент до cos 16°, затиснути між cos 0°=1 і cos 30°=<span class="frac"><span class="frac-num">√3</span><span class="frac-den">2</span></span></td><td>між <span class="frac"><span class="frac-num">√3</span><span class="frac-den">2</span></span> і 1</td></tr>
+          <tr><td>(1−cos²α)/(3sin²α)</td><td>замінити 1 на sin²α+cos²α; доданки cos²α скорочуються</td><td><span class="frac"><span class="frac-num">1</span><span class="frac-den">3</span></span></td></tr>
+          <tr><td><span class="frac"><span class="frac-num">cos³α</span><span class="frac-den">sin²α</span></span> × tg²α</td><td>tg²α=<span class="frac"><span class="frac-num">sin²α</span><span class="frac-den">cos²α</span></span>; скоротити sin²α і два множники cos α</td><td>cos α</td></tr>
+          <tr><td>|cos(<span class="frac"><span class="frac-num">π</span><span class="frac-den">4</span></span>)−<span class="frac"><span class="frac-num">√3</span><span class="frac-den">2</span></span>|</td><td>cos(<span class="frac"><span class="frac-num">π</span><span class="frac-den">4</span></span>)=<span class="frac"><span class="frac-num">√2</span><span class="frac-den">2</span></span>; √2&lt;√3 — модуль змінює знак; домножити на спряжений (√3+√2)</td><td>0,5</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="mt3-parameter" class="block">
-    <h2><span class="num">31</span>🔎 Задача з параметром</h2>
-    <p>Знайти суму всіх значень параметра a із заданого проміжку, за кожного з яких значення виразу (що містить корінь і тригонометричну частину з аргументом на кшталт 7π/3) є натуральним числом.</p>
+    <h2><span class="num">34</span>🔎 Задача з параметром</h2>
+    <p>Знайти суму всіх значень параметра a із заданого проміжку, за кожного з яких значення виразу (що містить корінь і тригонометричну частину з аргументом на кшталт <span class="frac"><span class="frac-num">7π</span><span class="frac-den">3</span></span>) є натуральним числом.</p>
     <div class="example-box">
       <p class="example-label">Хід розв’язання</p>
-      <p>Спершу спрощують тригонометричну частину через періодичність (sin(2π+α)=sin α тощо), зводячи «незручний» аргумент 7π/3 до табличного кута — результатом є число √3. Підставивши це значення, вираз із параметром зводять до рівняння: умову «є натуральним числом» перекладають, ввівши нову змінну n (натуральне число) і прирівнявши до неї весь вираз. Піднісши обидві частини до квадрата, щоб позбутися кореня, виражають параметр: a=10−3n².</p>
+      <p>Спершу спрощують тригонометричну частину через періодичність (sin(2π+α)=sin α тощо), зводячи «незручний» аргумент <span class="frac"><span class="frac-num">7π</span><span class="frac-den">3</span></span> до табличного кута — результатом є число √3. Підставивши це значення, вираз із параметром зводять до рівняння: умову «є натуральним числом» перекладають, ввівши нову змінну n (натуральне число) і прирівнявши до неї весь вираз. Піднісши обидві частини до квадрата, щоб позбутися кореня, виражають параметр: a=10−3n².</p>
     </div>
     <p>Послідовно підставляють n=1, 2, 3, 4…: n=1 → a=7; n=2 → a=−2; n=3 → a=−17; n=4 → a=−38 (уже виходить за межі заданого проміжку, далі не перевіряють). У проміжок потрапляють значення 7, −2 і −17.</p>
     <p class="note">Сума: 7+(−2)+(−17) = −12. Відповідь: −12.</p>
@@ -581,21 +620,33 @@
 
 <div class="toc-scope">
 <nav class="toc" id="toc-maththeme4" aria-label="Зміст: тема 4">
+  <a href="#mt4-before" class="toc-pill">🧠 Основи</a>
   <a href="#mt4-format" class="toc-pill">📋 Формат і факти</a>
   <a href="#mt4-tricks" class="toc-pill">🛠️ Прийоми</a>
   <a href="#mt4-basics" class="toc-pill">🔢 Основи й тотожності</a>
   <a href="#mt4-exponent" class="toc-pill">🎯 Підкидання показника</a>
   <a href="#mt4-lgln" class="toc-pill">🔤 lg і ln</a>
   <a href="#mt4-numberline" class="toc-pill">📍 Координата на промені</a>
-  <a href="#mt4-paramguided" class="toc-pill">🔍 Параметр: log_a8=3</a>
+  <a href="#mt4-paramguided" class="toc-pill">🔍 Параметр: log<sub>a</sub>8=3</a>
   <a href="#mt4-modulus" class="toc-pill">〽️ Модулі</a>
   <a href="#mt4-parameter" class="toc-pill">🔎 Фінальний параметр</a>
 </nav>
 
 <main class="content">
 
+  <section id="mt4-before" class="block">
+    <h2><span class="num">35</span>🧠 Основи, які варто пригадати</h2>
+    <div class="basics-box">
+      <p class="basics-label">Пригадати перед стартом</p>
+      <p><strong>Навіщо взагалі потрібен логарифм:</strong> рівняння 2ˣ=8 неважко розв’язати підбором (x=3, бо 2³=8). Але що робити з 2ˣ=10, де відповідь — не ціле число? Потрібна окрема математична дія, яка «дістає» невідомий показник степеня з рівняння, — так само, як корінь дістає невідому основу зі степеня. Ця дія і називається логарифмом.</p>
+      <p><strong>Означення:</strong> logₐb=c означає рівно те саме, що й aᶜ=b (за умов a&gt;0, a≠1, b&gt;0) — це просто два різні способи записати один факт. Наприклад, log₂8=3, бо 2³=8. Простими словами: логарифм відповідає на питання «до якого степеня треба піднести основу a, щоб отримати число b?».</p>
+      <p><strong>Звідки беруться умови на a і b:</strong> a&gt;0 — інакше вираз aᶜ поводиться непередбачувано (степені від’ємного числа то додатні, то від’ємні залежно від показника); a≠1 — бо 1 у будь-якому степені завжди дорівнює 1, тож рівняння 1ᶜ=b або взагалі не має розв’язку (якщо b≠1), або має безліч розв’язків (якщо b=1) — але жодного разу рівно один; b&gt;0 — бо додатна основа в будь-якому степені завжди лишається додатною, від’ємного чи нульового результату так не отримати.</p>
+      <p><strong>lg і ln</strong> — не нові окремі дії, а той самий логарифм із конкретно зафіксованою основою: lg b = log₁₀b (десятковий логарифм, основа 10), ln b = logₑb (натуральний логарифм, основа e≈2,7 — особливе ірраціональне число).</p>
+    </div>
+  </section>
+
   <section id="mt4-format" class="block">
-    <h2><span class="num">32</span>📋 Формат і факти</h2>
+    <h2><span class="num">36</span>📋 Формат і факти</h2>
     <ul class="plain-list">
       <li>Задачі з модулями логарифмічних виразів трапляються на НМТ регулярно.</li>
       <li>Формула a⁰=1 (будь-яке число в нульовому степені дає одиницю) є в довідкових матеріалах НМТ.</li>
@@ -605,30 +656,30 @@
     </ul>
     <div class="warning-box">
       <p class="example-label">НЕ дано в довідкових матеріалах — знати напам’ять</p>
-      <p>Тотожності logₐ1=0 і logₐa=1, а також перехід від кореня до степеня з дробовим показником (наприклад, √17=17^(1/2)) — цих формул у довіднику НМТ немає.</p>
+      <p>Тотожності logₐ1=0 і logₐa=1, а також перехід від кореня до степеня з дробовим показником (наприклад, √17=17<sup>1/2</sup>) — цих формул у довіднику НМТ немає.</p>
     </div>
     <p class="note">Корисно тримати в пам’яті таблицю квадратів (діагональ таблиці множення: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100) — вона напряму переноситься в логарифми за відповідною основою.</p>
   </section>
 
   <section id="mt4-tricks" class="block">
-    <h2><span class="num">33</span>🛠️ Практичні прийоми</h2>
+    <h2><span class="num">37</span>🛠️ Практичні прийоми</h2>
     <ul class="plain-list">
       <li><strong>«Переклад» між мовами:</strong> будь-яку рівність aᶜ=b можна переписати як logₐb=c, і навпаки — базовий прийом для всієї теми.</li>
-      <li><strong>«Підкидання» показника:</strong> logₐ(xⁿ)=n·logₐx — показник виходить вперед множником; і навпаки, n·logₐx=logₐ(xⁿ).</li>
+      <li><strong>«Підкидання» показника:</strong> logₐ(x<sup>n</sup>)=n·logₐx — показник виходить вперед множником; і навпаки, n·logₐx=logₐ(x<sup>n</sup>).</li>
       <li><strong>«Приємні» тотожності:</strong> якщо основа і аргумент однакові — завжди 1 (logₐa=1); якщо аргумент дорівнює 1 — завжди 0 (logₐ1=0).</li>
-      <li><strong>Дроби й десяткові дроби в степеневій формі</strong> перед застосуванням формул: 1/8=8⁻¹, 1/9=3⁻², 1,5=3/2, 0,1=1/10=10⁻¹.</li>
+      <li><strong>Дроби й десяткові дроби в степеневій формі</strong> перед застосуванням формул: <span class="frac"><span class="frac-num">1</span><span class="frac-den">8</span></span>=8⁻¹, <span class="frac"><span class="frac-num">1</span><span class="frac-den">9</span></span>=3⁻², 1,5=<span class="frac"><span class="frac-num">3</span><span class="frac-den">2</span></span>, 0,1=<span class="frac"><span class="frac-num">1</span><span class="frac-den">10</span></span>=10⁻¹.</li>
       <li><strong>Добуток під логарифмом → сума:</strong> logₐ(xy)=logₐx+logₐy.</li>
-      <li><strong>Частка під логарифмом → різниця:</strong> logₐ(x/y)=logₐx−logₐy.</li>
-      <li><strong>Основна логарифмічна тотожність:</strong> a^(logₐb)=b — увесь «хвіст» зникає, лишається аргумент.</li>
-      <li><strong>Заміна основи на обернений дріб:</strong> a/b=(b/a)⁻¹.</li>
-      <li><strong>Показник у самій основі</strong> не просто виноситься вперед, а потрапляє в знаменник коефіцієнта: log_(aⁿ)x=(1/n)·logₐx.</li>
+      <li><strong>Частка під логарифмом → різниця:</strong> logₐ(<span class="frac"><span class="frac-num">x</span><span class="frac-den">y</span></span>)=logₐx−logₐy.</li>
+      <li><strong>Основна логарифмічна тотожність:</strong> a<sup>logₐb</sup>=b — увесь «хвіст» зникає, лишається аргумент.</li>
+      <li><strong>Заміна основи на обернений дріб:</strong> <span class="frac"><span class="frac-num">a</span><span class="frac-den">b</span></span>=(<span class="frac"><span class="frac-num">b</span><span class="frac-den">a</span></span>)⁻¹.</li>
+      <li><strong>Показник у самій основі</strong> не просто виноситься вперед, а потрапляє в знаменник коефіцієнта: log<sub>a<sup>n</sup></sub>x=(<span class="frac"><span class="frac-num">1</span><span class="frac-den">n</span></span>)·logₐx.</li>
       <li><strong>Параметр із заданим значенням одного логарифма</strong> (наприклад, logₐ8=3): розв’язання будується через вираження шуканого числа як степеня вже відомого, після чого підставляється задане значення.</li>
       <li><strong>Параметр із подвійною нерівністю:</strong> спрощений вираз підставляють в умову приналежності проміжку, розв’язують подвійну нерівність, а наприкінці обов’язково перевіряють ОДЗ (аргумент &gt;0, основа &gt;0, основа ≠1) — частину формально знайдених значень доводиться виключити.</li>
     </ul>
   </section>
 
   <section id="mt4-basics" class="block">
-    <h2><span class="num">34</span>🔢 Основи: означення і «приємні» тотожності</h2>
+    <h2><span class="num">38</span>🔢 Основи: означення і «приємні» тотожності</h2>
     <p>logₐb=c означає, що aᶜ=b, за умов a&gt;0, a≠1, b&gt;0.</p>
     <div class="table-wrap">
       <table class="rule-table">
@@ -645,43 +696,43 @@
   </section>
 
   <section id="mt4-exponent" class="block">
-    <h2><span class="num">35</span>🎯 «Підкидання» показника: тренування</h2>
+    <h2><span class="num">39</span>🎯 «Підкидання» показника: тренування</h2>
     <p>Серія прикладів на винесення показника з-під кореня чи дробового степеня перед логарифмом:</p>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
         <tbody>
-          <tr><td>log₄√4</td><td>√4=4^(1/2), винести показник: (1/2)·log₄4</td><td>0,5</td></tr>
+          <tr><td>log₄√4</td><td>√4=4<sup>1/2</sup>, винести показник: (<span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span>)·log₄4</td><td>0,5</td></tr>
           <tr><td>log₃(3⁴)⁶</td><td>степінь степеня: (3⁴)⁶=3²⁴</td><td>24</td></tr>
-          <tr><td>log₁₇√17</td><td>√17=17^(1/2)</td><td>0,5</td></tr>
-          <tr><td>log₁₅ ⁴√(15³)</td><td>⁴√(15³)=15^(3/4)</td><td>0,75</td></tr>
-          <tr><td>log₈(1/8)</td><td>1/8=8⁻¹</td><td>−1</td></tr>
-          <tr><td>log₃(1/9)</td><td>1/9=3⁻²</td><td>−2</td></tr>
+          <tr><td>log₁₇√17</td><td>√17=17<sup>1/2</sup></td><td>0,5</td></tr>
+          <tr><td>log₁₅ ⁴√(15³)</td><td>⁴√(15³)=15<sup>3/4</sup></td><td>0,75</td></tr>
+          <tr><td>log₈(<span class="frac"><span class="frac-num">1</span><span class="frac-den">8</span></span>)</td><td><span class="frac"><span class="frac-num">1</span><span class="frac-den">8</span></span>=8⁻¹</td><td>−1</td></tr>
+          <tr><td>log₃(<span class="frac"><span class="frac-num">1</span><span class="frac-den">9</span></span>)</td><td><span class="frac"><span class="frac-num">1</span><span class="frac-den">9</span></span>=3⁻²</td><td>−2</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="mt4-lgln" class="block">
-    <h2><span class="num">36</span>🔤 Логарифми lg і ln</h2>
+    <h2><span class="num">40</span>🔤 Логарифми lg і ln</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
         <tbody>
           <tr><td>ln e</td><td>ln e = logₑe = 1</td><td>1</td></tr>
           <tr><td>18·ln e</td><td>18·1</td><td>18</td></tr>
-          <tr><td>ln(e^(45/9))</td><td>(45/9)·ln e = 5·1</td><td>5</td></tr>
-          <tr><td>e^(ln 48)</td><td>основна логарифмічна тотожність — «хвіст» зникає</td><td>48</td></tr>
+          <tr><td>ln(e<sup>45/9</sup>)</td><td>(<span class="frac"><span class="frac-num">45</span><span class="frac-den">9</span></span>)·ln e = 5·1</td><td>5</td></tr>
+          <tr><td>e<sup>ln 48</sup></td><td>основна логарифмічна тотожність — «хвіст» зникає</td><td>48</td></tr>
           <tr><td>lg 10000</td><td>10000=10⁴, lg=log₁₀</td><td>4</td></tr>
           <tr><td>lg(10⁸)²</td><td>(10⁸)²=10¹⁶</td><td>16</td></tr>
-          <tr><td>10^(lg 51)</td><td>основна логарифмічна тотожність</td><td>51</td></tr>
+          <tr><td>10<sup>lg 51</sup></td><td>основна логарифмічна тотожність</td><td>51</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="mt4-numberline" class="block">
-    <h2><span class="num">37</span>📍 Координата точки на «логарифмічному» промені</h2>
+    <h2><span class="num">41</span>📍 Координата точки на «логарифмічному» промені</h2>
     <p>На промені позначені точки log₂5, log₂10, log₂15, log₂30, log₂40. Щоб оцінити їх розташування, опорні точки переводять мовою логарифмів за основою 2:</p>
     <div class="table-wrap">
       <table class="rule-table">
@@ -700,43 +751,43 @@
   </section>
 
   <section id="mt4-paramguided" class="block">
-    <h2><span class="num">38</span>🔍 Задача з параметром: дано logₐ8=3</h2>
+    <h2><span class="num">42</span>🔍 Задача з параметром: дано logₐ8=3</h2>
     <p>Послідовність підзавдань — знайти кілька інших виразів, спираючись на те саме вихідне значення:</p>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Знайти</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
         <tbody>
           <tr><td>logₐ64</td><td>64=8², тому logₐ8²=2·logₐ8=2·3</td><td>6</td></tr>
-          <tr><td>logₐ(1/8)</td><td>1/8=8⁻¹, тому −1·logₐ8=−1·3</td><td>−3</td></tr>
+          <tr><td>logₐ(<span class="frac"><span class="frac-num">1</span><span class="frac-den">8</span></span>)</td><td><span class="frac"><span class="frac-num">1</span><span class="frac-den">8</span></span>=8⁻¹, тому −1·logₐ8=−1·3</td><td>−3</td></tr>
           <tr><td>logₐ2</td><td>8=2³, переписати logₐ8=3 як 3·logₐ2=3</td><td>1</td></tr>
-          <tr><td>log_(1/a)8</td><td>правило log_(aⁿ)x=(1/n)·logₐx для n=−1: (1/−1)·3</td><td>−3</td></tr>
+          <tr><td>log<sub>1/a</sub>8</td><td>правило log<sub>a<sup>n</sup></sub>x=(<span class="frac"><span class="frac-num">1</span><span class="frac-den">n</span></span>)·logₐx для n=−1: (1/−1)·3</td><td>−3</td></tr>
           <tr><td>logₐ(8a)</td><td>добуток → сума: logₐ8+logₐa=3+1</td><td>4</td></tr>
-          <tr><td>logₐ(a/4)</td><td>частка → різниця: logₐa−logₐ2²=1−2·logₐ2=1−2·1</td><td>−1</td></tr>
+          <tr><td>logₐ(<span class="frac"><span class="frac-num">a</span><span class="frac-den">4</span></span>)</td><td>частка → різниця: logₐa−logₐ2²=1−2·logₐ2=1−2·1</td><td>−1</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="mt4-modulus" class="block">
-    <h2><span class="num">39</span>〽️ Модулі з логарифмами</h2>
+    <h2><span class="num">43</span>〽️ Модулі з логарифмами</h2>
     <div class="table-wrap">
       <table class="rule-table">
         <thead><tr><th>Приклад</th><th>Ключова ідея</th><th>Відповідь</th></tr></thead>
         <tbody>
-          <tr><td>|log_(3/2)(2/3) − 3|</td><td>1,5=3/2; 2/3=(3/2)⁻¹, тому log_(3/2)(2/3)=−1; далі |−1−3|</td><td>4</td></tr>
-          <tr><td>|log_0,1(700·(1/7))|</td><td>після скорочення аргумент=100, основа 0,1=10⁻¹; log_(10⁻¹)10²=2/(−1)</td><td>2</td></tr>
-          <tr><td>|10 − 100^(lg4)|</td><td>100=10², тому 100^(lg4)=10^(2·lg4)=10^(lg4²)=4²=16; |10−16|</td><td>6</td></tr>
+          <tr><td>|log<sub>3/2</sub>(<span class="frac"><span class="frac-num">2</span><span class="frac-den">3</span></span>) − 3|</td><td>1,5=<span class="frac"><span class="frac-num">3</span><span class="frac-den">2</span></span>; <span class="frac"><span class="frac-num">2</span><span class="frac-den">3</span></span>=(<span class="frac"><span class="frac-num">3</span><span class="frac-den">2</span></span>)⁻¹, тому log<sub>3/2</sub>(<span class="frac"><span class="frac-num">2</span><span class="frac-den">3</span></span>)=−1; далі |−1−3|</td><td>4</td></tr>
+          <tr><td>|log<sub>0,1</sub>(700·(<span class="frac"><span class="frac-num">1</span><span class="frac-den">7</span></span>))|</td><td>після скорочення аргумент=100, основа 0,1=10⁻¹; log<sub>10⁻¹</sub>10²=2/(−1)</td><td>2</td></tr>
+          <tr><td>|10 − 100<sup>lg4</sup>|</td><td>100=10², тому 100<sup>lg4</sup>=10<sup>2·lg4</sup>=10<sup>lg4²</sup>=4²=16; |10−16|</td><td>6</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="mt4-parameter" class="block">
-    <h2><span class="num">40</span>🔎 Фінальна задача з параметром</h2>
-    <p>Визначити суму всіх цілих значень параметра m, за кожного з яких значення виразу A=log_(m−5)(m²−10m+25) належить заданому проміжку (2; …) без включення меж.</p>
+    <h2><span class="num">44</span>🔎 Фінальна задача з параметром</h2>
+    <p>Визначити суму всіх цілих значень параметра m, за кожного з яких значення виразу A=log<sub>m−5</sub>(m²−10m+25) належить заданому проміжку (2; …) без включення меж.</p>
     <div class="example-box">
       <p class="example-label">Хід розв’язання</p>
-      <p>Вираз під логарифмом — формула квадрата різниці: m²−10m+25=(m−5)². Тоді A=log_(m−5)(m−5)²=2·log_(m−5)(m−5)=2·1=2 — але лише за умови існування логарифма: аргумент (m−5)²&gt;0, основа m−5&gt;0, основа m−5≠1.</p>
+      <p>Вираз під логарифмом — формула квадрата різниці: m²−10m+25=(m−5)². Тоді A=log<sub>m−5</sub>(m−5)²=2·log<sub>m−5</sub>(m−5)=2·1=2 — але лише за умови існування логарифма: аргумент (m−5)²&gt;0, основа m−5&gt;0, основа m−5≠1.</p>
       <p>Підставивши спрощений вираз у задану умову приналежності проміжку, дістають подвійну нерівність відносно m, яка розв’язується до 3&lt;m&lt;9.</p>
     </div>
     <p>Перевірка ОДЗ: основа m−5≠1 ⇒ m≠6; основа m−5&gt;0 ⇒ m&gt;5. Комбінуючи 3&lt;m&lt;9 з m&gt;5 і m≠6, залишаються цілі значення m=7 та m=8.</p>

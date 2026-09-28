@@ -11,6 +11,8 @@
   --green-bg:#eef8f0;
   --mnemo:#6b46c1;
   --mnemo-bg:#f3ecfc;
+  --basics:#0f766e;
+  --basics-bg:#e9f5f3;
   --line:#e9e2d3;
   --shadow:0 4px 18px rgba(42,39,51,0.06);
 }
@@ -66,7 +68,7 @@ h1,h2{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;}
 }
 .toc::-webkit-scrollbar{display:none;}
 @media (min-width:760px){
-  .toc{flex-wrap:wrap;overflow-x:visible;justify-content:center;max-width:900px;margin-left:auto;margin-right:auto;}
+  .toc{flex-wrap:wrap;overflow-x:visible;justify-content:center;max-width:900px;margin-left:auto;margin-right:auto;max-height:32vh;overflow-y:auto;}
 }
 .toc-pill{
   flex:0 0 auto;
@@ -137,6 +139,7 @@ h1,h2{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;}
 
 .rule-table td:first-child{white-space:nowrap;font-weight:600;color:var(--accent-ink);}
 .rule-table td:nth-child(2){white-space:nowrap;}
+.rule-table.wrap td{white-space:normal;}
 
 /* tables */
 .table-caption{font-size:13px;color:var(--sub);margin-bottom:8px;font-weight:600;}
@@ -151,6 +154,20 @@ table.plan-table td:first-child{color:#a03a3a;font-weight:600;}
 table.plan-table td:last-child{color:var(--green);}
 
 .note{font-size:14px;color:var(--sub);background:#f4f2ec;border-radius:10px;padding:12px 16px;}
+
+/* textbook-style math notation: proper sup/sub and stacked fractions */
+sup,sub{font-size:0.7em;line-height:0;position:relative;vertical-align:baseline;}
+sup{top:-0.55em;}
+sub{bottom:-0.25em;}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:0.82em;line-height:1.15;margin:0 2px;position:relative;top:0.12em;}
+.frac-num,.frac-den{display:block;padding:0 3px;}
+.frac-num{border-bottom:1.3px solid currentColor;}
+
+.basics-box{background:var(--basics-bg);border:1px solid #bfe3df;border-radius:14px;padding:20px 22px;margin:18px 0;}
+.basics-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--basics);margin-bottom:10px;}
+.basics-box p{font-size:15px;margin-bottom:10px;}
+.basics-box p:last-of-type{margin-bottom:0;}
+.basics-box .plain-list{margin-bottom:0;}
 
 /* key-terms glossary box, opens a section */
 .terms-box{background:#f4f2ec;border:1px solid var(--line);border-radius:12px;padding:14px 20px;margin:0 0 22px;}

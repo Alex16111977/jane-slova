@@ -17,9 +17,16 @@
   onScroll();
 
   function centerPillInNav(nav, pill){
-    if(nav.scrollWidth <= nav.clientWidth) return;
-    var target = pill.offsetLeft - (nav.clientWidth - pill.clientWidth) / 2;
-    nav.scrollTo({left: Math.max(0, target), behavior: 'smooth'});
+    var opts = null;
+    if(nav.scrollWidth > nav.clientWidth){
+      opts = opts || {behavior:'smooth'};
+      opts.left = Math.max(0, pill.offsetLeft - (nav.clientWidth - pill.clientWidth) / 2);
+    }
+    if(nav.scrollHeight > nav.clientHeight){
+      opts = opts || {behavior:'smooth'};
+      opts.top = Math.max(0, pill.offsetTop - (nav.clientHeight - pill.clientHeight) / 2);
+    }
+    if(opts) nav.scrollTo(opts);
   }
 
   function initScrollspy(nav){
