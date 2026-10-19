@@ -198,3 +198,28 @@ sub{bottom:-0.25em;}
   .block h2{font-size:20px;}
   .block h2 .ts{margin-left:0;}
 }
+
+/* word stress: highlighted vowel, full list, trainer */
+.st{color:#c2410c;font-weight:800;}
+.st-hint{font-size:0.85em;color:var(--sub);}
+.stress-all p{font-size:15px;line-height:1.9;margin-bottom:10px;}
+.st-letter{display:inline-block;min-width:26px;color:var(--gold);font-family:Georgia,"Iowan Old Style",serif;font-size:18px;}
+.stress-trainer{background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px 20px;margin:10px 0 14px;text-align:center;}
+.st-modes{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;}
+.st-mode{padding:6px 14px;border-radius:16px;border:1.5px solid var(--line);background:var(--paper);color:var(--sub);font-size:13px;font-weight:700;cursor:pointer;}
+.st-mode.active{background:var(--accent);border-color:var(--accent);color:white;}
+.st-mode span{display:inline-block;min-width:18px;padding:0 5px;margin-left:3px;border-radius:9px;background:rgba(0,0,0,0.08);font-size:12px;}
+.st-word{font-family:Georgia,"Iowan Old Style",serif;font-size:32px;color:var(--ink);letter-spacing:0.5px;min-height:52px;overflow-wrap:anywhere;}
+.st-v{font:inherit;color:var(--accent);background:#f1f5ff;border:none;border-bottom:2px dashed var(--accent);border-radius:6px;padding:0 3px;margin:0 1px;cursor:pointer;}
+.st-v:hover{background:#dfe8fd;}
+.st-v.ok{background:var(--green-bg);color:var(--green);border-bottom:2px solid var(--green);}
+.st-v.bad{background:#fdecea;color:#b3261e;border-bottom:2px solid #b3261e;}
+.st-hintline{font-size:14px;color:var(--sub);min-height:22px;}
+.st-feedback{font-size:15px;font-weight:700;min-height:24px;margin:6px 0;}
+.st-feedback.good{color:var(--green);}
+.st-feedback.bad{color:#b3261e;}
+.st-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:6px;}
+.st-score{font-size:13px;color:var(--sub);font-weight:700;}
+.st-next{padding:8px 18px;border-radius:16px;border:none;background:var(--accent);color:white;font-size:14px;font-weight:700;cursor:pointer;}
+.st-next:hover{background:var(--accent-ink);}
+@media (max-width:480px){ .st-word{font-size:26px;} }
