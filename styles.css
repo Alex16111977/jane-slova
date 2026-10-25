@@ -223,3 +223,37 @@ sub{bottom:-0.25em;}
 .st-next{padding:8px 18px;border-radius:16px;border:none;background:var(--accent);color:white;font-size:14px;font-weight:700;cursor:pointer;}
 .st-next:hover{background:var(--accent-ink);}
 @media (max-width:480px){ .st-word{font-size:26px;} }
+
+/* math from zero: tasks, options, reveal answers, graph, plan */
+.ms-q{font-weight:600;}
+.ms-opts{list-style:none;display:flex;flex-wrap:wrap;gap:6px 14px;margin:0 0 12px;}
+.ms-opts li{font-size:15px;background:var(--paper);border:1px solid #d7e1fb;border-radius:8px;padding:3px 10px;}
+.ms-opts b{color:var(--accent);margin-right:4px;}
+.ms-sol summary,.ms-ans-d summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--accent);list-style:none;display:inline-block;padding:4px 12px;border-radius:14px;border:1.5px solid var(--accent);background:var(--paper);user-select:none;}
+.ms-sol summary::-webkit-details-marker,.ms-ans-d summary::-webkit-details-marker{display:none;}
+.ms-sol summary::before,.ms-ans-d summary::before{content:"▸ ";}
+.ms-sol[open] summary::before,.ms-ans-d[open] summary::before{content:"▾ ";}
+.ms-sol[open] summary,.ms-ans-d[open] summary{background:var(--accent);color:white;}
+.ms-sol ol{margin:12px 0 10px 22px;}
+.ms-sol li{font-size:15px;margin-bottom:6px;}
+.ms-ans{font-weight:800;color:var(--green);}
+.example-box .ms-trap{font-size:14px;background:#fdecea;border-radius:10px;padding:8px 12px;color:#7a1f18;margin-top:8px;}
+.ms-practice{margin:0 0 6px 22px;}
+.ms-practice > li{font-size:16px;margin-bottom:14px;padding-left:4px;}
+.ms-practice > li::marker{color:var(--accent);font-weight:700;}
+.ms-pq{display:block;margin-bottom:6px;}
+.ms-ans-d p{font-size:15px;background:var(--green-bg);border:1px solid #cfe9d6;border-radius:10px;padding:8px 12px;margin-top:8px;}
+.ms-graph{margin:18px 0;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow);}
+.ms-graph svg{display:block;width:100%;height:auto;max-width:460px;margin:0 auto;}
+.ms-grid line{stroke:#ece6d8;stroke-width:1;}
+.ms-zero{stroke:var(--sub);stroke-width:1.5;}
+.ms-line{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linejoin:round;}
+.ms-dot circle{fill:var(--accent);}
+.ms-lbl text{font-size:11px;fill:var(--sub);text-anchor:end;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+.ms-lbl-x text{text-anchor:middle;}
+.ms-graph figcaption{font-size:13px;color:var(--sub);text-align:center;margin-top:6px;}
+.ms-plan-table td{vertical-align:top;}
+.ms-plan-table td a{color:var(--accent-ink);text-decoration:none;font-weight:600;}
+.ms-plan-table td a:hover{text-decoration:underline;}
+.ms-week-note{font-size:12px;color:var(--sub);line-height:1.4;display:inline-block;}
+.ms-done{width:18px;height:18px;accent-color:var(--green);cursor:pointer;}

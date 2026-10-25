@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Математика з нуля — НМТ 2027</title>
+<meta name="description" content="План на 8 тижнів: база з нуля і типові завдання НМТ з математики за кожною темою, з розв’язаннями і задачами для тренування.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%93%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<header class="hero">
+  <p class="eyebrow"><a href="index.html">НМТ 2027</a></p>
+  <h1>🌱 Математика з нуля</h1>
+  <p class="lede">Для кожної теми — що треба знати (база) і як саме це виглядає на НМТ. Вчиш одне й одразу бачиш інше.</p>
+</header>
+
+<nav class="site-nav">
+  <a href="overview.html">📋 Огляд іспиту</a>
+  <a href="ukrainian.html">🇺🇦 Українська мова</a>
+  <a href="math.html">🔢 Математика</a>
+  <a href="math-notes.html">🧮 Розбір задач</a>
+  <a href="math-start.html" class="current">🌱 Математика з нуля</a>
+  <a href="history.html">📜 Історія: іспит</a>
+  <a href="history-notes.html">🏛️ Хронологія</a>
+  <a href="calendar.html">🗓️ Календар</a>
+  <a href="plan.html">⏰ Розпорядок дня</a>
+  <a href="german.html">🇩🇪 Німецька</a>
+</nav>
+
+<nav class="toc" id="toc-ms" aria-label="Зміст">
+  <a href="#ms-start" class="toc-pill">🧭 Як вчити</a>
+  <a href="#ms-plan" class="toc-pill">🗓️ План</a>
+  <a href="#ms-fractions" class="toc-pill">🍕 Дроби</a>
+  <a href="#ms-negative" class="toc-pill">➖ Від’ємні числа</a>
+  <a href="#ms-percent" class="toc-pill">💯 Відсотки</a>
+  <a href="#ms-ratio" class="toc-pill">⚖️ Пропорції</a>
+  <a href="#ms-powers" class="toc-pill">🔢 Степені й корені</a>
+  <a href="#ms-linear" class="toc-pill">⚖️ Лінійні рівняння</a>
+  <a href="#ms-quadratic" class="toc-pill">🟰 Квадратні рівняння</a>
+  <a href="#ms-triangles" class="toc-pill">🔺 Трикутники</a>
+  <a href="#ms-area" class="toc-pill">⬛ Площі</a>
+  <a href="#ms-functions" class="toc-pill">📈 Графіки</a>
+  <a href="#ms-volume" class="toc-pill">🧊 Об’єми</a>
+  <a href="#ms-stats" class="toc-pill">🎲 Ймовірність</a>
+  <a href="#ms-next" class="toc-pill">🚀 Що далі</a>
+</nav>
+
+<main class="content">
+
+  <section id="ms-start" class="block">
+    <h2><span class="num">00</span>🧭 Як працювати з цією сторінкою</h2>
+    <div class="guaranteed-box">
+      <p class="example-label">Спершу — заспокійливий факт</p>
+      <p>Прохідний бал (100) дають уже <b>5 тестових балів із 32</b>, а 10 балів — це 134. Не потрібно знати всю математику: потрібно впевнено розв’язувати прості типові завдання. Саме вони тут і зібрані.</p>
+    </div>
+    <p class="steps-intro">Кожна тема має три частини. Проходь їх по черзі:</p>
+    <ol class="steps-list">
+      <li><b>📘 База</b> — правила простими словами. Прочитай і перепиши головне в зошит.</li>
+      <li><b>🎯 Як це буває на НМТ</b> — типові завдання з розв’язанням. Спершу прочитай умову і спробуй сама, потім відкрий розв’язання.</li>
+      <li><b>✏️ Потренуйся</b> — розв’яжи на чернетці, лише потім натисни «Відповідь». Помилилася — повернись до бази.</li>
+    </ol>
+    <p class="note">Ритм: одна тема — 2–3 заняття по 45–60 хв. Краще щодня потроху, ніж раз на тиждень довго. Калькулятора на НМТ немає — рахуй на папері від самого початку.</p>
+  </section>
+
+  <section id="ms-plan" class="block">
+    <h2><span class="num">01</span>🗓️ План на 8 тижнів</h2>
+    <p>Познач тему, коли розв’яжеш усі задачі з неї без підглядання. Позначки зберігаються в цьому браузері.</p>
+    <div class="table-wrap">
+      <table class="ms-plan-table">
+        <thead><tr><th>Тиждень</th><th>Теми</th><th>✓</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="2"><b>1</b><br><span class="ms-week-note">База обчислень — без неї не розв’язати жодної задачі</span></td><td><a href="#ms-fractions">🍕 Дроби</a></td><td><input type="checkbox" class="ms-done" data-topic="ms-fractions" aria-label="Тему пройдено"></td></tr>
+          <tr><td><a href="#ms-negative">➖ Від’ємні числа і порядок дій</a></td><td><input type="checkbox" class="ms-done" data-topic="ms-negative" aria-label="Тему пройдено"></td></tr>
+          <tr><td rowspan="2"><b>2</b><br><span class="ms-week-note">Відсотки й пропорції — найчастіші «життєві» задачі</span></td><td><a href="#ms-percent">💯 Відсотки</a></td><td><input type="checkbox" class="ms-done" data-topic="ms-percent" aria-label="Тему пройдено"></td></tr>
+          <tr><td><a href="#ms-ratio">⚖️ Пропорції, відношення, масштаб</a></td><td><input type="checkbox" class="ms-done" data-topic="ms-ratio" aria-label="Тему пройдено"></td></tr>
+          <tr><td rowspan="1"><b>3</b><br><span class="ms-week-note">Степені й корені — завдання з блоку «Числа і вирази»</span></td><td><a href="#ms-powers">🔢 Степені й корені</a></td><td><input type="checkbox" class="ms-done" data-topic="ms-powers" aria-label="Тему пройдено"></td></tr>
+          <tr><td rowspan="2"><b>4</b><br><span class="ms-week-note">Рівняння — один із найбільших блоків тесту</span></td><td><a href="#ms-linear">⚖️ Лінійні рівняння і прості системи</a></td><td><input type="checkbox" class="ms-done" data-topic="ms-linear" aria-label="Тему пройдено"></td></tr>
+          <tr><td><a href="#ms-quadratic">🟰 Квадратні рівняння</a></td><td><input type="checkbox" class="ms-done" data-topic="ms-quadratic" aria-label="Тему пройдено"></td></tr>
+          <tr><td rowspan="1"><b>5</b><br><span class="ms-week-note">Геометрія: кути і трикутники</span></td><td><a href="#ms-triangles">🔺 Кути, трикутники, теорема Піфагора</a></td><td><input type="checkbox" class="ms-done" data-topic="ms-triangles" aria-label="Тему пройдено"></td></tr>
+          <tr><td rowspan="1"><b>6</b><br><span class="ms-week-note">Геометрія: площі</span></td><td><a href="#ms-area">⬛ Площі й периметри</a></td><td><input type="checkbox" class="ms-done" data-topic="ms-area" aria-label="Тему пройдено"></td></tr>
+          <tr><td rowspan="1"><b>7</b><br><span class="ms-week-note">Функції: читати графіки і формули</span></td><td><a href="#ms-functions">📈 Графіки і лінійна функція</a></td><td><input type="checkbox" class="ms-done" data-topic="ms-functions" aria-label="Тему пройдено"></td></tr>
+          <tr><td rowspan="2"><b>8</b><br><span class="ms-week-note">Об’єми + легкі бали з ймовірності</span></td><td><a href="#ms-volume">🧊 Об’єми тіл</a></td><td><input type="checkbox" class="ms-done" data-topic="ms-volume" aria-label="Тему пройдено"></td></tr>
+          <tr><td><a href="#ms-stats">🎲 Середнє, ймовірність, комбінаторика</a></td><td><input type="checkbox" class="ms-done" data-topic="ms-stats" aria-label="Тему пройдено"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Ці 12 тем покривають блоки «Числа і вирази», «Рівняння», «Функції», «Планіметрія», «Стереометрія» та ймовірність — звідти більшість балів тесту.</p>
+  </section>
+
+  <section id="ms-fractions" class="block">
+    <h2><span class="num">02</span>🍕 Дроби</h2>
+    <div class="basics-box">
+      <p class="basics-label">📘 База</p>
+      <ul class="plain-list">
+        <li>Дріб <span class="frac"><span class="frac-num">3</span><span class="frac-den">4</span></span> — ціле поділили на <b>4</b> рівні частини (знаменник) і взяли <b>3</b> з них (чисельник). Риска дробу — це ділення: <span class="frac"><span class="frac-num">3</span><span class="frac-den">4</span></span> = 3 : 4 = 0,75.</li>
+        <li><b>Скоротити</b> — поділити чисельник і знаменник на одне й те саме число: <span class="frac"><span class="frac-num">12</span><span class="frac-den">18</span></span> = <span class="frac"><span class="frac-num">2</span><span class="frac-den">3</span></span> (обидва поділили на 6).</li>
+        <li><b>Додати / відняти</b> — спершу звести до спільного знаменника: <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> + <span class="frac"><span class="frac-num">1</span><span class="frac-den">3</span></span> = <span class="frac"><span class="frac-num">3</span><span class="frac-den">6</span></span> + <span class="frac"><span class="frac-num">2</span><span class="frac-den">6</span></span> = <span class="frac"><span class="frac-num">5</span><span class="frac-den">6</span></span>.</li>
+        <li><b>Помножити</b> — чисельник на чисельник, знаменник на знаменник: <span class="frac"><span class="frac-num">2</span><span class="frac-den">3</span></span> · <span class="frac"><span class="frac-num">3</span><span class="frac-den">5</span></span> = <span class="frac"><span class="frac-num">6</span><span class="frac-den">15</span></span> = <span class="frac"><span class="frac-num">2</span><span class="frac-den">5</span></span>.</li>
+        <li><b>Поділити</b> — помножити на перевернутий дріб: <span class="frac"><span class="frac-num">3</span><span class="frac-den">4</span></span> : <span class="frac"><span class="frac-num">3</span><span class="frac-den">8</span></span> = <span class="frac"><span class="frac-num">3</span><span class="frac-den">4</span></span> · <span class="frac"><span class="frac-num">8</span><span class="frac-den">3</span></span> = 2.</li>
+        <li><b>Мішане число</b> переводимо в неправильний дріб: 2<span class="frac"><span class="frac-num">1</span><span class="frac-den">3</span></span> = <span class="frac"><span class="frac-num">2·3 + 1</span><span class="frac-den">3</span></span> = <span class="frac"><span class="frac-num">7</span><span class="frac-den">3</span></span>.</li>
+        <li><b>Дріб від числа</b>: щоб знайти <span class="frac"><span class="frac-num">2</span><span class="frac-den">5</span></span> від 30, ділимо на знаменник і множимо на чисельник: 30 : 5 · 2 = 12.</li>
+        <li>Варто пам’ятати напам’ять: 0,5 = <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span>, 0,25 = <span class="frac"><span class="frac-num">1</span><span class="frac-den">4</span></span>, 0,75 = <span class="frac"><span class="frac-num">3</span><span class="frac-den">4</span></span>, 0,2 = <span class="frac"><span class="frac-num">1</span><span class="frac-den">5</span></span>, 0,1 = <span class="frac"><span class="frac-num">1</span><span class="frac-den">10</span></span>.</li>
+      </ul>
+    </div>
+    <p class="table-caption">🎯 Як це буває на НМТ</p>
+    <div class="example-box">
+      <p class="example-label">Тип 1. Обчисліть значення виразу</p>
+      <p class="ms-q">Обчисліть: <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> + <span class="frac"><span class="frac-num">2</span><span class="frac-den">3</span></span> · <span class="frac"><span class="frac-num">3</span><span class="frac-den">4</span></span></p>
+      <ol class="ms-opts"><li><b>А</b> <span class="frac"><span class="frac-num">7</span><span class="frac-den">8</span></span></li><li><b>Б</b> 1</li><li><b>В</b> <span class="frac"><span class="frac-num">5</span><span class="frac-den">12</span></span></li><li><b>Г</b> <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span></li><li><b>Д</b> 1<span class="frac"><span class="frac-num">1</span><span class="frac-den">4</span></span></li></ol>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Спершу множення: <span class="frac"><span class="frac-num">2</span><span class="frac-den">3</span></span> · <span class="frac"><span class="frac-num">3</span><span class="frac-den">4</span></span> = <span class="frac"><span class="frac-num">6</span><span class="frac-den">12</span></span> = <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span>.</li>
+          <li>Потім додавання: <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> + <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> = 1.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: Б (1)</p>
+        <p class="ms-trap">⚠️ Якщо додати раніше, ніж помножити, вийде <span class="frac"><span class="frac-num">7</span><span class="frac-den">8</span></span> — і цей неправильний варіант спеціально є серед відповідей.</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 2. Частина від числа в задачі</p>
+      <p class="ms-q">Учень прочитав <span class="frac"><span class="frac-num">3</span><span class="frac-den">8</span></span> книжки, у якій 240 сторінок. Скільки сторінок йому залишилося прочитати?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Прочитав: 240 : 8 · 3 = 90 сторінок.</li>
+          <li>Залишилося: 240 − 90 = 150.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 150</p>
+        <p class="ms-trap">⚠️ Питають про те, що <b>залишилося</b>, а не про прочитане. Відповідь 90 теж буде серед варіантів.</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 3. Порівняти числа</p>
+      <p class="ms-q">Яке з чисел найбільше?</p>
+      <ol class="ms-opts"><li><b>А</b> 0,6</li><li><b>Б</b> <span class="frac"><span class="frac-num">5</span><span class="frac-den">8</span></span></li><li><b>В</b> <span class="frac"><span class="frac-num">2</span><span class="frac-den">3</span></span></li><li><b>Г</b> 0,65</li><li><b>Д</b> <span class="frac"><span class="frac-num">3</span><span class="frac-den">5</span></span></li></ol>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Переводимо все в десяткові: <span class="frac"><span class="frac-num">5</span><span class="frac-den">8</span></span> = 0,625; <span class="frac"><span class="frac-num">2</span><span class="frac-den">3</span></span> ≈ 0,667; <span class="frac"><span class="frac-num">3</span><span class="frac-den">5</span></span> = 0,6.</li>
+          <li>Найбільше — 0,667.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: В (<span class="frac"><span class="frac-num">2</span><span class="frac-den">3</span></span>)</p>
+      </details>
+    </div>
+    <p class="table-caption">✏️ Потренуйся</p>
+    <ol class="ms-practice">
+      <li><span class="ms-pq"><span class="frac"><span class="frac-num">3</span><span class="frac-den">4</span></span> − <span class="frac"><span class="frac-num">1</span><span class="frac-den">6</span></span></span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p><span class="frac"><span class="frac-num">9</span><span class="frac-den">12</span></span> − <span class="frac"><span class="frac-num">2</span><span class="frac-den">12</span></span> = <span class="frac"><span class="frac-num">7</span><span class="frac-den">12</span></span></p></details></li>
+      <li><span class="ms-pq">2<span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> · <span class="frac"><span class="frac-num">4</span><span class="frac-den">5</span></span></span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p><span class="frac"><span class="frac-num">5</span><span class="frac-den">2</span></span> · <span class="frac"><span class="frac-num">4</span><span class="frac-den">5</span></span> = <span class="frac"><span class="frac-num">20</span><span class="frac-den">10</span></span> = 2</p></details></li>
+      <li><span class="ms-pq"><span class="frac"><span class="frac-num">5</span><span class="frac-den">6</span></span> : <span class="frac"><span class="frac-num">10</span><span class="frac-den">9</span></span></span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p><span class="frac"><span class="frac-num">5</span><span class="frac-den">6</span></span> · <span class="frac"><span class="frac-num">9</span><span class="frac-den">10</span></span> = <span class="frac"><span class="frac-num">45</span><span class="frac-den">60</span></span> = <span class="frac"><span class="frac-num">3</span><span class="frac-den">4</span></span></p></details></li>
+      <li><span class="ms-pq">Знайдіть <span class="frac"><span class="frac-num">3</span><span class="frac-den">7</span></span> від 84.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>84 : 7 · 3 = 36</p></details></li>
+      <li><span class="ms-pq">0,3 + <span class="frac"><span class="frac-num">1</span><span class="frac-den">4</span></span></span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>0,3 + 0,25 = 0,55</p></details></li>
+      <li><span class="ms-pq">Ділянка має площу 600 м², <span class="frac"><span class="frac-num">2</span><span class="frac-den">5</span></span> її зайнято садом. Яка площа решти ділянки?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Сад: 600 : 5 · 2 = 240 м². Решта: 600 − 240 = 360 м²</p></details></li>
+    </ol>
+  </section>
+
+  <section id="ms-negative" class="block">
+    <h2><span class="num">03</span>➖ Від’ємні числа і порядок дій</h2>
+    <div class="basics-box">
+      <p class="basics-label">📘 База</p>
+      <ul class="plain-list">
+        <li><b>Порядок дій</b>: 1) дужки → 2) степені → 3) множення й ділення (зліва направо) → 4) додавання й віднімання.</li>
+        <li><b>Знаки при множенні й діленні</b>: мінус на мінус дає плюс, мінус на плюс дає мінус. (−3) · (−4) = 12, (−3) · 4 = −12, (−12) : (−3) = 4.</li>
+        <li><b>Додавання чисел із різними знаками</b>: від більшого (без знака) віднімаємо менше і ставимо знак більшого: −7 + 3 = −4; −3 + 7 = 4.</li>
+        <li><b>Відняти від’ємне = додати</b>: 5 − (−2) = 5 + 2 = 7.</li>
+        <li><b>Пастка зі степенем</b>: (−2)² = (−2)·(−2) = 4, а −2² = −(2·2) = −4. Без дужок мінус не підноситься до степеня.</li>
+        <li>Підставляючи від’ємне число замість букви, <b>завжди бери його в дужки</b>: якщо a = −3, то a² = (−3)² = 9.</li>
+      </ul>
+    </div>
+    <p class="table-caption">🎯 Як це буває на НМТ</p>
+    <div class="example-box">
+      <p class="example-label">Тип 1. Обчисліть</p>
+      <p class="ms-q">Обчисліть: −3 · (2 − 5)² + 10</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Дужки: 2 − 5 = −3.</li>
+          <li>Степінь: (−3)² = 9.</li>
+          <li>Множення: −3 · 9 = −27.</li>
+          <li>Додавання: −27 + 10 = −17.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: −17</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 2. Значення виразу при заданому значенні змінної</p>
+      <p class="ms-q">Знайдіть значення виразу a² − 2a, якщо a = −3.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Підставляємо в дужках: (−3)² − 2 · (−3).</li>
+          <li>9 − (−6) = 9 + 6 = 15.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 15</p>
+        <p class="ms-trap">⚠️ Без дужок легко отримати −9 − 6 = −15 — неправильно.</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 3. Задача з температурою</p>
+      <p class="ms-q">Уночі температура була −6 °C, а вдень — +4 °C. На скільки градусів потеплішало?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Різниця: 4 − (−6) = 4 + 6 = 10.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: на 10 °C</p>
+      </details>
+    </div>
+    <p class="table-caption">✏️ Потренуйся</p>
+    <ol class="ms-practice">
+      <li><span class="ms-pq">−8 + 15 − (−3)</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>7 + 3 = 10</p></details></li>
+      <li><span class="ms-pq">(−4) · (−5) − 30</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>20 − 30 = −10</p></details></li>
+      <li><span class="ms-pq">−2² + (−2)²</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>−4 + 4 = 0</p></details></li>
+      <li><span class="ms-pq">12 − 18 : (−3) · 2</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Спершу ділення і множення зліва направо: 18 : (−3) = −6; −6 · 2 = −12. Потім 12 − (−12) = 24</p></details></li>
+      <li><span class="ms-pq">Значення 3x − x² при x = −2</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>3 · (−2) − (−2)² = −6 − 4 = −10</p></details></li>
+      <li><span class="ms-pq">Водолаз був на глибині −24 м і піднявся на 9 м. На якій він глибині?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>−24 + 9 = −15 м</p></details></li>
+    </ol>
+  </section>
+
+  <section id="ms-percent" class="block">
+    <h2><span class="num">04</span>💯 Відсотки</h2>
+    <div class="basics-box">
+      <p class="basics-label">📘 База</p>
+      <ul class="plain-list">
+        <li><b>1%</b> — це одна сота частина числа. 100% — усе число.</li>
+        <li><b>p% від числа</b>: перетвори відсоток на десятковий дріб і помнож. 15% від 80 = 80 · 0,15 = 12.</li>
+        <li>Корисно знати: 50% = <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span>, 25% = <span class="frac"><span class="frac-num">1</span><span class="frac-den">4</span></span>, 20% = <span class="frac"><span class="frac-num">1</span><span class="frac-den">5</span></span>, 10% = <span class="frac"><span class="frac-num">1</span><span class="frac-den">10</span></span>, 75% = <span class="frac"><span class="frac-num">3</span><span class="frac-den">4</span></span>. 25% від 640 = 640 : 4 = 160.</li>
+        <li><b>Число за його відсотком</b>: якщо 30% числа — це 18, то число = 18 : 0,3 = 60.</li>
+        <li><b>Скільки відсотків одне число від іншого</b>: поділи частину на ціле і помнож на 100%. 12 від 48: <span class="frac"><span class="frac-num">12</span><span class="frac-den">48</span></span> · 100% = 25%.</li>
+        <li><b>Збільшити на p%</b> — помножити на (1 + <span class="frac"><span class="frac-num">p</span><span class="frac-den">100</span></span>): 200 + 15% = 200 · 1,15 = 230. <b>Зменшити на p%</b> — помножити на (1 − <span class="frac"><span class="frac-num">p</span><span class="frac-den">100</span></span>): 200 − 15% = 200 · 0,85 = 170.</li>
+        <li><b>Пастка</b>: якщо підвищити на 20%, а потім знизити на 20%, початкове число не повернеться: 100 → 120 → 96. Другий відсоток рахують уже від нового числа.</li>
+      </ul>
+    </div>
+    <p class="table-caption">🎯 Як це буває на НМТ</p>
+    <div class="example-box">
+      <p class="example-label">Тип 1. Знижка</p>
+      <p class="ms-q">Куртка коштувала 2400 грн. Під час розпродажу її ціну знизили на 15%. Скільки коштує куртка після знижки?</p>
+      <ol class="ms-opts"><li><b>А</b> 360 грн</li><li><b>Б</b> 2040 грн</li><li><b>В</b> 2385 грн</li><li><b>Г</b> 2160 грн</li><li><b>Д</b> 2760 грн</li></ol>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Після знижки залишається 100% − 15% = 85% ціни.</li>
+          <li>2400 · 0,85 = 2040.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: Б (2040 грн)</p>
+        <p class="ms-trap">⚠️ 360 грн — це сама знижка, а не нова ціна.</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 2. Скільки відсотків</p>
+      <p class="ms-q">Із 25 учнів класу 7 отримали за контрольну оцінку «відмінно». Скільки відсотків учнів отримали «відмінно»?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li><span class="frac"><span class="frac-num">7</span><span class="frac-den">25</span></span> · 100% = 28%.</li>
+          <li>Зручно: <span class="frac"><span class="frac-num">7</span><span class="frac-den">25</span></span> = <span class="frac"><span class="frac-num">28</span><span class="frac-den">100</span></span> (помножили на 4).</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 28%</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 3. Початкова ціна (найчастіша пастка)</p>
+      <p class="ms-q">Після знижки на 20% телефон коштує 6400 грн. Якою була початкова ціна?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>6400 грн — це 80% початкової ціни (100% − 20%).</li>
+          <li>Початкова ціна: 6400 : 0,8 = 8000 грн.</li>
+          <li>Перевірка: 8000 · 0,8 = 6400 ✓</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 8000 грн</p>
+        <p class="ms-trap">⚠️ Не можна просто додати 20% до 6400 (вийде 7680): знижку рахували від <b>початкової</b> ціни, а не від нової.</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 4. Підвищили, потім знизили</p>
+      <p class="ms-q">Ціну товару спочатку підвищили на 10%, а потім знизили на 10%. Як змінилася ціна порівняно з початковою?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Нехай ціна 100. Після підвищення: 100 · 1,1 = 110.</li>
+          <li>Після зниження: 110 · 0,9 = 99.</li>
+          <li>99 < 100 — ціна зменшилася на 1%.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: зменшилася на 1%</p>
+      </details>
+    </div>
+    <p class="table-caption">✏️ Потренуйся</p>
+    <ol class="ms-practice">
+      <li><span class="ms-pq">Знайдіть 35% від 240.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>240 · 0,35 = 84</p></details></li>
+      <li><span class="ms-pq">18 — це 12% якого числа?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>18 : 0,12 = 150</p></details></li>
+      <li><span class="ms-pq">Зарплата 15 000 грн зросла на 8%. Якою вона стала?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>15 000 · 1,08 = 16 200 грн</p></details></li>
+      <li><span class="ms-pq">Ціна зросла з 250 грн до 300 грн. На скільки відсотків?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Зросла на 50 грн. <span class="frac"><span class="frac-num">50</span><span class="frac-den">250</span></span> · 100% = 20%</p></details></li>
+      <li><span class="ms-pq">Ціна знизилася з 400 грн до 340 грн. На скільки відсотків?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Знизилася на 60 грн. <span class="frac"><span class="frac-num">60</span><span class="frac-den">400</span></span> · 100% = 15%</p></details></li>
+      <li><span class="ms-pq">Свіжі гриби містять 90% води. Скільки кілограмів води в 5 кг грибів?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>5 · 0,9 = 4,5 кг</p></details></li>
+      <li><span class="ms-pq">Вклад 20 000 грн поклали в банк під 10% річних (відсотки нараховуються на всю суму щороку). Скільки буде на рахунку через 2 роки?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Після 1-го року: 20 000 · 1,1 = 22 000. Після 2-го: 22 000 · 1,1 = 24 200 грн</p></details></li>
+    </ol>
+  </section>
+
+  <section id="ms-ratio" class="block">
+    <h2><span class="num">05</span>⚖️ Пропорції, відношення, масштаб</h2>
+    <div class="basics-box">
+      <p class="basics-label">📘 База</p>
+      <ul class="plain-list">
+        <li><b>Відношення 2 : 3</b> означає: на 2 частини одного припадає 3 частини іншого. Щоб поділити 50 у відношенні 2 : 3: усього 2 + 3 = 5 частин, одна частина = 50 : 5 = 10, отже 20 і 30.</li>
+        <li><b>Пропорція</b> <span class="frac"><span class="frac-num">a</span><span class="frac-den">b</span></span> = <span class="frac"><span class="frac-num">c</span><span class="frac-den">d</span></span>: добуток «хрест-навхрест» однаковий, a · d = b · c. Наприклад, <span class="frac"><span class="frac-num">x</span><span class="frac-den">4</span></span> = <span class="frac"><span class="frac-num">15</span><span class="frac-den">6</span></span> → 6x = 60 → x = 10.</li>
+        <li><b>Пряма пропорційність</b>: одна величина більшає — друга більшає у стільки ж разів (більше кілограмів — більша ціна).</li>
+        <li><b>Обернена пропорційність</b>: одна більшає — друга меншає (більше робітників — менше днів роботи). Тут незмінним залишається <b>добуток</b>.</li>
+        <li><b>Масштаб 1 : 50 000</b> означає: 1 см на карті = 50 000 см на місцевості = 500 м. Нагадування: 1 м = 100 см, 1 км = 100 000 см.</li>
+        <li><b>Рух</b>: відстань = швидкість · час (s = v · t). Звідси t = <span class="frac"><span class="frac-num">s</span><span class="frac-den">v</span></span>, v = <span class="frac"><span class="frac-num">s</span><span class="frac-den">t</span></span>.</li>
+      </ul>
+    </div>
+    <p class="table-caption">🎯 Як це буває на НМТ</p>
+    <div class="example-box">
+      <p class="example-label">Тип 1. Ціна і кількість</p>
+      <p class="ms-q">За 3 кг яблук заплатили 108 грн. Скільки коштують 5 кг таких яблук?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>1 кг: 108 : 3 = 36 грн.</li>
+          <li>5 кг: 36 · 5 = 180 грн.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 180 грн</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 2. Масштаб карти</p>
+      <p class="ms-q">Відстань між містами на карті з масштабом 1 : 2 000 000 дорівнює 4,5 см. Яка відстань між містами на місцевості (у км)?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>4,5 · 2 000 000 = 9 000 000 см.</li>
+          <li>У кілометрі 100 000 см: 9 000 000 : 100 000 = 90 км.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 90 км</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 3. Поділ у відношенні</p>
+      <p class="ms-q">Сплав містить мідь і цинк у відношенні 7 : 3. Скільки кілограмів міді в 25 кг сплаву?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Усього частин: 7 + 3 = 10.</li>
+          <li>Одна частина: 25 : 10 = 2,5 кг.</li>
+          <li>Мідь: 7 · 2,5 = 17,5 кг.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 17,5 кг</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 4. Обернена пропорційність</p>
+      <p class="ms-q">6 робітників виконують роботу за 10 днів. За скільки днів цю роботу виконають 4 робітники, якщо працюють так само?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Уся робота: 6 · 10 = 60 «людино-днів».</li>
+          <li>4 робітники: 60 : 4 = 15 днів.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 15 днів</p>
+        <p class="ms-trap">⚠️ Робітників стало менше — днів має стати <b>більше</b>. Якщо вийшло менше 10, щось не так.</p>
+      </details>
+    </div>
+    <p class="table-caption">✏️ Потренуйся</p>
+    <ol class="ms-practice">
+      <li><span class="ms-pq">Знайдіть x: x : 12 = 5 : 3</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>3x = 60, x = 20</p></details></li>
+      <li><span class="ms-pq">Поділіть 72 у відношенні 5 : 3.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>8 частин, одна = 9. Отже 45 і 27</p></details></li>
+      <li><span class="ms-pq">Автомобіль їде зі швидкістю 80 км/год. Скільки часу він їхатиме 200 км?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>200 : 80 = 2,5 год (2 год 30 хв)</p></details></li>
+      <li><span class="ms-pq">8 зошитів коштують 96 грн. Скільки коштують 13 таких зошитів?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Один: 12 грн. 13 · 12 = 156 грн</p></details></li>
+      <li><span class="ms-pq">Масштаб карти 1 : 25 000, на карті 6 см. Яка це відстань у кілометрах?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>6 · 25 000 = 150 000 см = 1,5 км</p></details></li>
+      <li><span class="ms-pq">3 насоси викачують воду з басейну за 8 год. За скільки годин це зроблять 4 такі насоси?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>3 · 8 = 24; 24 : 4 = 6 год</p></details></li>
+    </ol>
+  </section>
+
+  <section id="ms-powers" class="block">
+    <h2><span class="num">06</span>🔢 Степені й корені</h2>
+    <div class="basics-box">
+      <p class="basics-label">📘 База</p>
+      <ul class="plain-list">
+        <li><b>Степінь</b> a<sup>n</sup> — число a, помножене саме на себе n разів: 2⁵ = 2·2·2·2·2 = 32.</li>
+        <li><b>Особливі показники</b>: a⁰ = 1, a¹ = a, a<sup>−n</sup> = <span class="frac"><span class="frac-num">1</span><span class="frac-den">a<sup>n</sup></span></span>. Наприклад, 2⁻³ = <span class="frac"><span class="frac-num">1</span><span class="frac-den">8</span></span>, 10⁻² = 0,01.</li>
+        <li><b>Правила</b>: a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup> (при множенні показники додаємо); a<sup>m</sup> : a<sup>n</sup> = a<sup>m−n</sup> (при діленні віднімаємо); (a<sup>m</sup>)<sup>n</sup> = a<sup>m·n</sup> (степінь степеня — множимо).</li>
+        <li><b>Квадратний корінь</b> √a — це число, яке в квадраті дає a: √49 = 7, бо 7² = 49.</li>
+        <li><b>Винесення з-під кореня</b>: розклади число так, щоб один множник був квадратом: √50 = √(25 · 2) = 5√2.</li>
+        <li>(√a)² = a, наприклад (√7)² = 7. Корені додаються, лише якщо під ними однакові числа: 3√2 + 2√2 = 5√2, але √2 + √3 ≠ √5.</li>
+        <li>Вивчи квадрати від 1 до 20 (11² = 121, 12² = 144, 13² = 169, 14² = 196, 15² = 225…) — це прискорює майже кожну задачу.</li>
+        <li><b>Стандартний вигляд</b>: 320 000 = 3,2 · 10⁵; 0,00045 = 4,5 · 10⁻⁴ (кома переїжджає, показник рахує кроки).</li>
+      </ul>
+    </div>
+    <p class="table-caption">🎯 Як це буває на НМТ</p>
+    <div class="example-box">
+      <p class="example-label">Тип 1. Дії зі степенями</p>
+      <p class="ms-q">Обчисліть: (2³ · 2⁵) : 2⁶</p>
+      <ol class="ms-opts"><li><b>А</b> 2</li><li><b>Б</b> 4</li><li><b>В</b> 8</li><li><b>Г</b> 16</li><li><b>Д</b> <span class="frac"><span class="frac-num">1</span><span class="frac-den">4</span></span></li></ol>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>2³ · 2⁵ = 2⁸ (показники додаємо).</li>
+          <li>2⁸ : 2⁶ = 2² = 4 (показники віднімаємо).</li>
+        </ol>
+        <p class="ms-ans">Відповідь: Б (4)</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 2. Спростити вираз із коренями</p>
+      <p class="ms-q">Спростіть: √18 + √8</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>√18 = √(9 · 2) = 3√2.</li>
+          <li>√8 = √(4 · 2) = 2√2.</li>
+          <li>3√2 + 2√2 = 5√2.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 5√2</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 3. Між якими цілими числами корінь</p>
+      <p class="ms-q">Між якими двома послідовними цілими числами розташоване число √30?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Шукаємо квадрати поруч із 30: 5² = 25, 6² = 36.</li>
+          <li>25 < 30 < 36, тож 5 < √30 < 6.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: між 5 і 6</p>
+      </details>
+    </div>
+    <p class="table-caption">✏️ Потренуйся</p>
+    <ol class="ms-practice">
+      <li><span class="ms-pq">Обчисліть 3⁴.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>3·3·3·3 = 81</p></details></li>
+      <li><span class="ms-pq">Обчисліть 5⁻².</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p><span class="frac"><span class="frac-num">1</span><span class="frac-den">5²</span></span> = <span class="frac"><span class="frac-num">1</span><span class="frac-den">25</span></span> = 0,04</p></details></li>
+      <li><span class="ms-pq">Спростіть (a⁴)³ · a² : a⁵.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>a¹² · a² = a¹⁴; a¹⁴ : a⁵ = a⁹</p></details></li>
+      <li><span class="ms-pq">Обчисліть √(16 · 81).</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>√16 · √81 = 4 · 9 = 36</p></details></li>
+      <li><span class="ms-pq">Обчисліть (√7)² + √0,25.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>7 + 0,5 = 7,5</p></details></li>
+      <li><span class="ms-pq">Спростіть √75 − √12.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>√75 = 5√3, √12 = 2√3. 5√3 − 2√3 = 3√3</p></details></li>
+      <li><span class="ms-pq">Скільки цілих чисел розташовано між √10 і √50?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>3² = 9 < 10, 7² = 49 < 50 < 64. Тобто між √10 ≈ 3,2 і √50 ≈ 7,1 лежать 4, 5, 6, 7 — це 4 числа</p></details></li>
+    </ol>
+  </section>
+
+  <section id="ms-linear" class="block">
+    <h2><span class="num">07</span>⚖️ Лінійні рівняння і прості системи</h2>
+    <div class="basics-box">
+      <p class="basics-label">📘 База</p>
+      <ul class="plain-list">
+        <li><b>Розв’язати рівняння</b> — знайти таке x, при якому рівність стає правильною.</li>
+        <li><b>Головні дії</b>: доданок можна перенести в іншу частину, <b>змінивши знак</b>; обидві частини можна поділити (помножити) на одне й те саме число, крім нуля.</li>
+        <li><b>Приклад</b>: 3x + 7 = 22 → 3x = 22 − 7 → 3x = 15 → x = 5. Перевірка: 3 · 5 + 7 = 22 ✓.</li>
+        <li><b>З дужками</b>: спершу розкрий їх. 2(x − 3) = x + 4 → 2x − 6 = x + 4 → 2x − x = 4 + 6 → x = 10.</li>
+        <li><b>З дробами</b>: помнож обидві частини на спільний знаменник, щоб дроби зникли.</li>
+        <li><b>Система</b> з двох рівнянь: якщо в рівняннях є +y і −y, просто додай рівняння. {x + y = 10; x − y = 4} → 2x = 14 → x = 7, тоді y = 3.</li>
+        <li>Перевірка підстановкою займає 20 секунд і рятує від більшості помилок у тестових завданнях.</li>
+      </ul>
+    </div>
+    <p class="table-caption">🎯 Як це буває на НМТ</p>
+    <div class="example-box">
+      <p class="example-label">Тип 1. Розв’яжіть рівняння</p>
+      <p class="ms-q">Розв’яжіть рівняння 5x − 3 = 2x + 9.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Ікси вліво, числа вправо: 5x − 2x = 9 + 3.</li>
+          <li>3x = 12, x = 4.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 4</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 2. Рівняння з дробами</p>
+      <p class="ms-q">Розв’яжіть рівняння <span class="frac"><span class="frac-num">x − 1</span><span class="frac-den">2</span></span> = <span class="frac"><span class="frac-num">x + 2</span><span class="frac-den">5</span></span>.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Хрест-навхрест: 5(x − 1) = 2(x + 2).</li>
+          <li>5x − 5 = 2x + 4 → 3x = 9 → x = 3.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 3</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 3. Скласти рівняння з тексту</p>
+      <p class="ms-q">Олівець на 12 грн дешевший за ручку. Разом вони коштують 38 грн. Скільки коштує ручка?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Нехай ручка — x грн, тоді олівець — (x − 12) грн.</li>
+          <li>x + x − 12 = 38 → 2x = 50 → x = 25.</li>
+          <li>Перевірка: 25 + 13 = 38 ✓</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 25 грн</p>
+      </details>
+    </div>
+    <p class="table-caption">✏️ Потренуйся</p>
+    <ol class="ms-practice">
+      <li><span class="ms-pq">4x + 9 = 1</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>4x = −8, x = −2</p></details></li>
+      <li><span class="ms-pq">7 − 2x = 3x − 8</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>7 + 8 = 3x + 2x → 15 = 5x → x = 3</p></details></li>
+      <li><span class="ms-pq">3(x + 2) − 2(x − 1) = 12</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>3x + 6 − 2x + 2 = 12 → x + 8 = 12 → x = 4</p></details></li>
+      <li><span class="ms-pq"><span class="frac"><span class="frac-num">x</span><span class="frac-den">4</span></span> − <span class="frac"><span class="frac-num">x</span><span class="frac-den">6</span></span> = 2</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Помножимо на 12: 3x − 2x = 24 → x = 24</p></details></li>
+      <li><span class="ms-pq">Розв’яжіть систему: 2x + y = 11, x − y = 1.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Додаємо: 3x = 12 → x = 4; y = x − 1 = 3. Відповідь (4; 3)</p></details></li>
+      <li><span class="ms-pq">Сума трьох послідовних натуральних чисел дорівнює 51. Знайдіть найбільше з них.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>x + (x+1) + (x+2) = 51 → 3x = 48 → x = 16. Найбільше: 18</p></details></li>
+    </ol>
+  </section>
+
+  <section id="ms-quadratic" class="block">
+    <h2><span class="num">08</span>🟰 Квадратні рівняння</h2>
+    <div class="basics-box">
+      <p class="basics-label">📘 База</p>
+      <ul class="plain-list">
+        <li><b>Вигляд</b>: ax² + bx + c = 0. Наприклад, у 2x² − 5x + 2 = 0: a = 2, b = −5, c = 2 (знак входить у число!).</li>
+        <li><b>Дискримінант</b>: D = b² − 4ac.</li>
+        <li>D > 0 — два корені: x = <span class="frac"><span class="frac-num">−b ± √D</span><span class="frac-den">2a</span></span>. D = 0 — один корінь: x = <span class="frac"><span class="frac-num">−b</span><span class="frac-den">2a</span></span>. D < 0 — коренів немає.</li>
+        <li><b>Неповні рівняння розв’язуй без дискримінанта</b>: x² − 9 = 0 → x² = 9 → x = ±3; x² − 5x = 0 → x(x − 5) = 0 → x = 0 або x = 5.</li>
+        <li><b>Теорема Вієта</b> (коли a = 1, тобто x² + bx + c = 0): сума коренів = −b, добуток = c. Для x² − 7x + 12 = 0 шукаємо два числа з сумою 7 і добутком 12 — це 3 і 4.</li>
+      </ul>
+    </div>
+    <p class="table-caption">🎯 Як це буває на НМТ</p>
+    <div class="example-box">
+      <p class="example-label">Тип 1. Знайти корені / їхню суму</p>
+      <p class="ms-q">Розв’яжіть рівняння x² − 2x − 15 = 0. У відповідь запишіть більший корінь.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>a = 1, b = −2, c = −15.</li>
+          <li>D = (−2)² − 4 · 1 · (−15) = 4 + 60 = 64, √D = 8.</li>
+          <li>x = <span class="frac"><span class="frac-num">2 ± 8</span><span class="frac-den">2</span></span>: x₁ = 5, x₂ = −3.</li>
+          <li>Більший — 5.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 5</p>
+        <p class="ms-trap">⚠️ Уважно читай, що питають: більший корінь, суму коренів (2), добуток (−15) — це різні відповіді.</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 2. Обчислити дискримінант</p>
+      <p class="ms-q">Обчисліть дискримінант рівняння 2x² + 3x − 2 = 0.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>D = 3² − 4 · 2 · (−2) = 9 + 16 = 25.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 25</p>
+        <p class="ms-trap">⚠️ Питають D, а не √D. Відповідь 5 — неправильна (цю помилку роблять 40–50% учнів).</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 3. Вієта: добуток коренів</p>
+      <p class="ms-q">Знайдіть добуток коренів рівняння x² + 4x − 21 = 0.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>За теоремою Вієта добуток = c = −21.</li>
+          <li>Перевірка: корені 3 і −7, 3 · (−7) = −21 ✓</li>
+        </ol>
+        <p class="ms-ans">Відповідь: −21</p>
+      </details>
+    </div>
+    <p class="table-caption">✏️ Потренуйся</p>
+    <ol class="ms-practice">
+      <li><span class="ms-pq">x² − 6x + 8 = 0</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Вієта: сума 6, добуток 8 → x = 2 і x = 4</p></details></li>
+      <li><span class="ms-pq">x² − 16 = 0</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>x² = 16 → x = ±4</p></details></li>
+      <li><span class="ms-pq">3x² + 12x = 0</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>3x(x + 4) = 0 → x = 0 або x = −4</p></details></li>
+      <li><span class="ms-pq">2x² − 5x + 2 = 0</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>D = 25 − 16 = 9; x = <span class="frac"><span class="frac-num">5 ± 3</span><span class="frac-den">4</span></span> → x = 2 або x = <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span></p></details></li>
+      <li><span class="ms-pq">x² + 2x + 5 = 0</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>D = 4 − 20 = −16 < 0 — коренів немає</p></details></li>
+      <li><span class="ms-pq">x² − 10x + 25 = 0</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>D = 100 − 100 = 0 → один корінь x = 5</p></details></li>
+      <li><span class="ms-pq">Знайдіть суму коренів рівняння x² − 11x + 24 = 0.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Вієта: сума = 11 (корені 3 і 8)</p></details></li>
+    </ol>
+  </section>
+
+  <section id="ms-triangles" class="block">
+    <h2><span class="num">09</span>🔺 Кути, трикутники, теорема Піфагора</h2>
+    <div class="basics-box">
+      <p class="basics-label">📘 База</p>
+      <ul class="plain-list">
+        <li><b>Сума кутів трикутника</b> = 180°.</li>
+        <li><b>Суміжні кути</b> (утворюють пряму лінію) у сумі дають 180°. <b>Вертикальні кути</b> (навпроти один одного при перетині прямих) рівні.</li>
+        <li><b>Зовнішній кут</b> трикутника дорівнює сумі двох внутрішніх кутів, не суміжних із ним.</li>
+        <li><b>Рівнобедрений</b> трикутник: дві сторони рівні, кути при основі рівні. <b>Рівносторонній</b>: усі кути по 60°.</li>
+        <li><b>Прямокутний трикутник</b>: один кут 90°, гіпотенуза — сторона навпроти прямого кута (найдовша), інші дві — катети. Гострі кути в сумі дають 90°.</li>
+        <li><b>Теорема Піфагора</b>: c² = a² + b² (c — гіпотенуза). Часті «готові» трійки: 3–4–5, 6–8–10, 5–12–13.</li>
+        <li><b>Катет навпроти кута 30°</b> дорівнює половині гіпотенузи.</li>
+        <li><b>Паралельні прямі й січна</b>: відповідні та різносторонні кути рівні, односторонні в сумі дають 180°.</li>
+      </ul>
+    </div>
+    <p class="table-caption">🎯 Як це буває на НМТ</p>
+    <div class="example-box">
+      <p class="example-label">Тип 1. Третій кут</p>
+      <p class="ms-q">У трикутнику ABC ∠A = 48°, ∠B = 67°. Знайдіть ∠C.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>180° − 48° − 67° = 65°.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 65°</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 2. Рівнобедрений трикутник</p>
+      <p class="ms-q">Кут при вершині рівнобедреного трикутника дорівнює 40°. Знайдіть кут при основі.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>На два рівні кути при основі залишається 180° − 40° = 140°.</li>
+          <li>Один кут: 140° : 2 = 70°.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 70°</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 3. Піфагор у житті</p>
+      <p class="ms-q">Драбину завдовжки 5 м приставили до стіни так, що її нижній кінець стоїть на відстані 3 м від стіни. На якій висоті верхній кінець драбини?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Драбина — гіпотенуза (5), відстань до стіни — катет (3), висота — другий катет h.</li>
+          <li>h² = 5² − 3² = 25 − 9 = 16, h = 4.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 4 м</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 4. Зовнішній кут</p>
+      <p class="ms-q">Зовнішній кут трикутника ABC при вершині C дорівнює 120°, ∠A = 50°. Знайдіть ∠B.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Зовнішній кут = ∠A + ∠B.</li>
+          <li>∠B = 120° − 50° = 70°.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 70°</p>
+      </details>
+    </div>
+    <p class="table-caption">✏️ Потренуйся</p>
+    <ol class="ms-practice">
+      <li><span class="ms-pq">Два кути трикутника — 35° і 85°. Знайдіть третій.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>180 − 35 − 85 = 60°</p></details></li>
+      <li><span class="ms-pq">Катети прямокутного трикутника 6 і 8. Знайдіть гіпотенузу.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>√(36 + 64) = √100 = 10</p></details></li>
+      <li><span class="ms-pq">Гіпотенуза 13, один катет 5. Знайдіть другий катет.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>√(169 − 25) = √144 = 12</p></details></li>
+      <li><span class="ms-pq">Один із суміжних кутів 110°. Знайдіть другий.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>180 − 110 = 70°</p></details></li>
+      <li><span class="ms-pq">Один гострий кут прямокутного трикутника 28°. Знайдіть другий.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>90 − 28 = 62°</p></details></li>
+      <li><span class="ms-pq">Гіпотенуза прямокутного трикутника 18, один гострий кут 30°. Знайдіть катет, протилежний цьому куту.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>18 : 2 = 9</p></details></li>
+      <li><span class="ms-pq">Кут при основі рівнобедреного трикутника 52°. Знайдіть кут при вершині.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>180 − 52 − 52 = 76°</p></details></li>
+    </ol>
+  </section>
+
+  <section id="ms-area" class="block">
+    <h2><span class="num">10</span>⬛ Площі й периметри</h2>
+    <div class="basics-box">
+      <p class="basics-label">📘 База</p>
+      <ul class="plain-list">
+        <li><b>Периметр</b> — сума довжин усіх сторін (довжина «паркана»). <b>Площа</b> — скільки місця займає фігура (у см², м²).</li>
+        <li><b>Прямокутник</b>: S = a · b, P = 2(a + b). <b>Квадрат</b>: S = a², P = 4a.</li>
+        <li><b>Трикутник</b>: S = <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> · a · h (сторона на висоту, проведену до неї). Прямокутний: S = <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> · катет · катет.</li>
+        <li><b>Паралелограм</b>: S = a · h. <b>Ромб</b>: S = <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> · d₁ · d₂ (половина добутку діагоналей).</li>
+        <li><b>Трапеція</b>: S = <span class="frac"><span class="frac-num">a + b</span><span class="frac-den">2</span></span> · h (півсума основ на висоту).</li>
+        <li><b>Коло і круг</b>: довжина кола C = 2πr, площа круга S = πr². Діаметр d = 2r. Якщо відповідь «з π», зазвичай π не підставляють: 9π.</li>
+        <li><b>Одиниці площі</b>: 1 м² = 100 · 100 = 10 000 см² (а не 100!). 1 га = 10 000 м².</li>
+      </ul>
+    </div>
+    <p class="table-caption">🎯 Як це буває на НМТ</p>
+    <div class="example-box">
+      <p class="example-label">Тип 1. Від площі до периметра</p>
+      <p class="ms-q">Площа квадрата 49 см². Знайдіть його периметр.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Сторона: √49 = 7 см.</li>
+          <li>P = 4 · 7 = 28 см.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 28 см</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 2. Трапеція</p>
+      <p class="ms-q">Основи трапеції 6 см і 10 см, висота 5 см. Знайдіть площу трапеції.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>S = <span class="frac"><span class="frac-num">6 + 10</span><span class="frac-den">2</span></span> · 5 = 8 · 5 = 40 см².</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 40 см²</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 3. Практична задача з округленням</p>
+      <p class="ms-q">Підлогу кімнати розміром 5 м × 4 м покривають ламінатом. Одна упаковка покриває 2,2 м². Яку найменшу кількість упаковок треба купити?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Площа: 5 · 4 = 20 м².</li>
+          <li>20 : 2,2 ≈ 9,09.</li>
+          <li>Дев’яти упаковок не вистачить, тому округлюємо вгору: 10.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 10 упаковок</p>
+        <p class="ms-trap">⚠️ У задачах «скільки купити» округлюємо <b>вгору</b>, навіть якщо після коми маленьке число.</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 4. Круг</p>
+      <p class="ms-q">Радіус круга 3 см. Знайдіть площу круга і довжину кола.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>S = π · 3² = 9π см².</li>
+          <li>C = 2π · 3 = 6π см.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 9π см² і 6π см</p>
+      </details>
+    </div>
+    <p class="table-caption">✏️ Потренуйся</p>
+    <ol class="ms-practice">
+      <li><span class="ms-pq">Прямокутник 8 × 5. Знайдіть площу і периметр.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>S = 40, P = 2 · 13 = 26</p></details></li>
+      <li><span class="ms-pq">Основа трикутника 12, висота до неї 7. Знайдіть площу.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p><span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> · 12 · 7 = 42</p></details></li>
+      <li><span class="ms-pq">Діагоналі ромба 10 і 16. Знайдіть площу.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p><span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> · 10 · 16 = 80</p></details></li>
+      <li><span class="ms-pq">Знайдіть довжину кола з діаметром 10.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>r = 5, C = 2π · 5 = 10π</p></details></li>
+      <li><span class="ms-pq">Периметр квадрата 36. Знайдіть його площу.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Сторона 36 : 4 = 9, S = 81</p></details></li>
+      <li><span class="ms-pq">Катети прямокутного трикутника 9 і 12. Знайдіть площу і периметр.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>S = <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> · 9 · 12 = 54. Гіпотенуза √(81 + 144) = 15, P = 9 + 12 + 15 = 36</p></details></li>
+      <li><span class="ms-pq">Скільки квадратних сантиметрів у 3 м²?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>3 · 10 000 = 30 000 см²</p></details></li>
+    </ol>
+  </section>
+
+  <section id="ms-functions" class="block">
+    <h2><span class="num">11</span>📈 Графіки і лінійна функція</h2>
+    <div class="basics-box">
+      <p class="basics-label">📘 База</p>
+      <ul class="plain-list">
+        <li><b>Точка (x; y)</b>: перше число — крок вправо (або вліво, якщо від’ємне), друге — вгору (або вниз).</li>
+        <li><b>Функція</b> — правило, за яким кожному x відповідає одне y. Запис f(2) означає: підстав x = 2 і порахуй.</li>
+        <li><b>Лінійна функція</b> y = kx + b — її графік пряма. b — у якій точці пряма перетинає вісь y: (0; b). k — нахил: k > 0 — пряма зростає (йде вгору зліва направо), k < 0 — спадає.</li>
+        <li><b>Чи належить точка графіку</b>: підстав її x у формулу. Якщо вийшов її y — належить.</li>
+        <li><b>Перетин з осями</b>: з віссю y — підстав x = 0; з віссю x — прирівняй y = 0.</li>
+        <li><b>Читати графік</b>: значення функції — висота точки; нулі — де графік перетинає горизонтальну вісь; зростання — де лінія йде вгору.</li>
+      </ul>
+    </div>
+    <figure class="ms-graph">
+      <svg viewBox="0 0 340 210" role="img" aria-label="Графік температури за добу">
+        <g class="ms-grid">
+          <line x1="40" y1="20" x2="40" y2="180"/>
+          <line x1="40" y1="20" x2="328" y2="20"/><line x1="40" y1="60" x2="328" y2="60"/><line x1="40" y1="100" x2="328" y2="100"/><line x1="40" y1="140" x2="328" y2="140"/><line x1="40" y1="180" x2="328" y2="180"/>
+          <line x1="88" y1="20" x2="88" y2="180"/><line x1="136" y1="20" x2="136" y2="180"/><line x1="184" y1="20" x2="184" y2="180"/><line x1="232" y1="20" x2="232" y2="180"/><line x1="280" y1="20" x2="280" y2="180"/><line x1="328" y1="20" x2="328" y2="180"/>
+        </g>
+        <g class="ms-lbl">
+          <text x="32" y="24">8</text><text x="32" y="64">4</text><text x="32" y="104">0</text><text x="32" y="144">−4</text><text x="32" y="184">−8</text>
+        </g>
+        <g class="ms-lbl ms-lbl-x">
+          <text x="40" y="198">0</text><text x="88" y="198">4</text><text x="136" y="198">8</text><text x="184" y="198">12</text><text x="232" y="198">16</text><text x="280" y="198">20</text><text x="328" y="198">24</text>
+        </g>
+        <line class="ms-zero" x1="40" y1="100" x2="328" y2="100"/>
+        <polyline class="ms-line" points="40,120 88,140 136,100 184,50 232,40 280,80 328,110"/>
+        <g class="ms-dot"><circle cx="40" cy="120" r="3.5"/><circle cx="88" cy="140" r="3.5"/><circle cx="136" cy="100" r="3.5"/><circle cx="184" cy="50" r="3.5"/><circle cx="232" cy="40" r="3.5"/><circle cx="280" cy="80" r="3.5"/><circle cx="328" cy="110" r="3.5"/></g>
+      </svg>
+      <figcaption>Температура (°C) протягом доби; по горизонталі — години.</figcaption>
+    </figure>
+    <p class="table-caption">🎯 Як це буває на НМТ</p>
+    <div class="example-box">
+      <p class="example-label">Тип 1. Значення функції</p>
+      <p class="ms-q">Дано функцію f(x) = 3x − 5. Знайдіть f(−2).</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>f(−2) = 3 · (−2) − 5 = −6 − 5 = −11.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: −11</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 2. Яка точка належить графіку</p>
+      <p class="ms-q">Яка з точок належить графіку функції y = 2x + 1?</p>
+      <ol class="ms-opts"><li><b>А</b> (1; 4)</li><li><b>Б</b> (2; 5)</li><li><b>В</b> (0; 2)</li><li><b>Г</b> (−1; 1)</li><li><b>Д</b> (3; 6)</li></ol>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Перевіряємо підстановкою x: для x = 2 маємо y = 2 · 2 + 1 = 5 ✓.</li>
+          <li>Решта не підходять: при x = 1 буде 3, при x = 0 — 1, при x = −1 — (−1), при x = 3 — 7.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: Б (2; 5)</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 3. Читання графіка (за малюнком вище)</p>
+      <p class="ms-q">За графіком температури визначте: а) найвищу температуру за добу; б) о котрій годині вона була; в) протягом якого часу температура зростала.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>а) Найвища точка графіка — на рівні 6 °C.</li>
+          <li>б) Вона відповідає 16-й годині.</li>
+          <li>в) Лінія йде вгору від 4-ї до 16-ї години.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 6 °C; о 16:00; з 4:00 до 16:00</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 4. Рівняння прямої за двома точками</p>
+      <p class="ms-q">Пряма y = kx + b проходить через точки (0; 3) і (2; 7). Знайдіть k і b.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Точка (0; 3) — перетин з віссю y, тому b = 3.</li>
+          <li>Підставляємо (2; 7): 7 = 2k + 3 → 2k = 4 → k = 2.</li>
+          <li>Пряма: y = 2x + 3.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: k = 2, b = 3</p>
+      </details>
+    </div>
+    <p class="table-caption">✏️ Потренуйся</p>
+    <ol class="ms-practice">
+      <li><span class="ms-pq">f(x) = x² − 4x. Знайдіть f(3).</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>9 − 12 = −3</p></details></li>
+      <li><span class="ms-pq">Знайдіть точку перетину графіка y = 5 − x з віссю x.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>y = 0 → x = 5. Точка (5; 0)</p></details></li>
+      <li><span class="ms-pq">Чи належить точка (−2; 7) графіку y = −3x + 1?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>−3 · (−2) + 1 = 6 + 1 = 7 — так, належить</p></details></li>
+      <li><span class="ms-pq">Пряма y = kx + 2 проходить через точку (3; 11). Знайдіть k.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>11 = 3k + 2 → k = 3</p></details></li>
+      <li><span class="ms-pq">Функція y = −4x + 9 зростає чи спадає?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>k = −4 < 0 — спадає</p></details></li>
+      <li><span class="ms-pq">За графіком температури вище: о котрій годині між 4:00 і 12:00 температура дорівнювала 0 °C?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>О 8:00 — там графік перетинає лінію нуля</p></details></li>
+    </ol>
+  </section>
+
+  <section id="ms-volume" class="block">
+    <h2><span class="num">12</span>🧊 Об’єми тіл</h2>
+    <div class="basics-box">
+      <p class="basics-label">📘 База</p>
+      <ul class="plain-list">
+        <li><b>Куб</b> з ребром a: V = a³, площа поверхні 6a² (шість квадратних граней).</li>
+        <li><b>Прямокутний паралелепіпед</b> («коробка»): V = a · b · c.</li>
+        <li><b>Циліндр</b>: V = πr²h (площа круга-основи на висоту).</li>
+        <li><b>Конус</b>: V = <span class="frac"><span class="frac-num">1</span><span class="frac-den">3</span></span>πr²h. <b>Піраміда</b>: V = <span class="frac"><span class="frac-num">1</span><span class="frac-den">3</span></span> · S<sub>осн</sub> · h. «Гострі» тіла — третина від «прямого».</li>
+        <li><b>Куля</b>: V = <span class="frac"><span class="frac-num">4</span><span class="frac-den">3</span></span>πr³.</li>
+        <li><b>Одиниці</b>: 1 л = 1 дм³ = 1000 см³; 1 м³ = 1000 л.</li>
+        <li>Якщо всі розміри тіла збільшити в k разів, об’єм збільшиться в k³ разів.</li>
+      </ul>
+    </div>
+    <p class="table-caption">🎯 Як це буває на НМТ</p>
+    <div class="example-box">
+      <p class="example-label">Тип 1. Скільки літрів вміщує</p>
+      <p class="ms-q">Акваріум має форму прямокутного паралелепіпеда розміром 50 см × 30 см × 40 см. Скільки літрів води він вміщує?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>V = 50 · 30 · 40 = 60 000 см³.</li>
+          <li>1 л = 1000 см³: 60 000 : 1000 = 60 л.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 60 л</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 2. Зміна розмірів</p>
+      <p class="ms-q">Ребро куба збільшили у 2 рази. У скільки разів збільшився його об’єм?</p>
+      <ol class="ms-opts"><li><b>А</b> 2</li><li><b>Б</b> 4</li><li><b>В</b> 6</li><li><b>Г</b> 8</li><li><b>Д</b> 16</li></ol>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Було a³, стало (2a)³ = 8a³.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: Г (8)</p>
+        <p class="ms-trap">⚠️ Не 2: об’єм залежить від ребра в кубі.</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 3. Циліндр</p>
+      <p class="ms-q">Радіус основи циліндра 3 см, висота 10 см. Знайдіть об’єм циліндра.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>V = π · 3² · 10 = 90π см³.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 90π см³</p>
+      </details>
+    </div>
+    <p class="table-caption">✏️ Потренуйся</p>
+    <ol class="ms-practice">
+      <li><span class="ms-pq">Ребро куба 4. Знайдіть об’єм і площу поверхні.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>V = 64, S = 6 · 16 = 96</p></details></li>
+      <li><span class="ms-pq">Розміри паралелепіпеда 2, 3 і 5. Знайдіть об’єм.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>2 · 3 · 5 = 30</p></details></li>
+      <li><span class="ms-pq">Конус: радіус 3, висота 4. Знайдіть об’єм.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p><span class="frac"><span class="frac-num">1</span><span class="frac-den">3</span></span> · π · 9 · 4 = 12π</p></details></li>
+      <li><span class="ms-pq">Скільки літрів у 2,5 м³?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>2,5 · 1000 = 2500 л</p></details></li>
+      <li><span class="ms-pq">Циліндр: діаметр основи 4, висота 5. Знайдіть об’єм.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>r = 2, V = π · 4 · 5 = 20π</p></details></li>
+      <li><span class="ms-pq">Куля радіуса 3. Знайдіть об’єм.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p><span class="frac"><span class="frac-num">4</span><span class="frac-den">3</span></span> · π · 27 = 36π</p></details></li>
+    </ol>
+  </section>
+
+  <section id="ms-stats" class="block">
+    <h2><span class="num">13</span>🎲 Середнє, ймовірність, комбінаторика</h2>
+    <div class="basics-box">
+      <p class="basics-label">📘 База</p>
+      <ul class="plain-list">
+        <li><b>Середнє арифметичне</b> = сума всіх чисел : їхня кількість.</li>
+        <li><b>Медіана</b> — число посередині, коли всі числа впорядкувати за зростанням. Якщо чисел парна кількість — середнє двох середніх.</li>
+        <li><b>Мода</b> — число, яке трапляється найчастіше.</li>
+        <li><b>Ймовірність</b> P = <span class="frac"><span class="frac-num">кількість сприятливих випадків</span><span class="frac-den">кількість усіх можливих</span></span>. Завжди від 0 до 1 (або від 0% до 100%).</li>
+        <li><b>Правило множення</b>: 3 сорочки і 4 пари штанів дають 3 · 4 = 12 різних комплектів.</li>
+        <li>Це одна з найлегших тем тесту: формул мало, задачі короткі — гарантовані бали.</li>
+      </ul>
+    </div>
+    <p class="table-caption">🎯 Як це буває на НМТ</p>
+    <div class="example-box">
+      <p class="example-label">Тип 1. Середнє арифметичне</p>
+      <p class="ms-q">Учень отримав оцінки 8, 10, 7, 9, 11. Знайдіть середнє арифметичне його оцінок.</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Сума: 8 + 10 + 7 + 9 + 11 = 45.</li>
+          <li>45 : 5 = 9.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 9</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 2. Ймовірність</p>
+      <p class="ms-q">У коробці 4 червоні, 6 синіх і 10 зелених кульок. Навмання беруть одну. Яка ймовірність того, що вона синя?</p>
+      <ol class="ms-opts"><li><b>А</b> 0,06</li><li><b>Б</b> 0,3</li><li><b>В</b> 0,6</li><li><b>Г</b> <span class="frac"><span class="frac-num">1</span><span class="frac-den">6</span></span></li><li><b>Д</b> <span class="frac"><span class="frac-num">3</span><span class="frac-den">5</span></span></li></ol>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Усього кульок: 4 + 6 + 10 = 20.</li>
+          <li>Синіх: 6. P = <span class="frac"><span class="frac-num">6</span><span class="frac-den">20</span></span> = 0,3.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: Б (0,3)</p>
+      </details>
+    </div>
+    <div class="example-box">
+      <p class="example-label">Тип 3. Скільки способів</p>
+      <p class="ms-q">Скільки різних двоцифрових чисел можна скласти з цифр 1, 2, 3, 4, 5, якщо цифри в числі не повторюються?</p>
+      <details class="ms-sol"><summary>Розв’язання</summary>
+        <ol>
+          <li>Першу цифру можна вибрати 5 способами.</li>
+          <li>Другу — 4 способами (одна вже зайнята).</li>
+          <li>5 · 4 = 20.</li>
+        </ol>
+        <p class="ms-ans">Відповідь: 20</p>
+      </details>
+    </div>
+    <p class="table-caption">✏️ Потренуйся</p>
+    <ol class="ms-practice">
+      <li><span class="ms-pq">Знайдіть медіану: 3, 8, 5, 10, 2.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Упорядкуємо: 2, 3, 5, 8, 10. Посередині 5</p></details></li>
+      <li><span class="ms-pq">Знайдіть моду: 4, 7, 4, 9, 7, 4.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>4 (трапляється тричі)</p></details></li>
+      <li><span class="ms-pq">Знайдіть середнє: 12, 15, 9, 14.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>50 : 4 = 12,5</p></details></li>
+      <li><span class="ms-pq">Кидають гральний кубик. Яка ймовірність, що випаде число більше за 4?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Підходять 5 і 6: <span class="frac"><span class="frac-num">2</span><span class="frac-den">6</span></span> = <span class="frac"><span class="frac-num">1</span><span class="frac-den">3</span></span></p></details></li>
+      <li><span class="ms-pq">У лотереї 200 білетів, із них 8 виграшних. Яка ймовірність виграти, купивши один білет?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p><span class="frac"><span class="frac-num">8</span><span class="frac-den">200</span></span> = 0,04</p></details></li>
+      <li><span class="ms-pq">У кафе 4 види піци і 3 напої. Скільки є способів вибрати піцу і напій?</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>4 · 3 = 12</p></details></li>
+      <li><span class="ms-pq">Середнє арифметичне трьох чисел 20. Два з них — 15 і 22. Знайдіть третє.</span>
+        <details class="ms-ans-d"><summary>Відповідь</summary><p>Сума трьох: 20 · 3 = 60. Третє: 60 − 15 − 22 = 23</p></details></li>
+    </ol>
+  </section>
+
+  <section id="ms-next" class="block">
+    <h2><span class="num">14</span>🚀 Що далі</h2>
+    <ul class="plain-list">
+      <li>Після 8 тижнів переходь до <a href="math-notes.html">розбору задач</a>: там тригонометрія, логарифми, похідна і задача з параметром.</li>
+      <li>Щотижня розв’язуй хоча б один справжній варіант НМТ минулих років під секундомір — це найкраща перевірка, які теми вже «сидять».</li>
+      <li>Задачі, які не вийшли, виписуй в окремий зошит помилок і повертайся до них через кілька днів.</li>
+      <li>Як улаштований тест і де найбільше балів — на сторінці <a href="math.html">«Математика»</a>.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Задачі складено за типами завдань НМТ з математики; числа в умовах — навчальні</p>
+</footer>
+
+<button id="toTop" class="to-top" aria-label="Нагору">↑</button>
+<script src="script.js"></script>
+<script>
+(function(){
+  var KEY = 'ms-done-topics';
+  var done = {};
+  try{ done = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  Array.prototype.forEach.call(document.querySelectorAll('.ms-done'), function(cb){
+    cb.checked = !!done[cb.dataset.topic];
+    cb.addEventListener('change', function(){
+      done[cb.dataset.topic] = cb.checked;
+      try{ localStorage.setItem(KEY, JSON.stringify(done)); }catch(e){}
+    });
+  });
+})();
+</script>
+</body>
+</html>
