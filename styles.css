@@ -272,3 +272,5 @@ sub{bottom:-0.25em;}
 .block .zno-ans{font-size:15px;font-weight:800;color:var(--green);margin-bottom:4px;}
 .block .zno-note{font-size:14px;color:var(--sub);background:#f4f2ec;border-radius:10px;padding:8px 12px;margin:6px 0 0;}
 .zno-img{display:block;width:100%;max-width:440px;height:auto;margin:6px 0 10px;border:1px solid var(--line);border-radius:10px;background:#fff;}
+.block .zno-how{font-size:14px;line-height:1.6;background:#f1f5ff;border:1px solid #d7e1fb;border-radius:10px;padding:10px 14px;margin:8px 0 0;color:var(--ink);}
+.zno-how b:first-child{color:var(--accent-ink);}
