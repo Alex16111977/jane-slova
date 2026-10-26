@@ -257,3 +257,18 @@ sub{bottom:-0.25em;}
 .ms-plan-table td a:hover{text-decoration:underline;}
 .ms-week-note{font-size:12px;color:var(--sub);line-height:1.4;display:inline-block;}
 .ms-done{width:18px;height:18px;accent-color:var(--green);cursor:pointer;}
+
+/* ZNO stress tasks: worked solutions */
+.zno-list{display:flex;flex-direction:column;gap:12px;margin:10px 0 18px;}
+.zno-task{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:var(--shadow);}
+.block .zno-q{font-size:15px;font-weight:600;margin-bottom:8px;}
+.zno-opts{list-style:none;margin:0 0 8px;}
+.zno-opt{font-size:15px;padding:3px 10px;border-radius:8px;margin-bottom:3px;}
+.zno-opt b{color:var(--sub);margin-right:6px;}
+.zno-opt.zno-right{background:var(--green-bg);}
+.zno-opt.zno-right b{color:var(--green);}
+.zno-ok{color:var(--green);font-weight:800;}
+.zno-no{color:#b3261e;font-weight:800;}
+.block .zno-ans{font-size:15px;font-weight:800;color:var(--green);margin-bottom:4px;}
+.block .zno-note{font-size:14px;color:var(--sub);background:#f4f2ec;border-radius:10px;padding:8px 12px;margin:6px 0 0;}
+.zno-img{display:block;width:100%;max-width:440px;height:auto;margin:6px 0 10px;border:1px solid var(--line);border-radius:10px;background:#fff;}
